@@ -3,11 +3,12 @@
     margin: 0 auto;
     box-sizing: border-box;
     font-family: 'Jost', sans-serif;
+    max-width: 1920px;
 }
 /*Qui somme-nous ?*/
 .weAre{
     background-color: #CA1F62;
-    height: 55vh;
+    height: 40vw;
 }
 .weAre_h2{
     text-align: center;
@@ -27,24 +28,25 @@
     width: 30%;
     color: white;
     text-align: justify;
-    font-size: 1em;
+    font-size: 1.3vw;
     font-weight: 200;
     line-height: 1.5em;
 }
 .weAre_img{
-    height: 30vh;
+    height: 25vw;
 }
 /*Carrousel*/
 .slideShow{
     display: flex;
     flex-wrap: wrap;
-    height: 40vh;
+    height: 36vw;
     align-items: center;
 }
 .slideShow_box{
     background-color: #CA1F62;
-    height: 12vh;
-    width: 18vw;
+    height: 12vw;
+    width: 20vw;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,13 +68,72 @@
     }
 }
 .slideShow_box.middle{
-    height: 15vh;
+    height: 15vw;
 }
 .slideShow_h2{
     color: white;
     font-size: 1.3em;
+    text-align: center;
 }
 .slideShow_p{
     color: white;
+}
+/* value*/
+.value{
+    height: 35vw;
+}
+.value_triangle {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background: linear-gradient(to bottom right, #fff 0%, #fff 50%, #CA1F62 50%, #CA1F62 100%);
+  }
+.value_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.value_h2{
+    color: #851342;
+    width: 100%;
+    padding-left: 10%;
+    
+}
+.value_p{
+    color: #851342;
+    text-align: justify;
+    font-size: 1.3vw;
+    font-weight: 200;
+    line-height: 1.5em;
+    width: 30%;
+    padding-left: 5%;
+    margin: 1% 0 0 10%;
+}
 
+.value_img{
+    height: 17vw;
+    margin-top: 15%;
+    margin-right: 3%;
+}
+
+@media screen and (max-width: 375px) {
+    .weAre_h2{
+        font-size: 1em;
+    }
+    .slideShow_h2{
+        font-size: 0.3em;
+    }
+    .slideShow_box{
+        height: 17vw;
+    }
+    .slideShow_box.middle{
+        height: 20vw;
+    }
+    .value_h2{
+        font-size: 0.7em;
+    }
+    .value_p{
+        font-size: 0.4em;
+        line-height: 1em;
+    }
 }

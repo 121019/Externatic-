@@ -1,4 +1,5 @@
 import imgWeAre from "../assets/header.jpg";
+import imgValue from "../assets/value.jpeg";
 import "./HomePage.css";
 
 export default function HomePage() {
@@ -35,6 +36,22 @@ export default function HomePage() {
         <div className="slideShow_box">
           <h2 className="slideShow_h2">Teach Lead android</h2>
           <p className="slideShow_p">Valence</p>
+        </div>
+      </div>
+      <div className="value">
+        <div className="value_triangle">
+          <div className="value_form">
+            <h2 className="value_h2">
+              Bienveillance, Professionnalisme, Durabilité
+            </h2>
+            <p className="value_p">
+              Notre mission de connecter les bonnes personnes, commence avec des
+              rencontres. Notre professionnalisme nous permet de construire de
+              vraies relations. Nous mettons en place des équipes qui
+              représententles valeurs des entreprises sur le long-terme.
+            </p>
+          </div>
+          <img src={imgValue} className="value_img" alt="Valeur" />
         </div>
       </div>
     </>
