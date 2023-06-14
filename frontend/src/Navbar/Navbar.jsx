@@ -6,6 +6,8 @@ function Navbar() {
     { id: 1, path: "/offres", text: "Offres d'emploi" },
     { id: 2, path: "/espace", text: "Mon espace" },
     { id: 3, path: "/contact", text: "Nous contacter" },
+    { id: 4, path: "/sinscrire", text: "S'inscrire" },
+    { id: 5, path: "/connexion", text: "Connexion" },
   ];
 
   return (
