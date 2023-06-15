@@ -1,4 +1,5 @@
 import "./JobOffers.css";
+import { useState } from "react";
 
 function JobOffers() {
   const filterOption = ["Métier", "Lieu", "Distance", "Type de contrat"];
@@ -18,44 +19,49 @@ function JobOffers() {
     },
     {
       id: 2,
-      title: "Développeur Web",
-      location: "Lyon",
+      title: "Lead Dev",
+      location: "Valence",
       desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
     },
     {
       id: 3,
-      title: "Développeur Web",
-      location: "Lyon",
+      title: "Ingénieur Dev Ops",
+      location: "Montpellier",
       desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
     },
     {
       id: 4,
-      title: "Développeur Web",
-      location: "Lyon",
+      title: "Développeur PHP",
+      location: "Grenoble",
       desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
     },
     {
       id: 5,
-      title: "Développeur Web",
+      title: "Développeur JS ",
       location: "Lyon",
       desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
     },
     {
       id: 6,
-      title: "Développeur Web",
-      location: "Lyon",
+      title: "Développeur React",
+      location: "Paris",
       desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
     },
   ];
 
+  const [optionFilterClick, setOptionFilterClick] = useState(false);
+  const handleFilterClick = () => {
+    setOptionFilterClick(true);
+  };
+
   return (
     <div className="content">
+      <hr className="separator" />
+
       <section className="searchBar_section">
         <form className="search-box">
           <input type="text" placeholder=" " className="input" />
-          {/* eslint-disable jsx-a11y/no-static-element-interactions  */}
-          <button type="button">x</button>
-          {/* eslint-disable jsx-a11y/no-static-element-interactions  */}
+          <button type="reset">x</button>
         </form>
       </section>
 
@@ -70,8 +76,14 @@ function JobOffers() {
             >
               <select name={value} id={value} className="filter_select">
                 {jobTitle.map((title) => (
-                  <option key={title} className="filter_option">
-                    {title}
+                  <option
+                    key={title}
+                    className={
+                      optionFilterClick ? "filter_option" : "filter_option2"
+                    }
+                    onClick={handleFilterClick}
+                  >
+                    {value}
                   </option>
                 ))}
               </select>
@@ -81,7 +93,7 @@ function JobOffers() {
       </section>
 
       <section className="offers">
-        <h1 className="offers_title">Nos Offres</h1>
+        <h1 className="offers_title">Nos Offres : </h1>
         <div className="offers_section">
           {offers.map((offer) => {
             return (
