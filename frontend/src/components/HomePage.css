@@ -115,8 +115,22 @@
     margin-top: 15%;
     margin-right: 3%;
 }
+.youtube{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+.youtube_h2{
+    margin-bottom: 3%;
+}
+.youtube_video{
+    width:800px;
+    height:450px;
+}
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 420px) {
     .weAre_h2{
         font-size: 1em;
     }
@@ -129,11 +143,19 @@
     .slideShow_box.middle{
         height: 20vw;
     }
-    .value_h2{
+    .value_h2 {
         font-size: 0.7em;
     }
     .value_p{
         font-size: 0.4em;
         line-height: 1em;
     }
+    .youtube_h2 {
+        font-size: 1em;
+    }
+    .youtube_video{
+        width:320px;
+        height:180px;
+    }
+    
 }

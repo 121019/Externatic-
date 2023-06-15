@@ -54,6 +54,19 @@ export default function HomePage() {
           <img src={imgValue} className="value_img" alt="Valeur" />
         </div>
       </div>
+      <div className="youtube">
+        <h2 className="youtube_h2">Présentation en vidéo</h2>
+        <iframe
+          className="youtube_video"
+          src="https://www.youtube-nocookie.com/embed/BYmNVsS5J58"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        >
+          {/* Intentionally left empty */}
+        </iframe>
+      </div>
     </>
   );
 }
