@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoExternatic from "../assets/LogoExternatic.png";
 
 function Navbar() {
   const links = [
@@ -11,19 +12,24 @@ function Navbar() {
   ];
 
   return (
+    /*<div className="logo">
+      <img src={LogoExternatic} alt="Logo" />
+    </div>*/
     <nav>
-      <div>
-        <img src="logo.png" alt="Logo" />
-      </div>
-      <div>
-        <Link to="/">Accueil</Link>
-      </div>
-      {links.map((link) => (
-        <div key={link.id}>
-          <Link to={link.path}>{link.text}</Link>
+        <div className="navbar">
+
+          <div className="links">
+            <Link to="/">Accueil</Link>
+            {links.map((link) => (
+              <div key={link.id}>
+                <Link to={link.path}>{link.text}</Link>
+              </div>
+            ))}
+          </div>
+
         </div>
-      ))}
-    </nav>
+
+      </nav>
   );
 }
 

@@ -6,7 +6,7 @@ import MonEspace from "./Navbar/MonEspace";
 import NousContacter from "./Navbar/NousContacter";
 import SInscrire from "./Navbar/SInscrire";
 import Connexion from "./Navbar/Connexion";
-import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/inscrire" element={<SInscrire />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
