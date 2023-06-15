@@ -7,11 +7,6 @@
   --text: #ffffff;
 }
 
-body {
-  flex-wrap: nowrap;
-  overflow: hidden;
-}
-
 /*///////////////////////////////////////////////////////////////////////////////
 //                                 SEARCH BAR                                //
 ///////////////////////////////////////////////////////////////////////////////*/
@@ -20,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-bottom: 10vh;
 }
 
 .searchBar_section {
@@ -38,7 +34,7 @@ body {
 
 .search-box input[type="text"] {
   font-family: "jost", sans-serif;
-  font-weight: bold;
+  font-weight: regular 400;
   width: 2.5em;
   height: 2.5em;
   padding: 0.3em 2.1em 0.3em 0.4em;
@@ -84,6 +80,7 @@ body {
   right: calc((2.5em / 2) - (1.4em / 2));
   transform: rotate(-45deg) translateY(calc(2.5em - 0.3em));
   transition: transform 150ms ease-out 150ms;
+  color: transparent;
 }
 
 .search-box button[type="reset"]:before,
@@ -110,8 +107,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 10vh;
-  /* background-color: var(--primary_color); */
 }
+
 .filter_form {
   border-radius: 10px;
   background-color: var(--primary_color);
@@ -119,7 +116,7 @@ body {
 
 .filter_label {
   font-family: "jost", sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.4em;
   color: #ffffff;
   padding: 5px 25px;
@@ -127,6 +124,7 @@ body {
 
 .filter_option {
   padding: 5px;
+  background-color: var(--primary_color);
 }
 
 .filter_button {
@@ -134,4 +132,63 @@ body {
   border: none;
   color: var(--secondary_color);
   border-radius: 5px;
+}
+
+.filter_select {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////
+//                                 card jobOffer                               //
+///////////////////////////////////////////////////////////////////////////////*/
+
+.offers {
+  display: flex;
+  flex-direction: column;
+}
+.offers_section {
+  display: flex;
+  gap: 6em;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.offers_title {
+  color: #851342;
+  align-self: center;
+  font-size: 3em;
+}
+
+.offers_card {
+  border-radius: 10px;
+  background-color: var(--primary_color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  padding: 2%;
+}
+
+.offers_card * {
+  color: #ffffff;
+  font-family: "jost", sans-serif;
+}
+
+.offers_card h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.offers_card h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.offers_card p {
+  text-align: center;
+  font-weight: 300;
 }

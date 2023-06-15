@@ -53,14 +53,21 @@ function JobOffers() {
       <section className="searchBar_section">
         <form className="search-box">
           <input type="text" placeholder=" " className="input" />
-          <button type="reset"></button>
+          {/* eslint-disable jsx-a11y/no-static-element-interactions  */}
+          <button type="button">x</button>
+          {/* eslint-disable jsx-a11y/no-static-element-interactions  */}
         </form>
       </section>
+
       <section className="filter_section">
         <form className="filter_form">
           {filterOption.map((value) => (
-            <label htmlFor={value} key={value} className="filter_label">
-              {`${value} : `}
+            <label
+              htmlFor={value}
+              key={value}
+              className="filter_label"
+              value={value}
+            >
               <select name={value} id={value} className="filter_select">
                 {jobTitle.map((title) => (
                   <option key={title} className="filter_option">
@@ -70,19 +77,22 @@ function JobOffers() {
               </select>
             </label>
           ))}
-          <button className="filter_button">Rechercher</button>
         </form>
       </section>
-      <section>
-        {offers.map((offer) => {
-          return (
-            <div key={offer.id}>
-              <h1>{offer.title}</h1>
-              <h3>{offer.location}</h3>
-              <p>{offer.desc}</p>
-            </div>
-          );
-        })}
+
+      <section className="offers">
+        <h1 className="offers_title">Nos Offres</h1>
+        <div className="offers_section">
+          {offers.map((offer) => {
+            return (
+              <div key={offer.id} className="offers_card">
+                <h1>{offer.title}</h1>
+                <h3>{offer.location}</h3>
+                <p>{offer.desc}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
     </div>
   );
