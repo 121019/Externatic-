@@ -1,0 +1,11 @@
+"id";"Name";"Email";"Password";"Description";"Adress";"City";"Postcode";"Admin_id"
+11;"Business 1";"email1@example.com";"password1";"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget felis ligula.";"Address 1";"City 1";26000;1
+12;"Business 2";"email2@example.com";"password2";"Praesent euismod, mauris non ultricies pellentesque, felis erat consectetur.";"Address 2";"City 2";69000;1
+13;"Business 3";"email3@example.com";"password3";"Nulla facilisi. Cras vestibulum tellus id iaculis consequat.";"Address 3";"City 3";56443;1
+14;"Business 4";"email4@example.com";"password4";"Fusce vel consectetur sem, vel placerat odio. Sed id risus.";"Address 4";"City 4";564789;1
+15;"Business 5";"email5@example.com";"password5";"Vestibulum ante ipsum primis in faucibus orci luctus et.";"Address 5";"City 5";54789;1
+16;"Business 6";"email6@example.com";"password6";"In ac nisi velit. Nam sit amet lorem turpis.";"Address 6";"City 6";65789;1
+17;"Business 7";"email7@example.com";"password7";"Suspendisse sed justo vitae erat facilisis ultricies ac.";"Address 7";"City 7";98745;1
+18;"Business 8";"email8@example.com";"password8";"Ut placerat ipsum id erat pulvinar feugiat. Vestibulum eget.";"Address 8";"City 8";654123;1
+19;"Business 9";"email9@example.com";"password9";"Cras a dui id massa vehicula pretium vel.";"Address 9";"City 9";5478;1
+20;"Business 10";"email10@example.com";"password10";"Vestibulum at sem lacinia, eleifend neque ut, scelerisque.";"Address 10";"City 10";9875687;1

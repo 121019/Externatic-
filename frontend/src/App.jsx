@@ -7,6 +7,8 @@ import NousContacter from "./Navbar/NousContacter";
 import SInscrire from "./Navbar/SInscrire";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
+import HomePage from "./components/HomePage";
+import "./App.css";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route path="/inscrire" element={<SInscrire />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
+        <HomePage />
         <Footer />
       </div>
     </Router>
