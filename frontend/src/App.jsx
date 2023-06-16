@@ -15,6 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+
         <HomePage />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,7 +25,7 @@ function App() {
           <Route path="/inscrire" element={<SInscrire />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
-        <HomePage />
+
         <Footer />
       </div>
     </Router>
