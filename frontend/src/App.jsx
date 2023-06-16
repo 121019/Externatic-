@@ -3,8 +3,8 @@ import Home from "./pages/Home";
 import Navbar from "./Navbar/Navbar";
 import OffresEmploi from "./Navbar/OffresEmploi";
 import MonEspace from "./Navbar/MonEspace";
-import NousContacter from "./Navbar/NousContacter";
-import SInscrire from "./Navbar/SInscrire";
+import Contact from "./Navbar/Contact";
+import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
@@ -15,18 +15,19 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <Contact />
+        <Inscription />
         <HomePage />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offres" element={<OffresEmploi />} />
           <Route path="/espace" element={<MonEspace />} />
-          <Route path="/contact" element={<NousContacter />} />
-          <Route path="/inscrire" element={<SInscrire />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/inscrire" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
-        <HomePage />
-        <Footer />
       </div>
+      <Footer />
     </Router>
   );
 }
