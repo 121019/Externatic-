@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import JobOffers from "./components/JobOffers";
-import JobOffers from "./components/JobOffers";
 import Navbar from "./Navbar/Navbar";
 import MonEspace from "./Navbar/MonEspace";
 import NousContacter from "./Navbar/NousContacter";
