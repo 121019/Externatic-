@@ -1,0 +1,11 @@
+.navbar_nav {
+  display: flex;
+}
+
+.navbar_link {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+}

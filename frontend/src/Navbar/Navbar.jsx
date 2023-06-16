@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const links = [
-    { id: 1, path: "/offres", text: "Offres d'emploi" },
+    { id: 1, path: "/joboffers", text: "Offres d'emploi" },
     { id: 2, path: "/espace", text: "Mon espace" },
     { id: 3, path: "/contact", text: "Nous contacter" },
     { id: 4, path: "/sinscrire", text: "S'inscrire" },
@@ -11,13 +11,15 @@ function Navbar() {
   ];
 
   return (
-    <nav>
+    <nav className="navbar_nav">
       <div className="navbar">
         <div className="links">
           <Link to="/">Accueil</Link>
           {links.map((link) => (
             <div key={link.id}>
-              <Link to={link.path}>{link.text}</Link>
+              <Link to={link.path} className="navbar_link">
+                {link.text}
+              </Link>
             </div>
           ))}
         </div>
