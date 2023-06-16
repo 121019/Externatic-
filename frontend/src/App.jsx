@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import JobOffers from "./components/JobOffers";
 import Navbar from "./Navbar/Navbar";
 import MonEspace from "./Navbar/MonEspace";
-import Contact from "./Navbar/NousContacter";
+import NousContacter from "./Navbar/NousContacter";
 import SInscrire from "./Navbar/SInscrire";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/joboffers" element={<JobOffers />} />
           <Route path="/espace" element={<MonEspace />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/NousContacter" element={<NousContacter />} />
           <Route path="/inscrire" element={<SInscrire />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
