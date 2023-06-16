@@ -6,6 +6,13 @@
   text-decoration: none;
 }
 
-.navbar {
+.links {
   display: flex;
+  margin: 5vh 0;
+  gap: 50px;
+}
+
+.links div {
+  display: flex;
+  gap: 20px;
 }
