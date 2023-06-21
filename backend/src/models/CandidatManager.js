@@ -24,7 +24,7 @@ class CandidatManager extends AbstractManager {
 
   update(candidat) {
     return this.database.query(
-      `UPDATE ${this.table} SET FirstName = ?, LastName = ?  Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET FirstName = ?, LastName = ? , Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
       [
         candidat.FirstName,
         candidat.LastName,
