@@ -7,11 +7,13 @@
   color: var(--secondary_color);
   font-weight: 600;
   font-size: 1.1em;
+  padding: 0 10px;
 }
 
 .navbar_link:hover {
   background-color: var(--primary_color);
   color: white;
+  border-radius: 4px;
 }
 
 .links {
@@ -39,13 +41,16 @@
 .connexion {
   color: var(--secondary_color);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 500; 
+}
+
+.connexion p {
+  padding: 0 10px;
 }
 
 .connexion p:hover {
   background-color: var(--primary_color);
   color: white;
-  padding: 0 10px;
 }
 
 .inscrire {
@@ -63,5 +68,12 @@
 .inscrire p:hover {
   background-color: white;
   color: var(--primary_color);
-  font-weight: 600;
+}
+
+@media screen and (max-width:950px ){
+
+  .navbar {
+    order: -1;
+  }
+  
 }
