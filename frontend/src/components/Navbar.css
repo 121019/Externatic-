@@ -8,12 +8,23 @@
   font-weight: 600;
   font-size: 1.1em;
   padding: 0 10px;
+  position: relative;
 }
 
-.navbar_link:hover {
-  background-color: var(--primary_color);
-  color: white;
-  border-radius: 4px;
+.navbar_link:after {
+  content: "";
+  height: 1px;
+  background-color: var(--secondary_color);
+  width: 0;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  transition: 0.2s all ease-in-out;
+}
+
+.navbar_link:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .links {
@@ -70,10 +81,105 @@
   color: var(--primary_color);
 }
 
+.navbar_burger {
+  display: none;
+}
+
+.navbar_burger svg {
+  stroke: var(--secondary_color);
+  width: 15%;
+  height: auto;
+}
+
+.navbar_burger_close {
+  display: none;
+}
+
+.navbar_burger_close:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width:950px ){
+
+  .navbar_burger {
+    display: block;
+    cursor: pointer;
+  }
 
   .navbar {
     order: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--primary_color);
+    display: flex;
+    align-items: center;
+    display: none;
+    z-index: 2;
+  }
+
+  .navbar.open {
+    display: flex;
+    animation: transformMenu 300ms ease-in-out forwards;
+  }
+
+  @keyframes transformMenu {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: initial
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .links div a {
+    color: white;
+
+  }
+
+  .links div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .navbar_burger_close {
+    display: block;
+  }
+
+  .navbar_burger_close svg {
+    stroke: white;
+    width: 15%;
+    height: auto;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    stroke-width: 2;
+  }
+
+  .overlay_menu_mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1;
+  }
+
+  .overlay_menu_mobile.open {
+    display: block;
   }
   
 }
