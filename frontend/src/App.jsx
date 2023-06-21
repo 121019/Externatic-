@@ -7,6 +7,7 @@ import SInscrire from "./Navbar/SInscrire";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import JobOffersBdd from "./components/JobOffersBdd";
 import "./App.css";
 import "./Navbar/Navbar.css";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<NousContacter />} />
           <Route path="/inscrire" element={<SInscrire />} />
           <Route path="/connexion" element={<Connexion />} />
+          <Route path="/joboffersbdd" element={<JobOffersBdd />} />
         </Routes>
         <Footer />
       </div>

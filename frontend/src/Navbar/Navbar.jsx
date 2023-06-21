@@ -9,6 +9,7 @@ function Navbar() {
     { path: "/contact", text: "Nous contacter" },
     { path: "/inscrire", text: "S'inscrire" },
     { path: "/connexion", text: "Connexion" },
+    { path: "/joboffersbdd", text: "Job offers bdd" },
   ];
 
   return (
