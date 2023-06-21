@@ -7,7 +7,7 @@ function Navbar() {
     { path: "/offres", text: "Offres d'emploi" },
     { path: "/espace", text: "Mon espace" },
     { path: "/contact", text: "Nous contacter" },
-    { path: "/sinscrire", text: "S'inscrire" },
+    { path: "/Inscription", text: "S'inscrire" },
     { path: "/connexion", text: "Connexion" },
   ];
 

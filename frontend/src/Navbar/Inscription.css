@@ -1,0 +1,71 @@
+.Inscription {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-container {
+  text-align: center;
+  margin-left: 15rem;
+}
+
+.image-container img {
+  width: 25rem;
+  height: 35rem;
+  margin-top: -3rem;
+}
+
+.form-container {
+  flex: 1;
+  text-align: center;
+}
+
+.je-suis {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.je-suis div {
+  display: inline-block;
+  text-align: center;
+  margin-right: 30px;
+}
+
+.Inscription form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Inscription label {
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.Inscription input[type="text"],
+.Inscription input[type="password"] {
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  border: 0.1rem solid #ca1f62;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.Inscription input[type="submit"] {
+  padding: 0.6rem 5rem;
+  background-color: #ca1f62;
+  color: white;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  margin: 2rem;
+}
+
+.Inscription input[type="submit"]:hover {
+  background-color: #ca1f62;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+}

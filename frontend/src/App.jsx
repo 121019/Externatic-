@@ -3,7 +3,7 @@ import JobOffers from "./components/JobOffers";
 import Navbar from "./Navbar/Navbar";
 import MonEspace from "./Navbar/MonEspace";
 import NousContacter from "./Navbar/NousContacter";
-import SInscrire from "./Navbar/SInscrire";
+import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
@@ -20,7 +20,7 @@ function App() {
           <Route path="/joboffers" element={<JobOffers />} />
           <Route path="/espace" element={<MonEspace />} />
           <Route path="/NousContacter" element={<NousContacter />} />
-          <Route path="/inscrire" element={<SInscrire />} />
+          <Route path="/Inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
         <Footer />
