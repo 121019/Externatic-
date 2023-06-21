@@ -7,9 +7,10 @@ class CandidatManager extends AbstractManager {
 
   insert(candidat) {
     return this.database.query(
-      `INSERT INTO ${this.table} (Name, Email, Password, CV, Adress, City, Postcode, Phone, Admin_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (FirstName,LastName, Email, Password, CV, Adress, City, Postcode, Phone) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        candidat.Name,
+        candidat.FirstName,
+        candidat.LastName,
         candidat.Email,
         candidat.Password,
         candidat.CV,
@@ -17,16 +18,16 @@ class CandidatManager extends AbstractManager {
         candidat.City,
         candidat.Postcode,
         candidat.Phone,
-        candidat.Admin_id,
       ]
     );
   }
 
   update(candidat) {
     return this.database.query(
-      `UPDATE ${this.table} SET Name = ?, Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET FirstName = ?, LastName = ?  Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
       [
-        candidat.Name,
+        candidat.FirstName,
+        candidat.LastName,
         candidat.Email,
         candidat.Password,
         candidat.CV,

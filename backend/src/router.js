@@ -2,8 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-console.log("je suis dans le router");
-
 const itemControllers = require("./controllers/itemControllers");
 const candidatsControllers = require("./controllers/candidatsControllers");
 

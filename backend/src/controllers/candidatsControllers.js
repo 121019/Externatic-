@@ -1,7 +1,6 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  console.log("je suis dans le browse");
   models.candidat
     .findAll()
     .then(([rows]) => {
@@ -59,7 +58,7 @@ const add = (req, res) => {
   models.candidat
     .insert(candidat)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201);
+      res.location(`/candidats/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
