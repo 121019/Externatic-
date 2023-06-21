@@ -12,7 +12,7 @@ router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/jobs", jobControllers.browse);
-router.get("jobs/:id", jobControllers.read);
+router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
 router.post("/jobs", jobControllers.add);
 router.delete("/jobs/:id", jobControllers.destroy);

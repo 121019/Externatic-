@@ -55,7 +55,8 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.JobOffer.insert(job)
+  models.job
+    .insert(job)
     .then(([result]) => {
       res.location(`/jobs/${result.insertId}`).sendStatus(201);
     })
