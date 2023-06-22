@@ -123,6 +123,7 @@
   height: 7vh;
   width: 80%;
   padding: 5px 0 8px 0;
+  
 }
 
 .filter_label {
@@ -208,4 +209,49 @@
 .offers_card p {
   text-align: center;
   font-weight: 300;
+}
+
+@media screen and (max-width:850px ){
+
+  /* .offers {
+    display: flex;
+  } */
+
+  .offers_title {
+    font-size: 2.5em;
+  }
+
+  .offers_section {
+    gap: 2em;
+    flex-direction: column;
+  }
+
+  .offers_card h1 {
+    font-size: 1.5em;
+  }
+  
+  .offers_card h3 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width:550px ){
+
+  .offers_card {
+    gap: 10px;
+    padding: 10px;
+  }
+  .offers_card h1 {
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  .offers_card h3 {
+    font-size: 1em;
+  }
+
+  .offers_card p {
+    font-size: 1em;
+  }
+  
 }
