@@ -1,3 +1,4 @@
+const bcrypt = require("bcryptjs");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -6,13 +7,15 @@ class CandidatManager extends AbstractManager {
   }
 
   insert(candidat) {
+    const hashedPassword = bcrypt.hashSync(candidat.Password, 10);
+
     return this.database.query(
-      `INSERT INTO ${this.table} (FirstName,LastName, Email, Password, CV, Adress, City, Postcode, Phone) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (FirstName, LastName, Email, Password, CV, Adress, City, Postcode, Phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
         candidat.FirstName,
         candidat.LastName,
         candidat.Email,
-        candidat.Password,
+        hashedPassword,
         candidat.CV,
         candidat.Adress,
         candidat.City,
@@ -22,14 +25,24 @@ class CandidatManager extends AbstractManager {
     );
   }
 
+  findByName(name) {
+    return this.database.query(`SELECT * from ${this.table} where Email = ?`, [
+      name,
+    ]);
+  }
+
   update(candidat) {
+    // Hash the new password with bcrypt before storing
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(candidat.Password, salt);
+
     return this.database.query(
       `UPDATE ${this.table} SET FirstName = ?, LastName = ? , Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
       [
         candidat.FirstName,
         candidat.LastName,
         candidat.Email,
-        candidat.Password,
+        hashedPassword, // Storing hashed password
         candidat.CV,
         candidat.Adress,
         candidat.City,

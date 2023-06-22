@@ -17,4 +17,6 @@ router.post("/candidats", candidatsControllers.add);
 router.put("/candidats/:id", candidatsControllers.edit);
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
+router.post("/api/login", candidatsControllers.login);
+
 module.exports = router;

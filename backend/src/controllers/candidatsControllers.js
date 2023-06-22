@@ -1,4 +1,43 @@
+const bcrypt = require("bcryptjs");
 const models = require("../models");
+
+const login = (req, res) => {
+  const { Email, password } = req.body;
+
+  models.candidat
+    .findByName(Email) // Assuming username is the email
+    .then(([rows]) => {
+      if (!rows[0]) {
+        res
+          .status(400)
+          .json({ success: false, message: "Invalid username or password" });
+      } else {
+        const user = rows[0];
+
+        bcrypt.compare(
+          password,
+          user.Password,
+          function compareCallback(err, result) {
+            if (result) {
+              // TODO: Create a session or generate a JWT for the logged-in user
+              res
+                .status(200)
+                .json({ success: true, message: "Login successful", user });
+            } else {
+              res.status(400).json({
+                success: false,
+                message: "Invalid username or password",
+              });
+            }
+          }
+        );
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 const browse = (req, res) => {
   models.candidat
@@ -53,12 +92,16 @@ const edit = (req, res) => {
 const add = (req, res) => {
   const candidat = req.body;
 
+  // Hash the password with bcrypt before storing
+  const salt = bcrypt.genSaltSync(10);
+  candidat.Password = bcrypt.hashSync(candidat.Password, salt);
+
   // TODO validations (length, format...)
 
   models.candidat
     .insert(candidat)
     .then(([result]) => {
-      res.location(`/candidats/${result.insertId}`).sendStatus(201);
+      res.location(`/items/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -88,4 +131,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  login,
 };
