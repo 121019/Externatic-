@@ -51,6 +51,7 @@ if (fs.existsSync(reactIndexFile)) {
   // redirect all requests to the REACT index file
 
   app.get("*", (req, res) => {
+    console.error("redirecting to react index file");
     res.sendFile(reactIndexFile);
   });
 }

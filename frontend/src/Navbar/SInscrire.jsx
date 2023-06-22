@@ -1,8 +1,7 @@
 import React from "react";
 
-const inscription = () => {
-  // Contenu du composant inscription
+function Sinscrire() {
   return <div>{/*  code */}</div>;
-};
+}
 
-export default inscription;
+export default Sinscrire;
