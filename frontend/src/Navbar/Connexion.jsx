@@ -53,6 +53,8 @@ function Login() {
         <h2>Login</h2>
         <div>
           <label htmlFor="email">Email:</label>
+        </div>
+        <div>
           <input
             type="text"
             value={email}
@@ -61,7 +63,10 @@ function Login() {
           />
         </div>
         <div>
+          {" "}
           <label htmlFor="password">Password:</label>
+        </div>
+        <div>
           <input
             type="password"
             value={password}
