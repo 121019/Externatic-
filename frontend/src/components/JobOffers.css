@@ -1,3 +1,5 @@
+
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -200,16 +202,52 @@
   font-size: 2em;
   margin: 0;
 }
+.offers_card h2{
+  margin-bottom: 6%;
+  text-align: center;
+}
 
 .offers_card h3 {
   font-size: 1.2em;
   font-weight: 500;
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 
 .offers_card p {
   text-align: center;
   font-weight: 300;
 }
+.offers_card-symbol{
+  margin-bottom: 5%;
+}
+.offers_card-desc{
+  height: 2em;
+}
+.offers_card-loc{
+  height: 2em;
+}
+.offers_card-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.offers_card-flexgauche, .offers_card-flexdroite{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50%;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+//                                 Media Query                                 //
+///////////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 420px) {
+  .offers_card-flex{
+    flex-direction: column;
+  }
 
 @media screen and (max-width:850px ){
 
@@ -253,5 +291,5 @@
   .offers_card p {
     font-size: 1em;
   }
-  
+}
 }
