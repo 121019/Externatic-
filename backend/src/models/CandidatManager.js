@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const argon2 = require("argon2");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -6,16 +6,14 @@ class CandidatManager extends AbstractManager {
     super({ table: "Candidats" });
   }
 
-  insert(candidat) {
-    const hashedPassword = bcrypt.hashSync(candidat.password, 10);
-
+  async insert(candidat) {
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
         candidat.firstname,
         candidat.lastname,
         candidat.email,
-        hashedPassword,
+        candidat.password,
         candidat.cv,
         candidat.adress,
         candidat.city,
@@ -31,10 +29,8 @@ class CandidatManager extends AbstractManager {
     ]);
   }
 
-  update(candidat) {
-    // Hash the new password with bcrypt before storing
-    const salt = bcrypt.genSaltSync(10);
-    const hashpassword = bcrypt.hashSync(candidat.password, salt);
+  async update(candidat) {
+    const hashedPassword = await argon2.hash(candidat.password);
 
     return this.database.query(
       `UPDATE ${this.table} SET firstname = ?, lastname = ? , email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
@@ -42,7 +38,7 @@ class CandidatManager extends AbstractManager {
         candidat.firstname,
         candidat.lastname,
         candidat.email,
-        hashpassword, // Storing hashed password
+        hashedPassword,
         candidat.cv,
         candidat.adress,
         candidat.city,
@@ -51,6 +47,17 @@ class CandidatManager extends AbstractManager {
         candidat.id,
       ]
     );
+  }
+
+  async checkPassword(candidatEmail, enteredPassword) {
+    const [rows] = await this.findByName(candidatEmail);
+    if (rows.length === 0) {
+      // No user found
+      throw new Error("No user found");
+    } else {
+      // User found, now we'll compare the passwords
+      return argon2.verify(rows[0].password, enteredPassword);
+    }
   }
 
   delete(id) {

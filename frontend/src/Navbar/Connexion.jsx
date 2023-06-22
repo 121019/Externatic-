@@ -10,7 +10,7 @@ function Login() {
 
     // Perform login logic here
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:5000/candidat/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,6 @@ function Login() {
       console.warn("Error during login:", error);
       // Handle error during login
     }
-    console.log(email, password);
   }
 
   return (
