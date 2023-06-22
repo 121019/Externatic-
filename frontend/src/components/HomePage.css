@@ -10,6 +10,7 @@
 .weAre {
   background-color: #ca1f62;
   height: 40vw;
+  
 }
 .weAre_h2 {
   text-align: center;
@@ -94,6 +95,7 @@
     #ca1f62 50%,
     #ca1f62 100%
   );
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .value_form {
   display: flex;
@@ -120,6 +122,8 @@
   height: 17vw;
   margin-top: 15%;
   margin-right: 3%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .youtube {
   display: flex;
@@ -137,7 +141,8 @@
   height: 450px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 550px) {
+ 
   .weAre_h2 {
     font-size: 1em;
   }
@@ -163,6 +168,12 @@
   .youtube_video {
     width: 320px;
     height: 180px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .weAre {
+    margin-top: 2vh;
   }
 }
 

@@ -1,7 +1,18 @@
 h4 {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: bold;
+  border-bottom: 1.5px solid #fff;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.column p, .column li {
+  font-size: 0.8rem;
 }
 
 .columns {
@@ -18,15 +29,22 @@ Footer {
 
 h5 {
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: white;
 }
 
 .social-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0.5rem;
+  width: 1.4rem;
+  height: auto;
+  margin: 0.6rem;
+  transition: transform 500ms ease-in-out;
+  filter: grayscale(100%) brightness(1000%)
 }
+
+.social-icon:hover {
+  transform: scale(1.6) rotate(360deg);
+}
+
 
 li {
   color: white;
