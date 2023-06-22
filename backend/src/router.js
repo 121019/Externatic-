@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
+const jobControllers = require("./controllers/jobControllers");
 const candidatsControllers = require("./controllers/candidatsControllers");
 
 router.get("/items", itemControllers.browse);
@@ -10,6 +11,12 @@ router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
+
+router.get("/jobs", jobControllers.browse);
+router.get("/jobs/:id", jobControllers.read);
+router.put("/jobs/:id", jobControllers.edit);
+router.post("/jobs", jobControllers.add);
+router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);

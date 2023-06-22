@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import JobOffers from "./components/JobOffers";
 import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
@@ -10,13 +11,25 @@ import HomePage from "./components/HomePage";
 import "./App.css";
 
 function App() {
+  const [offers, setOffers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:6080/jobs")
+      .then((response) => response.json())
+      .then((data) => {
+        setOffers(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/joboffers" element={<JobOffers />} />
+          <Route path="/joboffers" element={<JobOffers offers={offers} />} />
           <Route path="/espace" element={<MonEspace />} />
           <Route path="/contact" element={<NousContacter />} />
           <Route path="/inscrire" element={<SInscrire />} />

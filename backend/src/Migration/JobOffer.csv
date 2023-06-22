@@ -1,12 +1,12 @@
-"id";"JobTitle";"Description";"Location";"Upload_Date";"Contract_Type";"Enterprise_id";"Admin_id"
-144;"Développeur PHP Symfony H/F Editeur Nantes Nord";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";11;1
-145;"Développeur Symfony / Agence @ Centre-ville H/F";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Grenoble";"2023-08-11";"CDD";12;1
-146;"System Architect PEGA H/F - 2 jours remote / semaine";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Paris";"2023-08-11";"CDI";11;1
-147;"Développeur back-end H/F @agence";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Cholet";"2023-08-11";"CDI";16;1
-148;"Développeur Python Django H/F";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Paris";"2023-08-11";"Esclavage";18;1
-149;"Développeur Windev expérimenté @éditeur de logiciel - F/H/X";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Bordeaux";"2023-08-11";"CDD";17;1
-150;"Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X";"Your long job description";"Bordeaux";"2023-08-11";"CDI";18;1
-151;"Développeur SCALA H-F @édition de logiciel - nantes";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";20;1
-152;"Développeur SCALA H-F @édition de logiciel - nantes";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";12;1
-153;"Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Bordeaux";"2023-08-11";"CDI";14;1
-154;"Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X";"Your long job description";"Nantes";"2023-08-11";"CDI";15;1
+"id";"JobTitle";"Description";"Location";"Upload_Date";"Contract_Type";"Enterprise_id"
+144;"Développeur PHP Symfony H/F Editeur Nantes Nord";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";11
+145;"Développeur Symfony / Agence @ Centre-ville H/F";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Grenoble";"2023-08-11";"CDD";12
+146;"System Architect PEGA H/F - 2 jours remote / semaine";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Paris";"2023-08-11";"CDI";11
+147;"Développeur back-end H/F @agence";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Cholet";"2023-08-11";"CDI";16
+148;"Développeur Python Django H/F";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Paris";"2023-08-11";"Esclavage";18
+149;"Développeur Windev expérimenté @éditeur de logiciel - F/H/X";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Bordeaux";"2023-08-11";"CDD";17
+150;"Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X";"Your long job description";"Bordeaux";"2023-08-11";"CDI";18
+151;"Développeur SCALA H-F @édition de logiciel - nantes";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";20
+152;"Développeur SCALA H-F @édition de logiciel - nantes";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Nantes";"2023-08-11";"CDI";12
+153;"Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X";"Lorem ipsum dolor sit amet, consectetur adipiscing elit.";"Bordeaux";"2023-08-11";"CDI";14
+154;"Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X";"Your long job description";"Nantes";"2023-08-11";"CDI";15
