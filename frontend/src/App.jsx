@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import JobOffers from "./components/JobOffers";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
 import NousContacter from "./Navbar/NousContacter";
 import SInscrire from "./Navbar/SInscrire";
@@ -8,7 +8,6 @@ import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import "./App.css";
-import "./Navbar/Navbar.css";
 
 function App() {
   return (
