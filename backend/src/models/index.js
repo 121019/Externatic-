@@ -41,9 +41,6 @@ models.candidat.setDatabase(pool);
 models.job = new JobManager();
 models.job.setDatabase(pool);
 
-models.job = new JobManager();
-models.job.setDatabase(pool);
-
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
