@@ -14,7 +14,7 @@ function App() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:6080/jobs")
+    fetch("http://localhost:5000/jobs")
       .then((response) => response.json())
       .then((data) => {
         setOffers(data);
