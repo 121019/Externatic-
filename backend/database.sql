@@ -50,17 +50,17 @@ DROP TABLE IF EXISTS `Candidats`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Candidats` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `FirstName` varchar(255) NOT NULL,
-  `LastName` varchar(255) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `CV` text,
-  `Adress` varchar(255) NOT NULL,
-  `City` varchar(100) NOT NULL,
-  `Postcode` int NOT NULL,
-  `Phone` int NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `cv` text,
+  `adress` varchar(255) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `postcode` int NOT NULL,
+  `phone` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `Candidats` (
 
 LOCK TABLES `Candidats` WRITE;
 /*!40000 ALTER TABLE `Candidats` DISABLE KEYS */;
-INSERT INTO `Candidats` VALUES (1,'Cathy','','cathy@gmail.com','1234','','35 rue de la poesie','Wonderland',666,6666666),(2,'julien','machin','julienquiaimelesbaffes@gmail.com','1234','','35 rue de la betise','Wonderland',45786,457896545);
+INSERT INTO `Candidats` VALUES (1,'julien2','beans','quiaimelesbaffes@gmail.com','1234','','35 rue de la betise','Wonderland',45786,457896545),(2,'julien','machin','julienquiaimelesbaffes@gmail.com','1234','','35 rue de la betise','Wonderland',45786,457896545),(4,'juliennnena','machin_bizzare','ttjulienquiaimelesbaffesssss@gmail.com','$2a$10$mmsoHiJl4aOOYxvH/u8AauZgr9dPpgKnbXB4pUF1AM4.O5ewCBzha','','45 rue de la betise','Wonderland',45786,457896545),(5,'wihlem','h','wil@gmail.com','$2a$10$lGjqg0./nomliONt4ub1w.P7pcoqnoFA3DITHuTZ6s21fzbWlmxse','','45 rue de la betise','Wonderland',45786,457896545);
 /*!40000 ALTER TABLE `Candidats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-21 13:55:34
+-- Dump completed on 2023-06-22  9:01:36
