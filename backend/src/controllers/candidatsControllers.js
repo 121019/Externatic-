@@ -2,21 +2,22 @@ const bcrypt = require("bcryptjs");
 const models = require("../models");
 
 const login = (req, res) => {
-  const { Email, password } = req.body;
+  const { email, password } = req.body;
 
   models.candidat
-    .findByName(Email) // Assuming username is the email
+    .findByName(email) // Assuming username is the email
     .then(([rows]) => {
       if (!rows[0]) {
-        res
-          .status(400)
-          .json({ success: false, message: "Invalid username or password" });
+        res.status(400).json({
+          success: false,
+          message: "Invalid username or password lol",
+        });
       } else {
         const user = rows[0];
 
         bcrypt.compare(
           password,
-          user.Password,
+          user.password,
           function compareCallback(err, result) {
             if (result) {
               // TODO: Create a session or generate a JWT for the logged-in user
@@ -26,7 +27,7 @@ const login = (req, res) => {
             } else {
               res.status(400).json({
                 success: false,
-                message: "Invalid username or password",
+                message: "Invalid username or password!!!",
               });
             }
           }
@@ -94,7 +95,7 @@ const add = (req, res) => {
 
   // Hash the password with bcrypt before storing
   const salt = bcrypt.genSaltSync(10);
-  candidat.Password = bcrypt.hashSync(candidat.Password, salt);
+  candidat.password = bcrypt.hashSync(candidat.password, salt);
 
   // TODO validations (length, format...)
 

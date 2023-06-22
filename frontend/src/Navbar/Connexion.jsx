@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./connextion.css";
-import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,28 +10,42 @@ function Login() {
 
     // Perform login logic here
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
-        Email: email,
-        password,
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       });
 
-      if (response.data.success) {
-        // Check if email is verified
-        if (response.data.isEmailVerified) {
-          console.warn("Login successful");
-          // Redirect or perform any other actions for successful login
+      if (response.ok) {
+        const data = await response.json();
+
+        if (data.success) {
+          // Check if email is verified
+          if (data.isEmailVerified) {
+            console.warn("Login successful");
+            // Redirect or perform any other actions for successful login
+          } else {
+            console.warn("Email not verified");
+            // Handle email verification
+          }
         } else {
-          console.warn("Email not verified");
-          // Handle email verification
+          console.warn("Invalid username or password");
+          // Handle invalid credentials
         }
       } else {
-        console.warn("Invalid username or password");
-        // Handle invalid credentials
+        console.warn("HTTP error:", response.status);
+        // Handle HTTP errors
       }
     } catch (error) {
       console.warn("Error during login:", error);
       // Handle error during login
     }
+    console.log(email, password);
   }
 
   return (
@@ -40,12 +53,12 @@ function Login() {
       <form className="form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            id="username"
+            id="email"
           />
         </div>
         <div>

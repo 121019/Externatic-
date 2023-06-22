@@ -7,26 +7,26 @@ class CandidatManager extends AbstractManager {
   }
 
   insert(candidat) {
-    const hashedPassword = bcrypt.hashSync(candidat.Password, 10);
+    const hashedPassword = bcrypt.hashSync(candidat.password, 10);
 
     return this.database.query(
-      `INSERT INTO ${this.table} (FirstName, LastName, Email, Password, CV, Adress, City, Postcode, Phone) VALUES (?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
-        candidat.FirstName,
-        candidat.LastName,
-        candidat.Email,
+        candidat.firstname,
+        candidat.lastname,
+        candidat.email,
         hashedPassword,
-        candidat.CV,
-        candidat.Adress,
-        candidat.City,
-        candidat.Postcode,
-        candidat.Phone,
+        candidat.cv,
+        candidat.adress,
+        candidat.city,
+        candidat.postcode,
+        candidat.phone,
       ]
     );
   }
 
   findByName(name) {
-    return this.database.query(`SELECT * from ${this.table} where Email = ?`, [
+    return this.database.query(`SELECT * from ${this.table} where email = ?`, [
       name,
     ]);
   }
@@ -34,20 +34,20 @@ class CandidatManager extends AbstractManager {
   update(candidat) {
     // Hash the new password with bcrypt before storing
     const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(candidat.Password, salt);
+    const hashpassword = bcrypt.hashSync(candidat.password, salt);
 
     return this.database.query(
-      `UPDATE ${this.table} SET FirstName = ?, LastName = ? , Email = ?, Password = ?, CV = ?, Adress = ?, City = ?, Postcode = ?, Phone = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ? , email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
       [
-        candidat.FirstName,
-        candidat.LastName,
-        candidat.Email,
-        hashedPassword, // Storing hashed password
-        candidat.CV,
-        candidat.Adress,
-        candidat.City,
-        candidat.Postcode,
-        candidat.Phone,
+        candidat.firstname,
+        candidat.lastname,
+        candidat.email,
+        hashpassword, // Storing hashed password
+        candidat.cv,
+        candidat.adress,
+        candidat.city,
+        candidat.postcode,
+        candidat.phone,
         candidat.id,
       ]
     );
