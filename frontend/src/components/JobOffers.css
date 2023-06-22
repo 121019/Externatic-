@@ -199,13 +199,45 @@
   font-size: 2em;
   margin: 0;
 }
+.offers_card h2{
+  margin-bottom: 6%;
+  text-align: center;
+}
 
 .offers_card h3 {
   font-size: 1.2em;
   font-weight: 500;
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 
 .offers_card p {
   text-align: center;
   font-weight: 300;
+}
+.offers_card-symbol{
+  margin-bottom: 5%;
+}
+.offers_card-desc{
+  height: 2em;
+}
+.offers_card-loc{
+  height: 2em;
+}
+.offers_card-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.offers_card-flexgauche, .offers_card-flexdroite{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50%;
+}
+@media screen and (max-width: 420px) {
+  .offers_card-flex{
+    flex-direction: column;
+  }
 }
