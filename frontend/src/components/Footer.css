@@ -57,3 +57,26 @@ footer li:hover {
 footer a {
   text-decoration: none;
 }
+
+@media screen and (max-width:850px){
+  h4 {
+    font-size: 0.5rem;
+  }
+
+  .column p, .column li {
+    font-size: 0.4rem;
+  }
+
+  Footer {
+    font-size: 0.3rem;
+  }
+
+  h5 {
+    font-size: 0.4rem;
+  }
+  
+  .social-icon {
+    width: 0.7rem;
+  }
+
+}

@@ -123,7 +123,7 @@
   justify-content: center;
   align-items: center;
   height: 7vh;
-  width: 80%;
+  max-width: 80%;
   padding: 5px 0 8px 0;
   
 }
@@ -249,6 +249,11 @@
     flex-direction: column;
   }
 
+/*/ //////////////////////////////////////////////////////////////////////////////
+//                                Media Query                          //
+///////////////////////////////////////////////////////////////////////////////*/
+
+
 @media screen and (max-width:850px ){
 
   /* .offers {
@@ -271,6 +276,10 @@
   .offers_card h3 {
     font-size: 1em;
   }
+
+  .filter_label {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width:550px ){
@@ -278,9 +287,11 @@
   .offers_card {
     gap: 10px;
     padding: 10px;
+    border-radius: 0;
+    width: 80%;
   }
   .offers_card h1 {
-    font-size: 1em;
+    font-size: 1rem;
     text-align: center;
   }
   
@@ -291,5 +302,31 @@
   .offers_card p {
     font-size: 1em;
   }
+
+  .filter_label {
+    font-size: 0.9rem;
+  }
+
+  .filter_form {
+    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter_form::-webkit-scrollbar { 
+    width: 0;
+    height: 0; 
+  }
+
+  .filter_section {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+  
 }
-}
+
