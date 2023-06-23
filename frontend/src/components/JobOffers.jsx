@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import "./JobOffers.css";
 import { useState } from "react";
@@ -95,7 +95,7 @@ function JobOffers({ offers }) {
     </div>
   );
 }
-
+/*
 JobOffers.propTypes = {
   offers: PropTypes.arrayOf({
     id: PropTypes.number.isRequired,
@@ -106,5 +106,5 @@ JobOffers.propTypes = {
     Contract_Type: PropTypes.string,
   }).isRequired,
 };
-
+*/
 export default JobOffers;
