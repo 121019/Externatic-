@@ -81,8 +81,8 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc((2.5em / 2) - (1.4em / 2));
-  right: calc((2.5em / 2) - (1.4em / 2));
+  top: calc((3.1em / 2) - (3em / 2));
+  right: calc((2em / 2) - (1em / 2));
   transform: rotate(-45deg) translateY(calc(2.5em - 0.3em));
   transition: transform 150ms ease-out 150ms;
   color: transparent;
