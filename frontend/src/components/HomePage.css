@@ -136,8 +136,24 @@
   margin-bottom: 3%;
 }
 .youtube_video {
-  width: 800px;
-  height: 450px;
+  width: 40rem;
+  height: 25rem;
+}
+
+@media screen and (max-width: 950px) {
+  .weAre {
+    margin-top: 2vh;
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  
+  .youtube_video {
+    width: 480px;
+    height: 270px;
+  }
+
 }
 
 @media screen and (max-width: 550px) {
@@ -167,11 +183,5 @@
   .youtube_video {
     width: 320px;
     height: 180px;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .weAre {
-    margin-top: 2vh;
   }
 }
