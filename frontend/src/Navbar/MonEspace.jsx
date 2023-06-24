@@ -3,7 +3,7 @@ import React from "react";
 function MonEspace() {
   return (
     <div>
-      <img src="../assets/myspace.jpg" alt="MonEspace" />
+      <img src="../assets/1.jpg" alt="MonEspace" />
     </div>
   );
 }
