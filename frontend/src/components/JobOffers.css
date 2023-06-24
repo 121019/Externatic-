@@ -73,7 +73,7 @@
 .search-box button[type="reset"] {
   background-color: transparent;
   width: 1.4em;
-  height: 1.4em;
+  height: 1em;
   border: 0;
   padding: 0;
   outline: 0;
@@ -81,8 +81,8 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc((2.5em / 2) - (1.4em / 2));
-  right: calc((2.5em / 2) - (1.4em / 2));
+  top: calc((2.4em / 2) - (2em / 2));
+  right: calc((2em / 2) - (0.8em / 2));
   transform: rotate(-45deg) translateY(calc(2.5em - 0.3em));
   transition: transform 150ms ease-out 150ms;
   color: transparent;
@@ -92,8 +92,8 @@
 .search-box button[type="reset"]:after {
   content: "";
   background-color: #000000;
-  width: 0.2em;
-  height: 1.4em;
+  width: 0.14em;
+  height: 1em;
   position: absolute;
 }
 
