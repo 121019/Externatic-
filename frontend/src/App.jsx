@@ -9,6 +9,7 @@ import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import "./App.css";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -27,14 +28,16 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/joboffers" element={<JobOffers offers={offers} />} />
-          <Route path="/espace" element={<MonEspace />} />
-          <Route path="/contact" element={<NousContacter />} />
-          <Route path="/inscrire" element={<SInscrire />} />
-          <Route path="/connexion" element={<Connexion />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/joboffers" element={<JobOffers offers={offers} />} />
+            <Route path="/espace" element={<MonEspace />} />
+            <Route path="/contact" element={<NousContacter />} />
+            <Route path="/inscrire" element={<SInscrire />} />
+            <Route path="/connexion" element={<Connexion />} />
+          </Routes>
+        </AuthProvider>
         <Footer />
       </div>
     </Router>

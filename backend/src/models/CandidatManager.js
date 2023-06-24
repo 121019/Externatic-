@@ -1,4 +1,4 @@
-const argon2 = require("argon2");
+const { hashPassword, verifyPassword } = require("./Hash");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -7,18 +7,21 @@ class CandidatManager extends AbstractManager {
   }
 
   async insert(candidat) {
+    const hashedPassword = await hashPassword(candidat.password);
+    const newCandidat = { ...candidat, password: hashedPassword };
+
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
-        candidat.firstname,
-        candidat.lastname,
-        candidat.email,
-        candidat.password,
-        candidat.cv,
-        candidat.adress,
-        candidat.city,
-        candidat.postcode,
-        candidat.phone,
+        newCandidat.firstname,
+        newCandidat.lastname,
+        newCandidat.email,
+        newCandidat.password,
+        newCandidat.cv,
+        newCandidat.adress,
+        newCandidat.city,
+        newCandidat.postcode,
+        newCandidat.phone,
       ]
     );
   }
@@ -30,21 +33,22 @@ class CandidatManager extends AbstractManager {
   }
 
   async update(candidat) {
-    const hashedPassword = await argon2.hash(candidat.password);
+    const hashedPassword = await hashPassword(candidat.password);
+    const updatedCandidat = { ...candidat, password: hashedPassword };
 
     return this.database.query(
       `UPDATE ${this.table} SET firstname = ?, lastname = ? , email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
       [
-        candidat.firstname,
-        candidat.lastname,
-        candidat.email,
-        hashedPassword,
-        candidat.cv,
-        candidat.adress,
-        candidat.city,
-        candidat.postcode,
-        candidat.phone,
-        candidat.id,
+        updatedCandidat.firstname,
+        updatedCandidat.lastname,
+        updatedCandidat.email,
+        updatedCandidat.password,
+        updatedCandidat.cv,
+        updatedCandidat.adress,
+        updatedCandidat.city,
+        updatedCandidat.postcode,
+        updatedCandidat.phone,
+        updatedCandidat.id,
       ]
     );
   }
@@ -56,7 +60,7 @@ class CandidatManager extends AbstractManager {
       throw new Error("No user found");
     } else {
       // User found, now we'll compare the passwords
-      return argon2.verify(rows[0].password, enteredPassword);
+      return verifyPassword(rows[0].password, enteredPassword);
     }
   }
 
