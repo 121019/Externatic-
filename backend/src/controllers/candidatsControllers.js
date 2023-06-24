@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const models = require("../models");
+const Candidat = require("../models/CandidatManager");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -99,6 +100,31 @@ const destroy = async (req, res) => {
     res.sendStatus(500);
   }
 };
+const uploadCV = async (req, res) => {
+  const { candidatId } = req.body;
+  const candidat = await Candidat.findById(candidatId);
+
+  if (!candidat) {
+    res.status(404).send({ error: "No candidate found with this ID" });
+  } else {
+    const updatedCandidat = {
+      ...candidat,
+      cv: `/uploads/${req.file.filename}`,
+    };
+
+    try {
+      await Candidat.updateOne({ _id: candidatId }, updatedCandidat);
+      res.send({ success: true });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ error: "There was a problem updating the candidate." });
+    }
+  }
+
+  // The catch-all response
+  res.status(500).send({ error: "An unknown error occurred." });
+};
 
 module.exports = {
   browse,
@@ -107,4 +133,5 @@ module.exports = {
   add,
   destroy,
   login,
+  uploadCV,
 };
