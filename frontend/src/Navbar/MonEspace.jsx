@@ -1,7 +1,11 @@
 import React from "react";
 
 function MonEspace() {
-  return <div>{/*  code */}</div>;
+  return (
+    <div>
+      <img src="../assets/myspace.jpg" alt="MonEspace" />
+    </div>
+  );
 }
 
 export default MonEspace;

@@ -1,3 +1,4 @@
+import "./connexion.css";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +13,7 @@ function Login() {
 
   return (
     <form
+      className="form"
       onSubmit={(event) => {
         event.preventDefault();
 
@@ -47,11 +49,15 @@ function Login() {
       }}
     >
       <div>
-        <label htmlFor="email">Email</label>
+        <div>
+          <label htmlFor="email">Email</label>
+        </div>
         <input ref={emailRef} type="text" id="email" name="email" />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <div>
+          <label htmlFor="password">Password</label>
+        </div>
         <input
           ref={passwordRef}
           type="password"
