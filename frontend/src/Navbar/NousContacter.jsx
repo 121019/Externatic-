@@ -1,8 +1,7 @@
 import React from "react";
 
-const contact = () => {
-  // Contenu du composant contact
+function OffresEmploi() {
   return <div>{/*  code */}</div>;
-};
+}
 
-export default contact;
+export default OffresEmploi;
