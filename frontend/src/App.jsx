@@ -23,6 +23,7 @@ function App() {
         console.error(error);
       });
   }, []);
+
   return (
     <Router>
       <div className="App">
