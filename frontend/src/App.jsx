@@ -4,7 +4,7 @@ import JobOffers from "./components/JobOffers";
 import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
 import NousContacter from "./Navbar/NousContacter";
-import SInscrire from "./Navbar/SInscrire";
+import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
@@ -24,6 +24,7 @@ function App() {
         console.error(error);
       });
   }, []);
+
   return (
     <Router>
       <div className="App">
@@ -33,8 +34,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/joboffers" element={<JobOffers offers={offers} />} />
             <Route path="/espace" element={<MonEspace />} />
-            <Route path="/contact" element={<NousContacter />} />
-            <Route path="/inscrire" element={<SInscrire />} />
+            <Route path="/NousContacter" element={<NousContacter />} />
+            <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
           </Routes>
         </AuthProvider>

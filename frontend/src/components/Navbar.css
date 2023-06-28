@@ -256,7 +256,7 @@
     width: 5%;
     height: auto;
     position: absolute;
-    right: 8vw;
+    right: 12vw;
     transition: transform 500ms ease-in-out;
   }
   
@@ -265,7 +265,7 @@
     width: 5%;
     height: auto;
     position: absolute;
-    right: 0;
+    right: 4vw;
     transition: transform 500ms ease-in-out;
   }
 

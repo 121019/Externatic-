@@ -53,11 +53,13 @@ function Navbar() {
             />
           </svg>
         </div>
-        <img
-          className="logoExternatic"
-          src={ExternaticLogoSansFond}
-          alt="logo entreprise externatic"
-        />
+        <Link to="/">
+          <img
+            className="logoExternatic"
+            src={ExternaticLogoSansFond}
+            alt="logo entreprise externatic"
+          />
+        </Link>
         <div className={openMenu ? "navbar" : "navbar open"}>
           <div className="links">
             <div
@@ -102,17 +104,7 @@ function Navbar() {
         <div className="links_connexion">
           <Link to="/connexion" className="connexion">
             <p>Connexion</p>
-            <div
-              className="navbar_login_icon"
-              onClick={openMenuMobile}
-              onKeyDown={(event) => {
-                if (event.key === "'Enter' || event.key === ' '") {
-                  openMenuMobile();
-                }
-              }}
-              role="button"
-              tabIndex={0}
-            >
+            <div className="navbar_login_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -131,17 +123,7 @@ function Navbar() {
           </Link>
           <Link to="/inscrire" className="inscrire">
             <p>S'inscrire</p>
-            <div
-              className="navbar_registration_icon"
-              onClick={openMenuMobile}
-              onKeyDown={(event) => {
-                if (event.key === "'Enter' || event.key === ' '") {
-                  openMenuMobile();
-                }
-              }}
-              role="button"
-              tabIndex={0}
-            >
+            <div className="navbar_registration_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
