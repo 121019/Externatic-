@@ -23,7 +23,6 @@ function Inscription() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform form submission logic
   };
 
   return (

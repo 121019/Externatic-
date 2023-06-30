@@ -69,3 +69,31 @@ h2 {
   text-align: center;
   font-size: 3rem;
 }
+
+@media screen and (max-width: 550px) {
+  .image-container img {
+    display: none;
+  }
+ 
+  h2{
+    margin:2rem;
+  font-size:1rem;
+  }
+  .Inscription {
+   display: inline;
+   
+  }
+  .form-container{
+    font-size: 0.6rem;
+  }
+  input{
+    font-size: 0.6rem;
+  }
+  label{
+ margin:-0.40rem;
+ margin-bottom: -1rem;
+  }
+  .je-suis{
+    padding-top: 0rem;
+  }
+}
