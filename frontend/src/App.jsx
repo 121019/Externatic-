@@ -15,7 +15,7 @@ function App() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs`)
       .then((response) => response.json())
       .then((data) => {
         setOffers(data);
