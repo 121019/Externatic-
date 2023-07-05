@@ -120,6 +120,7 @@ CREATE TABLE `JobOffer` (
   `Upload_Date` date DEFAULT NULL,
   `Contract_Type` varchar(45) DEFAULT NULL,
   `Enterprise_id` int NOT NULL DEFAULT '1',
+  `category` varchar(255),
   PRIMARY KEY (`id`,`Enterprise_id`),
   KEY `fk_JobOffer_Enterprise_idx` (`Enterprise_id`),
   CONSTRAINT `fk_JobOffer_Enterprise` FOREIGN KEY (`Enterprise_id`) REFERENCES `Enterprise` (`id`),

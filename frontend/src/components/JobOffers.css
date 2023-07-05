@@ -109,53 +109,42 @@
 
 .filter_section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 25vh;
+  width: 80%;
   background-color: var(--primary_color);
   border-radius: 10px;
 }
 
-.filter_form {
+.filter_section form {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 7vh;
-  max-width: 80%;
-  padding: 5px 0 8px 0;
+  gap: 15px;
+  height: 80%;
+  /* padding: 5px 0 8px 0; */
+  margin: 0;
+  width: 100%;
 }
 
-.filter_label {
-  font-family: "jost", sans-serif;
-  font-weight: 500;
-  font-size: 1.4em;
-  color: #ffffff;
-  padding: 5px 25px;
+.location {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
 }
 
-.filter_option {
-  padding: 5px;
+.location label {
+  font-size: 0.8rem;
+  color: white;
 }
 
-.filter_option2 {
-  padding: 5px;
-  color: var(--secondary_color);
-}
-
-.filter_button {
-  background-color: white;
+.location input {
   border: none;
-  color: var(--secondary_color);
-  border-radius: 5px;
+  height: 4.5vh;
+  border-radius: 4px;
 }
-
-.filter_select {
-  background-color: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 0.9em;
-}
-
 /*/ //////////////////////////////////////////////////////////////////////////////
 //                                 card jobOffer                               //
 ///////////////////////////////////////////////////////////////////////////////*/
