@@ -7,7 +7,7 @@ function Contact() {
     prenom: "",
     email: "",
     numeroTel: "",
-    message: ""
+    message: "",
   });
 
   const [envoiMessage, setEnvoiMessage] = useState(false);
@@ -16,7 +16,7 @@ function Contact() {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -32,7 +32,7 @@ function Contact() {
       prenom: "",
       email: "",
       numeroTel: "",
-      message: ""
+      message: "",
     });
 
     setEnvoiMessage(true);
@@ -40,66 +40,71 @@ function Contact() {
 
   return (
     <>
-     <h3>Nous contacter</h3>
+      <h3>Nous contacter</h3>
 
-     <h4>{envoiMessage&&<p>Message envoyé avec succès !</p>}</h4>
+      <h4>{envoiMessage && <p>Message envoyé avec succès !</p>}</h4>
 
-    <div className="container">
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="text"
+              name="nom"
+              value={formData.nom}
+              onChange={handleInputChange}
+              placeholder="Nom *"
+              required
+            />
+          </label>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            name="nom"
-            value={formData.nom}
-            onChange={handleInputChange}
-            placeholder="Nom *"
-            required />
-        </label>
+          <label>
+            <input
+              type="text"
+              name="prenom"
+              value={formData.prenom}
+              onChange={handleInputChange}
+              placeholder="Prénom *"
+              required
+            />
+          </label>
 
-        <label>
-          <input
-            type="text"
-            name="prenom"
-            value={formData.prenom}
-            onChange={handleInputChange}
-            placeholder="Prénom *"
-            required />
-        </label>
+          <label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email *"
+              required
+            />
+          </label>
 
-        <label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Email *"
-            required />
-        </label>
+          <label>
+            <input
+              type="tel"
+              name="numeroTel"
+              value={formData.numeroTel}
+              onChange={handleInputChange}
+              placeholder="Numéro de téléphone *"
+              required
+            />
+          </label>
 
-        <label>
-          <input
-            type="tel"
-            name="numeroTel"
-            value={formData.numeroTel}
-            onChange={handleInputChange}
-            placeholder="Numéro de téléphone *"
-            required />
-        </label>
-
-        <label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            placeholder="Message *"
-            required
-          ></textarea>
-        </label>
-        <button id="pinkButton" type="submit">Envoyer</button>
-      </form>
-    </div></>
-      
+          <label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Message *"
+              required
+            />
+          </label>
+          <button id="pinkButton" type="submit">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
