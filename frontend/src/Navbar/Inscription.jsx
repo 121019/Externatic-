@@ -13,7 +13,7 @@ function Inscription() {
     phone: "",
   });
 
-  const [envoiMessage,setEnvoiMessage] =useState(false);
+  const [envoiMessage, setEnvoiMessage] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,16 +37,14 @@ function Inscription() {
       postcode: "",
       phone: "",
     });
-
     setEnvoiMessage(true);
   };
-
 
   return (
     <>
       <h2>S'inscrire</h2>
 
-      <h4>{envoiMessage&&<p>Votre inscription est validée !</p>}</h4>
+      <h4>{envoiMessage && <p>Votre inscription est validée !</p>}</h4>
 
       <div className="Inscription">
         <div className="image-container">
