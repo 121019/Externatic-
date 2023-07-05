@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary_color: #ca1f62;
+  --secondary_color: #851342;
+  --text: #ffffff;
+}
+*{
+    font-family: "jost", sans-serif;
+}
+
+.monEspace {
+    background-image: url("../assets/espace.jpeg");
+    background-size: cover;
+    height: 37em;
+    display: flex;
+    align-items: center;
+}
+.monEspace h3{
+    font-size: 3em;
+    background-color: rgba(255, 255, 255, 0.61);
+    padding: 1% 4%;
+    color: var(--secondary_color);
+}
+.monEspace_nomcomplet-h4 {
+    font-size: 1.5em;
+    color: var(--secondary_color);
+    text-align: left;
+    margin-top: 2%; 
+    margin-left: 10%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
+    padding-bottom: 2%;
+
+}
