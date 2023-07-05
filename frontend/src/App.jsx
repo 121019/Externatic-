@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import ConnectContext from "./contexts/ConnectContext";
 import JobOffers from "./components/JobOffers";
 import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
@@ -25,20 +26,22 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/joboffers" element={<JobOffers offers={offers} />} />
-          <Route path="/espace" element={<MonEspace />} />
-          <Route path="/NousContacter" element={<NousContacter />} />
-          <Route path="/Inscription" element={<Inscription />} />
-          <Route path="/connexion" element={<Connexion />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ConnectContext.Provider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/joboffers" element={<JobOffers offers={offers} />} />
+            <Route path="/espace" element={<MonEspace />} />
+            <Route path="/NousContacter" element={<NousContacter />} />
+            <Route path="/Inscription" element={<Inscription />} />
+            <Route path="/connexion" element={<Connexion />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ConnectContext.Provider>
   );
 }
 
