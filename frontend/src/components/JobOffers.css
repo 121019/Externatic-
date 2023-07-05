@@ -186,7 +186,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 35%;
   padding: 2% 1%;
 }
 
@@ -202,6 +202,7 @@
 .offers_card h2 {
   margin-bottom: 6%;
   text-align: center;
+  font-size: 1.5em;
 }
 
 .offers_card h3 {
@@ -255,7 +256,6 @@
     .offers_title {
       font-size: 2.5em;
     }
-
     .offers_section {
       gap: 2em;
       flex-direction: column;
@@ -265,10 +265,15 @@
       font-size: 1.5em;
     }
 
+    .offers_card h2 {
+      font-size: 1.1em;
+    }
     .offers_card h3 {
       font-size: 1em;
     }
-
+    .offers_card p {
+      font-size: 0.9em;
+    }
     .filter_label {
       font-size: 1.2rem;
     }
@@ -278,7 +283,7 @@
     .offers_card {
       gap: 10px;
       padding: 10px;
-      border-radius: 0;
+      border-radius: 10px;
       width: 80%;
     }
     .offers_card h1 {
@@ -287,10 +292,6 @@
     }
 
     .offers_card h3 {
-      font-size: 1em;
-    }
-
-    .offers_card p {
       font-size: 1em;
     }
 
