@@ -252,10 +252,6 @@
 ///////////////////////////////////////////////////////////////////////////////*/
 
   @media screen and (max-width: 850px) {
-    /* .offers {
-    display: flex;
-  } */
-
     .offers_title {
       font-size: 2.5em;
     }
