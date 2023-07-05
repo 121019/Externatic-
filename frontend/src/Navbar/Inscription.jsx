@@ -7,11 +7,13 @@ function Inscription() {
     lastname: "",
     email: "",
     password: "",
-    address: "",
+    adress: "",
     city: "",
     postcode: "",
     phone: "",
   });
+
+  const [envoiMessage,setEnvoiMessage] =useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -23,11 +25,29 @@ function Inscription() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Réinitialiser le formulaire après l'envoi
+    setFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      adress: "",
+      city: "",
+      postcode: "",
+      phone: "",
+    });
+
+    setEnvoiMessage(true);
   };
+
 
   return (
     <>
       <h2>S'inscrire</h2>
+
+      <h4>{envoiMessage&&<p>Votre inscription est validée !</p>}</h4>
+
       <div className="Inscription">
         <div className="image-container">
           <img
@@ -62,6 +82,7 @@ function Inscription() {
                 value={formData.firstname}
                 onChange={handleInputChange}
                 placeholder="Nom *"
+                required
               />
             </label>
             <label>
@@ -71,15 +92,17 @@ function Inscription() {
                 value={formData.lastname}
                 onChange={handleInputChange}
                 placeholder="Prénom *"
+                required
               />
             </label>
             <label>
               <input
                 type="text"
-                name="email "
+                name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Email *"
+                required
               />
             </label>
             <label>
@@ -89,15 +112,17 @@ function Inscription() {
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder="Mot de passe *"
+                required
               />
             </label>
             <label>
               <input
                 type="text"
-                name="address"
-                value={formData.address}
+                name="adress"
+                value={formData.adress}
                 onChange={handleInputChange}
                 placeholder="Adresse *"
+                required
               />
             </label>
             <label>
@@ -107,6 +132,7 @@ function Inscription() {
                 value={formData.city}
                 onChange={handleInputChange}
                 placeholder="Ville *"
+                required
               />
             </label>
             <label>
@@ -116,6 +142,7 @@ function Inscription() {
                 value={formData.postcode}
                 onChange={handleInputChange}
                 placeholder="Code postal *"
+                required
               />
             </label>
             <label>
@@ -125,6 +152,7 @@ function Inscription() {
                 value={formData.phone}
                 onChange={handleInputChange}
                 placeholder="Téléphone *"
+                required
               />
             </label>
             <input type="submit" value="Valider" />
