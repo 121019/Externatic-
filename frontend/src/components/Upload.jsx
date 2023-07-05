@@ -13,7 +13,8 @@ function CVUploadForm() {
     const formData = new FormData();
     formData.append("cv", file);
 
-    const response = await fetch("/uploadcv", {
+    const candidatId = 123; // Replace with the actual candidatId
+    const response = await fetch(`/candidats/${candidatId}/uploadcv`, {
       method: "POST",
       body: formData,
     });

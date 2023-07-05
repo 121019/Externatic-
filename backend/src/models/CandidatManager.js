@@ -1,4 +1,4 @@
-const { hashPassword, verifyPassword } = require("./Hash");
+const { hashPassword, verifyPassword } = require("../services/auth");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -9,6 +9,8 @@ class CandidatManager extends AbstractManager {
   async insert(candidat) {
     const hashedPassword = await hashPassword(candidat.password);
     const newCandidat = { ...candidat, password: hashedPassword };
+
+    console.log("New Candidat:", newCandidat); // Log the new candidat object
 
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
@@ -26,8 +28,28 @@ class CandidatManager extends AbstractManager {
     );
   }
 
+  findByUsernameWithHashedPassword(email) {
+    console.log("Email:", email); // Log the email parameter
+
+    return this.database.query(
+      `SELECT id, email, password FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+  }
+
+  find(id) {
+    console.log("ID:", id); // Log the id parameter
+
+    return this.database.query(
+      `SELECT firstname and lastname FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
+  }
+
   findByName(name) {
-    return this.database.query(`SELECT * from ${this.table} where email = ?`, [
+    console.log("Name:", name); // Log the name parameter
+
+    return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
     ]);
   }
@@ -36,8 +58,10 @@ class CandidatManager extends AbstractManager {
     const hashedPassword = await hashPassword(candidat.password);
     const updatedCandidat = { ...candidat, password: hashedPassword };
 
+    console.log("Updated Candidat:", updatedCandidat); // Log the updated candidat object
+
     return this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ? , email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
       [
         updatedCandidat.firstname,
         updatedCandidat.lastname,
@@ -53,19 +77,21 @@ class CandidatManager extends AbstractManager {
     );
   }
 
-  async checkPassword(candidatEmail, enteredPassword) {
-    const [rows] = await this.findByName(candidatEmail);
-    if (rows.length === 0) {
-      // No user found
-      throw new Error("No user found");
-    } else {
-      // User found, now we'll compare the passwords
-      return verifyPassword(rows[0].password, enteredPassword);
-    }
-  }
+  async verifyUserPassword(email, password) {
+    const [rows] = await this.findByUsernameWithHashedPassword(password);
 
-  delete(id) {
-    return this.database.query(`delete from ${this.table} where id = ?`, [id]);
+    console.log("Rows:", rows); // Log the retrieved rows
+
+    if (!rows[0]) {
+      console.log("User not found");
+      return false;
+    }
+
+    const user = rows[0];
+
+    console.log("User:", user); // Log the user object
+
+    return verifyPassword(user.hashedPassword, password);
   }
 
   setDatabase(database) {

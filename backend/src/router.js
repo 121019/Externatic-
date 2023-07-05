@@ -1,35 +1,34 @@
 const express = require("express");
-const uploadMiddleware = require("./middleware/uploadMiddleware");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
-const jobControllers = require("./controllers/jobControllers");
 const candidatsControllers = require("./controllers/candidatsControllers");
-
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+const jobControllers = require("./controllers/jobControllers");
+const authControllers = require("./controllers/authController");
+const { hashPassword, verifyPassword } = require("./services/auth");
 
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
-router.post("/jobs", jobControllers.add);
+/*router.post("/jobs", jobControllers.add);*/
 router.delete("/jobs/:id", jobControllers.destroy);
+
+/*router.post("/candidats/:id/uploadcv", candidatsControllers.uploadCV);*/
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
-router.post("/candidats", candidatsControllers.add);
-router.put("/candidats/:id", candidatsControllers.edit);
-router.delete("/candidats/:id", candidatsControllers.destroy);
-
-router.post("/candidat/login", candidatsControllers.login);
+router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
 router.post(
-  "/candidats/:id/uploadcv",
-  uploadMiddleware.upload,
-  candidatsControllers.uploadCV
+  "/login",
+  (req, res, next) => {
+    console.log("Before getUserByUsernameWithPasswordAndPassToNext");
+    authControllers.getUserByUsernameWithPasswordAndPassToNext(req, res, next);
+  },
+  (req, res, next) => {
+    console.log("Before verifyPassword");
+    verifyPassword(req, res, next);
+  }
 );
+router.delete("/candidats/:id", candidatsControllers.destroy);
 
 module.exports = router;

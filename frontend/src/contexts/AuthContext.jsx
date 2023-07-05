@@ -1,26 +1,31 @@
-import React, { createContext, useState, useContext, useMemo } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 const AuthContext = createContext();
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export function AuthContextProvider({ children }) {
+  const [token, setToken] = useState();
 
-export function AuthProvider({ children }) {
-  const [token, setToken] = useState(null);
+  console.error("AuthContextProvider - token:", token);
 
-  const value = useMemo(
-    () => ({
-      token,
-      setToken,
-    }),
-    [token, setToken]
+  const authValue = useMemo(() => {
+    console.error("AuthContextProvider - useMemo - token:", token);
+    return { token, setToken };
+  }, [token, setToken]);
+
+  console.error("AuthContextProvider - authValue:", authValue);
+
+  return (
+    <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-AuthProvider.propTypes = {
+AuthContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
+};
+
+export const useAuth = () => {
+  const contextValue = useContext(AuthContext);
+  console.error("useAuth - contextValue:", contextValue);
+  return contextValue;
 };

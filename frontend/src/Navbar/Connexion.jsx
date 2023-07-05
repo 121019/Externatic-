@@ -1,6 +1,6 @@
-import "./connexion.css";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import "./connexion.css";
 
 import { useAuth } from "../contexts/AuthContext";
 
@@ -17,10 +17,12 @@ function Login() {
       onSubmit={(event) => {
         event.preventDefault();
 
+        console.error("Submitting login form...");
+
         fetch(
           `${
-            import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
-          }/candidat/login`,
+            import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080/login"
+          }/login`,
           {
             method: "post",
             headers: {
@@ -34,30 +36,22 @@ function Login() {
         )
           .then((response) => response.json())
           .then((data) => {
-            if (data.success) {
-              setToken(data.token);
-              navigate("/");
-            } else {
-              // Handle error here
-              console.error(data.message);
-            }
-          })
-          .catch((error) => {
-            // Handle fetch error here
-            console.error(error);
+            console.error("Login response data:", data);
+
+            setToken(data.token);
+            console.error("Token set:", data.token);
+
+            navigate("/");
+            console.error("Navigating to home page...");
           });
       }}
     >
       <div>
-        <div>
-          <label htmlFor="email">Email</label>
-        </div>
+        <label htmlFor="email">email</label>
         <input ref={emailRef} type="text" id="email" name="email" />
       </div>
       <div>
-        <div>
-          <label htmlFor="password">Password</label>
-        </div>
+        <label htmlFor="password">Password</label>
         <input
           ref={passwordRef}
           type="password"
