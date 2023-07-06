@@ -97,14 +97,16 @@ function JobOffers({ offers }) {
 }
 
 JobOffers.propTypes = {
-  offers: PropTypes.arrayOf({
-    id: PropTypes.number.isRequired,
-    JobTitle: PropTypes.string.isRequired,
-    Description: PropTypes.string,
-    Location: PropTypes.string,
-    Upload_Date: PropTypes.string,
-    Contract_Type: PropTypes.string,
-  }).isRequired,
+  offers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      JobTitle: PropTypes.string.isRequired,
+      Description: PropTypes.string,
+      Location: PropTypes.string,
+      Upload_Date: PropTypes.string,
+      Contract_Type: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default JobOffers;
