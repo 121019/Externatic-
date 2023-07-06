@@ -21,7 +21,7 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
-app.use("/uploads", express.static("uploads")); // serve the `backend/uploads` folder for uploaded files
+/* app.use("/uploads", express.static("uploads")); // serve the `backend/uploads` folder for uploaded files */
 
 // import and mount the API routes
 
