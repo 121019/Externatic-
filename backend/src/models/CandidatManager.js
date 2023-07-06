@@ -1,4 +1,8 @@
-const { hashPassword, verifyPassword } = require("../services/auth");
+const {
+  hashPassword,
+  verifyPassword,
+  hashPasswordManual,
+} = require("../services/auth");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -7,11 +11,12 @@ class CandidatManager extends AbstractManager {
   }
 
   async insert(candidat) {
-    const hashedPassword = await hashPassword(candidat.password);
+    const hashedPassword = await hashPasswordManual(candidat.password);
+
     const newCandidat = { ...candidat, password: hashedPassword };
 
-    console.log("New Candidat:", newCandidat); // Log the new candidat object
-
+    console.error("New Candidat:", newCandidat); // Log the new candidat object
+    // Yes  But this function is not calling in /candidate [POST] request
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
@@ -29,7 +34,7 @@ class CandidatManager extends AbstractManager {
   }
 
   findByUsernameWithHashedPassword(email) {
-    console.log("Email:", email); // Log the email parameter
+    console.error("Email:", email); // Log the email parameter
 
     return this.database.query(
       `SELECT id, email, password FROM ${this.table} WHERE email = ?`,
@@ -38,7 +43,7 @@ class CandidatManager extends AbstractManager {
   }
 
   find(id) {
-    console.log("ID:", id); // Log the id parameter
+    console.error("ID:", id); // Log the id parameter
 
     return this.database.query(
       `SELECT firstname and lastname FROM ${this.table} WHERE id = ?`,
@@ -47,7 +52,7 @@ class CandidatManager extends AbstractManager {
   }
 
   findByName(name) {
-    console.log("Name:", name); // Log the name parameter
+    console.error("Name:", name); // Log the name parameter
 
     return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
@@ -58,7 +63,7 @@ class CandidatManager extends AbstractManager {
     const hashedPassword = await hashPassword(candidat.password);
     const updatedCandidat = { ...candidat, password: hashedPassword };
 
-    console.log("Updated Candidat:", updatedCandidat); // Log the updated candidat object
+    console.error("Updated Candidat:", updatedCandidat); // Log the updated candidat object
 
     return this.database.query(
       `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
@@ -78,24 +83,22 @@ class CandidatManager extends AbstractManager {
   }
 
   async verifyUserPassword(email, password) {
-    const [rows] = await this.findByUsernameWithHashedPassword(password);
+    const [rows] = await this.findByUsernameWithHashedPassword(email);
 
-    console.log("Rows:", rows); // Log the retrieved rows
+    console.error("Rows:", rows); // Log the retrieved rows
 
     if (!rows[0]) {
-      console.log("User not found");
+      console.error("Candidat not found");
       return false;
     }
 
-    const user = rows[0];
+    const candidat = rows[0];
 
-    console.log("User:", user); // Log the user object
+    console.error("Candidat:", candidat); // Log the candidat object
 
-    return verifyPassword(user.hashedPassword, password);
-  }
+    const isPasswordValid = await verifyPassword(candidat.password, password);
 
-  setDatabase(database) {
-    this.database = database;
+    return isPasswordValid;
   }
 }
 

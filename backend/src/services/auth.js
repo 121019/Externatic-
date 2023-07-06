@@ -8,45 +8,72 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const hashPassword = async (password) => {
-  try {
-    return await argon2.hash(password, hashingOptions);
-  } catch (error) {
-    console.error("Error during password hashing:", error);
-    throw error;
-  }
+// here error. I'll make new function for hash
+const hashPassword = (req, res, next) => {
+  argon2
+    .hash(req.body.password, hashingOptions)
+    .then((hashedPassword) => {
+      req.body.hashedPassword = hashedPassword;
+
+      delete req.body.password;
+
+      next();
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
-const verifyPassword = async (hashedPassword, password) => {
-  try {
-    return await argon2.verify(hashedPassword, password);
-  } catch (error) {
-    console.error("Error during password verification:", error);
-    throw error;
-  }
+const hashPasswordManual = async (password) => {
+  return argon2.hash(password, hashingOptions);
 };
 
-const signToken = (payload, secretKey, expiresIn) => {
-  try {
-    return jwt.sign(payload, secretKey, { expiresIn });
-  } catch (error) {
-    console.error("Error during token signing:", error);
-    throw error;
-  }
+const verifyPassword = (req, res) => {
+  argon2.verify(req.user.password, req.body.password).then((ok) => {
+    if (ok) {
+      const payload = {
+        sub: req.user.id,
+      };
+
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+
+      res.json({ token });
+    } else {
+      res.sendStatus(401);
+    }
+  });
 };
 
-const verifyToken = (token, secretKey) => {
+const verifyToken = (req, res, next) => {
   try {
-    return jwt.verify(token, secretKey);
-  } catch (error) {
-    console.error("Error during token verification:", error);
-    throw error;
+    const authorization = req.get("Authorization");
+
+    if (authorization == null) {
+      throw new Error("Authorization header is missing");
+    }
+
+    const [type, token] = authorization.split(" ");
+
+    if (type !== "Bearer") {
+      throw new Error("Authorization type is not 'Bearer'");
+    }
+
+    req.payload = jwt.verify(token, process.env.JWT_SECRET);
+
+    next();
+  } catch (err) {
+    console.error(err);
+
+    res.sendStatus(401);
   }
 };
 
 module.exports = {
   hashPassword,
   verifyPassword,
-  signToken,
   verifyToken,
+  hashPasswordManual,
 };

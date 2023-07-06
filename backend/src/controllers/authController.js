@@ -4,14 +4,14 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
   models.candidat
     .findByUsernameWithHashedPassword(req.body.email)
     .then(([rows]) => {
-      console.log("Rows:", rows); // Log the retrieved rows
+      console.error("Rows:", rows); // Log the retrieved rows
       const userInDatabase = rows[0];
 
       if (userInDatabase == null) {
-        console.log("User not found");
+        console.error("User not found");
         res.sendStatus(422);
       } else {
-        console.log("User found:", userInDatabase);
+        console.error("User found:", userInDatabase);
         req.user = userInDatabase;
         next();
       }

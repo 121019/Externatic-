@@ -28,6 +28,19 @@ const read = (req, res) => {
     });
 };
 
+const add = (req, res) => {
+  models.candidat
+    .insert(req.body)
+    .then(([createdUser]) => {
+      console.error(createdUser);
+      res.status(201).send("created");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const candidat = req.body;
 
@@ -43,23 +56,6 @@ const edit = (req, res) => {
       } else {
         res.sendStatus(204);
       }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const add = (req, res) => {
-  const { email, password } = req.body;
-  console.log(req.body);
-  // TODO validations (length, format...)
-
-  models.candidat
-    .findByUsernameWithHashedPassword(email, password)
-    .then(([result]) => {
-      console.log(result);
-      res.location(`/candidats/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -86,7 +82,7 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
-  edit,
   add,
+  edit,
   destroy,
 };
