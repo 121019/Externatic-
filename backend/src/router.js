@@ -1,7 +1,6 @@
 const express = require("express");
 
 const router = express.Router();
-const uploadMiddleware = require("./middleware/uploadMiddleware");
 
 const candidatsControllers = require("./controllers/candidatsControllers");
 
@@ -32,15 +31,8 @@ router.post(
 );
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
-router.post("/candidat/login", candidatsControllers.login);
-
 router.post("/candidats/inscription", candidatsControllers.register);
 
 router.post("/contact", contactControllers.sendContactData);
 
-router.post(
-  "/candidats/:id/uploadcv",
-  uploadMiddleware.upload,
-  candidatsControllers.uploadCV
-);
 module.exports = router;
