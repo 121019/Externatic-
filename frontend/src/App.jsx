@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import JobOffers from "./components/JobOffers";
 import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
-import NousContacter from "./Navbar/NousContacter";
+import Contact from "./Navbar/Contact";
 import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
@@ -36,7 +36,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/joboffers" element={<JobOffers offers={offers} />} />
           <Route path="/espace" element={<MonEspace />} />
-          <Route path="/NousContacter" element={<NousContacter />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
         </Routes>
@@ -46,7 +46,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/joboffers" element={<JobOffers offers={offers} />} />
             <Route path="/espace" element={<MonEspace />} />
-            <Route path="/NousContacter" element={<NousContacter />} />
+            <Route path="/NousContacter" element={<Contact />} />
             <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
             <Route path="/uploadcv" element={<CVUploadForm />} />
