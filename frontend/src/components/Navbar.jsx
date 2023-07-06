@@ -60,6 +60,7 @@ function Navbar() {
             alt="logo entreprise externatic"
           />
         </Link>
+        <Link to="/uploadcv">link</Link>
         <div className={openMenu ? "navbar" : "navbar open"}>
           <div className="links">
             <div
@@ -121,7 +122,7 @@ function Navbar() {
               </svg>
             </div>
           </Link>
-          <Link to="/inscrire" className="inscrire">
+          <Link to="/Inscription" className="inscrire">
             <p>S'inscrire</p>
             <div className="navbar_registration_icon">
               <svg
