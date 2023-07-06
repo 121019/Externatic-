@@ -122,7 +122,7 @@ function Navbar() {
               </svg>
             </div>
           </Link>
-          <Link to="/inscrire" className="inscrire">
+          <Link to="/Inscription" className="inscrire">
             <p>S'inscrire</p>
             <div className="navbar_registration_icon">
               <svg

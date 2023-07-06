@@ -1,9 +1,11 @@
 const express = require("express");
 
 const router = express.Router();
-const uploadMiddleware = require("./middleware/uploadMiddleware");
 
 const candidatsControllers = require("./controllers/candidatsControllers");
+
+const contactControllers = require("./controllers/contactControllers");
+
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const { hashPassword, verifyPassword } = require("./services/auth");
@@ -11,7 +13,6 @@ const { hashPassword, verifyPassword } = require("./services/auth");
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
-
 router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
@@ -29,9 +30,9 @@ router.post(
   }
 );
 router.delete("/candidats/:id", candidatsControllers.destroy);
-router.post(
-  "/candidats/:id/uploadcv",
-  uploadMiddleware.upload,
-  candidatsControllers.uploadCV
-);
+
+router.post("/candidats/inscription", candidatsControllers.register);
+
+router.post("/contact", contactControllers.sendContactData);
+
 module.exports = router;

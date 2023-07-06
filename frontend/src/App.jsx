@@ -31,6 +31,16 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/joboffers" element={<JobOffers offers={offers} />} />
+          <Route path="/espace" element={<MonEspace />} />
+          <Route path="/NousContacter" element={<NousContacter />} />
+          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/connexion" element={<Connexion />} />
+        </Routes>
+
         <AuthContextProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -42,7 +52,6 @@ function App() {
             <Route path="/uploadcv" element={<CVUploadForm />} />
           </Routes>
         </AuthContextProvider>
-
         <Footer />
       </div>
     </Router>
