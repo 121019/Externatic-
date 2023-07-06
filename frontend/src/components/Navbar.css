@@ -56,7 +56,7 @@
 .connexion {
   color: var(--secondary_color);
   text-decoration: none;
-  font-weight: 500; 
+  font-weight: 500;
 }
 
 .connexion p {
@@ -113,14 +113,11 @@
   display: none;
 }
 
-
 /*////////////////////////////////////////////////
 ////////////////      Media Query      ///////////
 ////////////////////////////////////////////////*/
 
-
-@media screen and (max-width:950px ){
-
+@media screen and (max-width: 950px) {
   .navbar_burger {
     display: flex;
     align-items: center;
@@ -165,7 +162,7 @@
     }
 
     100% {
-      transform: initial
+      transform: initial;
     }
   }
 
@@ -201,7 +198,7 @@
   }
 
   .navbar_burger_close svg:hover {
-    transform: scale(1.2) rotate( 360deg);
+    transform: scale(1.2) rotate(360deg);
   }
 
   .overlay_menu_mobile {
@@ -232,7 +229,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .navbar_registration_icon {
     display: flex;
     align-items: center;
@@ -240,19 +237,19 @@
     width: 5%;
     right: 0;
   }
-  
+
   .navbar_login_icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 5%;
   }
-  
+
   .logoExternatic {
     margin: 2vh 0 0 0;
   }
 
-  .navbar_login_icon svg{
+  .navbar_login_icon svg {
     stroke: var(--secondary_color);
     width: 5%;
     height: auto;
@@ -260,7 +257,7 @@
     right: 12vw;
     transition: transform 500ms ease-in-out;
   }
-  
+
   .navbar_registration_icon svg {
     stroke: var(--secondary_color);
     width: 5%;
@@ -275,6 +272,6 @@
   }
 
   .navbar_login_icon svg:hover {
-    transform: scale(1.2) rotate( 360deg);
+    transform: scale(1.2) rotate(360deg);
   }
 }

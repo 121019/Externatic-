@@ -60,6 +60,7 @@ function Navbar() {
             alt="logo entreprise externatic"
           />
         </Link>
+        <Link to="/uploadcv">link</Link>
         <div className={openMenu ? "navbar" : "navbar open"}>
           <div className="links">
             <div

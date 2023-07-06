@@ -239,79 +239,76 @@
   width: 50%;
 }
 
-  /*/ //////////////////////////////////////////////////////////////////////////////
+/*/ //////////////////////////////////////////////////////////////////////////////
 //                                Media Query                          //
 ///////////////////////////////////////////////////////////////////////////////*/
 
-  @media screen and (max-width: 850px) {
-    .offers_title {
-      font-size: 2.5em;
-    }
-    .offers_section {
-      gap: 2em;
-      flex-direction: column;
-    }
-
-    .offers_card h1 {
-      font-size: 1.5em;
-    }
-
-    .offers_card h2 {
-      font-size: 1.1em;
-    }
-    .offers_card h3 {
-      font-size: 1em;
-    }
-    .offers_card p {
-      font-size: 0.9em;
-    }
-    .filter_label {
-      font-size: 1.2rem;
-    }
+@media screen and (max-width: 850px) {
+  .offers_title {
+    font-size: 2.5em;
+  }
+  .offers_section {
+    gap: 2em;
+    flex-direction: column;
   }
 
-  @media screen and (max-width: 550px) {
-    .offers_card {
-      gap: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      width: 80%;
-    }
-    .offers_card h1 {
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    .offers_card h3 {
-      font-size: 1em;
-    }
-
-    .filter_label {
-      font-size: 0.9rem;
-    }
-
-    .filter_form {
-      overflow-x: scroll;
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-      justify-content: space-between;
-    }
-
-    .filter_form::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
-
-    .filter_section {
-      margin: 0;
-      border-radius: 0;
-      width: 100%;
-      right: 0;
-      left: 0;
-    }
+  .offers_card h1 {
+    font-size: 1.5em;
   }
-  /*///////////////////////////////////////////////////////////////////////////////
+
+  .offers_card h3 {
+    font-size: 1em;
+  }
+  .offers_card p {
+    font-size: 0.9em;
+  }
+  .filter_label {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .offers_card {
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+  }
+  .offers_card h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .offers_card h3 {
+    font-size: 1em;
+  }
+
+  .filter_label {
+    font-size: 0.9rem;
+  }
+
+  .filter_form {
+    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter_form::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .filter_section {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+}
+/*///////////////////////////////////////////////////////////////////////////////
 //                                 Media Query                                 //
 ///////////////////////////////////////////////////////////////////////////////*/
 
@@ -319,5 +316,4 @@
   .offers_card-flex {
     flex-direction: column;
   }
-
 }

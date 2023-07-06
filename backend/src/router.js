@@ -1,29 +1,37 @@
 const express = require("express");
 
 const router = express.Router();
+const uploadMiddleware = require("./middleware/uploadMiddleware");
 
-const itemControllers = require("./controllers/itemControllers");
-const jobControllers = require("./controllers/jobControllers");
 const candidatsControllers = require("./controllers/candidatsControllers");
-
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+const jobControllers = require("./controllers/jobControllers");
+const authControllers = require("./controllers/authController");
+const { hashPassword, verifyPassword } = require("./services/auth");
 
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
-router.post("/jobs", jobControllers.add);
+
 router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
 router.post("/candidats", candidatsControllers.add);
-router.put("/candidats/:id", candidatsControllers.edit);
+router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
+router.post(
+  "/login",
+  (req, res, next) => {
+    console.error("Before getUserByUsernameWithPasswordAndPassToNext");
+    authControllers.getUserByUsernameWithPasswordAndPassToNext(req, res, next);
+  },
+  (req, res, next) => {
+    verifyPassword(req, res, next);
+  }
+);
 router.delete("/candidats/:id", candidatsControllers.destroy);
-
-router.post("/candidat/login", candidatsControllers.login);
-
+router.post(
+  "/candidats/:id/uploadcv",
+  uploadMiddleware.upload,
+  candidatsControllers.uploadCV
+);
 module.exports = router;
