@@ -11,10 +11,8 @@ const { hashPassword, verifyPassword } = require("./services/auth");
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
-/* router.post("/jobs", jobControllers.add); */
-router.delete("/jobs/:id", jobControllers.destroy);
 
-/* router.post("/candidats/:id/uploadcv", candidatsControllers.uploadCV); */
+router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
