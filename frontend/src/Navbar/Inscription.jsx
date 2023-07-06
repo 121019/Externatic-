@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Inscription.css";
+import axios from "axios";
 
 function Inscription() {
   const [formData, setFormData] = useState({
@@ -26,6 +27,41 @@ function Inscription() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Récupérer les valeurs des champs du formulaire
+    const firstname = event.target.elements.name.value;
+    const lastname = event.target.elements.lastname.value;
+    const email = event.target.elements.email.value;
+    const password = event.target.elements.password.value;
+    const adress = event.target.elements.adress.value;
+    const city = event.target.elements.city.value;
+    const postcode = event.target.elements.postcode.value;
+    const phone = event.target.elements.phone.value;
+
+    // Créer un objet contenant les données du formulaire
+    const formDataToSend = {
+      firstname,
+      lastname,
+      email,
+      password,
+      adress,
+      city,
+      postcode,
+      phone,
+    };
+
+    // Envoyer les données au backend en utilisant une requête POST
+    axios
+      .post("/candidats/inscription", formDataToSend)
+      .then((response) => {
+        // Traiter la réponse du serveur si nécessaire
+        console.warn(response.data);
+        setEnvoiMessage(true);
+      })
+      .catch((error) => {
+        // Traiter les erreurs de la requête si nécessaire
+        console.error(error);
+      });
+
     // Réinitialiser le formulaire après l'envoi
     setFormData({
       firstname: "",
@@ -44,7 +80,7 @@ function Inscription() {
     <>
       <h2>S'inscrire</h2>
 
-      <h4>{envoiMessage && <p>Votre inscription est validée !</p>}</h4>
+      <h5>{envoiMessage && <p>Votre inscription est validée !</p>}</h5>
 
       <div className="Inscription">
         <div className="image-container">
@@ -153,7 +189,9 @@ function Inscription() {
                 required
               />
             </label>
-            <input type="submit" value="Valider" />
+            <form onSubmit={handleSubmit}>
+              <input type="submit" value="Valider" />
+            </form>
           </form>
         </div>
       </div>

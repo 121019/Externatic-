@@ -5,6 +5,7 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const jobControllers = require("./controllers/jobControllers");
 const candidatsControllers = require("./controllers/candidatsControllers");
+const contactControllers = require("./controllers/contactControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -25,5 +26,9 @@ router.put("/candidats/:id", candidatsControllers.edit);
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.post("/candidat/login", candidatsControllers.login);
+
+router.post("/candidats/inscription", candidatsControllers.register);
+
+router.post("/contact", contactControllers.sendContactData);
 
 module.exports = router;

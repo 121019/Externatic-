@@ -6,7 +6,7 @@
 
 .image-container {
   text-align: center;
-  margin-left: 15rem;
+  margin-left: 10rem;
 }
 
 .image-container img {
@@ -67,10 +67,11 @@
 
 h2 {
   text-align: center;
+  color: #ca1f62;
   font-size: 3rem;
 }
 
-h4{
+h5{
   color: #ca1f62;
   text-align: center;
   margin-bottom:2rem;
