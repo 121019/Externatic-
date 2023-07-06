@@ -78,6 +78,27 @@ const destroy = (req, res) => {
       res.sendStatus(500);
     });
 };
+const uploadCV = (req, res) => {
+  // Check if a file was uploaded
+  if (!req.file) {
+    res.status(400).json({ error: "No file uploaded" });
+    return;
+  }
+
+  // Access the uploaded file details
+  const { originalname, size, mimetype } = req.file;
+
+  // Perform additional validations or processing as needed
+  // For example, you could check the file size, allowed file types, etc.
+
+  // Assuming the file upload is successful, you can send a response
+  res.status(200).json({
+    message: "File uploaded successfully",
+    filename: originalname,
+    size,
+    mimetype,
+  });
+};
 
 module.exports = {
   browse,
@@ -85,4 +106,5 @@ module.exports = {
   add,
   edit,
   destroy,
+  uploadCV,
 };

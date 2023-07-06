@@ -1,6 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+const uploadMiddleware = require("./middleware/uploadMiddleware");
 
 const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
@@ -30,5 +31,9 @@ router.post(
   }
 );
 router.delete("/candidats/:id", candidatsControllers.destroy);
-
+router.post(
+  "/candidats/:id/uploadcv",
+  uploadMiddleware.upload,
+  candidatsControllers.uploadCV
+);
 module.exports = router;
