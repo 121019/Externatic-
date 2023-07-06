@@ -4,8 +4,6 @@ const router = express.Router();
 
 const candidatsControllers = require("./controllers/candidatsControllers");
 
-const contactControllers = require("./controllers/contactControllers");
-
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const { hashPassword, verifyPassword } = require("./services/auth");
@@ -30,9 +28,5 @@ router.post(
   }
 );
 router.delete("/candidats/:id", candidatsControllers.destroy);
-
-router.post("/candidats/inscription", candidatsControllers.register);
-
-router.post("/contact", contactControllers.sendContactData);
 
 module.exports = router;
