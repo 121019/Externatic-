@@ -1,0 +1,12 @@
+:root {
+  --primary_color: #ca1f62;
+  --secondary_color: #851342;
+  --text: #ffffff;
+}
+
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+  max-width: 1920px;
+}
