@@ -1,52 +1,18 @@
+import { format, parseISO } from "date-fns";
+import PropTypes from "prop-types";
+
 import "./JobOffers.css";
 import { useState } from "react";
+import loc from "../assets/loc.png";
+import desc from "../assets/desc.png";
 
-function JobOffers() {
+function JobOffers({ offers }) {
   const filterOption = ["Métier", "Lieu", "Distance", "Type de contrat"];
   const jobTitle = [
     "Développeur Web",
     "Web designer",
     "Product Owner",
     "Lead développeur",
-  ];
-
-  const offers = [
-    {
-      id: 1,
-      title: "Développeur Web",
-      location: "Lyon",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
-    {
-      id: 2,
-      title: "Lead Dev",
-      location: "Valence",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
-    {
-      id: 3,
-      title: "Ingénieur Dev Ops",
-      location: "Montpellier",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
-    {
-      id: 4,
-      title: "Développeur PHP",
-      location: "Grenoble",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
-    {
-      id: 5,
-      title: "Développeur JS ",
-      location: "Lyon",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
-    {
-      id: 6,
-      title: "Développeur React",
-      location: "Paris",
-      desc: "Notre client est une société spécialisée dans l'edition de logiciel applicatif BtoB pour le monde de l'automobile. Pour renforcer leur équipe nantaise à taille humaine de 30 personnes au sein d'une cellule R&D, nous recherchons un Développeur...",
-    },
   ];
 
   const [optionFilterClick, setOptionFilterClick] = useState(false);
@@ -96,11 +62,31 @@ function JobOffers() {
         <h1 className="offers_title">Nos Offres : </h1>
         <div className="offers_section">
           {offers.map((offer) => {
+            const date = parseISO(offer.Upload_Date);
+            const formattedDate = format(date, "dd-MM-yyyy");
             return (
               <div key={offer.id} className="offers_card">
-                <h1>{offer.title}</h1>
-                <h3>{offer.location}</h3>
-                <p>{offer.desc}</p>
+                <h2>{offer.JobTitle}</h2>
+                <div className="offers_card-flex">
+                  <div className="offers_card-flexgauche">
+                    <img
+                      src={desc}
+                      className="offers_card-symbol offers_card-desc"
+                      alt="description"
+                    />
+                    <p>{offer.Description}</p>
+                  </div>
+                  <div className="offers_card-flexdroite">
+                    <img
+                      src={loc}
+                      className="offers_card-symbol offers_card-loc"
+                      alt="localiser"
+                    />
+                    <p>{offer.Location}</p>
+                    <p>Posté le {formattedDate}</p>
+                    <p>{offer.Contract_Type}</p>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -109,5 +95,18 @@ function JobOffers() {
     </div>
   );
 }
+
+JobOffers.propTypes = {
+  offers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      JobTitle: PropTypes.string.isRequired,
+      Description: PropTypes.string,
+      Location: PropTypes.string,
+      Upload_Date: PropTypes.string,
+      Contract_Type: PropTypes.string,
+    })
+  ).isRequired,
+};
 
 export default JobOffers;

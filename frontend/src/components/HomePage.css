@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0 auto;
@@ -94,6 +93,8 @@
     #ca1f62 50%,
     #ca1f62 100%
   );
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .value_form {
   display: flex;
@@ -104,6 +105,7 @@
   color: #851342;
   width: 100%;
   padding-left: 10%;
+  font-size: 2.5em;
 }
 .value_p {
   color: #851342;
@@ -120,6 +122,9 @@
   height: 17vw;
   margin-top: 15%;
   margin-right: 3%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .youtube {
   display: flex;
@@ -127,17 +132,33 @@
   justify-content: center;
   align-items: center;
   margin-top: 3%;
-  padding :5rem;
+  padding: 5rem;
 }
 .youtube_h2 {
   margin-bottom: 3%;
 }
 .youtube_video {
-  width: 800px;
-  height: 450px;
+  width: 40rem;
+  height: 25rem;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 950px) {
+  .weAre {
+    margin-top: 2vh;
+  }
+  .value_h2{
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .youtube_video {
+    width: 480px;
+    height: 270px;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .weAre_h2 {
     font-size: 1em;
   }
@@ -165,4 +186,3 @@
     height: 180px;
   }
 }
-

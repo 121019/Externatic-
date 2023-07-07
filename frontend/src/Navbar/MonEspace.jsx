@@ -1,7 +1,3 @@
-import React from "react";
-
-function MonEspace() {
-  return <div>{/*  code */}</div>;
-}
+function MonEspace() {}
 
 export default MonEspace;

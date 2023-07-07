@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for macos13 (arm64)
 --
 -- Host: localhost    Database: Externatic
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.2
+-- Server version	8.0.33
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,36 +42,6 @@ INSERT INTO `Admin` VALUES (1,'nils','nils.mehlhorn.fr@gmail.com','123');
 UNLOCK TABLES;
 
 --
--- Table structure for table `Application`
---
-
-DROP TABLE IF EXISTS `Application`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Application` (
-  `JobOffer_id` int NOT NULL,
-  `Candidats_id` int NOT NULL,
-  `Enterprise_id` int NOT NULL,
-  PRIMARY KEY (`JobOffer_id`,`Candidats_id`,`Enterprise_id`),
-  KEY `fk_JobOffer_has_Candidats_Candidats1_idx` (`Candidats_id`),
-  KEY `fk_JobOffer_has_Candidats_JobOffer1_idx` (`JobOffer_id`),
-  KEY `fk_Application_Enterprise1_idx` (`Enterprise_id`),
-  CONSTRAINT `fk_Application_Enterprise1` FOREIGN KEY (`Enterprise_id`) REFERENCES `mydb`.`Enterprise` (`id`),
-  CONSTRAINT `fk_JobOffer_has_Candidats_Candidats1` FOREIGN KEY (`Candidats_id`) REFERENCES `mydb`.`Candidats` (`id`),
-  CONSTRAINT `fk_JobOffer_has_Candidats_JobOffer1` FOREIGN KEY (`JobOffer_id`) REFERENCES `mydb`.`JobOffer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Application`
---
-
-LOCK TABLES `Application` WRITE;
-/*!40000 ALTER TABLE `Application` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Application` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Candidats`
 --
 
@@ -80,18 +50,17 @@ DROP TABLE IF EXISTS `Candidats`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Candidats` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `CV` text NOT NULL,
-  `Adress` varchar(255) NOT NULL,
-  `City` varchar(100) NOT NULL,
-  `Postcode` int NOT NULL,
-  `Phone` int NOT NULL,
-  `Admin_id` int NOT NULL,
-  PRIMARY KEY (`id`,`Admin_id`),
-  KEY `fk_Candidats_Admin1_idx` (`Admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `cv` text,
+  `adress` varchar(255) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `postcode` int NOT NULL,
+  `phone` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +69,7 @@ CREATE TABLE `Candidats` (
 
 LOCK TABLES `Candidats` WRITE;
 /*!40000 ALTER TABLE `Candidats` DISABLE KEYS */;
-INSERT INTO `Candidats` VALUES (1,'Cathy','cathy@gmail.com','1234','','35 rue de la poesie','Wonderland',666,6666666,1);
+INSERT INTO `Candidats` VALUES (1,'julien2','beans','quiaimelesbaffes@gmail.com','1234','','35 rue de la betise','Wonderland',45786,457896545),(2,'julien','machin','julienquiaimelesbaffes@gmail.com','1234','','35 rue de la betise','Wonderland',45786,457896545),(4,'juliennnena','machin_bizzare','ttjulienquiaimelesbaffesssss@gmail.com','$2a$10$mmsoHiJl4aOOYxvH/u8AauZgr9dPpgKnbXB4pUF1AM4.O5ewCBzha','','45 rue de la betise','Wonderland',45786,457896545),(5,'wihlem','h','wil@gmail.com','$2a$10$lGjqg0./nomliONt4ub1w.P7pcoqnoFA3DITHuTZ6s21fzbWlmxse','','45 rue de la betise','Wonderland',45786,457896545);
 /*!40000 ALTER TABLE `Candidats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,33 +106,6 @@ INSERT INTO `Enterprise` VALUES (11,'Business 1','email1@example.com','password1
 UNLOCK TABLES;
 
 --
--- Table structure for table `Favorite`
---
-
-DROP TABLE IF EXISTS `Favorite`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Favorite` (
-  `JobOffer_id` int NOT NULL,
-  `Candidats_id` int NOT NULL,
-  PRIMARY KEY (`JobOffer_id`,`Candidats_id`),
-  KEY `fk_JobOffer_has_Candidats1_Candidats1_idx` (`Candidats_id`),
-  KEY `fk_JobOffer_has_Candidats1_JobOffer1_idx` (`JobOffer_id`),
-  CONSTRAINT `fk_JobOffer_has_Candidats1_Candidats1` FOREIGN KEY (`Candidats_id`) REFERENCES `mydb`.`Candidats` (`id`),
-  CONSTRAINT `fk_JobOffer_has_Candidats1_JobOffer1` FOREIGN KEY (`JobOffer_id`) REFERENCES `mydb`.`JobOffer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Favorite`
---
-
-LOCK TABLES `Favorite` WRITE;
-/*!40000 ALTER TABLE `Favorite` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Favorite` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `JobOffer`
 --
 
@@ -178,14 +120,11 @@ CREATE TABLE `JobOffer` (
   `Upload_Date` date DEFAULT NULL,
   `Contract_Type` varchar(45) DEFAULT NULL,
   `Enterprise_id` int NOT NULL DEFAULT '1',
-  `Admin_id` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`,`Enterprise_id`,`Admin_id`),
+  PRIMARY KEY (`id`,`Enterprise_id`),
   KEY `fk_JobOffer_Enterprise_idx` (`Enterprise_id`),
-  KEY `fk_JobOffer_Admin1_idx` (`Admin_id`),
-  CONSTRAINT `fk_JobOffer_Admin1` FOREIGN KEY (`Admin_id`) REFERENCES `Admin` (`id`),
   CONSTRAINT `fk_JobOffer_Enterprise` FOREIGN KEY (`Enterprise_id`) REFERENCES `Enterprise` (`id`),
   CONSTRAINT `JobOffer_ibfk_1` FOREIGN KEY (`Enterprise_id`) REFERENCES `Enterprise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +133,7 @@ CREATE TABLE `JobOffer` (
 
 LOCK TABLES `JobOffer` WRITE;
 /*!40000 ALTER TABLE `JobOffer` DISABLE KEYS */;
-INSERT INTO `JobOffer` VALUES (144,'Développeur PHP Symfony H/F Editeur Nantes Nord','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',11,1),(145,'Développeur Symfony / Agence @ Centre-ville H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Grenoble','2023-08-11','CDD',12,1),(146,'System Architect PEGA H/F - 2 jours remote / semaine','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','CDI',11,1),(147,'Développeur back-end H/F @agence','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Cholet','2023-08-11','CDI',16,1),(148,'Développeur Python Django H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','Esclavage',18,1),(149,'Développeur Windev expérimenté @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDD',17,1),(150,'Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X','Your long job description','Bordeaux','2023-08-11','CDI',18,1),(151,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',20,1),(152,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',12,1),(153,'Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDI',14,1),(154,'Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X','Your long job description','Nantes','2023-08-11','CDI',15,1);
+INSERT INTO `JobOffer` VALUES (144,'Développeur PHP Symfony H/F Editeur Nantes Nord','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',11),(145,'Développeur Symfony / Agence @ Centre-ville H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Grenoble','2023-08-11','CDD',12),(146,'System Architect PEGA H/F - 2 jours remote / semaine','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','CDI',11),(147,'Développeur back-end H/F @agence','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Cholet','2023-08-11','CDI',16),(148,'Développeur Python Django H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','Esclavage',18),(149,'Développeur Windev expérimenté @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDD',17),(150,'Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X','Your long job description','Bordeaux','2023-08-11','CDI',18),(151,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',20),(152,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',12),(153,'Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDI',14),(154,'Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X','Your long job description','Nantes','2023-08-11','CDI',15),(155,'Developpeur Front-end React','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lyon','2023-06-20',NULL,11),(156,'Developpeur back-end','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Valence','2023-06-20',NULL,11);
 /*!40000 ALTER TABLE `JobOffer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -207,4 +146,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-14 14:28:13
+-- Dump completed on 2023-06-21 15:08:39
