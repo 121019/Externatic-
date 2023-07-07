@@ -9,6 +9,8 @@ import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 
+import "./App.css";
+
 import { AuthContextProvider } from "../contexts/AuthContext";
 
 function App() {
