@@ -59,7 +59,9 @@ function Login() {
           name="password"
         />
       </div>
-      <button type="submit">Go</button>
+      <button className="connexion-but" type="submit">
+        Go
+      </button>
     </form>
   );
 }

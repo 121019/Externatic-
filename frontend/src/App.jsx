@@ -37,7 +37,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/joboffers" element={<JobOffers offers={offers} />} />
             <Route path="/espace" element={<MonEspace />} />
-            <Route path="/NousContacter" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
             <Route path="/uploadcv" element={<CVUploadForm />} />
