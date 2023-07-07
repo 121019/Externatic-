@@ -100,6 +100,7 @@
   color: #851342;
   width: 100%;
   padding-left: 10%;
+  font-size: 2.5em;
 }
 .value_p {
   color: #851342;
@@ -139,6 +140,9 @@
 @media screen and (max-width: 950px) {
   .weAre {
     margin-top: 2vh;
+  }
+  .value_h2{
+    font-size: 1.5em;
   }
 }
 
