@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for macos13 (arm64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
--- Host: localhost    Database: Externatic
+-- Host: localhost    Database: mvc_express
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.33-0ubuntu0.22.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -120,7 +120,7 @@ CREATE TABLE `JobOffer` (
   `Upload_Date` date DEFAULT NULL,
   `Contract_Type` varchar(45) DEFAULT NULL,
   `Enterprise_id` int NOT NULL DEFAULT '1',
-  `category` varchar(255),
+  `category` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`,`Enterprise_id`),
   KEY `fk_JobOffer_Enterprise_idx` (`Enterprise_id`),
   CONSTRAINT `fk_JobOffer_Enterprise` FOREIGN KEY (`Enterprise_id`) REFERENCES `Enterprise` (`id`),
@@ -134,7 +134,7 @@ CREATE TABLE `JobOffer` (
 
 LOCK TABLES `JobOffer` WRITE;
 /*!40000 ALTER TABLE `JobOffer` DISABLE KEYS */;
-INSERT INTO `JobOffer` VALUES (144,'Développeur PHP Symfony H/F Editeur Nantes Nord','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',11),(145,'Développeur Symfony / Agence @ Centre-ville H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Grenoble','2023-08-11','CDD',12),(146,'System Architect PEGA H/F - 2 jours remote / semaine','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','CDI',11),(147,'Développeur back-end H/F @agence','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Cholet','2023-08-11','CDI',16),(148,'Développeur Python Django H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','Esclavage',18),(149,'Développeur Windev expérimenté @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDD',17),(150,'Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X','Your long job description','Bordeaux','2023-08-11','CDI',18),(151,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',20),(152,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',12),(153,'Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDI',14),(154,'Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X','Your long job description','Nantes','2023-08-11','CDI',15),(155,'Developpeur Front-end React','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lyon','2023-06-20',NULL,11),(156,'Developpeur back-end','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Valence','2023-06-20',NULL,11);
+INSERT INTO `JobOffer` VALUES (144,'Développeur PHP Symfony H/F Editeur Nantes Nord','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',11,'Développeur'),(145,'Développeur Symfony / Agence @ Centre-ville H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Grenoble','2023-08-11','CDD',12,'Développeur'),(146,'System Architect PEGA H/F - 2 jours remote / semaine','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','CDI',11,'Architecte système'),(147,'Développeur back-end H/F @agence','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Cholet','2023-08-11','CDI',16,'Développeur back-end'),(148,'Développeur Python Django H/F','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Paris','2023-08-11','Esclavage',18,'Développeur'),(149,'Développeur Windev expérimenté @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDD',17,'Développeur'),(150,'Développeur expérimenté fullstack PHP/React @éditeur de logiciels - F/H/X','Your long job description','Bordeaux','2023-08-11','CDI',18,'Développeur'),(151,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',20,'Développeur'),(152,'Développeur SCALA H-F @édition de logiciel - nantes','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Nantes','2023-08-11','CDI',12,'Développeur'),(153,'Product Owner expérimenté(e) - @éditeur de logiciel - F/H/X','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Bordeaux','2023-08-11','CDI',14,'Product Owner'),(154,'Développeur expérimenté fullstack PHP / React - FULL REMOTE possible - @éditeur de logiciel @scale-up - F/H/X','Your long job description','Nantes','2023-08-11','CDI',15,'Développeur'),(155,'Developpeur Front-end React','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lyon','2023-06-20',NULL,11,'Développeur front-end'),(156,'Developpeur back-end','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Valence','2023-06-20',NULL,11,'Développeur back-end');
 /*!40000 ALTER TABLE `JobOffer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -147,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-21 15:08:39
+-- Dump completed on 2023-07-07  9:23:00
