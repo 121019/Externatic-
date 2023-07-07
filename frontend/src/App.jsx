@@ -8,10 +8,8 @@ import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
-import "./App.css";
-import { AuthContextProvider } from "../contexts/AuthContext";
 
-import CVUploadForm from "./components/Upload";
+import { AuthContextProvider } from "../contexts/AuthContext";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -37,10 +35,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/joboffers" element={<JobOffers offers={offers} />} />
             <Route path="/espace" element={<MonEspace />} />
-            <Route path="/NousContacter" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
-            <Route path="/uploadcv" element={<CVUploadForm />} />
           </Routes>
         </AuthContextProvider>
         <Footer />

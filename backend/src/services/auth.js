@@ -8,7 +8,6 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-// here error. I'll make new function for hash
 const hashPassword = (req, res, next) => {
   argon2
     .hash(req.body.password, hashingOptions)
