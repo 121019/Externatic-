@@ -31,7 +31,6 @@
     "husky": "^8.0.3"
   },
   "dependencies": {
-    "react-pdf": "^7.1.2",
     "uuid": "^9.0.0"
   }
 }
