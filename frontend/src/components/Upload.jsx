@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-function CVUploadForm() {
+function CVUpload() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -10,28 +11,28 @@ function CVUploadForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("cv", file);
+    try {
+      const formData = new FormData();
+      formData.append("myfile", file);
 
-    const candidatId = 123; // Replace with the actual candidatId
-    const response = await fetch(`/candidats/${candidatId}/uploadcv`, {
-      method: "POST",
-      body: formData,
-    });
+      await axios.post("http://localhost:5080/myfile", formData);
 
-    if (!response.ok) {
-      // handle error
+      // File uploaded successfully
+    } catch (error) {
+      // Handle error
+      console.error("Error uploading file:", error);
     }
-
-    // handle success
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="file" onChange={handleFileChange} />
-      <button type="submit">Upload CV</button>
-    </form>
+    <div>
+      <h2>Upload CV</h2>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <input type="file" name="myfile" onChange={handleFileChange} />
+        <button type="submit">Upload</button>
+      </form>
+    </div>
   );
 }
 
-export default CVUploadForm;
+export default CVUpload;
