@@ -77,11 +77,12 @@ function Inscription() {
   };
 
   return (
-    
-      <><div className="message validate">
-      {envoiMessage&&<p>Votre inscription est validée !</p>}
-    </div>
-    <div className="inscription_content"><p>S'inscrire</p>
+    <>
+      <div className="message validate">
+        {envoiMessage && <p>Votre inscription est validée !</p>}
+      </div>
+      <div className="inscription_content">
+        <p>S'inscrire</p>
 
         <div className="Inscription">
           <div className="image-container">
@@ -89,7 +90,8 @@ function Inscription() {
               loading="lazy"
               src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
               alt="Contact Externatic"
-              className="wp-image-16355" />
+              className="wp-image-16355"
+            />
           </div>
           <div className="form-container">
             <form onSubmit={handleSubmit}>
@@ -100,7 +102,8 @@ function Inscription() {
                   value={formData.firstname}
                   onChange={handleInputChange}
                   placeholder="Nom *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -109,7 +112,8 @@ function Inscription() {
                   value={formData.lastname}
                   onChange={handleInputChange}
                   placeholder="Prénom *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -118,7 +122,8 @@ function Inscription() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -127,7 +132,8 @@ function Inscription() {
                   value={formData.password}
                   onChange={handleInputChange}
                   placeholder="Mot de passe *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -136,7 +142,8 @@ function Inscription() {
                   value={formData.adress}
                   onChange={handleInputChange}
                   placeholder="Adresse *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -145,7 +152,8 @@ function Inscription() {
                   value={formData.city}
                   onChange={handleInputChange}
                   placeholder="Ville *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -154,7 +162,8 @@ function Inscription() {
                   value={formData.postcode}
                   onChange={handleInputChange}
                   placeholder="Code postal *"
-                  required />
+                  required
+                />
               </label>
               <label>
                 <input
@@ -163,7 +172,8 @@ function Inscription() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Téléphone *"
-                  required />
+                  required
+                />
               </label>
               <div className="validate">
                 <form onSubmit={handleSubmit}>
@@ -173,7 +183,8 @@ function Inscription() {
             </form>
           </div>
         </div>
-      </div></>
+      </div>
+    </>
   );
 }
 
