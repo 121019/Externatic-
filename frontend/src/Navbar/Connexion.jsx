@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./connextion.css";
+import { useUser } from "../contexts/UserContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useUser();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +30,7 @@ function Login() {
           // Check if email is verified
           if (data.isEmailVerified) {
             console.warn("Login successful");
-            // Redirect or perform any other actions for successful login
+            setUser(data.user);
           } else {
             console.warn("Email not verified");
             // Handle email verification
