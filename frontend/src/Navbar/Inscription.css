@@ -94,15 +94,11 @@
     font-size: 0.6rem;
     width: 80%;
     margin-top: 1.5rem;
+    padding-top:2rem;
   }
-  .input {
-    font-size: 0.6rem;
-  }
+ 
   .inscription_content label {
     margin: -0.4rem;
     margin-bottom: -1rem;
-  }
-  input{
-    margin-top:1rem;
   }
 }
