@@ -1,17 +1,44 @@
-.form {
+.connexion_content {
+  background-color: #ca1f62;
+  display: flex;
+  width: auto;
+  height: auto;
+  margin: 5vh 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+///////                                 IMG                               ///////
+///////////////////////////////////////////////////////////////////////////////*/
+
+.connexion_content_img {
+  margin: 0;
+}
+
+.connexion_content_img img {
+  height: 480px;
+  width: auto;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+//////                                 FORM                               //////
+///////////////////////////////////////////////////////////////////////////////*/
+
+.connexion_form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
   margin-bottom: 10%;
-  width: 50%;
-  gap: 0.5rem;
+  /* width: 50%; */
+  /* gap: 0.5rem; */
   background-color: #ca1f62;
-  margin-bottom: 2rem;
-  border-radius: 10px;
+  /* margin-bottom: 2rem; */
+  /* border-radius: 10px; */
 }
-button {
+.connexion_submitButton {
   height: 3rem;
   border-radius: 0.5rem;
   border: none;
@@ -22,3 +49,7 @@ button {
   cursor: pointer;
   margin-bottom: 2rem;
 }
+
+/*///////////////////////////////////////////////////////////////////////////////
+//                                 Media Query                                 //
+///////////////////////////////////////////////////////////////////////////////*/
