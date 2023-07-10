@@ -78,10 +78,9 @@ function Inscription() {
 
   return (
     <>
-      <h2>S'inscrire</h2>
-
-      <h5>{envoiMessage && <p>Votre inscription est validée !</p>}</h5>
-
+      <div className="message validate">
+        {envoiMessage && <p>Votre inscription est validée !</p>}
+      </div>
       <div className="Inscription">
         <div className="image-container">
           <img
@@ -92,22 +91,7 @@ function Inscription() {
           />
         </div>
         <div className="form-container">
-          <div className="je-suis">
-            <h3>Je suis :</h3>
-            <div>
-              <input type="radio" name="status" value="Entreprise" />
-              <span>Entreprise</span>
-            </div>
-            <div>
-              <input type="radio" name="status" value="Candidat" />
-              <span>Candidat</span>
-            </div>
-            <div>
-              <input type="radio" name="status" value="Autre" />
-              <span>Autre</span>
-            </div>
-          </div>
-
+          <div className="inscription">S'inscrire</div>
           <form onSubmit={handleSubmit}>
             <label>
               <input
@@ -189,9 +173,11 @@ function Inscription() {
                 required
               />
             </label>
-            <form onSubmit={handleSubmit}>
-              <input type="submit" value="Valider" />
-            </form>
+            <div className="validate">
+              <form onSubmit={handleSubmit}>
+                <input type="submit" value="Valider" />
+              </form>
+            </div>
           </form>
         </div>
       </div>
