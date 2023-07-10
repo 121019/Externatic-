@@ -37,20 +37,40 @@
   .container {
     justify-content: center;
     display: flex;
-    margin-top: 2rem;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    width: 35%;
+    background-color: #ca1f62;
+    margin-bottom: 3rem;
+    border-radius: 2rem;
 }
 
- h3{
+ .contact{
    font-size:1.4rem;
    color: #ca1f62;
    margin-top: 2rem;
    margin-bottom: -2rem;
    text-align: center;
+   font-weight: bold;
  }
 
- h4{
+ .contactMessage{
     font-size:1.4rem;
     padding-top: 5rem;
  }
+
+ .container>form{
+  margin-top:2rem;
+ }
+
+ @media screen and (max-width : 550px){
+  
+ .container{
+  font-size:1.4rem;
+  color: #ca1f62;
+  text-align: center;
+  font-weight: bold;
+  width: 80%;
+  }
+}
+ 
