@@ -39,11 +39,11 @@ function Contact() {
   };
 
   return (
-    <div className="contact_content">
-      <h3>Nous contacter</h3>
-
-      <h4>{envoiMessage && <p>Message envoyé avec succès !</p>}</h4>
-
+    <>
+      <div className="contact">Nous contacter</div>
+      <div className="contactMessage">
+        {envoiMessage && <p>Message envoyé avec succès !</p>}
+      </div>
       <div className="container">
         <form onSubmit={handleSubmit}>
           <label>
@@ -104,7 +104,7 @@ function Contact() {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 }
 
