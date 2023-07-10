@@ -21,15 +21,10 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
-app.use("/uploads", express.static("uploads")); // serve the `backend/uploads` folder for uploaded files
-
-// import and mount the API routes
 
 const router = require("./router");
 
 app.use(router);
-
-// serve the `backend/public` folder for public resources
 
 app.use(express.static(path.join(__dirname, "../public")));
 

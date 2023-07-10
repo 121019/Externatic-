@@ -41,7 +41,6 @@ function Contact() {
   return (
     <>
       <div className="contact">Nous contacter</div>
-
       <div className="contactMessage">
         {envoiMessage && <p>Message envoyé avec succès !</p>}
       </div>

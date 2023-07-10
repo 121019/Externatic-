@@ -23,7 +23,7 @@
 .je-suis {
   text-align: center;
   padding: 1.5rem;
-  }
+}
 
 .je-suis div {
   display: inline-block;
@@ -53,7 +53,7 @@
 
 .Inscription input[type="submit"] {
   padding: 0.6rem 5rem;
-    border-color: #ca1f62;
+  border-color: #ca1f62;
   color: white;
   border: none;
   border-radius: 10rem;
@@ -65,16 +65,16 @@
   background-color: #ca1f62;
 }
 
-h2 {
+.inscription_content h2 {
   text-align: center;
   color: #ca1f62;
   font-size: 3rem;
 }
 
-h5{
+.inscription_content h5 {
   color: #ca1f62;
   text-align: center;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
   margin-top: 2rem;
 }
 
@@ -82,29 +82,27 @@ h5{
   .image-container img {
     display: none;
   }
- 
-  h2{
-    margin:2rem;
-  font-size:1rem;
+
+  .inscription_content h2 {
+    margin: 2rem;
+    font-size: 1rem;
   }
   .Inscription {
-   display: inline;
-   
+    display: inline;
   }
-  .form-container{
+  .form-container {
     font-size: 0.6rem;
   }
-  .input{
+  .input {
     font-size: 0.6rem;
-  
   }
-  label{
- margin:-0.40rem;
- margin-bottom: -1rem;
+  .inscription_content label {
+    margin: -0.4rem;
+    margin-bottom: -1rem;
   }
-  .je-suis{
+  .je-suis {
     padding-top: 0rem;
 
-display:inline-flex;  
-}
+    display: inline-flex;
+  }
 }
