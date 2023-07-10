@@ -77,7 +77,7 @@ function Inscription() {
   };
 
   return (
-    <>
+    <div className="inscription_content">
       <h2>S'inscrire</h2>
 
       <h5>{envoiMessage && <p>Votre inscription est validée !</p>}</h5>
@@ -195,7 +195,7 @@ function Inscription() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

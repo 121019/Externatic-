@@ -6,7 +6,7 @@ import linkedInlogo from "../assets/linkedInlogo.png";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <div className="columns">
         <div className="column">
           <h4>Recrutement informatique</h4>
