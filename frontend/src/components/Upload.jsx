@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function CVUpload() {
+function Cvupload() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -35,4 +35,4 @@ function CVUpload() {
   );
 }
 
-export default CVUpload;
+export default Cvupload;
