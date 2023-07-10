@@ -8,10 +8,10 @@ import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
-import "./App.css";
-import { AuthContextProvider } from "../contexts/AuthContext";
 
-import CVUploadForm from "./components/Upload";
+import "./App.css";
+
+import { AuthContextProvider } from "../contexts/AuthContext";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -40,7 +40,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
-            <Route path="/uploadcv" element={<CVUploadForm />} />
           </Routes>
         </AuthContextProvider>
         <Footer />

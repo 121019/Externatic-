@@ -16,7 +16,7 @@ class CandidatManager extends AbstractManager {
     const newCandidat = { ...candidat, password: hashedPassword };
 
     console.error("New Candidat:", newCandidat); // Log the new candidat object
-    // Yes  But this function is not calling in /candidate [POST] request
+
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
