@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+
 import "./Inscription.css";
 
 function Inscription() {
@@ -14,6 +15,8 @@ function Inscription() {
 
   const navigate = useNavigate();
 
+  const formRef = useRef();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -27,8 +30,9 @@ function Inscription() {
       cityRef.current.value === "" ||
       postcodeRef.current.value === "" ||
       phoneRef.current.value === ""
-    );
-
+    ) {
+      return;
+    }
     // Récupérer les valeurs des champs du formulaire
     const firstname = firstnameRef.current.value;
     const lastname = lastnameRef.current.value;
@@ -68,6 +72,7 @@ function Inscription() {
         console.error("Navigating to home page...");
 
         // Réinitialiser le formulaire après l'envoi
+        formRef.current.reset();
         firstnameRef.current.value = "";
         lastnameRef.current.value = "";
         emailRef.current.value = "";
@@ -93,7 +98,7 @@ function Inscription() {
           />
         </div>
         <div className="form-container">
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <label>
               <input
                 type="text"
@@ -167,9 +172,7 @@ function Inscription() {
               />
             </label>
             <div className="validate">
-              <form onSubmit={handleSubmit}>
-                <input type="submit" value="Valider" />
-              </form>
+              <input type="submit" value="Valider" />
             </div>
           </form>
         </div>
