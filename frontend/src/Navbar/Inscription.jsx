@@ -77,125 +77,114 @@ function Inscription() {
   };
 
   return (
-    <div className="inscription_content">
-      <h2>S'inscrire</h2>
+    <>
+      <div className="message validate">
+        {envoiMessage && <p>Votre inscription est validée !</p>}
+      </div>
+      <div className="inscription_content">
+        <p>S'inscrire</p>
 
-      <h5>{envoiMessage && <p>Votre inscription est validée !</p>}</h5>
-
-      <div className="Inscription">
-        <div className="image-container">
-          <img
-            loading="lazy"
-            src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
-            alt="Contact Externatic"
-            className="wp-image-16355"
-          />
-        </div>
-        <div className="form-container">
-          <div className="je-suis">
-            <h3>Je suis :</h3>
-            <div>
-              <input type="radio" name="status" value="Entreprise" />
-              <span>Entreprise</span>
-            </div>
-            <div>
-              <input type="radio" name="status" value="Candidat" />
-              <span>Candidat</span>
-            </div>
-            <div>
-              <input type="radio" name="status" value="Autre" />
-              <span>Autre</span>
-            </div>
+        <div className="Inscription">
+          <div className="image-container">
+            <img
+              loading="lazy"
+              src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
+              alt="Contact Externatic"
+              className="wp-image-16355"
+            />
           </div>
-
-          <form onSubmit={handleSubmit}>
-            <label>
-              <input
-                type="text"
-                name="firstname"
-                value={formData.firstname}
-                onChange={handleInputChange}
-                placeholder="Nom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="lastname"
-                value={formData.lastname}
-                onChange={handleInputChange}
-                placeholder="Prénom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Email *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                placeholder="Mot de passe *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="adress"
-                value={formData.adress}
-                onChange={handleInputChange}
-                placeholder="Adresse *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-                placeholder="Ville *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="postcode"
-                value={formData.postcode}
-                onChange={handleInputChange}
-                placeholder="Code postal *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="Téléphone *"
-                required
-              />
-            </label>
+          <div className="form-container">
             <form onSubmit={handleSubmit}>
-              <input type="submit" value="Valider" />
+              <label>
+                <input
+                  type="text"
+                  name="firstname"
+                  value={formData.firstname}
+                  onChange={handleInputChange}
+                  placeholder="Nom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="lastname"
+                  value={formData.lastname}
+                  onChange={handleInputChange}
+                  placeholder="Prénom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  placeholder="Mot de passe *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="adress"
+                  value={formData.adress}
+                  onChange={handleInputChange}
+                  placeholder="Adresse *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleInputChange}
+                  placeholder="Ville *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="postcode"
+                  value={formData.postcode}
+                  onChange={handleInputChange}
+                  placeholder="Code postal *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Téléphone *"
+                  required
+                />
+              </label>
+              <div className="validate">
+                <form onSubmit={handleSubmit}>
+                  <input type="submit" value="Valider" />
+                </form>
+              </div>
             </form>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
