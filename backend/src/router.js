@@ -27,6 +27,7 @@ router.post(
     verifyPassword(req, res, next);
   }
 );
+
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
 module.exports = router;

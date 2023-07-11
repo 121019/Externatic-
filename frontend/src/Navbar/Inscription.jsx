@@ -1,86 +1,87 @@
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import "./Inscription.css";
-import axios from "axios";
 
 function Inscription() {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    adress: "",
-    city: "",
-    postcode: "",
-    phone: "",
-  });
+  const firstnameRef = useRef();
+  const lastnameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const adressRef = useRef();
+  const cityRef = useRef();
+  const postcodeRef = useRef();
+  const phoneRef = useRef();
 
-  const [envoiMessage, setEnvoiMessage] = useState(false);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Vérifier si les champs obligatoires sont remplis
+    if (
+      firstnameRef.current.value === "" ||
+      lastnameRef.current.value === "" ||
+      emailRef.current.value === "" ||
+      passwordRef.current.value === "" ||
+      adressRef.current.value === "" ||
+      cityRef.current.value === "" ||
+      postcodeRef.current.value === "" ||
+      phoneRef.current.value === ""
+    );
+
     // Récupérer les valeurs des champs du formulaire
-    const firstname = event.target.elements.name.value;
-    const lastname = event.target.elements.lastname.value;
-    const email = event.target.elements.email.value;
-    const password = event.target.elements.password.value;
-    const adress = event.target.elements.adress.value;
-    const city = event.target.elements.city.value;
-    const postcode = event.target.elements.postcode.value;
-    const phone = event.target.elements.phone.value;
+    const firstname = firstnameRef.current.value;
+    const lastname = lastnameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const adress = adressRef.current.value;
+    const city = cityRef.current.value;
+    const postcode = postcodeRef.current.value;
+    const phone = phoneRef.current.value;
 
-    // Créer un objet contenant les données du formulaire
-    const formDataToSend = {
-      firstname,
-      lastname,
-      email,
-      password,
-      adress,
-      city,
-      postcode,
-      phone,
-    };
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:3000/candidat"
+      }/candidat`,
+      {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname,
+          lastname,
+          email,
+          password,
+          adress,
+          city,
+          postcode,
+          phone,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.error("candidat response data:", data);
 
-    // Envoyer les données au backend en utilisant une requête POST
-    axios
-      .post("/candidats/inscription", formDataToSend)
-      .then((response) => {
-        // Traiter la réponse du serveur si nécessaire
-        console.warn(response.data);
-        setEnvoiMessage(true);
-      })
-      .catch((error) => {
-        // Traiter les erreurs de la requête si nécessaire
-        console.error(error);
+        navigate("/");
+        console.error("Navigating to home page...");
+
+        // Réinitialiser le formulaire après l'envoi
+        firstnameRef.current.value = "";
+        lastnameRef.current.value = "";
+        emailRef.current.value = "";
+        passwordRef.current.value = "";
+        adressRef.current.value = "";
+        cityRef.current.value = "";
+        postcodeRef.current.value = "";
+        phoneRef.current.value = "";
       });
-
-    // Réinitialiser le formulaire après l'envoi
-    setFormData({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      adress: "",
-      city: "",
-      postcode: "",
-      phone: "",
-    });
-    setEnvoiMessage(true);
   };
 
   return (
     <div className="inscription_content">
       <h2>S'inscrire</h2>
-
-      <h5>{envoiMessage && <p>Votre inscription est validée !</p>}</h5>
 
       <div className="Inscription">
         <div className="image-container">
@@ -91,104 +92,103 @@ function Inscription() {
             className="wp-image-16355"
           />
         </div>
-        <div className="form-container">
-          <div className="je-suis">
-            <h3>Je suis :</h3>
+        <div className="container-inscription">
+          <form className="inscription" onSubmit={handleSubmit}>
             <div>
-              <input type="radio" name="status" value="Entreprise" />
-              <span>Entreprise</span>
+              <label htmlFor="firstname">
+                <input
+                  ref={firstnameRef}
+                  type="text"
+                  id="firsname"
+                  placeholder="Nom*"
+                  required
+                />
+              </label>
             </div>
-            <div>
-              <input type="radio" name="status" value="Candidat" />
-              <span>Candidat</span>
-            </div>
-            <div>
-              <input type="radio" name="status" value="Autre" />
-              <span>Autre</span>
-            </div>
-          </div>
 
-          <form onSubmit={handleSubmit}>
-            <label>
-              <input
-                type="text"
-                name="firstname"
-                value={formData.firstname}
-                onChange={handleInputChange}
-                placeholder="Nom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="lastname"
-                value={formData.lastname}
-                onChange={handleInputChange}
-                placeholder="Prénom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Email *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                placeholder="Mot de passe *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="adress"
-                value={formData.adress}
-                onChange={handleInputChange}
-                placeholder="Adresse *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-                placeholder="Ville *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="postcode"
-                value={formData.postcode}
-                onChange={handleInputChange}
-                placeholder="Code postal *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="Téléphone *"
-                required
-              />
-            </label>
+            <div>
+              <label htmlFor="lastname">
+                <input
+                  ref={lastnameRef}
+                  type="text"
+                  id="email"
+                  placeholder="Prénom*"
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="adress">
+                <input
+                  ref={emailRef}
+                  type="text"
+                  id="email"
+                  placeholder="email*"
+                  required
+                />
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="password">
+                <input
+                  ref={passwordRef}
+                  type="password"
+                  id="password"
+                  placeholder="Mot de passe*"
+                  required
+                />{" "}
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="adress">
+                <input
+                  ref={adressRef}
+                  type="text"
+                  id="adress"
+                  placeholder="Adresse*"
+                  required
+                />
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="city">
+                <input
+                  ref={cityRef}
+                  type="text"
+                  id="city"
+                  placeholder="Ville*"
+                  required
+                />
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="postcode">
+                <input
+                  ref={postcodeRef}
+                  type="text"
+                  id="postcode"
+                  placeholder="Code Postal*"
+                  required
+                />
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="phone">
+                <input
+                  ref={phoneRef}
+                  type="text"
+                  id="phone"
+                  placeholder="Numéro de téléphone*"
+                  required
+                />
+              </label>
+            </div>
+
             <form onSubmit={handleSubmit}>
               <input type="submit" value="Valider" />
             </form>

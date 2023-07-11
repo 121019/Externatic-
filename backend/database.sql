@@ -36,6 +36,7 @@ CREATE TABLE `Admin` (
 --
 
 LOCK TABLES `Admin` WRITE;
+
 /*!40000 ALTER TABLE `Admin` DISABLE KEYS */;
 INSERT INTO `Admin` VALUES (1,'nils','nils.mehlhorn.fr@gmail.com','123');
 /*!40000 ALTER TABLE `Admin` ENABLE KEYS */;
