@@ -31,7 +31,6 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-
         <AuthContextProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
