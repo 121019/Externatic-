@@ -55,7 +55,7 @@
 
 .Inscription input[type="submit"] {
   padding: 0.6rem 5rem;
-  border-color: #ca1f62;
+  border-color: white;
   color: white;
   border: none;
   border-radius: 10rem;
@@ -102,3 +102,8 @@
     margin-bottom: -1rem;
   }
 }
+
+.validate > input{
+  background-color:#ca1f62;
+}
+
