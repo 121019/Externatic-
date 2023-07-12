@@ -24,7 +24,6 @@ function MonProfil() {
       ) : (
         <div className="profilPersonalise">
           <h4 className="profil_nomcomplet-h4">
-            {" "}
             {user.firstname} {user.lastname}
           </h4>
           <div className="profil_donnee">

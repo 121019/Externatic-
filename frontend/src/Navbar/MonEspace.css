@@ -70,5 +70,23 @@
 }
   
 @media screen and (max-width: 550px) {
-  
+    .monEspace{
+        height: 40em;
+    }
+    .espace_nomcomplet-h4{
+        margin-left: auto;
+    }
+    .espace_section-bulle{
+        font-size: 1.5em;
+        margin-top: 5%;
+        height: 4em;
+    }
+    .espace_section{
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        gap: 1em;
+        margin-top: 5%;
+        margin-bottom: 11%;
+    }
 }
