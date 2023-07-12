@@ -1,110 +1,110 @@
-const argon2 = require("argon2");
 const models = require("../models");
 
-const login = async (req, res) => {
-  const { email, password } = req.body;
+const browse = (req, res) => {
+  models.candidat
+    .findAll()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
-  try {
-    const [rows] = await models.candidat.findByName(email);
-
-    if (!rows[0]) {
-      res
-        .status(400)
-        .json({ success: false, message: "Invalid username or password" });
-    } else {
-      const user = rows[0];
-
-      if (await argon2.verify(user.password, password)) {
-        // TODO: Create a session or generate a JWT for the logged-in user
-        res
-          .status(200)
-          .json({ success: true, message: "Login successful", user });
+const read = (req, res) => {
+  models.candidat
+    .find(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
       } else {
-        res
-          .status(400)
-          .json({ success: false, message: "Invalid username or password" });
+        res.send(rows[0]);
       }
-    }
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
-const browse = async (req, res) => {
-  try {
-    const [rows] = await models.candidat.findAll();
-    res.send(rows);
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
+const add = (req, res) => {
+  models.candidat
+    .insert(req.body)
+    .then(([createdUser]) => {
+      console.error(createdUser);
+      res.status(201).send("created");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
-const read = async (req, res) => {
-  try {
-    const [rows] = await models.candidat.find(req.params.id);
-    if (rows[0]) {
-      res.send(rows[0]);
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
-};
-
-const edit = async (req, res) => {
+const edit = (req, res) => {
   const candidat = req.body;
+
+  // TODO validations (length, format...)
+
   candidat.id = parseInt(req.params.id, 10);
 
-  try {
-    const [result] = await models.candidat.update(candidat);
-    if (result.affectedRows === 0) {
-      res.sendStatus(404);
-    } else {
-      res.sendStatus(204);
-    }
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
+  models.candidat
+    .update(candidat)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
-const add = async (req, res) => {
-  const candidat = req.body;
-  try {
-    candidat.password = await argon2.hash(candidat.password);
-
-    const [result] = await models.candidat.insert(candidat);
-
-    res.location(`/items/${result.insertId}`).sendStatus(201);
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
-  }
+const destroy = (req, res) => {
+  models.candidat
+    .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
-
-const destroy = async (req, res) => {
-  try {
-    const [result] = await models.candidat.delete(req.params.id);
-    if (result.affectedRows === 0) {
-      res.sendStatus(404);
-    } else {
-      res.sendStatus(204);
-    }
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500);
+const uploadCV = (req, res) => {
+  // Check if a file was uploaded
+  if (!req.file) {
+    res.status(400).json({ error: "No file uploaded" });
+    return;
   }
+
+  // Access the uploaded file details
+  const { originalname, size, mimetype } = req.file;
+
+  // Perform additional validations or processing as needed
+  // For example, you could check the file size, allowed file types, etc.
+
+  // Assuming the file upload is successful, you can send a response
+  res.status(200).json({
+    message: "File uploaded successfully",
+    filename: originalname,
+    size,
+    mimetype,
+  });
 };
 
 module.exports = {
   browse,
   read,
-  edit,
   add,
+  edit,
   destroy,
-  login,
+  uploadCV,
 };

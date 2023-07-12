@@ -6,29 +6,31 @@
 
 .image-container {
   text-align: center;
-  margin-left: 15rem;
+  margin-left: 10rem;
 }
 
 .image-container img {
-  width: 25rem;
-  height: 35rem;
-  margin-top: -3rem;
+  width: 35rem;
+  height: 45rem;
 }
 
-.form-container {
-  flex: 1;
-  text-align: center;
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
+  width: 30%;
+  gap: 0.5rem;
+  background-color: #ca1f62;
+  margin-bottom: 1.5rem;
+  border-radius: 2rem;
+  margin-top:3rem;
 }
 
-.je-suis {
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.je-suis div {
-  display: inline-block;
-  text-align: center;
-  margin-right: 30px;
+.validate > form > input{
+  width:3rem;
+  background-color: #ca1f62;
 }
 
 .Inscription form {
@@ -53,7 +55,7 @@
 
 .Inscription input[type="submit"] {
   padding: 0.6rem 5rem;
-  background-color: #ca1f62;
+  border-color: #ca1f62;
   color: white;
   border: none;
   border-radius: 10rem;
@@ -61,11 +63,42 @@
   margin: 2rem;
 }
 
-.Inscription input[type="submit"]:hover {
+.Inscription > input[type="submit"]:hover {
   background-color: #ca1f62;
 }
 
-h2 {
+.inscription_content{
+  color: #ca1f62;
   text-align: center;
-  font-size: 3rem;
+  margin-bottom: 5rem;
+  margin-top:5rem;
+  font-weight: bold;
+  font-size: 2rem;
+
+}
+
+@media screen and (max-width: 550px) {
+  .image-container img {
+   display: none;
+  }
+
+  .inscription_content{
+    font-size: 1rem;
+    font-weight: bold; 
+    
+  }
+  .Inscription {
+    display: inline;
+  }
+  .form-container {
+    font-size: 0.6rem;
+    width: 80%;
+    margin-top: 1.5rem;
+    padding-top:2rem;
+  }
+ 
+  .inscription_content label {
+    margin: -0.4rem;
+    margin-bottom: -1rem;
+  }
 }

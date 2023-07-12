@@ -1,83 +1,121 @@
-import React, { useState } from "react";
-import "./connextion.css";
+import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import { useUser } from "../contexts/UserContext";
+import "./connexion.css";
+import homeImg from "../assets/home_img.jpg";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
   const { setUser } = useUser();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    // Perform login logic here
-    try {
-      const response = await fetch("http://localhost:5000/candidat/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-
-        if (data.success) {
-          // Check if email is verified
-          if (data.isEmailVerified) {
-            console.warn("Login successful");
-            setUser(data.user);
-          } else {
-            console.warn("Email not verified");
-            // Handle email verification
-          }
-        } else {
-          console.warn("Invalid username or password");
-          // Handle invalid credentials
+  const homeImgRef = useRef(null);
+  useEffect(() => {
+    const handleResize = () => {
+      if (homeImgRef.current) {
+        const screenElement = homeImgRef.current.parentElement.querySelector(
+          ".connexion_content_form"
+        );
+        if (screenElement) {
+          const screenRect = screenElement.getBoundingClientRect();
+          homeImgRef.current.style.width = `${screenRect.width}px`;
+          homeImgRef.current.style.height = `${screenRect.height}px`;
         }
-      } else {
-        console.warn("HTTP error:", response.status);
-        // Handle HTTP errors
       }
-    } catch (error) {
-      console.warn("Error during login:", error);
-      // Handle error during login
-    }
-  }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  const backgroundStyle = {
+    backgroundImage: `url(${homeImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
 
   return (
-    <div>
-      <form className="form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <div>
-          <label htmlFor="email">Email:</label>
+    <div className="connexion_content">
+      <div
+        className="connexion_content_img"
+        ref={homeImgRef}
+        style={backgroundStyle}
+      >
+        {/* {" "} Intentionally left empty {" "} */}
+      </div>
+      <div className="connexion_content_form">
+        <div className="connexion_content_form_mainDiv">
+          <form
+            className="connexion_form"
+            onSubmit={(event) => {
+              event.preventDefault();
+
+              console.error("Submitting login form...");
+
+              fetch(
+                `${
+                  import.meta.env.VITE_BACKEND_URL ??
+                  "http://localhost:5080/login"
+                }/login`,
+                {
+                  method: "post",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    email: emailRef.current.value,
+                    password: passwordRef.current.value,
+                  }),
+                }
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  console.error("Login response data:", data);
+                  setUser(data.user);
+                  setToken(data.token);
+                  console.error("Token set:", data.token);
+
+                  navigate("/");
+                  console.error("Navigating to home page...");
+                });
+            }}
+          >
+            <div id="div_input_email">
+              <label htmlFor="email">Email</label>
+              <input ref={emailRef} type="text" id="email" name="email" />
+            </div>
+            <div id="div_input_email">
+              <label htmlFor="password">Password</label>
+              <input
+                ref={passwordRef}
+                type="password"
+                id="password"
+                name="password"
+              />
+              <button type="submit">*mot de passe oublié?</button>
+            </div>
+            <div className="connexion_button">
+              <button className="connexion_submitButton" type="submit">
+                Go
+              </button>
+              <button
+                className="connexion_submitButton"
+                type="submit"
+                id="connexion_entreprise_button"
+              >
+                Entreprise ?
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="email"
-          />
-        </div>
-        <div>
-          {" "}
-          <label htmlFor="password">Password:</label>
-        </div>
-        <div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            id="password"
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      </div>
     </div>
   );
 }

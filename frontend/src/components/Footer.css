@@ -1,17 +1,18 @@
-h4 {
+.footer h4 {
   text-align: center;
   font-size: 0.9rem;
   font-weight: bold;
   border-bottom: 1.5px solid #fff;
 }
 
-.column{
+.column {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.column p, .column li {
+.column p,
+.column li {
   font-size: 0.8rem;
 }
 
@@ -22,15 +23,16 @@ h4 {
   padding: 1rem;
 }
 
-Footer {
+.footer {
   background-color: #ca1f62;
   font-size: 0.7rem;
 }
 
-h5 {
+.footer h5 {
   text-align: center;
   font-size: 0.8rem;
   color: white;
+  margin-bottom: 0;
 }
 
 .social-icon {
@@ -38,45 +40,44 @@ h5 {
   height: auto;
   margin: 0.6rem;
   transition: transform 500ms ease-in-out;
-  filter: grayscale(100%) brightness(1000%)
+  filter: grayscale(100%) brightness(1000%);
 }
 
 .social-icon:hover {
   transform: scale(1.6) rotate(360deg);
 }
 
-
-li {
+.footer li {
   color: white;
   outline: none;
 }
-footer li:hover {
+.footer li:hover {
   color: rgb(242, 141, 139);
   cursor: pointer;
 }
-footer a {
+.footer a {
   text-decoration: none;
 }
 
-@media screen and (max-width:850px){
-  h4 {
+@media screen and (max-width: 850px) {
+  .footer h4 {
     font-size: 0.5rem;
   }
 
-  .column p, .column li {
+  .column p,
+  .column li {
     font-size: 0.4rem;
   }
 
-  Footer {
+  .footer {
     font-size: 0.3rem;
   }
 
-  h5 {
+  .footer h5 {
     font-size: 0.4rem;
   }
-  
+
   .social-icon {
     width: 0.7rem;
   }
-
 }
