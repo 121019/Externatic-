@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useAuth } from "../../contexts/AuthContext";
+
+import { useUser } from "../contexts/UserContext";
 
 function Cvupload() {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(null);
-  const { userId } = useAuth();
-  console.warn(`my user id : ${userId}`);
+  const { user } = useUser();
+  console.warn(`my user id is from upload file : ${user.id}`);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -20,30 +21,18 @@ function Cvupload() {
       formData.append("myfile", file);
       console.warn(file);
 
-      const response = await axios.post(
-        `http://localhost:5080//candidats/cv/${userId}`,
+      const response = await axios.put(
+        `http://localhost:5080/candidats/cv/${user.id}`,
         formData
       );
+      console.warn(user.id);
 
-      // Destructure the data property from the response object
       const { data } = response;
-      console.warn("this is the response:", data);
+      console.warn("this is the response from upload:", data);
 
       setUploadStatus("success");
-
-      // Update the CV path in the table
-      /* const cvPath = data.filePath; // Modify this based on the response data structure
-      const updatedCandidat = { cv: cvPath }; */
-
-      /*  / await axios.put(
-        `http://localhost:5080/candidats/cv/${userId}`,
-        updatedCandidat
-      ); */
-      console.warn("upload userid console.log", { userId });
-      // Table updated successfully
     } catch (error) {
-      // Handle error
-      console.error("Error uploading file:", error);
+      console.error("Error uploading file from upload:", error);
       setUploadStatus("error");
     }
   };

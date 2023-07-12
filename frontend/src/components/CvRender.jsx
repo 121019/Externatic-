@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useAuth } from "../../contexts/AuthContext";
+import { useUser } from "../contexts/UserContext";
 
 function CvRender() {
-  const { userId } = useAuth();
+  const { user } = useUser();
   const [cvFileName, setCvFileName] = useState(null);
-  console.warn("this is the user on Cvrender", { userId });
+  console.warn("this is the user on Cvrender", { user });
 
   useEffect(() => {
     const fetchCvFileName = async () => {
       try {
-        const response = await axios.get(`/uploads/cvFileName/${userId}`);
+        const response = await axios.get(`/uploads/cvFileName/${user.Id}`);
         setCvFileName(response.data.cvFileName);
       } catch (error) {
         console.error("Error fetching CV file name:", error);
@@ -18,7 +18,7 @@ function CvRender() {
     };
 
     fetchCvFileName();
-  }, [userId]);
+  }, [user.Id]);
 
   return (
     <div>
@@ -29,7 +29,7 @@ function CvRender() {
           data={`/uploads/${cvFileName}`}
           width="100%"
           height="500"
-          aria-label={`CV for user ${userId}`}
+          aria-label={`CV for user ${user.Id}`}
         >
           If you're seeing this, please make sure you have a PDF plugin
           installed.

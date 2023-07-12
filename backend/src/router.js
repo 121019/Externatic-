@@ -21,7 +21,7 @@ router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
 router.post("/candidats", candidatsControllers.add);
 router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
-router.post(
+router.put(
   "/candidats/cv/:id",
 
   upload.single("myfile"),

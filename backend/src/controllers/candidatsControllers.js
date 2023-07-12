@@ -49,7 +49,7 @@ const edit = (req, res) => {
 
   // TODO validations (length, format...)
 
-  candidat.id = parseInt(req.params.id, 6);
+  candidat.id = parseInt(req.params.id, 10);
 
   models.candidat
     .update(candidat)
@@ -69,22 +69,28 @@ const insertCv = async (req, res) => {
   const { originalname, filename } = req.file;
   const { id } = req.params;
   console.warn(originalname, filename);
-  console.warn(req.params);
+  console.warn();
 
   if (!req.file) {
     return res.status(400).send("Invalid file data");
   }
 
-  const cvPath = `uploads/${filename}`; // Assuming the file is stored in the "uploads" directory
+  const sourcePath = `./public/uploads/${filename}`;
+  const destinationPath = `./public/uploads/${uuidv4()}-${originalname}`;
 
   try {
-    // Rename the file using fs.renameSync
-    fs.renameSync(
-      `./public/uploads/${filename}`,
-      `./public/uploads/${uuidv4()}-${originalname}`
-    );
+    if (fs.existsSync(sourcePath)) {
+      fs.renameSync(sourcePath, destinationPath);
+    } else {
+      throw new Error("Source file not found");
+    }
+    console.warn("sourcepath ", sourcePath);
 
-    await models.candidat.update({ cv: cvPath }, { where: { id } });
+    const cvPath = destinationPath;
+    console.warn(cvPath);
+
+    await models.candidat.sendCv(id, cvPath); // Assuming the method to update the CV is called insertCv
+
     return res.sendStatus(204);
   } catch (error) {
     console.error(error);
