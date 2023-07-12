@@ -1,3 +1,6 @@
+const { v4: uuidv4 } = require("uuid");
+
+const fs = require("fs");
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -63,16 +66,24 @@ const edit = (req, res) => {
     });
 };
 const insertCv = async (req, res) => {
-  const { file } = req;
+  const { originalname, filename } = req.file;
   const { id } = req.params;
+  console.warn(originalname, filename);
+  console.warn(req.params);
 
-  if (!file) {
+  if (!req.file) {
     return res.status(400).send("Invalid file data");
   }
 
-  const cvPath = `uploads/${file.filename}`; // Assuming the file is stored in the "uploads" directory
+  const cvPath = `uploads/${filename}`; // Assuming the file is stored in the "uploads" directory
 
   try {
+    // Rename the file using fs.renameSync
+    fs.renameSync(
+      `./public/uploads/${filename}`,
+      `./public/uploads/${uuidv4()}-${originalname}`
+    );
+
     await models.candidat.update({ cv: cvPath }, { where: { id } });
     return res.sendStatus(204);
   } catch (error) {

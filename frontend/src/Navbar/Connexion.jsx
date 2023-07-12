@@ -2,13 +2,13 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./connexion.css";
 
-import { UseAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { setToken } = UseAuth();
+  const { setToken } = useAuth();
   const navigate = useNavigate();
 
   return (

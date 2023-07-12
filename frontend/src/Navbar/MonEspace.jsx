@@ -1,10 +1,10 @@
 import React from "react";
-import { UseAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import Cvupload from "../components/Upload";
 import CvRender from "../components/CvRender";
 
 function MonEspace() {
-  const { token, userId } = UseAuth(); // Destructure the `userId` from the authentication context
+  const { token, userId } = useAuth(); // Destructure the `userId` from the authentication context
 
   // Check if the user is authenticated
   if (!token) {

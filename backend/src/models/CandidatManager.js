@@ -91,8 +91,8 @@ class CandidatManager extends AbstractManager {
 
   async insertCv(cv, id) {
     return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
-      cv,
       id,
+      cv,
     ]);
   }
 

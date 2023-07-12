@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { UseAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function CvRender() {
-  const { userId } = UseAuth();
+  const { userId } = useAuth();
   const [cvFileName, setCvFileName] = useState(null);
   console.warn("this is the user on Cvrender", { userId });
 
