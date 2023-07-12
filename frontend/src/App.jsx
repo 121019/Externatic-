@@ -8,6 +8,8 @@ import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import CompanyLogin from "./components/CompanyLogin";
+import CompanyPage from "./components/CompanyPage";
 
 import "./App.css";
 
@@ -40,6 +42,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/Inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
+            <Route path="/companylogin" element={<CompanyLogin />} />
+            <Route path="/companypage" element={<CompanyPage />} />
           </Routes>
         </AuthContextProvider>
         <Footer />

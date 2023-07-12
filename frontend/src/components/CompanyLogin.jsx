@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./connexion.css";
-import homeImg from "../assets/home_img.jpg";
+import "../Navbar/connexion.css";
+import homeImg from "../assets/home_img_company.jpg";
 
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -41,12 +41,8 @@ function Login() {
     backgroundPosition: "center",
   };
 
-  const handlechange = () => {
-    navigate("/companylogin");
-  };
-
   return (
-    <div className="connexion_content">
+    <div className="connexion_content company">
       <div
         className="connexion_content_img"
         ref={homeImgRef}
@@ -92,7 +88,7 @@ function Login() {
             }}
           >
             <div id="div_input_email">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email Entreprise</label>
               <input ref={emailRef} type="text" id="email" name="email" />
             </div>
             <div id="div_input_email">
@@ -108,14 +104,6 @@ function Login() {
             <div className="connexion_button">
               <button className="connexion_submitButton" type="submit">
                 Go
-              </button>
-              <button
-                className="connexion_submitButton"
-                type="submit"
-                id="connexion_entreprise_button"
-                onClick={handlechange}
-              >
-                Entreprise ?
               </button>
             </div>
           </form>
