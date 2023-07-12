@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import "./CompanyPage.css";
 
 function CompanyPage() {
+  const [company, setCompany] = useState([]);
   const monEntreprise = {
     name: "Slack Corporation",
     email: "slack@slack.com",
@@ -10,6 +12,16 @@ function CompanyPage() {
     postcode: "",
     logo: "",
   };
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/company`)
+      .then((response) => response.json())
+      .then((data) => setCompany(data))
+      .catch((err) => {
+        console.error(err);
+        console.warn(company);
+      });
+  }, []);
 
   return (
     <div className="companyPage">
@@ -34,22 +46,62 @@ function CompanyPage() {
           <p>Développeur Front-end</p>
           <p> Publiée le 12/07/2023</p>{" "}
           <p>
-            <img src="" alt="" /> 18
+            <img src="../assets/notif.png" alt="email icon" />
           </p>
         </div>
-      </section>
-      <section className="companyPage_cvthèque">
-        <h2>CVthèque</h2>
-        <button type="submit">Click me!</button>
-      </section>
-      <section className="companyPage_application">
-        <h3> Candidatures Reçues :</h3>
         <div>
           <p>Développeur Front-end</p>
           <p> Publiée le 12/07/2023</p>{" "}
           <p>
-            <img src="" alt="" /> 18
+            <img src="../assets/notif.png" alt="email icon" />
           </p>
+        </div>
+        <div>
+          <p>Développeur Front-end</p>
+          <p> Publiée le 12/07/2023</p>{" "}
+          <p>
+            <img src="../assets/notif.png" alt="email icon" />
+          </p>
+        </div>
+      </section>
+      <section className="companyPage_cvthèque">
+        <div>
+          <h1>CVthèque</h1>
+          <button type="submit">Click me!</button>
+        </div>
+        <div className="companyPage_cvthèque_img">
+          {/* {" "} Intentionally left empty {" "} */}
+        </div>
+      </section>
+      <section className="companyPage_application">
+        <h3> Candidatures Reçues :</h3>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
         </div>
       </section>
       <section className="companyPage_history">
@@ -57,13 +109,48 @@ function CompanyPage() {
         <button type="submit">Click me!</button>
       </section>
       <section className="companyPage_currentApplication">
-        <h3> Offres d'emplois publiées</h3>
+        <h3> Offres d'emplois publiées :</h3>
         <div>
-          <p>Développeur Front-end</p>
-          <p> Publiée le 12/07/2023</p>{" "}
           <p>
-            <img src="" alt="" /> 18
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
           </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
+        </div>
+        <div>
+          <p>
+            Michel Dupont &nbsp;&nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp;&nbsp;
+            Développeur Front-end
+          </p>
+          <p> Publiée le 12/07/2023</p>
         </div>
       </section>
     </div>

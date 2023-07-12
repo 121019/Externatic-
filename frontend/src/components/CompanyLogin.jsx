@@ -57,8 +57,6 @@ function Login() {
             onSubmit={(event) => {
               event.preventDefault();
 
-              console.error("Submitting login form...");
-
               fetch(
                 `${
                   import.meta.env.VITE_BACKEND_URL ??

@@ -35,11 +35,6 @@ router.get("/company/:id", companyControllers.read);
 router.post("/company", companyControllers.add);
 router.put("/company/:id", companyControllers.edit);
 router.delete("/company/:id", companyControllers.destroy);
-router.post(
-  "/company/login",
-  authControllers.getUserByUsernameWithPasswordAndPassToNext,
-  verifyPassword,
-  companyControllers.login
-);
+router.post("/company/login", authControllers.loginCompany);
 
 module.exports = router;

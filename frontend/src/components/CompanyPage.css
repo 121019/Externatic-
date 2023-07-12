@@ -1,5 +1,5 @@
 .companyPage section {
-  margin-bottom: 5vh;
+  margin-bottom: 20vh;
 }
 
 /*////////////////////////////////////////////////
@@ -79,6 +79,12 @@
 ////////     Section 4 offres emploi      ////////
 ////////////////////////////////////////////////*/
 
+.companyPage_companyoffers {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
 .companyPage_companyoffers h3 {
   color: var(--secondary_color);
   margin-left: 5%;
@@ -88,6 +94,7 @@
 .companyPage_companyoffers div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 10%;
   padding: 0.5%;
   border-radius: 5px;
@@ -95,18 +102,171 @@
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+.companyPage_companyoffers div:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.companyPage_companyoffers div p:first-child {
+  font-weight: 600;
+}
+
+.companyPage_companyoffers img {
+  height: auto;
+  width: 100%;
+}
+
 /*////////////////////////////////////////////////
-////////////////      Section 5      ///////////
+//////////      Section 5 CVthèque      //////////
 ////////////////////////////////////////////////*/
+
+.companyPage_cvthèque {
+  background: rgb(202, 31, 98);
+  background: linear-gradient(
+    157deg,
+    rgba(202, 31, 98, 1) 0%,
+    rgba(202, 31, 98, 1) 67%,
+    rgba(255, 255, 255, 1) 67%
+  );
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 10vh;
+  background-image: url("../assets/cvtheque.jpg");
+}
+
+.companyPage_cvthèque div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.companyPage_cvthèque div h1 {
+  font-size: 3em;
+}
+
+.companyPage_cvthèque button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2em;
+}
+
+.companyPage_cvthèque button:hover {
+  cursor: pointer;
+}
+
+.companyPage_cvthèque_img {
+  height: 100%;
+  background-image: url("../assets/cvtheque.jpg");
+  background-size: cover;
+  z-index: 1;
+}
 
 /*/ ///////////////////////////////////////////////
-////////////////      Section 6      ///////////
+/////     Section 6  candidatures reçues     //////
 ////////////////////////////////////////////////*/
+
+.companyPage_application {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.companyPage_application h3 {
+  color: var(--secondary_color);
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.companyPage_application div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10%;
+  padding: 0.5%;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.companyPage_application div:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.companyPage_application div p:first-child {
+  font-weight: 600;
+}
+
+.companyPage_application img {
+  height: auto;
+  width: 100%;
+}
 
 /*////////////////////////////////////////////////
-////////////////      Section 7      ///////////
+////////////     Section 7  history    ///////////
 ////////////////////////////////////////////////*/
 
+.companyPage_history {
+  background-image: url("../assets/HistoryBackground.jpg");
+  background-size: cover;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 10vh;
+}
+
+.companyPage_history button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
 /*/ ///////////////////////////////////////////////
-////////////////      Section 8      ///////////
+/////      Section 8 candidatures en cours    /////
 ////////////////////////////////////////////////*/
+
+.companyPage_currentApplication {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  padding-bottom: 8%;
+}
+
+.companyPage_currentApplication h3 {
+  color: var(--secondary_color);
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.companyPage_currentApplication div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10%;
+  padding: 0.5%;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.companyPage_currentApplication div:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.companyPage_currentApplication div p:first-child {
+  font-weight: 600;
+}
+
+.companyPage_currentApplication img {
+  height: auto;
+  width: 100%;
+}
