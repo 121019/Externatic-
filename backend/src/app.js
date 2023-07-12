@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:5080",
+    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
   })
 );
@@ -55,10 +55,6 @@ res.status(201).json({ message: "Candidat créé avec succès" }); */
 
 // ... Autres routes et configurations ...
 
-app.listen(3000, () => {
-  console.info("Serveur en écoute sur le port 3000");
-});
-
 // serve REACT APP
 
 const reactIndexFile = path.join(
@@ -82,11 +78,6 @@ if (fs.existsSync(reactIndexFile)) {
     res.sendFile(reactIndexFile);
   });
 }
-
-// Start the server
-app.listen(3000, () => {
-  console.info("Server is running on port 3000");
-});
 
 // ready to export
 

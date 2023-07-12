@@ -43,10 +43,21 @@ function Inscription() {
     const postcode = postcodeRef.current.value;
     const phone = phoneRef.current.value;
 
+    // Réinitialiser le formulaire après l'envoi
+    formRef.current.reset();
+    firstnameRef.current.value = "";
+    lastnameRef.current.value = "";
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    adressRef.current.value = "";
+    cityRef.current.value = "";
+    postcodeRef.current.value = "";
+    phoneRef.current.value = "";
+
     fetch(
       `${
-        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:3000/candidat"
-      }/candidat`,
+        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:3000/candidats"
+      }/candidats`,
       {
         method: "post",
         headers: {
@@ -70,17 +81,6 @@ function Inscription() {
 
         navigate("/");
         console.error("Navigating to home page...");
-
-        // Réinitialiser le formulaire après l'envoi
-        formRef.current.reset();
-        firstnameRef.current.value = "";
-        lastnameRef.current.value = "";
-        emailRef.current.value = "";
-        passwordRef.current.value = "";
-        adressRef.current.value = "";
-        cityRef.current.value = "";
-        postcodeRef.current.value = "";
-        phoneRef.current.value = "";
       });
   };
 
