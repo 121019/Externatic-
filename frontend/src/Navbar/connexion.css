@@ -1,24 +1,135 @@
-.form {
+.connexion_content {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  width: 50%;
-  gap: 0.5rem;
+  margin: 5vh 0 5vh 0;
+  min-height: 15vh;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+///////                                 IMG                               ///////
+///////////////////////////////////////////////////////////////////////////////*/
+
+.connexion_content_img {
+  margin-right: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+//////                                 FORM                               //////
+///////////////////////////////////////////////////////////////////////////////*/
+
+.connexion_content_form {
   background-color: #ca1f62;
-  margin-bottom: 2rem;
-  border-radius: 10px;
+  height: 70vh;
+  width: 40vh;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-left: 0;
+  border-radius: 0 5px 5px 0;
 }
-button {
-  height: 3rem;
-  border-radius: 0.5rem;
+
+.connexion_content_form_mainDiv {
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.connexion_form {
+  width: 40vh;
+  background-color: #ca1f62;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#div_input_email {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  width: 100%;
+}
+
+#div_input_email input {
   border: none;
-  background-color: #f2f2f2;
-  color: #000;
-  font-size: 1.2rem;
+  padding: 3%;
+  padding-left: 2vh;
   font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 2rem;
+  width: 80%;
+  transition: 0.2s;
+  border-radius: 5px;
+  margin: 10px auto 0 auto;
+  min-width: 10em;
+  color: var(--secondary_color);
 }
+
+#div_input_email input:active,
+#div_input_email input:focus,
+#div_input_email input:hover {
+  outline: none;
+  border-bottom-color: #ffffff;
+}
+
+#div_input_email label {
+  display: block;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+#div_input_email button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 8%;
+  margin-top: 3%;
+  color: blue;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+//                                 Buttons                                     //
+///////////////////////////////////////////////////////////////////////////////*/
+
+.connexion_button {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 30%;
+  width: 100%;
+}
+
+.connexion_submitButton {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 10px 7px 10px;
+  width: 50%;
+  color: var(--secondary_color);
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+.connexion_submitButton:hover {
+  background-color: #f7fafa;
+}
+
+.connexion_submitButton:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  outline: 0;
+}
+
+#connexion_entreprise_button {
+  background-color: var(--secondary_color);
+  border: none;
+  color: #fff;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////
+//                                 Media Query                                 //
+///////////////////////////////////////////////////////////////////////////////*/
