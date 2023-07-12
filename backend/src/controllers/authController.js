@@ -11,7 +11,7 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
         console.error("User not found");
         res.sendStatus(422);
       } else {
-        console.error("User found:", userInDatabase);
+        console.error("User found from authController:", userInDatabase);
         req.user = userInDatabase;
         next();
       }

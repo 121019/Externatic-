@@ -23,6 +23,8 @@ router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
 router.post("/candidats", candidatsControllers.add);
 router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
+router.post("/candidats/cv/:id", candidatsControllers.insertCv);
+
 router.post(
   "/login",
   (req, res, next) => {
@@ -55,4 +57,5 @@ router.post("/myfile", upload.single("myfile"), (req, res) => {
     }
   );
 });
+
 module.exports = router;

@@ -82,6 +82,20 @@ class CandidatManager extends AbstractManager {
     );
   }
 
+  sendCv(cv, id) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
+
+  async insertCv(cv, id) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
+
   async verifyUserPassword(email, password) {
     const [rows] = await this.findByUsernameWithHashedPassword(email);
 

@@ -46,7 +46,7 @@ const edit = (req, res) => {
 
   // TODO validations (length, format...)
 
-  candidat.id = parseInt(req.params.id, 10);
+  candidat.id = parseInt(req.params.id, 6);
 
   models.candidat
     .update(candidat)
@@ -61,6 +61,24 @@ const edit = (req, res) => {
       console.error(err);
       res.sendStatus(500);
     });
+};
+const insertCv = async (req, res) => {
+  const { file } = req;
+  const { id } = req.params;
+
+  if (!file) {
+    return res.status(400).send("Invalid file data");
+  }
+
+  const cvPath = `uploads/${file.filename}`; // Assuming the file is stored in the "uploads" directory
+
+  try {
+    await models.candidat.update({ cv: cvPath }, { where: { id } });
+    return res.sendStatus(204);
+  } catch (error) {
+    console.error(error);
+    return res.sendStatus(500);
+  }
 };
 
 const destroy = (req, res) => {
@@ -87,13 +105,14 @@ const uploadCV = (req, res) => {
 
   // Access the uploaded file details
   const { originalname, size, mimetype } = req.file;
+  console.warn("from  uploadCv candidatcontroller", req.file);
 
   // Perform additional validations or processing as needed
   // For example, you could check the file size, allowed file types, etc.
 
   // Assuming the file upload is successful, you can send a response
   res.status(200).json({
-    message: "File uploaded successfully",
+    message: "File uploaded successfully!!!",
     filename: originalname,
     size,
     mimetype,
@@ -107,4 +126,6 @@ module.exports = {
   edit,
   destroy,
   uploadCV,
+
+  insertCv,
 };

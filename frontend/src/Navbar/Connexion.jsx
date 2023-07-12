@@ -2,13 +2,13 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./connexion.css";
 
-import { useAuth } from "../../contexts/AuthContext";
+import { UseAuth } from "../../contexts/AuthContext";
 
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { setToken } = useAuth();
+  const { setToken } = UseAuth();
   const navigate = useNavigate();
 
   return (
@@ -36,13 +36,13 @@ function Login() {
         )
           .then((response) => response.json())
           .then((data) => {
-            console.error("Login response data:", data);
+            console.error("Login response data  from connexion:", data);
 
             setToken(data.token);
-            console.error("Token set:", data.token);
+            console.error("Token set from connexion:", data.token);
 
-            navigate("/");
-            console.error("Navigating to home page...");
+            navigate("/espace");
+            console.error("Navigating to my space...");
           });
       }}
     >
