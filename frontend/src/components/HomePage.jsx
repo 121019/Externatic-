@@ -48,7 +48,7 @@ export default function HomePage() {
               Notre mission de connecter les bonnes personnes, commence avec des
               rencontres. Notre professionnalisme nous permet de construire de
               vraies relations. Nous mettons en place des équipes qui
-              représententles valeurs des entreprises sur le long-terme.
+              représentent les valeurs des entreprises sur le long-terme.
             </p>
           </div>
           <img src={imgValue} className="value_img" alt="Valeur" />
