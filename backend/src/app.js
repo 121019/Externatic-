@@ -1,19 +1,18 @@
 // import some node modules for later
-
-const fs = require("node:fs");
-const path = require("node:path");
-
-// create express app
-
 const express = require("express");
+
+const path = require("node:path");
 
 const app = express();
 
-// use some application-level middlewares
-
-app.use(express.json());
-
 const cors = require("cors");
+
+const fs = require("node:fs");
+
+const router = require("./router");
+
+// middlewares
+app.use(express.json());
 
 app.use(
   cors({
@@ -22,11 +21,39 @@ app.use(
   })
 );
 
-const router = require("./router");
-
 app.use(router);
 
+/* serve static */
+
 app.use(express.static(path.join(__dirname, "../public")));
+
+/* 
+2eme controle pour validation
+app.post('/candidat', (req, res) => {
+  const schema = Joi.object({
+    firstname: Joi.string().min(2).required(),
+    lastname: Joi.string().min(2).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+    adress: Joi.string().required(),
+    city: Joi.string().required(),
+    postcode: Joi.string().required(),
+    phone: Joi.string().required(),
+  }); */
+
+/* const { error, value } = schema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
+  } */
+
+// Les données du formulaire sont valides, continuez avec le traitement
+
+// ... Logique de création d'un nouveau candidat ...
+
+/* Renvoyer une réponse de succès
+res.status(201).json({ message: "Candidat créé avec succès" }); */
+
+// ... Autres routes et configurations ...
 
 // serve REACT APP
 

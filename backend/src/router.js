@@ -34,6 +34,7 @@ router.post(
   authControllers.getUserByUsernameWithPasswordAndPassToNext,
   verifyPassword
 );
+
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
 module.exports = router;

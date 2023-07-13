@@ -56,7 +56,7 @@ const add = (req, res) => {
     .insert(req.body)
     .then(([createdUser]) => {
       console.error(createdUser);
-      res.status(201).send("created");
+      res.status(201).json({ id: createdUser.insertId });
     })
     .catch((err) => {
       console.error(err);
