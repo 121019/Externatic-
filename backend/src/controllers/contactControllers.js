@@ -16,11 +16,9 @@ const sendContactData = (req, res) => {
   models.contact
     .create(contactData)
     .then((createdContact) => {
-      console.warn("Contact data saved:", createdContact);
       res.status(201).send("Contact data saved successfully");
     })
     .catch((error) => {
-      console.error("Error saving contact data:", error);
       res.sendStatus(500);
     });
 };
