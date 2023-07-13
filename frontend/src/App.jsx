@@ -10,10 +10,8 @@ import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import CompanyLogin from "./components/CompanyLogin";
 import CompanyPage from "./components/CompanyPage";
-
+import MonProfil from "./Navbar/MonProfil";
 import "./App.css";
-
-import { AuthContextProvider } from "../contexts/AuthContext";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -33,19 +31,17 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-
-        <AuthContextProvider>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/joboffers" element={<JobOffers offers={offers} />} />
-            <Route path="/espace" element={<MonEspace />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/Inscription" element={<Inscription />} />
-            <Route path="/connexion" element={<Connexion />} />
-            <Route path="/companylogin" element={<CompanyLogin />} />
-            <Route path="/companypage" element={<CompanyPage />} />
-          </Routes>
-        </AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/joboffers" element={<JobOffers offers={offers} />} />
+          <Route path="/espace" element={<MonEspace />} />
+          <Route path="espace/profil" element={<MonProfil />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/Inscription" element={<Inscription />} />
+          <Route path="/connexion" element={<Connexion />} />
+          <Route path="/companylogin" element={<CompanyLogin />} />
+          <Route path="/companypage" element={<CompanyPage />} />
+        </Routes>
         <Footer />
       </div>
     </Router>

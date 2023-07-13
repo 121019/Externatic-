@@ -28,6 +28,7 @@ router.post(
     verifyPassword(req, res, next);
   }
 );
+
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.get("/company", companyControllers.browse);
