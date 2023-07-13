@@ -27,6 +27,7 @@ router.put(
   upload.single("myfile"),
   candidatsControllers.insertCv
 );
+router.get("/candidats/cv/:id", candidatsControllers.findCv);
 
 router.post(
   "/login",

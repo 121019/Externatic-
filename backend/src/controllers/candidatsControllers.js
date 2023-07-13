@@ -15,6 +15,26 @@ const browse = (req, res) => {
     });
 };
 
+const findCv = (req, res) => {
+  const { id } = req.params;
+  console.warn("id from controller", { id });
+  console.warn("res from controller", res);
+  models.candidat
+    .find(id)
+    .then(([rows]) => {
+      if (rows.length > 0) {
+        const cvPath = rows[0].cv; // Assuming the file path is stored in the 'cv' field
+        res.json({ cvPath });
+      } else {
+        res.sendStatus(404); // Handle case where CV is not found for the given ID
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const read = (req, res) => {
   models.candidat
     .find(req.params.id)
@@ -145,4 +165,5 @@ module.exports = {
   uploadCV,
 
   insertCv,
+  findCv,
 };

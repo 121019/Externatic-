@@ -2,7 +2,11 @@ require("dotenv").config();
 
 const app = require("./src/app");
 
-const port = parseInt(process.env.APP_PORT ?? "5000", 10);
+const port = parseInt(process.env.APP_PORT ?? "5080", 10);
+
+app.get("/public/:folder/:file", (req, res) => {
+  res.sendFile(`${__dirname}/public/${req.params.folder}/${req.params.file}`);
+});
 
 app.listen(port, (err) => {
   if (err) {

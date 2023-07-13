@@ -1,42 +1,45 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useUser } from "../contexts/UserContext";
 
 function CvRender() {
   const { user } = useUser();
-  const [cvFileName, setCvFileName] = useState(null);
-  console.warn("this is the user on Cvrender", { user });
+  const [cvPath, setCvPath] = useState();
 
   useEffect(() => {
-    const fetchCvFileName = async () => {
+    const fetchCvPath = async () => {
       try {
-        const response = await axios.get(`/uploads/cvFileName/${user.Id}`);
-        setCvFileName(response.data.cvFileName);
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/candidats/cv/${user.id}`
+        );
+        if (response.ok) {
+          const path = await response.json();
+          const updatedPath = path.cvPath.replace("./public", ""); // Remove the "public" prefix
+          setCvPath(updatedPath);
+        } else {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
       } catch (error) {
-        console.error("Error fetching CV file name:", error);
+        console.error("Error fetching CV path:", error);
       }
     };
 
-    fetchCvFileName();
-  }, [user.Id]);
+    if (user.id) {
+      fetchCvPath();
+    }
+  }, [user.id]);
+
+  const mypath = `${import.meta.env.VITE_BACKEND_URL}${cvPath}`;
 
   return (
     <div>
       <h2>CV Renderer</h2>
-      {cvFileName ? (
-        <object
-          type="application/pdf"
-          data={`/uploads/${cvFileName}`}
-          width="100%"
-          height="500"
-          aria-label={`CV for user ${user.Id}`}
-        >
-          If you're seeing this, please make sure you have a PDF plugin
-          installed.
-        </object>
-      ) : (
-        <p>Loading CV...</p>
-      )}
+      <object
+        type="application/pdf"
+        data={mypath}
+        width="1000px"
+        height="1000px"
+        aria-label="PDF document"
+      />
     </div>
   );
 }

@@ -41,15 +41,6 @@ class CandidatManager extends AbstractManager {
     ]);
   }
 
-  find(id) {
-    console.error("ID:", id); // Log the id parameter
-
-    return this.database.query(
-      `SELECT firstname and lastname FROM ${this.table} WHERE id = ?`,
-      [id]
-    );
-  }
-
   findByName(name) {
     console.error("Name:", name); // Log the name parameter
 

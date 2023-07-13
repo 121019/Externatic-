@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./MonEspace.css";
-import CVUpload from "../components/Upload";
-import CvRender from "../components/CvRender";
 import { useAuth } from "../contexts/AuthContext"; // Import the useAuth hook from AuthContext
 
 function MonEspace() {
@@ -25,16 +23,12 @@ function MonEspace() {
             <p>Mon profil</p>
           </Link>
           <p className="espace_section-bulle">Mon profil publique</p>
-          <p className="espace_section-bulle">Mon CV</p>
+          <Link to="/mycv" className="espace_section-bulle">
+            <p className="espace_section-bulle">Mon CV</p>
+          </Link>
           <p className="espace_section-bulle">Mes offres d'emploi</p>
           <p className="espace_section-bulle">Mes candidatures</p>
           <p className="espace_section-bulle">Paramètre</p>
-          <div>
-            <CVUpload />
-          </div>
-          <div>
-            <CvRender />
-          </div>
         </div>
       </div>
     </>

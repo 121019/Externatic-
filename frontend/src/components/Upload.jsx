@@ -17,6 +17,16 @@ function Cvupload() {
     event.preventDefault();
 
     try {
+      // Check if a file is selected
+      if (!file) {
+        throw new Error("No file selected.");
+      }
+
+      // Check the file format
+      if (file.type !== "application/pdf") {
+        throw new Error("Invalid file format. Please upload a PDF file.");
+      }
+
       const formData = new FormData();
       formData.append("myfile", file);
       console.warn(file);
