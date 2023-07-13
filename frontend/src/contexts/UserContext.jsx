@@ -5,13 +5,13 @@ const UserContext = createContext();
 
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState({
-    firstname: "julien",
-    lastname: "ladreyt",
-    phone: "0600",
-    email: "julien.lad@co.fr",
-    adress: "1 rue test sur test",
-    postcode: "26500",
-    city: "bourg les valence",
+    firstname: "",
+    lastname: "",
+    phone: "",
+    email: "",
+    adress: "",
+    postcode: "",
+    city: "",
   });
   return (
     <UserContext.Provider

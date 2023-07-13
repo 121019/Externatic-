@@ -1,4 +1,3 @@
-// import some node modules for later
 const express = require("express");
 
 const path = require("node:path");
@@ -26,34 +25,6 @@ app.use(router);
 /* serve static */
 
 app.use(express.static(path.join(__dirname, "../public")));
-
-/* 
-2eme controle pour validation
-app.post('/candidat', (req, res) => {
-  const schema = Joi.object({
-    firstname: Joi.string().min(2).required(),
-    lastname: Joi.string().min(2).required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().min(6).required(),
-    adress: Joi.string().required(),
-    city: Joi.string().required(),
-    postcode: Joi.string().required(),
-    phone: Joi.string().required(),
-  }); */
-
-/* const { error, value } = schema.validate(req.body);
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
-  } */
-
-// Les données du formulaire sont valides, continuez avec le traitement
-
-// ... Logique de création d'un nouveau candidat ...
-
-/* Renvoyer une réponse de succès
-res.status(201).json({ message: "Candidat créé avec succès" }); */
-
-// ... Autres routes et configurations ...
 
 // serve REACT APP
 

@@ -61,7 +61,7 @@ function MonProfil() {
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("email")}
               />
-              <label htmlFor="adressePostal">Adresse postal</label>
+              <label htmlFor="adressePostal">Adresse postale</label>
               <input
                 id="adressePostal"
                 type="text"
