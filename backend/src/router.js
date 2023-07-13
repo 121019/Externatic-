@@ -2,6 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
+const multer = require("multer");
+
+const upload = multer({ dest: "./public/uploads/" });
+
 const candidatsControllers = require("./controllers/candidatsControllers");
 
 const jobControllers = require("./controllers/jobControllers");
@@ -18,15 +22,18 @@ router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
 router.post("/candidats", candidatsControllers.add);
 router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
+router.put(
+  "/candidats/cv/:id",
+
+  upload.single("myfile"),
+  candidatsControllers.insertCv
+);
+router.get("/candidats/cv/:id", candidatsControllers.findCv);
+
 router.post(
   "/login",
-  (req, res, next) => {
-    console.error("Before getUserByUsernameWithPasswordAndPassToNext");
-    authControllers.getUserByUsernameWithPasswordAndPassToNext(req, res, next);
-  },
-  (req, res, next) => {
-    verifyPassword(req, res, next);
-  }
+  authControllers.getUserByUsernameWithPasswordAndPassToNext,
+  verifyPassword
 );
 
 router.delete("/candidats/:id", candidatsControllers.destroy);

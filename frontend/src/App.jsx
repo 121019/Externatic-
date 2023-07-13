@@ -11,6 +11,7 @@ import HomePage from "./components/HomePage";
 import CompanyLogin from "./components/CompanyLogin";
 import CompanyPage from "./components/CompanyPage";
 import MonProfil from "./Navbar/MonProfil";
+import MyCv from "./components/MyCv";
 import "./App.css";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/companylogin" element={<CompanyLogin />} />
           <Route path="/companypage" element={<CompanyPage />} />
+          <Route path="/mycv" element={<MyCv />} />
         </Routes>
         <Footer />
       </div>

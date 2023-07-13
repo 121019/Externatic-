@@ -86,7 +86,7 @@ function Login() {
                   setToken(data.token);
                   console.error("Token set:", data.token);
 
-                  navigate("/");
+                  navigate("/espace");
                   console.error("Navigating to home page...");
                 });
             }}
