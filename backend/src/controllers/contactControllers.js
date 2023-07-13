@@ -20,7 +20,7 @@ const sendContactData = (req, res) => {
     })
     .catch((error) => {
       res.sendStatus(500);
-      console.warn(error);
+      console.error(error);
     });
 };
 
