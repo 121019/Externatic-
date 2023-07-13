@@ -80,7 +80,6 @@ function Inscription() {
         navigate("/");
       });
   };
-
   return (
     <div className="inscription_content">
       <p>S'inscrire</p>
