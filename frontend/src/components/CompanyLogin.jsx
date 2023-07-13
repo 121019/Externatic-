@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../Navbar/connexion.css";
 import homeImg from "../assets/home_img_company.jpg";
 
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function Login() {
   const emailRef = useRef();
