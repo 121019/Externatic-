@@ -9,6 +9,7 @@ import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import MonProfil from "./Navbar/MonProfil";
+import MyCv from "./components/MyCv";
 import "./App.css";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/Inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
+          <Route path="/mycv" element={<MyCv />} />
         </Routes>
         <Footer />
       </div>

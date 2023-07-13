@@ -39,7 +39,9 @@ const verifyPassword = (req, res) => {
         expiresIn: "1h",
       });
 
-      res.json({ token });
+      delete req.user.password;
+
+      res.json({ token, user: req.user });
     } else {
       res.sendStatus(401);
     }

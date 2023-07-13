@@ -36,19 +36,9 @@ class CandidatManager extends AbstractManager {
   findByUsernameWithHashedPassword(email) {
     console.error("Email:", email); // Log the email parameter
 
-    return this.database.query(
-      `SELECT id, email, password FROM ${this.table} WHERE email = ?`,
-      [email]
-    );
-  }
-
-  find(id) {
-    console.error("ID:", id); // Log the id parameter
-
-    return this.database.query(
-      `SELECT firstname and lastname FROM ${this.table} WHERE id = ?`,
-      [id]
-    );
+    return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
+      email,
+    ]);
   }
 
   findByName(name) {
@@ -80,6 +70,20 @@ class CandidatManager extends AbstractManager {
         updatedCandidat.id,
       ]
     );
+  }
+
+  sendCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
+
+  async updateCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
   }
 
   async verifyUserPassword(email, password) {
