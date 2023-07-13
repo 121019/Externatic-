@@ -56,22 +56,40 @@ class CandidatManager extends AbstractManager {
 
   async update(candidat) {
     console.error("Updated Candidat:", candidat); // Log the updated candidat object
-
-    return this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
-      [
-        candidat.firstname,
-        candidat.lastname,
-        candidat.email,
-        candidat.hashedPassword,
-        candidat.cv,
-        candidat.adress,
-        candidat.city,
-        candidat.postcode,
-        candidat.phone,
-        candidat.id,
-      ]
-    );
+    let query;
+    if (candidat.password === "") {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    } else {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.hashedPassword,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    }
+    return query;
   }
 
   async verifyUserPassword(email, password) {
