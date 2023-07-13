@@ -22,6 +22,6 @@ function MonEspace() {
         </div>
       </div>
     </>
-  );
+    );
 }
 export default MonEspace;
