@@ -1,16 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../Navbar/connexion.css";
+import homeImg from "../assets/home_img_company.jpg";
+
 import { useAuth } from "../contexts/AuthContext";
-import { useUser } from "../contexts/UserContext";
-import "./connexion.css";
-import homeImg from "../assets/home_img.jpg";
 
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
+
   const { setToken } = useAuth();
   const navigate = useNavigate();
-  const { setUser } = useUser();
 
   const homeImgRef = useRef(null);
   useEffect(() => {
@@ -41,12 +41,8 @@ function Login() {
     backgroundPosition: "center",
   };
 
-  const handlechange = () => {
-    navigate("/companylogin");
-  };
-
   return (
-    <div className="connexion_content">
+    <div className="connexion_content company">
       <div
         className="connexion_content_img"
         ref={homeImgRef}
@@ -60,8 +56,6 @@ function Login() {
             className="connexion_form"
             onSubmit={(event) => {
               event.preventDefault();
-
-              console.error("Submitting login form...");
 
               fetch(
                 `${
@@ -82,17 +76,17 @@ function Login() {
                 .then((response) => response.json())
                 .then((data) => {
                   console.error("Login response data:", data);
-                  setUser(data.user);
+
                   setToken(data.token);
                   console.error("Token set:", data.token);
 
-                  navigate("/espace");
+                  navigate("/");
                   console.error("Navigating to home page...");
                 });
             }}
           >
             <div id="div_input_email">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email Entreprise</label>
               <input ref={emailRef} type="text" id="email" name="email" />
             </div>
             <div id="div_input_email">
@@ -108,14 +102,6 @@ function Login() {
             <div className="connexion_button">
               <button className="connexion_submitButton" type="submit">
                 Go
-              </button>
-              <button
-                className="connexion_submitButton"
-                type="submit"
-                id="connexion_entreprise_button"
-                onClick={handlechange}
-              >
-                Entreprise ?
               </button>
             </div>
           </form>

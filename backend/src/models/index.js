@@ -32,14 +32,19 @@ const models = {};
 const ItemManager = require("./ItemManager");
 const CandidatManager = require("./CandidatManager");
 const JobManager = require("./JobManager");
+const CompanyManager = require("./CompanyManager");
 
 models.item = new ItemManager();
 models.item.setDatabase(pool);
+
 models.candidat = new CandidatManager();
 models.candidat.setDatabase(pool);
 
 models.job = new JobManager();
 models.job.setDatabase(pool);
+
+models.company = new CompanyManager();
+models.company.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
