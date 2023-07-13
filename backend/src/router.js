@@ -10,6 +10,7 @@ const candidatsControllers = require("./controllers/candidatsControllers");
 
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
+const companyControllers = require("./controllers/companyControllers");
 const { hashPassword, verifyPassword } = require("./services/auth");
 
 router.get("/jobs", jobControllers.browse);
@@ -36,5 +37,12 @@ router.post(
 );
 
 router.delete("/candidats/:id", candidatsControllers.destroy);
+
+router.get("/company", companyControllers.browse);
+router.get("/company/:id", companyControllers.read);
+router.post("/company", companyControllers.add);
+router.put("/company/:id", companyControllers.edit);
+router.delete("/company/:id", companyControllers.destroy);
+router.post("/company/login", authControllers.loginCompany);
 
 module.exports = router;

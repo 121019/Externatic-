@@ -22,6 +22,11 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
     });
 };
 
+const loginCompany = (req, res) => {
+  res.json({ token: "company logged" });
+};
+
 module.exports = {
   getUserByUsernameWithPasswordAndPassToNext,
+  loginCompany,
 };
