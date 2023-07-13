@@ -35,6 +35,7 @@ function Cvupload() {
       );
 
       const { data } = response;
+      console.warn(data);
 
       setUploadStatus("success");
     } catch (error) {
