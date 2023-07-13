@@ -23,9 +23,7 @@ function Navbar() {
         className={
           openMenu ? "overlay_menu_mobile" : "overlay_menu_mobile open"
         }
-      >
-        {/* {" "} Intentionally left empty {" "} */}
-      </div>
+      />
       <nav className="navbar_nav">
         <div
           className="navbar_burger"

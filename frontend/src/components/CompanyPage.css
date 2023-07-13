@@ -159,13 +159,6 @@
   cursor: pointer;
 }
 
-.companyPage_cvthèque_img {
-  height: 100%;
-  background-image: url("../assets/cvtheque.jpg");
-  background-size: cover;
-  z-index: 1;
-}
-
 /*/ ///////////////////////////////////////////////
 /////     Section 6  candidatures reçues     //////
 ////////////////////////////////////////////////*/
@@ -227,6 +220,28 @@
   border: none;
   background-color: transparent;
   color: white;
+}
+
+.companyPage_history div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.companyPage_history h1 {
+  font-size: 3em;
+}
+
+.companyPage_history button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2em;
+}
+
+.companyPage_history button:hover {
+  cursor: pointer;
 }
 
 /*/ ///////////////////////////////////////////////

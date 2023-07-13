@@ -69,9 +69,6 @@ function CompanyPage() {
           <h1>CVthèque</h1>
           <button type="submit">Click me!</button>
         </div>
-        <div className="companyPage_cvthèque_img">
-          {/* {" "} Intentionally left empty {" "} */}
-        </div>
       </section>
       <section className="companyPage_application">
         <h3> Candidatures Reçues :</h3>
@@ -105,8 +102,10 @@ function CompanyPage() {
         </div>
       </section>
       <section className="companyPage_history">
-        <h2>Historique</h2>
-        <button type="submit">Click me!</button>
+        <div>
+          <h1>Historique</h1>
+          <button type="submit">Click me!</button>
+        </div>
       </section>
       <section className="companyPage_currentApplication">
         <h3> Offres d'emplois publiées :</h3>
