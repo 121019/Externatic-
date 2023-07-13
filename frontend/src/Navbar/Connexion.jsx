@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { useUser } from "../contexts/UserContext";
 import "./connexion.css";
 import homeImg from "../assets/home_img.jpg";
@@ -61,8 +61,7 @@ function Login() {
 
               fetch(
                 `${
-                  import.meta.env.VITE_BACKEND_URL ??
-                  "http://localhost:5080/login"
+                  import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
                 }/login`,
                 {
                   method: "post",

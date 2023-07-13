@@ -44,8 +44,6 @@ const add = (req, res) => {
 const edit = (req, res) => {
   const candidat = req.body;
 
-  // TODO validations (length, format...)
-
   candidat.id = parseInt(req.params.id, 10);
 
   models.candidat

@@ -15,10 +15,12 @@ function MonProfil() {
       <div className="profil">
         <h3>Mon profil</h3>
       </div>
-      {token === true ? (
+      {token === false ? (
         <div className="profilNonConnecte">
-          <h3>
-            <Link to="/connexion">Veuillez vous connecter</Link>
+          <h3 className="profilNonConnecte-h3">
+            <Link className="profilNonConnecte-h3-link" to="/connexion">
+              Veuillez vous connecter
+            </Link>
           </h3>
         </div>
       ) : (
