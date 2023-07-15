@@ -11,7 +11,6 @@ function MonProfil() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.warn("onSubmit", data);
     console.error("Submitting update my profile...");
     fetch(
       `${
@@ -27,7 +26,8 @@ function MonProfil() {
     )
       .then((response) => response.json())
       .then((dataRes) => {
-        setUser(dataRes.user);
+        setUser(dataRes.candidat);
+        console.error(setUser(dataRes.candidat));
       })
       .catch((error) => {
         console.error("Error processing response:", error);
