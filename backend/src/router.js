@@ -14,6 +14,7 @@ const companyControllers = require("./controllers/companyControllers");
 const { hashPassword, verifyPassword } = require("./services/auth");
 
 router.get("/jobs", jobControllers.browse);
+router.post("/jobs", jobControllers.add);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
 router.delete("/jobs/:id", jobControllers.destroy);

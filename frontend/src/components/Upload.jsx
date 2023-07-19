@@ -32,7 +32,7 @@ function Cvupload() {
       console.warn(file);
 
       const response = await axios.put(
-        `http://localhost:5080/candidats/cv/${user.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/candidats/cv/${user.id}`,
         formData
       );
       console.warn(user.id);

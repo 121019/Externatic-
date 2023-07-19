@@ -12,9 +12,9 @@ class JobManager extends AbstractManager {
         JobOffer.JobTitle,
         JobOffer.Description,
         JobOffer.Location,
-        JobOffer.Upload_Date,
-        JobOffer.Contract_Type,
-        JobOffer.Enterprise_id,
+        JobOffer.UploadDate,
+        JobOffer.ContractType,
+        JobOffer.EnterpriseId,
       ]
     );
   }
@@ -26,9 +26,9 @@ class JobManager extends AbstractManager {
         JobOffer.JobTitle,
         JobOffer.Description,
         JobOffer.Location,
-        JobOffer.Upload_Date,
-        JobOffer.Contract_Type,
-        JobOffer.Enterprise_id,
+        JobOffer.UploadDate,
+        JobOffer.ContractType,
+        JobOffer.EnterpriseId,
         JobOffer.id,
       ]
     );
