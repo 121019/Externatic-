@@ -8,12 +8,12 @@ class CandidatManager extends AbstractManager {
 
   insert(candidat) {
     return this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, hashedPassword, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, hashedpassword, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
         candidat.firstname,
         candidat.lastname,
         candidat.email,
-        candidat.hashedPassword,
+        candidat.hashedpassword,
         candidat.cv,
         candidat.adress,
         candidat.city,
