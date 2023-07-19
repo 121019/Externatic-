@@ -4,6 +4,8 @@ const router = express.Router();
 
 const multer = require("multer");
 
+const { hashPasswordMiddleware } = require("./services/auth");
+
 const upload = multer({ dest: "./public/uploads/" });
 
 const candidatsControllers = require("./controllers/candidatsControllers");
@@ -11,7 +13,7 @@ const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
-const { hashPassword, verifyPassword } = require("./services/auth");
+const { verifyPassword } = require("./services/auth");
 
 router.get("/jobs", jobControllers.browse);
 router.post("/jobs", jobControllers.add);
@@ -21,15 +23,9 @@ router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
-router.post("/candidats", candidatsControllers.add);
-router.put(
-  "/candidats/:id",
-  (req, res, next) => {
-    if (req.body.password === "") next();
-    else hashPassword(req, res, next);
-  },
-  candidatsControllers.edit
-);
+router.post("/candidats", hashPasswordMiddleware, candidatsControllers.add);
+
+router.put("/candidats/:id", hashPasswordMiddleware, candidatsControllers.edit);
 router.put(
   "/candidats/cv/:id",
 
