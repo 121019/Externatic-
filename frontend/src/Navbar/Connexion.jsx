@@ -57,8 +57,6 @@ function Login() {
             onSubmit={(event) => {
               event.preventDefault();
 
-              console.error("Submitting login form...");
-
               fetch(
                 `${
                   import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
@@ -76,13 +74,10 @@ function Login() {
               )
                 .then((response) => response.json())
                 .then((data) => {
-                  console.error("Login response data:", data);
                   setUser(data.user);
                   setToken(data.token);
-                  console.error("Token set:", data.token);
 
                   navigate("/");
-                  console.error("Navigating to home page...");
                 });
             }}
           >

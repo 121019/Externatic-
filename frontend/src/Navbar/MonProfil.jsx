@@ -11,7 +11,6 @@ function MonProfil() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.error("Submitting update my profile...");
     fetch(
       `${
         import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
@@ -24,10 +23,11 @@ function MonProfil() {
         body: JSON.stringify(data),
       }
     )
-      .then((response) => response.json())
-      .then((dataRes) => {
-        setUser(dataRes.candidat);
-        console.error(setUser(dataRes.candidat));
+      .then((response) => {
+        if (response.status === 204) {
+          const { password: _, ...rest } = data;
+          setUser((old) => ({ ...old, ...rest }));
+        }
       })
       .catch((error) => {
         console.error("Error processing response:", error);

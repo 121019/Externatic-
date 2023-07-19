@@ -55,7 +55,7 @@ class CandidatManager extends AbstractManager {
   }
 
   async update(candidat) {
-    console.error("Updated Candidat:", candidat); // Log the updated candidat object
+    console.warn("Updated Candidat:", candidat); // Log the updated candidat object
     let query;
     if (candidat.password === "") {
       query = this.database.query(
