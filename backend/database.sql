@@ -83,14 +83,14 @@ DROP TABLE IF EXISTS `Enterprise`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Enterprise` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `Description` text NOT NULL,
-  `Adress` varchar(255) NOT NULL,
-  `City` varchar(100) NOT NULL,
-  `Postcode` int NOT NULL,
-  `Admin_id` int DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `hashedPassword` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `postcode` int NOT NULL,
+  `admin_id` int DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_Enterprise_Admin1_idx` (`Admin_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

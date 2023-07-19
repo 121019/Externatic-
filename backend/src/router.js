@@ -10,7 +10,14 @@ const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
-const { hashPassword, verifyPassword } = require("./services/auth");
+const {
+  hashPassword,
+  verifyPassword,
+  verifyCompanyPassword,
+  verifyToken,
+} = require("./services/auth");
+
+//------------   public route  --------------------
 
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
@@ -36,13 +43,18 @@ router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.get("/company", companyControllers.browse);
 router.get("/company/:id", companyControllers.read);
-router.post("/company", companyControllers.add);
-router.put("/company/:id", companyControllers.edit);
-router.delete("/company/:id", companyControllers.destroy);
+router.post("/company", hashPassword, companyControllers.add);
 router.post(
   "/company/login",
   authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
-  verifyPassword
+  verifyCompanyPassword
 );
+
+//------------   private route  --------------------
+
+router.use(verifyToken);
+
+router.delete("/company/:id", companyControllers.destroy);
+router.put("/company/:id", hashPassword, companyControllers.edit);
 
 module.exports = router;

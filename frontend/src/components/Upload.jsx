@@ -7,7 +7,6 @@ function Cvupload() {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(null);
   const { user } = useUser();
-  console.warn(`my user id is from upload file : ${user.id}`);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -29,16 +28,14 @@ function Cvupload() {
 
       const formData = new FormData();
       formData.append("myfile", file);
-      console.warn(file);
 
       const response = await axios.put(
-        `http://localhost:5080/candidats/cv/${user.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/candidats/cv/${user.id}`,
         formData
       );
-      console.warn(user.id);
 
       const { data } = response;
-      console.warn("this is the response from upload:", data);
+      console.warn(data);
 
       setUploadStatus("success");
     } catch (error) {

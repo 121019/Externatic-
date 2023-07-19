@@ -29,6 +29,7 @@ const read = (req, res) => {
 };
 
 const add = (req, res) => {
+  console.log(req.body);
   models.company
     .insert(req.body)
     .then(([result]) => {

@@ -13,7 +13,6 @@ const hashPassword = (req, res, next) => {
     .hash(req.body.password, hashingOptions)
     .then((hashedPassword) => {
       req.body.hashedPassword = hashedPassword;
-
       delete req.body.password;
 
       next();
@@ -72,9 +71,36 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+const verifyCompanyPassword = (req, res) => {
+  argon2
+    .verify(req.user.hashedPassword, req.body.password)
+    .then((isVerified) => {
+      if (isVerified) {
+        const payload = {
+          sub: req.user.id,
+        };
+
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        delete req.user.password;
+
+        res.json({ token, user: req.user });
+      } else {
+        res.sendStatus(401);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   hashPassword,
   verifyPassword,
   verifyToken,
   hashPasswordManual,
+  verifyCompanyPassword,
 };

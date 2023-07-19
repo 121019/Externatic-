@@ -15,8 +15,6 @@ class CandidatManager extends AbstractManager {
 
     const newCandidat = { ...candidat, password: hashedPassword };
 
-    console.error("New Candidat:", newCandidat); // Log the new candidat object
-
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
@@ -34,16 +32,12 @@ class CandidatManager extends AbstractManager {
   }
 
   findByUsernameWithHashedPassword(email) {
-    console.error("Email:", email); // Log the email parameter
-
     return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
       email,
     ]);
   }
 
   findByName(name) {
-    console.error("Name:", name); // Log the name parameter
-
     return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
     ]);
@@ -52,8 +46,6 @@ class CandidatManager extends AbstractManager {
   async update(candidat) {
     const hashedPassword = await hashPassword(candidat.password);
     const updatedCandidat = { ...candidat, password: hashedPassword };
-
-    console.error("Updated Candidat:", updatedCandidat); // Log the updated candidat object
 
     return this.database.query(
       `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
@@ -89,16 +81,12 @@ class CandidatManager extends AbstractManager {
   async verifyUserPassword(email, password) {
     const [rows] = await this.findByUsernameWithHashedPassword(email);
 
-    console.error("Rows:", rows); // Log the retrieved rows
-
     if (!rows[0]) {
       console.error("Candidat not found");
       return false;
     }
 
     const candidat = rows[0];
-
-    console.error("Candidat:", candidat); // Log the candidat object
 
     const isPasswordValid = await verifyPassword(candidat.password, password);
 
