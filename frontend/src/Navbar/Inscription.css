@@ -55,7 +55,7 @@
 
 .Inscription input[type="submit"] {
   padding: 0.6rem 5rem;
-  border-color: #ca1f62;
+  border-color: white;
   color: white;
   border: none;
   border-radius: 10rem;
@@ -95,10 +95,15 @@
     width: 80%;
     margin-top: 1.5rem;
     padding-top:2rem;
-  }
- 
+  } 
+  
   .inscription_content label {
     margin: -0.4rem;
     margin-bottom: -1rem;
   }
 }
+
+.validate > input{
+  background-color:#ca1f62;
+}
+

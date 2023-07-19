@@ -1,3 +1,6 @@
+const { v4: uuidv4 } = require("uuid");
+
+const fs = require("fs");
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -5,6 +8,24 @@ const browse = (req, res) => {
     .findAll()
     .then(([rows]) => {
       res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const findCv = (req, res) => {
+  const { id } = req.params;
+  models.candidat
+    .find(id)
+    .then(([rows]) => {
+      if (rows.length > 0) {
+        const cvPath = rows[0].cv; // Assuming the file path is stored in the 'cv' field
+        res.json({ cvPath });
+      } else {
+        res.sendStatus(404); // Handle case where CV is not found for the given ID
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -32,8 +53,7 @@ const add = (req, res) => {
   models.candidat
     .insert(req.body)
     .then(([createdUser]) => {
-      console.error(createdUser);
-      res.status(201).send("created");
+      res.status(201).json({ id: createdUser.insertId });
     })
     .catch((err) => {
       console.error(err);
@@ -60,6 +80,34 @@ const edit = (req, res) => {
       console.error(err);
       res.sendStatus(500);
     });
+};
+const insertCv = async (req, res) => {
+  const { originalname, filename } = req.file;
+  const { id } = req.params;
+
+  if (!req.file) {
+    return res.status(400).send("Invalid file data");
+  }
+
+  const sourcePath = `./public/uploads/${filename}`;
+  const destinationPath = `./public/uploads/${uuidv4()}-${originalname}`;
+
+  try {
+    if (fs.existsSync(sourcePath)) {
+      fs.renameSync(sourcePath, destinationPath);
+    } else {
+      throw new Error("Source file not found");
+    }
+
+    const cvPath = destinationPath;
+
+    await models.candidat.sendCv(id, cvPath); // Assuming the method to update the CV is called insertCv
+
+    return res.sendStatus(204);
+  } catch (error) {
+    console.error(error);
+    return res.sendStatus(500);
+  }
 };
 
 const destroy = (req, res) => {
@@ -92,7 +140,7 @@ const uploadCV = (req, res) => {
 
   // Assuming the file upload is successful, you can send a response
   res.status(200).json({
-    message: "File uploaded successfully",
+    message: "File uploaded successfully!!!",
     filename: originalname,
     size,
     mimetype,
@@ -106,4 +154,7 @@ module.exports = {
   edit,
   destroy,
   uploadCV,
+
+  insertCv,
+  findCv,
 };

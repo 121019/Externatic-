@@ -11,8 +11,6 @@ class CandidatManager extends AbstractManager {
 
     const newCandidat = { ...candidat, password: hashedPassword };
 
-    console.error("New Candidat:", newCandidat); // Log the new candidat object
-
     return this.database.query(
       `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
@@ -30,16 +28,12 @@ class CandidatManager extends AbstractManager {
   }
 
   findByUsernameWithHashedPassword(email) {
-    console.error("Email:", email); // Log the email parameter
-
     return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
       email,
     ]);
   }
 
   find(id) {
-    console.error("ID:", id); // Log the id parameter
-
     return this.database.query(
       `SELECT firstname, lastname, email, cv, adress, city, postcode, phone FROM ${this.table} WHERE id = ?`,
       [id]
@@ -47,15 +41,12 @@ class CandidatManager extends AbstractManager {
   }
 
   findByName(name) {
-    console.error("Name:", name); // Log the name parameter
-
     return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
     ]);
   }
 
   async update(candidat) {
-    console.warn("Updated Candidat:", candidat); // Log the updated candidat object
     let query;
     if (candidat.password === "") {
       query = this.database.query(
@@ -92,10 +83,22 @@ class CandidatManager extends AbstractManager {
     return query;
   }
 
+  sendCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
+
+  async updateCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
+
   async verifyUserPassword(email, password) {
     const [rows] = await this.findByUsernameWithHashedPassword(email);
-
-    console.error("Rows:", rows); // Log the retrieved rows
 
     if (!rows[0]) {
       console.error("Candidat not found");
@@ -103,8 +106,6 @@ class CandidatManager extends AbstractManager {
     }
 
     const candidat = rows[0];
-
-    console.error("Candidat:", candidat); // Log the candidat object
 
     const isPasswordValid = await verifyPassword(candidat.password, password);
 

@@ -1,19 +1,17 @@
-// import some node modules for later
-
-const fs = require("node:fs");
-const path = require("node:path");
-
-// create express app
-
 const express = require("express");
+
+const path = require("node:path");
 
 const app = express();
 
-// use some application-level middlewares
-
-app.use(express.json());
-
 const cors = require("cors");
+
+const fs = require("node:fs");
+
+const router = require("./router");
+
+// middlewares
+app.use(express.json());
 
 app.use(
   cors({
@@ -22,9 +20,9 @@ app.use(
   })
 );
 
-const router = require("./router");
-
 app.use(router);
+
+/* serve static */
 
 app.use(express.static(path.join(__dirname, "../public")));
 

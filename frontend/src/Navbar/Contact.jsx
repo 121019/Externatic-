@@ -23,9 +23,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Envoyer le formulaire ou effectuer d'autres actions
-    // ...
-
     // Réinitialiser le formulaire après l'envoi
     setFormData({
       nom: "",
