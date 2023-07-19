@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./CompanyPage.css";
 import { Link } from "react-router-dom";
-import JobSubmissionForm from "./JobSubmissionForm";
 
 import { useUser } from "../../contexts/UserContext";
 import { useAuth } from "../../contexts/AuthContext";
@@ -42,9 +41,7 @@ function CompanyPage() {
       <section className="companyPage_companyoffers">
         <h3> Offres d'emplois publiées :</h3>
         <Link to="/newoffer">
-          <button type="submit" onClick={JobSubmissionForm}>
-            new
-          </button>
+          <button type="button">new</button>
         </Link>
         <div>
           <p>Développeur Front-end</p>

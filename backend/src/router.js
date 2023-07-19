@@ -13,7 +13,6 @@ const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
 const {
-  hashPassword,
   verifyPassword,
   verifyCompanyPassword,
   verifyToken,
@@ -47,7 +46,7 @@ router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.get("/company", companyControllers.browse);
 router.get("/company/:id", companyControllers.read);
-router.post("/company", hashPassword, companyControllers.add);
+router.post("/company", hashPasswordMiddleware, companyControllers.add);
 router.post(
   "/company/login",
   authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
@@ -59,6 +58,6 @@ router.post(
 router.use(verifyToken);
 
 router.delete("/company/:id", companyControllers.destroy);
-router.put("/company/:id", hashPassword, companyControllers.edit);
+router.put("/company/:id", hashPasswordMiddleware, companyControllers.edit);
 
 module.exports = router;
