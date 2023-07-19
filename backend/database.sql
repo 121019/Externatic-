@@ -54,7 +54,7 @@ CREATE TABLE `Candidats` (
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `hashedpassword` varchar(100) NOT NULL,
   `cv` text,
   `adress` varchar(255) NOT NULL,
   `city` varchar(100) NOT NULL,

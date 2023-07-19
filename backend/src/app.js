@@ -11,6 +11,7 @@ const fs = require("node:fs");
 const router = require("./router");
 
 // middlewares
+
 app.use(express.json());
 
 app.use(

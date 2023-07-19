@@ -14,6 +14,7 @@ import MonProfil from "./Navbar/MonProfil";
 import MyCv from "./components/MyCv";
 import CompanyRegistration from "./components/Company/CompanyRegistration";
 import "./App.css";
+import JobSubmissionForm from "./components/JobSubmissionForm";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -48,6 +49,7 @@ function App() {
             path="/companyregistration"
             element={<CompanyRegistration />}
           />
+          <Route path="/newoffer" element={<JobSubmissionForm />} />
         </Routes>
         <Footer />
       </div>
