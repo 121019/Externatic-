@@ -1,4 +1,4 @@
-const { verifyPassword, hashPasswordManual } = require("../services/auth");
+const { verifyPassword } = require("../services/auth");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -6,23 +6,19 @@ class CandidatManager extends AbstractManager {
     super({ table: "Candidats" });
   }
 
-  async insert(candidat) {
-    const hashedPassword = await hashPasswordManual(candidat.password);
-
-    const newCandidat = { ...candidat, password: hashedPassword };
-
+  insert(candidat) {
     return this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, hashedPassword, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
-        newCandidat.firstname,
-        newCandidat.lastname,
-        newCandidat.email,
-        newCandidat.password,
-        newCandidat.cv,
-        newCandidat.adress,
-        newCandidat.city,
-        newCandidat.postcode,
-        newCandidat.phone,
+        candidat.firstname,
+        candidat.lastname,
+        candidat.email,
+        candidat.hashedPassword,
+        candidat.cv,
+        candidat.adress,
+        candidat.city,
+        candidat.postcode,
+        candidat.phone,
       ]
     );
   }
