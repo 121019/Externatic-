@@ -56,7 +56,7 @@ function Inscription() {
 
     fetch(
       `${
-        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
       }/candidats`,
       {
         method: "post",
@@ -77,7 +77,7 @@ function Inscription() {
     )
       .then((response) => response.json())
       .then(() => {
-        navigate("/");
+        navigate("/espace");
       });
   };
   return (
