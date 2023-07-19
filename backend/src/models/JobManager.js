@@ -7,29 +7,31 @@ class JobManager extends AbstractManager {
 
   insert(JobOffer) {
     return this.database.query(
-      `insert into ${this.table} (JobTitle, Description, Location, Upload_Date, Contract_Type, Enterprise_id) values (?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (JobTitle, Description, Location, Upload_Date, Contract_Type, Enterprise_id, category ) values (?, ?, ?, ?, ?, ?,?)`,
       [
         JobOffer.JobTitle,
         JobOffer.Description,
         JobOffer.Location,
-        JobOffer.Upload_Date,
-        JobOffer.Contract_Type,
-        JobOffer.Enterprise_id,
+        JobOffer.UploadDate,
+        JobOffer.ContractType,
+        JobOffer.EnterpriseId,
+        JobOffer.category,
       ]
     );
   }
 
   update(JobOffer) {
     return this.database.query(
-      `update ${this.table} set JobTitle = ?, Description = ?, Location = ?, Upload_Date = ?, Contract_Type = ?, Enterprise_id = ?  where id = ?`,
+      `update ${this.table} set JobTitle = ?, Description = ?, Location = ?, Upload_Date = ?, Contract_Type = ?, Enterprise_id = ? , category =?, where id = ?`,
       [
         JobOffer.JobTitle,
         JobOffer.Description,
         JobOffer.Location,
-        JobOffer.Upload_Date,
-        JobOffer.Contract_Type,
-        JobOffer.Enterprise_id,
+        JobOffer.UploadDate,
+        JobOffer.ContractType,
+        JobOffer.EnterpriseId,
         JobOffer.id,
+        JobOffer.category,
       ]
     );
   }
