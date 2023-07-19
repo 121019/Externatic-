@@ -82,7 +82,7 @@
   color: transparent;
 }
 
-.search-box button:hover:after {
+.search-box button:hover {
   cursor: pointer;
 }
 
