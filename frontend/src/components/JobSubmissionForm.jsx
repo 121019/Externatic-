@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import "./JobSubmissionForm.css";
 
 function JobSubmissionForm() {
   const JobTitleRef = useRef();
@@ -59,9 +60,9 @@ function JobSubmissionForm() {
 
   return (
     <div>
-      <div id="jobFormComponent">
+      <div id="jobFormComponent" className="jobFormComponent">
         <h1>Job Submission Form</h1>
-        <form id="jobForm" onSubmit={handleSubmit}>
+        <form id="jobForm" className="jobForm" onSubmit={handleSubmit}>
           <label htmlFor="JobTitle">Job Title:</label>
           <input
             type="text"

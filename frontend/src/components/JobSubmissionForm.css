@@ -1,0 +1,19 @@
+.jobFormComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ca1f62;
+  height: 70vh;
+  width: 40vh;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-left: 0;
+  border-radius: 0 5px 5px 0;
+}
+.jobForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
