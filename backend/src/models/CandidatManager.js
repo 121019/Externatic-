@@ -1,8 +1,4 @@
-const {
-  hashPassword,
-  verifyPassword,
-  hashPasswordManual,
-} = require("../services/auth");
+const { verifyPassword, hashPasswordManual } = require("../services/auth");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -37,6 +33,13 @@ class CandidatManager extends AbstractManager {
     ]);
   }
 
+  find(id) {
+    return this.database.query(
+      `SELECT firstname, lastname, email, cv, adress, city, postcode, phone FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
+  }
+
   findByName(name) {
     return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
@@ -44,24 +47,40 @@ class CandidatManager extends AbstractManager {
   }
 
   async update(candidat) {
-    const hashedPassword = await hashPassword(candidat.password);
-    const updatedCandidat = { ...candidat, password: hashedPassword };
-
-    return this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
-      [
-        updatedCandidat.firstname,
-        updatedCandidat.lastname,
-        updatedCandidat.email,
-        updatedCandidat.password,
-        updatedCandidat.cv,
-        updatedCandidat.adress,
-        updatedCandidat.city,
-        updatedCandidat.postcode,
-        updatedCandidat.phone,
-        updatedCandidat.id,
-      ]
-    );
+    let query;
+    if (candidat.password === "") {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    } else {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.hashedPassword,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    }
+    return query;
   }
 
   sendCv(id, cv) {
