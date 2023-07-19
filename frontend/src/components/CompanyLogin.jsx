@@ -60,8 +60,8 @@ function Login() {
               fetch(
                 `${
                   import.meta.env.VITE_BACKEND_URL ??
-                  "http://localhost:5080/login"
-                }/login`,
+                  "http://localhost:5080/company/login"
+                }/company/login`,
                 {
                   method: "post",
                   headers: {

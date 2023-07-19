@@ -49,6 +49,12 @@ class CompanyManager extends AbstractManager {
       ]
     );
   }
+
+  findByCompanynameWithHashedPassword(email) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
+      email,
+    ]);
+  }
 }
 
 module.exports = CompanyManager;
