@@ -97,7 +97,7 @@ function Login() {
                 id="password"
                 name="password"
               />
-              <button type="submit">*mot de passe oublié?</button>
+              <button type="button">*mot de passe oublié?</button>
             </div>
             <div className="connexion_button">
               <button className="connexion_submitButton" type="submit">
@@ -105,7 +105,7 @@ function Login() {
               </button>
               <button
                 className="connexion_submitButton"
-                type="submit"
+                type="button"
                 id="connexion_entreprise_button"
                 onClick={handlechange}
               >
