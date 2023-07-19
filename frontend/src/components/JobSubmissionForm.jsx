@@ -9,6 +9,7 @@ function JobSubmissionForm() {
   const UploadDateRef = useRef();
   const ContractTypeRef = useRef();
   const EnterpriseIdRef = useRef();
+  const categoryRef = useRef();
 
   const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ function JobSubmissionForm() {
       LocationRef.current.value === "" ||
       UploadDateRef.current.value === "" ||
       ContractTypeRef.current.value === "" ||
-      EnterpriseIdRef.current.value === ""
+      EnterpriseIdRef.current.value === "" ||
+      categoryRef.current.value === ""
     ) {
       return;
     }
@@ -34,6 +36,7 @@ function JobSubmissionForm() {
     const UploadDate = UploadDateRef.current.value;
     const ContractType = ContractTypeRef.current.value;
     const EnterpriseId = EnterpriseIdRef.current.value;
+    const category = categoryRef.current.value;
 
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/jobs`,
@@ -49,17 +52,18 @@ function JobSubmissionForm() {
           UploadDate,
           ContractType,
           EnterpriseId,
+          category,
         }),
       }
     )
       .then((response) => response.json())
       .then(() => {
-        navigate("/");
+        navigate("/companypage");
       });
   };
 
   return (
-    <div>
+    <div className="JobFormDiv">
       <div id="jobFormComponent" className="jobFormComponent">
         <h1>Job Submission Form</h1>
         <form id="jobForm" className="jobForm" onSubmit={handleSubmit}>
@@ -72,7 +76,6 @@ function JobSubmissionForm() {
             ref={JobTitleRef}
           />
           <br />
-
           <label htmlFor="Description">Description:</label>
           <br />
           <textarea
@@ -84,11 +87,9 @@ function JobSubmissionForm() {
             ref={DescriptionRef}
           />
           <br />
-
           <label htmlFor="location">Location:</label>
           <input type="text" name="location" id="location" ref={LocationRef} />
           <br />
-
           <label htmlFor="uploadDate">Upload Date:</label>
           <input
             type="date"
@@ -97,7 +98,6 @@ function JobSubmissionForm() {
             ref={UploadDateRef}
           />
           <br />
-
           <label htmlFor="contractType">Contract Type:</label>
           <input
             type="text"
@@ -106,7 +106,6 @@ function JobSubmissionForm() {
             ref={ContractTypeRef}
           />
           <br />
-
           <label htmlFor="enterpriseId">Enterprise ID:</label>
           <input
             type="number"
@@ -115,11 +114,10 @@ function JobSubmissionForm() {
             ref={EnterpriseIdRef}
           />
           <br />
-
           <label htmlFor="category">Category:</label>
-          <input type="text" name="category" id="category" />
-          <br />
+          <input type="text" name="category" id="category" ref={categoryRef} />
 
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>
