@@ -21,7 +21,14 @@ router.delete("/jobs/:id", jobControllers.destroy);
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
 router.post("/candidats", candidatsControllers.add);
-router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
+router.put(
+  "/candidats/:id",
+  (req, res, next) => {
+    if (req.body.password === "") next();
+    else hashPassword(req, res, next);
+  },
+  candidatsControllers.edit
+);
 router.put(
   "/candidats/cv/:id",
 
