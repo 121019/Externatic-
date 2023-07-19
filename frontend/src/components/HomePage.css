@@ -30,56 +30,117 @@
 .weAre_img {
   height: 25vw;
 }
-/*Carrousel*/
-.slideShow {
+
+/*carousel*/
+.carousel {
+  width: 400px;
+  perspective: 150rem;
+  padding-bottom: 340px;
+
+}
+
+.carousel1  {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  animation: rotate360 120s infinite forwards linear;
+  box-shadow: 0px 0px 100px 50px rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+  transform: rotateY(calc(-360deg / 9 * var(--currentIndex))) translateZ(430px);
+  transition: transform 0.5s; /* Ajoute une transition fluide lors du changement d'annonce */
+
+}
+  
+.carousel2__face { 
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  width: 300px;
+  height: 150px;
   display: flex;
-  flex-wrap: wrap;
-  height: 36vw;
+  animation: changeColor 7s infinite alternate; 
+  cursor:pointer;
   align-items: center;
-}
-.slideShow_box {
-  background-color: #ca1f62;
-  height: 12vw;
-  width: 20vw;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: move 6s linear infinite;
-}
-@keyframes move {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-40%, 0);
-  }
-  75% {
-    transform: translate(+43%, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-.slideShow_box.middle {
-  height: 15vw;
-}
-.slideShow_h2 {
-  color: white;
-  font-size: 1.3em;
   text-align: center;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  margin: 100px auto 0 auto;
+  box-shadow: 0px 0px 100px 50px rgba(255, 255, 255, 0.6);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
 }
-.slideShow_p {
-  color: white;
+
+span {
+    color: white;   
 }
-/* value*/
+.carousel2__face a{
+  text-decoration: none;
+}
+
+
+.carousel2__face:nth-child(1) {
+  transform: rotateY(  0deg) translateZ(430px); }
+.carousel2__face:nth-child(2) { 
+  transform: rotateY( 40deg) translateZ(430px); }
+.carousel2__face:nth-child(3) {
+  transform: rotateY( 80deg) translateZ(430px); }
+.carousel2__face:nth-child(4) {
+  transform: rotateY(120deg) translateZ(430px); }
+.carousel2__face:nth-child(5) { 
+ transform: rotateY(160deg) translateZ(430px); }
+.carousel2__face:nth-child(6) { 
+ transform: rotateY(200deg) translateZ(430px); }
+.carousel2__face:nth-child(7) { 
+ transform: rotateY(240deg) translateZ(430px); }
+.carousel2__face:nth-child(8) { 
+ transform: rotateY(280deg) translateZ(430px); }
+.carousel2__face:nth-child(9) { 
+ transform: rotateY(320deg) translateZ(430px); }
+
+
+ @keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes changeColor {
+  from {
+    background-color: rgba(208, 8, 91, 0.1); /* Couleur départ */
+  }
+  to {
+    background-color: rgba(208, 8, 91, 0.5); /* Couleur finale */
+  }
+}
+.prevBtn,
+.nextBtn {
+  font-size: 2.2rem;
+  color: #851342;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute; 
+  top:9rem;
+}
+
+.prevBtn {
+  left: -25rem;
+}
+
+.nextBtn {
+  right: -25rem;
+}
+
+/*fin carousel*/
+
+
 .value {
   height: 35vw;
-}
+  }
+
 .value_triangle {
   display: flex;
-  flex-direction: row;
   height: 100%;
   background: linear-gradient(
     to bottom right,
@@ -91,16 +152,13 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
-.value_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+
 .value_h2 {
   color: #851342;
   width: 100%;
   padding-left: 10%;
   font-size: 2.5em;
+  
 }
 .value_p {
   color: #851342;
@@ -108,7 +166,7 @@
   font-size: 1.3vw;
   font-weight: 200;
   line-height: 1.5em;
-  width: 30%;
+  width: 40%;
   padding-left: 5%;
   margin: 1% 0 0 10%;
 }
@@ -157,15 +215,7 @@
   .weAre_h2 {
     font-size: 1em;
   }
-  .slideShow_h2 {
-    font-size: 0.3em;
-  }
-  .slideShow_box {
-    height: 17vw;
-  }
-  .slideShow_box.middle {
-    height: 20vw;
-  }
+ 
   .value_h2 {
     font-size: 0.7em;
   }

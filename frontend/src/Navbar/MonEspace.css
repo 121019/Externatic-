@@ -9,18 +9,34 @@
 *{
     font-family: "jost", sans-serif;
 }
-.monEspace {
+.espace {
     background-image: url("../assets/espace.jpeg");
     background-size: cover;
     height: 65em;
     display: flex;
     align-items: center;
 }
-.monEspace h3{
+.espace h3{
     font-size: 3em;
     background-color: rgba(255, 255, 255, 0.61);
     padding: 1% 4%;
     color: var(--secondary_color);
+}
+.espaceNonConnecte{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.espaceNonConnecte-h3{
+    font-size: 2em;
+    background-color: var(--primary_color);
+    padding: 2% 5%;
+    border-radius: 2.5em;
+}
+.espaceNonConnecte-h3-link{
+    text-decoration: none;
+    color: var(--text);
 }
 .espacePersonalise{
     display: flex;
@@ -60,15 +76,28 @@
     gap: 10;
     text-decoration: none;
 }
-@media screen and (max-width: 950px) {
-    
-  }
-  
-  
-@media screen and (max-width: 750px) {
-  
-}
   
 @media screen and (max-width: 550px) {
-  
+    .monEspace{
+        height: 40em;
+    }
+    .espaceNonConnecte-h3{
+        font-size: 1em;
+    }
+    .espace_nomcomplet-h4{
+        margin-left: auto;
+    }
+    .espace_section-bulle{
+        font-size: 1.5em;
+        margin-top: 5%;
+        height: 4em;
+    }
+    .espace_section{
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        gap: 1em;
+        margin-top: 5%;
+        margin-bottom: 11%;
+    }
 }

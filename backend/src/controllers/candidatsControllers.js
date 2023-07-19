@@ -17,8 +17,6 @@ const browse = (req, res) => {
 
 const findCv = (req, res) => {
   const { id } = req.params;
-  console.warn("id from controller", { id });
-  console.warn("res from controller", res);
   models.candidat
     .find(id)
     .then(([rows]) => {
@@ -55,7 +53,6 @@ const add = (req, res) => {
   models.candidat
     .insert(req.body)
     .then(([createdUser]) => {
-      console.error(createdUser);
       res.status(201).json({ id: createdUser.insertId });
     })
     .catch((err) => {
@@ -67,8 +64,6 @@ const add = (req, res) => {
 const edit = (req, res) => {
   const candidat = req.body;
 
-  // TODO validations (length, format...)
-
   candidat.id = parseInt(req.params.id, 10);
 
   models.candidat
@@ -77,7 +72,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(204);
       }
     })
     .catch((err) => {
@@ -88,8 +83,6 @@ const edit = (req, res) => {
 const insertCv = async (req, res) => {
   const { originalname, filename } = req.file;
   const { id } = req.params;
-  console.warn(originalname, filename);
-  console.warn();
 
   if (!req.file) {
     return res.status(400).send("Invalid file data");
@@ -104,10 +97,8 @@ const insertCv = async (req, res) => {
     } else {
       throw new Error("Source file not found");
     }
-    console.warn("sourcepath ", sourcePath);
 
     const cvPath = destinationPath;
-    console.warn(cvPath);
 
     await models.candidat.sendCv(id, cvPath); // Assuming the method to update the CV is called insertCv
 
@@ -142,7 +133,6 @@ const uploadCV = (req, res) => {
 
   // Access the uploaded file details
   const { originalname, size, mimetype } = req.file;
-  console.warn("from  uploadCv candidatcontroller", req.file);
 
   // Perform additional validations or processing as needed
   // For example, you could check the file size, allowed file types, etc.
