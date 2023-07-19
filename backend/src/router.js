@@ -17,7 +17,7 @@ const {
   verifyToken,
 } = require("./services/auth");
 
-//------------   public route  --------------------
+// ------------   public route  --------------------
 
 router.get("/jobs", jobControllers.browse);
 router.get("/jobs/:id", jobControllers.read);
@@ -50,7 +50,7 @@ router.post(
   verifyCompanyPassword
 );
 
-//------------   private route  --------------------
+// ------------   private route  --------------------
 
 router.use(verifyToken);
 
