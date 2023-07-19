@@ -69,7 +69,6 @@ const edit = (req, res) => {
   models.candidat
     .update(candidat)
     .then(([result]) => {
-      console.warn(result);
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
