@@ -66,12 +66,13 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-module.exports = {
-  verifyToken,
+const logout = (req, res) => {
+  res.clearCookie("auth_token").sendStatus(200);
 };
 
 module.exports = {
   hashPasswordMiddleware,
   verifyPassword,
   verifyToken,
+  logout,
 };

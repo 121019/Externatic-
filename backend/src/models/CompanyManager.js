@@ -23,14 +23,14 @@ class CompanyManager extends AbstractManager {
       throw new Error("Invalid or missing 'name' in the company data.");
     }
 
-    const existingCompany = await this.database.query(
-      `SELECT name FROM ${this.table} WHERE name = ?`,
-      [company.name]
-    );
+    // const existingCompany = await this.database.query(
+    //   `SELECT name FROM ${this.table} WHERE name = ?`,
+    //   [company.name]
+    // );
 
-    if (existingCompany.length > 0) {
-      throw new Error("Company with this 'name' already exists.");
-    }
+    // if (existingCompany) {
+    //   throw new Error("Company with this 'name' already exists.");
+    // }
 
     if (!company.email || typeof company.email !== "string") {
       throw new Error("Invalid or missing 'email' in the company data.");

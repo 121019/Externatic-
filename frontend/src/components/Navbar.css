@@ -44,7 +44,6 @@
 .logoExternatic {
   height: 14vh;
   margin-top: 15%;
-
 }
 
 .links_connexion {
@@ -57,6 +56,18 @@
   color: var(--secondary_color);
   text-decoration: none;
   font-weight: 500;
+}
+
+.deconnexion_button {
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+.deconnexion_button:hover {
+  cursor: pointer;
+  background-color: var(--primary_color);
+  color: white;
 }
 
 .connexion p {
