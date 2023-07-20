@@ -32,7 +32,7 @@ const add = (req, res) => {
   models.company
     .insert(req.body)
     .then(([result]) => {
-      res.status(201).send(`Company id: ${result.insertId} created`);
+      res.status(201).send(`Company id: ${result.name} created`);
     })
     .catch((err) => {
       console.error(err);

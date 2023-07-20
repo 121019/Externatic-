@@ -4,8 +4,6 @@ const router = express.Router();
 
 const multer = require("multer");
 
-const { hashPasswordMiddleware } = require("./services/auth");
-
 const upload = multer({ dest: "./public/uploads/" });
 const { validateJobOfferData } = require("./services/ValidateJobs");
 const { validateCompanyData } = require("./services/validateCompanyData");
@@ -14,7 +12,12 @@ const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
-const { verifyPassword, verifyToken } = require("./services/auth");
+const {
+  verifyPassword,
+  verifyToken,
+  hashPasswordMiddleware,
+  logout,
+} = require("./services/auth");
 
 // ------------   public route  --------------------
 
@@ -55,6 +58,8 @@ router.post(
   authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
   verifyPassword
 );
+
+router.get("/logout", logout);
 
 // ------------   private route  --------------------
 
