@@ -20,12 +20,12 @@ class CompanyManager extends AbstractManager {
 
   insert(company) {
     return this.database.query(
-      `INSERT INTO ${this.table} (id, name, email,hashedPassword, description, address, city, postcode) VALUES (?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (id, name, email,hashedpassword, description, address, city, postcode) VALUES (?,?,?,?,?,?,?,?)`,
       [
         company.id,
         company.name,
         company.email,
-        company.hashedPassword,
+        company.hashedpassword,
         company.description,
         company.address,
         company.city,

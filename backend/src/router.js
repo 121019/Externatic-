@@ -12,11 +12,7 @@ const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
-const {
-  verifyPassword,
-  verifyCompanyPassword,
-  verifyToken,
-} = require("./services/auth");
+const { verifyPassword, verifyToken } = require("./services/auth");
 
 // ------------   public route  --------------------
 
@@ -50,7 +46,7 @@ router.post("/company", hashPasswordMiddleware, companyControllers.add);
 router.post(
   "/company/login",
   authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
-  verifyCompanyPassword
+  verifyPassword
 );
 
 // ------------   private route  --------------------

@@ -85,7 +85,7 @@ CREATE TABLE `Enterprise` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `hashedPassword` varchar(100) NOT NULL,
+  `hashedpassword` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(100) NOT NULL,
