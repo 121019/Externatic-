@@ -1,4 +1,7 @@
-.whatDownloadCv{
+.upload{
+    width: 80%;
+}
+.whyDownloadCv{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,8 +9,6 @@
     background-color: white;
     color: var(--secondary_color);
     text-align: center;
-    width: 55em;
-    height: 8em;
     margin-top: 4%;
     margin-left: 0;
     align-items: center;
@@ -17,7 +18,7 @@
     margin-bottom: 5%;
 }
 
-.whatDownloadCv button{
+.whyDownloadCv button{
     cursor: pointer;
     border-color: none;
     border-style: none;
@@ -25,14 +26,16 @@
     font-size: 1.5em;
     font-weight: 500;
     background-color: white;
+    border-radius: 9px;
 }
-.whatDownloadCv p{
+.whyDownloadCv p{
     font-size: 1.2em;
 
 }
-.whatDownloadCv p a{
-    color: var(--text);
+.whyDownloadCv p a{
+    color: var(--secondary_color);
     text-decoration: none;
+    font-weight: 500;
 }
 .downloadCv{
     display: flex;
@@ -43,6 +46,7 @@
     background-color: white;
     height: 3em;
     border-radius: 9px;
+    margin-bottom: 3%;
 }
 .downloadCv input{
 }

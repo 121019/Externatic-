@@ -1,3 +1,19 @@
+.cvNonConnecte{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cvNonConnecte-h3{
+    font-size: 2em;
+    background-color: var(--primary_color);
+    padding: 2% 5%;
+    border-radius: 2.5em;
+}
+.cvNonConnecte-h3-link{
+    text-decoration: none;
+    color: var(--text);
+}
 .cv {
     background-image: url("../assets/espace.jpeg");
     background-size: cover;
@@ -23,6 +39,17 @@
     margin-top: 4%;
     border-radius: 9px;
     text-decoration: none;
-    margin-bottom: 5%;
-
+    margin-bottom: 4%;
+    padding-bottom: 3%;
+    box-shadow: var(--primary_shadow);
+}
+@media screen and (max-width: 1165px) {
+    .cv{
+        height: 40em;
+    }
+}
+@media screen and (max-width: 550px) {
+    .cv{
+        height: 30em;
+    }
 }

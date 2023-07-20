@@ -75,6 +75,8 @@
     border-radius: 9px;
     gap: 10;
     text-decoration: none;
+    box-shadow: var(--primary_shadow);
+
 }
   
 @media screen and (max-width: 1165px) {

@@ -51,8 +51,8 @@ function Cvupload() {
   };
 
   return (
-    <div>
-      <div className="whatDownloadCv">
+    <div className="upload">
+      <div className="whyDownloadCv">
         <button type="button" onClick={toggleParagraph}>
           Pourquoi télécharger son CV ?
         </button>
@@ -77,7 +77,7 @@ function Cvupload() {
           encType="multipart/form-data"
         >
           <input type="file" name="myfile" onChange={handleFileChange} />
-          <button type="submit">Téléchargement</button>
+          <button type="submit">Envoyer</button>
         </form>
         {uploadStatus === "success" && <p>File uploaded successfully!</p>}
         {uploadStatus === "error" && <p>Error uploading file.</p>}

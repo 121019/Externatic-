@@ -1,0 +1,24 @@
+.cvRender{
+    width: 80%;
+}
+.cvRender_lien a{
+    display: none;
+}
+@media screen and (max-width: 1235px) {
+    .cvRender object{
+        display: none;
+    }
+    .cvRender_lien a{
+        display: inline-block;
+        background-color: white;
+        color: var(--secondary_color);
+        text-decoration: none;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 9px;
+        margin-top: 3%;
+        font-weight: 500;
+        font-size: 1.5em;
+
+    }
+}

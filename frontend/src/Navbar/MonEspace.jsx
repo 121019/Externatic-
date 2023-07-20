@@ -2,18 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MonEspace.css";
 import { useUser } from "../contexts/UserContext";
-import { useAuth } from "../contexts/AuthContext";
 
 function MonEspace() {
   const { user } = useUser();
-  const { token } = useAuth();
 
   return (
     <>
       <div className="espace">
         <h3>Mon espace</h3>
       </div>
-      {token === false ? (
+      {user === false ? (
         <div className="espaceNonConnecte">
           <h3 className="espaceNonConnecte-h3">
             <Link className="espaceNonConnecte-h3-link" to="/connexion">
