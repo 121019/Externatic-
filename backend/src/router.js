@@ -5,6 +5,8 @@ const router = express.Router();
 const multer = require("multer");
 
 const upload = multer({ dest: "./public/uploads/" });
+const { validateJobOfferData } = require("./services/ValidateJobs");
+const { validateCompanyData } = require("./services/validateCompanyData");
 
 const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
@@ -20,7 +22,7 @@ const {
 // ------------   public route  --------------------
 
 router.get("/jobs", jobControllers.browse);
-router.post("/jobs", jobControllers.add);
+router.post("/jobs", validateJobOfferData, jobControllers.add);
 router.get("/jobs/:id", jobControllers.read);
 router.put("/jobs/:id", jobControllers.edit);
 router.delete("/jobs/:id", jobControllers.destroy);
@@ -45,7 +47,12 @@ router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.get("/company", companyControllers.browse);
 router.get("/company/:id", companyControllers.read);
-router.post("/company", hashPasswordMiddleware, companyControllers.add);
+router.post(
+  "/company",
+  validateCompanyData,
+  hashPasswordMiddleware,
+  companyControllers.add
+);
 router.post(
   "/company/login",
   authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
