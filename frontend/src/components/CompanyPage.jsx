@@ -49,6 +49,7 @@ function CompanyPage() {
             new
           </button>
         </Link>
+
         <div>
           <p>Développeur Front-end</p>
           <p> Publiée le 12/07/2023</p>{" "}

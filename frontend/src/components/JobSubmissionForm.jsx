@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
+
 import { useRef } from "react";
+
 import "./JobSubmissionForm.css";
 
 function JobSubmissionForm() {
@@ -61,7 +63,18 @@ function JobSubmissionForm() {
         navigate("/companypage");
       });
   };
+  const handleJobTitleChange = () => {
+    const { value } = JobTitleRef;
+    const regex = /^[A-Za-z 1-9]+$/;
 
+    if (!regex.test(value)) {
+      JobTitleRef.setCustomValidity(
+        "Only letters (A-Z, a-z ,1-9) are allowed in the Job Title."
+      );
+    } else {
+      JobTitleRef.setCustomValidity("");
+    }
+  };
   return (
     <div className="JobFormDiv">
       <div id="jobFormComponent" className="jobFormComponent">
@@ -74,6 +87,8 @@ function JobSubmissionForm() {
             id="JobTitle"
             required
             ref={JobTitleRef}
+            pattern={handleJobTitleChange}
+            placeholder="JobTitle"
           />
           <br />
           <label htmlFor="Description">Description:</label>
@@ -85,17 +100,25 @@ function JobSubmissionForm() {
             cols="50"
             required
             ref={DescriptionRef}
+            placeholder="Description"
           />
           <br />
           <label htmlFor="location">Location:</label>
-          <input type="text" name="location" id="location" ref={LocationRef} />
+          <input
+            type="text"
+            name="location"
+            id="location"
+            ref={LocationRef}
+            placeholder="location"
+          />
           <br />
-          <label htmlFor="uploadDate">Upload Date:</label>
+          <label htmlFor="uploadDate">Date de submition:</label>
           <input
             type="date"
             name="uploadDate"
             id="uploadDate"
             ref={UploadDateRef}
+            placeholder="uploadDate"
           />
           <br />
           <label htmlFor="contractType">Contract Type:</label>
@@ -104,6 +127,7 @@ function JobSubmissionForm() {
             name="contractType"
             id="contractType"
             ref={ContractTypeRef}
+            placeholder="contractType"
           />
           <br />
           <label htmlFor="enterpriseId">Enterprise ID:</label>
@@ -112,10 +136,17 @@ function JobSubmissionForm() {
             name="enterpriseId"
             id="enterpriseId"
             ref={EnterpriseIdRef}
+            placeholder="entrepriseId"
           />
           <br />
           <label htmlFor="category">Category:</label>
-          <input type="text" name="category" id="category" ref={categoryRef} />
+          <input
+            type="text"
+            name="category"
+            id="category"
+            ref={categoryRef}
+            placeholder="category"
+          />
 
           <br />
           <input type="submit" value="Submit" />
