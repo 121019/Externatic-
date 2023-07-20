@@ -26,3 +26,12 @@
   flex-wrap: wrap;
   align-content: center;
 }
+
+.jobSubmissionForm_unconnect {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.8em;
+  color: var(--secondary_color);
+  font-weight: 500;
+}

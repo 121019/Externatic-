@@ -285,3 +285,33 @@
   height: auto;
   width: 100%;
 }
+
+/*/ ///////////////////////////////////////////////
+///////      Section 8 Non connecté        ////////
+////////////////////////////////////////////////*/
+
+.companyPage_unlogin {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--secondary_color);
+  font-size: 1.5em;
+  font-weight: 500;
+  gap: 20px;
+}
+
+.companyPage_unlogin button {
+  border: none;
+  background-color: var(--primary_color);
+  font-size: 0.8em;
+  color: white;
+  padding: 10%;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.companyPage_unlogin button:hover {
+  cursor: pointer;
+}

@@ -20,7 +20,7 @@ function CompanyPage() {
 
   return (
     <div className="companyPage">
-      {user.role === "company" ? (
+      {user && user.role === "company" ? (
         <>
           <section className="companyPage_header">
             <h3>Espace Entreprise</h3>
@@ -155,7 +155,7 @@ function CompanyPage() {
           </section>{" "}
         </>
       ) : (
-        <div>
+        <div className="companyPage_unlogin">
           <p>Espace réservé aux entreprises</p>
           <p>Connectez-vous</p>
           <Link to="/companylogin">
