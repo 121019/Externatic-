@@ -8,10 +8,11 @@ import Inscription from "./Navbar/Inscription";
 import Connexion from "./Navbar/Connexion";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
-import CompanyLogin from "./components/CompanyLogin";
-import CompanyPage from "./components/CompanyPage";
+import CompanyLogin from "./components/Company/CompanyLogin";
+import CompanyPage from "./components/Company/CompanyPage";
 import MonProfil from "./Navbar/MonProfil";
 import MyCv from "./components/MyCv";
+import CompanyRegistration from "./components/Company/CompanyRegistration";
 import "./App.css";
 import JobSubmissionForm from "./components/JobSubmissionForm";
 
@@ -44,6 +45,10 @@ function App() {
           <Route path="/companylogin" element={<CompanyLogin />} />
           <Route path="/companypage" element={<CompanyPage />} />
           <Route path="/mycv" element={<MyCv />} />
+          <Route
+            path="/companyregistration"
+            element={<CompanyRegistration />}
+          />
           <Route path="/newoffer" element={<JobSubmissionForm />} />
         </Routes>
         <Footer />
