@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Upload.css";
 
 import { useUser } from "../contexts/UserContext";
 
 function Cvupload() {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(null);
+  const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const { user } = useUser();
+
+  const toggleParagraph = () => {
+    setIsParagraphVisible(!isParagraphVisible);
+  };
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -46,13 +52,36 @@ function Cvupload() {
 
   return (
     <div>
-      <h2>Upload CV</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <input type="file" name="myfile" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
-      </form>
-      {uploadStatus === "success" && <p>File uploaded successfully!</p>}
-      {uploadStatus === "error" && <p>Error uploading file.</p>}
+      <div className="whatDownloadCv">
+        <button type="button" onClick={toggleParagraph}>
+          Pourquoi télécharger son CV ?
+        </button>
+        {isParagraphVisible && (
+          <div>
+            <p>
+              Il est recommandé de télécharger son CV pour que l'ensemble des
+              recruteurs puissent le visualiser.
+            </p>
+            <p>
+              Pensez à créer un CV lisible et sans faute d'orthographe, vous
+              pouvez vous aider de <a href="https://www.canva.com/">CANVA </a>
+              par exemple.
+            </p>
+          </div>
+        )}
+      </div>
+      <div className="downloadCv">
+        <form
+          className="downloadCv-form"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
+          <input type="file" name="myfile" onChange={handleFileChange} />
+          <button type="submit">Téléchargement</button>
+        </form>
+        {uploadStatus === "success" && <p>File uploaded successfully!</p>}
+        {uploadStatus === "error" && <p>Error uploading file.</p>}
+      </div>
     </div>
   );
 }

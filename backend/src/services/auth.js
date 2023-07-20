@@ -8,12 +8,11 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const hashPassword = (req, res, next) => {
+const hashPasswordMiddleware = (req, res, next) => {
   argon2
     .hash(req.body.password, hashingOptions)
     .then((hashedPassword) => {
-      req.body.hashedPassword = hashedPassword;
-
+      req.body.hashedpassword = hashedPassword;
       delete req.body.password;
 
       next();
@@ -24,13 +23,9 @@ const hashPassword = (req, res, next) => {
     });
 };
 
-const hashPasswordManual = async (password) => {
-  return argon2.hash(password, hashingOptions);
-};
-
 const verifyPassword = (req, res) => {
-  argon2.verify(req.user.password, req.body.password).then((ok) => {
-    if (ok) {
+  argon2.verify(req.user.hashedpassword, req.body.password).then((isVerify) => {
+    if (isVerify) {
       const payload = {
         sub: req.user.id,
       };
@@ -39,7 +34,7 @@ const verifyPassword = (req, res) => {
         expiresIn: "1h",
       });
 
-      delete req.user.password;
+      delete req.user.hashedpassword;
 
       res.json({ token, user: req.user });
     } else {
@@ -73,8 +68,7 @@ const verifyToken = (req, res, next) => {
 };
 
 module.exports = {
-  hashPassword,
+  hashPasswordMiddleware,
   verifyPassword,
   verifyToken,
-  hashPasswordManual,
 };

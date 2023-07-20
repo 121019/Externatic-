@@ -1,0 +1,49 @@
+.whatDownloadCv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: var(--secondary_color);
+    text-align: center;
+    width: 55em;
+    height: 8em;
+    margin-top: 4%;
+    margin-left: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    text-decoration: none;
+    margin-bottom: 5%;
+}
+
+.whatDownloadCv button{
+    cursor: pointer;
+    border-color: none;
+    border-style: none;
+    color: var(--secondary_color);
+    font-size: 1.5em;
+    font-weight: 500;
+    background-color: white;
+}
+.whatDownloadCv p{
+    font-size: 1.2em;
+
+}
+.whatDownloadCv p a{
+    color: var(--text);
+    text-decoration: none;
+}
+.downloadCv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--secondary_color);
+    background-color: white;
+    height: 3em;
+    border-radius: 9px;
+}
+.downloadCv input{
+    background-color: var(--primary_color);
+}

@@ -1,0 +1,28 @@
+.cv {
+    background-image: url("../assets/espace.jpeg");
+    background-size: cover;
+    height: 65em;
+    display: flex;
+    align-items: center;
+}
+.cv h3{
+    font-size: 3em;
+    background-color: rgba(255, 255, 255, 0.61);
+    padding: 1% 4%;
+    color: var(--secondary_color);
+}
+.designMyCv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary_color);
+    color: var(--text);
+    text-align: center;
+    width: 70%;
+    margin-top: 4%;
+    border-radius: 9px;
+    text-decoration: none;
+    margin-bottom: 5%;
+
+}
