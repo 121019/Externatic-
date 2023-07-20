@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "../../Navbar/connexion.css";
 import homeImg from "../../assets/home_img_company.jpg";
 
-import { useAuth } from "../../contexts/AuthContext";
 import { useUser } from "../../contexts/UserContext";
 
 function Login() {
   const nameRef = useRef();
   const passwordRef = useRef();
 
-  const { setToken } = useAuth();
   const { setUser } = useUser();
   const navigate = useNavigate();
 
@@ -54,6 +52,7 @@ function Login() {
         headers: {
           "content-type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           name: nameRef.current.value,
           password: passwordRef.current.value,
@@ -62,7 +61,6 @@ function Login() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setToken(data.token);
         setUser(data.user);
         navigate("/companypage");
       });

@@ -8,14 +8,18 @@ const cors = require("cors");
 
 const fs = require("node:fs");
 
+const cookieParser = require("cookie-parser");
+
 const router = require("./router");
 
 // middlewares
 
 app.use(express.json());
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use(
   cors({
+    credentials: true,
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
   })
