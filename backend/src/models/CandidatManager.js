@@ -3,6 +3,7 @@ const {
   verifyPassword,
   hashPasswordManual,
 } = require("../services/auth");
+
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -31,7 +32,7 @@ class CandidatManager extends AbstractManager {
     );
   }
 
-  findByUsernameWithHashedPassword(email) {
+  findByEmail(email) {
     return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
       email,
     ]);
@@ -79,7 +80,7 @@ class CandidatManager extends AbstractManager {
   }
 
   async verifyUserPassword(email, password) {
-    const [rows] = await this.findByUsernameWithHashedPassword(email);
+    const [rows] = await this.findByEmail(email);
 
     if (!rows[0]) {
       console.error("Candidat not found");

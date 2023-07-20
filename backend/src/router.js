@@ -1,13 +1,14 @@
 const express = require("express");
 
-const router = express.Router();
-
 const multer = require("multer");
+
+const validateUserForm = require("./services/validate");
+
+const router = express.Router();
 
 const upload = multer({ dest: "./public/uploads/" });
 
 const candidatsControllers = require("./controllers/candidatsControllers");
-
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
@@ -20,7 +21,7 @@ router.delete("/jobs/:id", jobControllers.destroy);
 
 router.get("/candidats", candidatsControllers.browse);
 router.get("/candidats/:id", candidatsControllers.read);
-router.post("/candidats", candidatsControllers.add);
+router.post("/candidats", validateUserForm, candidatsControllers.add);
 router.put("/candidats/:id", hashPassword, candidatsControllers.edit);
 router.put(
   "/candidats/cv/:id",
