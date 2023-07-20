@@ -1,23 +1,22 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo } from "react";
 import PropTypes from "prop-types";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const UserContext = createContext();
 
 export function UserContextProvider({ children }) {
-  const [user, setUser] = useState({
-    firstname: "",
-    lastname: "",
-    phone: "",
-    email: "",
-    adress: "",
-    postcode: "",
-    city: "",
-  });
+  const [user, setUser] = useLocalStorage("user", null);
+
+  const logout = () => {
+    setUser(null);
+  };
+
   return (
     <UserContext.Provider
       value={useMemo(() => ({
         user,
         setUser,
+        logout,
       }))}
     >
       {children}

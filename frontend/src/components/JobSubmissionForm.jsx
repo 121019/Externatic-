@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-
 import { useRef } from "react";
+
+import { useUser } from "../contexts/UserContext";
 
 import "./JobSubmissionForm.css";
 
@@ -10,10 +11,10 @@ function JobSubmissionForm() {
   const LocationRef = useRef();
   const UploadDateRef = useRef();
   const ContractTypeRef = useRef();
-  const EnterpriseIdRef = useRef();
   const categoryRef = useRef();
 
   const navigate = useNavigate();
+  const { user } = useUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,11 +26,12 @@ function JobSubmissionForm() {
       LocationRef.current.value === "" ||
       UploadDateRef.current.value === "" ||
       ContractTypeRef.current.value === "" ||
-      EnterpriseIdRef.current.value === "" ||
       categoryRef.current.value === ""
     ) {
       return;
     }
+
+    // Empty dependency array to run this effect only once when the component mounts
 
     // Retrieve the values from the form fields
     const JobTitle = JobTitleRef.current.value;
@@ -37,8 +39,10 @@ function JobSubmissionForm() {
     const Location = LocationRef.current.value;
     const UploadDate = UploadDateRef.current.value;
     const ContractType = ContractTypeRef.current.value;
-    const EnterpriseId = EnterpriseIdRef.current.value;
     const category = categoryRef.current.value;
+
+    // Since the EnterpriseId will be fetched from the user context, you can access it from the user object
+    const EnterpriseId = user.id; // Use optional chaining to handle cases when user is undefined
 
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/jobs`,
@@ -47,6 +51,7 @@ function JobSubmissionForm() {
         headers: {
           "content-type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           JobTitle,
           Description,
@@ -63,18 +68,20 @@ function JobSubmissionForm() {
         navigate("/companypage");
       });
   };
+
   const handleJobTitleChange = () => {
-    const { value } = JobTitleRef;
-    const regex = /^[A-Za-z 1-9]+$/;
+    const { value } = JobTitleRef.current;
+    const regex = /^[A-Za-z0-9]+$/; // Allow letters (A-Z, a-z) and numbers (0-9)
 
     if (!regex.test(value)) {
-      JobTitleRef.setCustomValidity(
-        "Only letters (A-Z, a-z ,1-9) are allowed in the Job Title."
+      JobTitleRef.current.setCustomValidity(
+        "Only letters (A-Z, a-z) and numbers (0-9) are allowed in the Job Title."
       );
     } else {
-      JobTitleRef.setCustomValidity("");
+      JobTitleRef.current.setCustomValidity("");
     }
   };
+
   return (
     <div className="JobFormDiv">
       <div id="jobFormComponent" className="jobFormComponent">
@@ -87,7 +94,7 @@ function JobSubmissionForm() {
             id="JobTitle"
             required
             ref={JobTitleRef}
-            pattern={handleJobTitleChange}
+            onChange={handleJobTitleChange}
             placeholder="JobTitle"
           />
           <br />
@@ -130,15 +137,6 @@ function JobSubmissionForm() {
             placeholder="contractType"
           />
           <br />
-          <label htmlFor="enterpriseId">Enterprise ID:</label>
-          <input
-            type="number"
-            name="enterpriseId"
-            id="enterpriseId"
-            ref={EnterpriseIdRef}
-            placeholder="entrepriseId"
-          />
-          <br />
           <label htmlFor="category">Category:</label>
           <input
             type="text"
@@ -147,7 +145,6 @@ function JobSubmissionForm() {
             ref={categoryRef}
             placeholder="category"
           />
-
           <br />
           <input type="submit" value="Submit" />
         </form>

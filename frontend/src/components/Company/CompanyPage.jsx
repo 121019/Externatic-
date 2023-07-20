@@ -3,11 +3,9 @@ import "./CompanyPage.css";
 import { Link } from "react-router-dom";
 
 import { useUser } from "../../contexts/UserContext";
-import { useAuth } from "../../contexts/AuthContext";
 
 function CompanyPage() {
   const { user } = useUser();
-  const { token } = useAuth();
   const [company, setCompany] = useState([]);
 
   useEffect(() => {
@@ -17,7 +15,6 @@ function CompanyPage() {
       .catch((err) => {
         console.error(err);
         console.warn(company);
-        console.warn(token);
       });
   }, []);
 

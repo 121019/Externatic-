@@ -19,6 +19,16 @@ class CompanyManager extends AbstractManager {
   }
 
   insert(company) {
+    if (!company.id || typeof company.id !== "number") {
+      throw new Error("Invalid or missing 'id' in the company data.");
+    }
+
+    if (!company.name || typeof company.name !== "string") {
+      throw new Error("Invalid or missing 'name' in the company data.");
+    }
+    if (!company.email || typeof company.email !== "string") {
+      throw new Error("invalide or missing 'email' in the company data");
+    }
     return this.database.query(
       `INSERT INTO ${this.table} (id, name, email,hashedpassword, description, address, city, postcode) VALUES (?,?,?,?,?,?,?,?)`,
       [

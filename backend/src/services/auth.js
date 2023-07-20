@@ -24,47 +24,50 @@ const hashPasswordMiddleware = (req, res, next) => {
 };
 
 const verifyPassword = (req, res) => {
-  argon2.verify(req.user.hashedpassword, req.body.password).then((isVerify) => {
-    if (isVerify) {
-      const payload = {
-        sub: req.user.id,
-      };
-
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: "1h",
-      });
-
-      delete req.user.hashedpassword;
-
-      res.json({ token, user: req.user });
-    } else {
-      res.sendStatus(401);
-    }
-  });
+  argon2
+    .verify(req.user.hashedpassword, req.body.password)
+    .then((ok) => {
+      if (ok) {
+        const payload = {
+          sub: req.user.id,
+        };
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          expiresIn: "1y",
+        });
+        res.cookie("auth_token", token, {
+          secure: process.env.NODE_ENV !== "development",
+          httpOnly: true,
+        });
+        delete req.user.hashedpassword;
+        res.status(200).json({ user: req.user });
+      } else {
+        res.status(401).json({ message: "Invalid credentials. Try again." });
+      }
+    })
+    .catch((error) => {
+      console.error("Error during password verification:", error);
+      res.status(500).json({ message: "An internal server error occurred." });
+    });
 };
 
 const verifyToken = (req, res, next) => {
   try {
-    const authorization = req.get("Authorization");
+    const token = req.cookies?.auth_token;
 
-    if (authorization == null) {
-      throw new Error("Authorization header is missing");
-    }
-
-    const [type, token] = authorization.split(" ");
-
-    if (type !== "Bearer") {
-      throw new Error("Authorization type is not 'Bearer'");
+    if (token == null) {
+      throw new Error("Token is missing");
     }
 
     req.payload = jwt.verify(token, process.env.JWT_SECRET);
-
     next();
   } catch (err) {
-    console.error(err);
-
+    console.error("Error during token verification:", err);
     res.sendStatus(401);
   }
+};
+
+module.exports = {
+  verifyToken,
 };
 
 module.exports = {
