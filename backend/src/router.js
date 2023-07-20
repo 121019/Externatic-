@@ -9,11 +9,16 @@ const { hashPasswordMiddleware } = require("./services/auth");
 const upload = multer({ dest: "./public/uploads/" });
 
 const candidatsControllers = require("./controllers/candidatsControllers");
-
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
 const companyControllers = require("./controllers/companyControllers");
-const { verifyPassword } = require("./services/auth");
+const {
+  verifyPassword,
+  verifyCompanyPassword,
+  verifyToken,
+} = require("./services/auth");
+
+// ------------   public route  --------------------
 
 router.get("/jobs", jobControllers.browse);
 router.post("/jobs", jobControllers.add);
@@ -28,25 +33,31 @@ router.post("/candidats", hashPasswordMiddleware, candidatsControllers.add);
 router.put("/candidats/:id", hashPasswordMiddleware, candidatsControllers.edit);
 router.put(
   "/candidats/cv/:id",
-
   upload.single("myfile"),
   candidatsControllers.insertCv
 );
 router.get("/candidats/cv/:id", candidatsControllers.findCv);
-
 router.post(
   "/login",
   authControllers.getUserByUsernameWithPasswordAndPassToNext,
   verifyPassword
 );
-
 router.delete("/candidats/:id", candidatsControllers.destroy);
 
 router.get("/company", companyControllers.browse);
 router.get("/company/:id", companyControllers.read);
-router.post("/company", companyControllers.add);
-router.put("/company/:id", companyControllers.edit);
+router.post("/company", hashPasswordMiddleware, companyControllers.add);
+router.post(
+  "/company/login",
+  authControllers.getCompanyByCompanynameWithPasswordAndPassToNext,
+  verifyCompanyPassword
+);
+
+// ------------   private route  --------------------
+
+router.use(verifyToken);
+
 router.delete("/company/:id", companyControllers.destroy);
-router.post("/company/login", authControllers.loginCompany);
+router.put("/company/:id", hashPasswordMiddleware, companyControllers.edit);
 
 module.exports = router;

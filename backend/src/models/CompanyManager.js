@@ -7,47 +7,53 @@ class CompanyManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT id, Name, Email, Description, Adress, City, Postcode FROM ${this.table}`
+      `SELECT id, name, email, description, address, city, postcode FROM ${this.table}`
     );
   }
 
   find(id) {
     return this.database.query(
-      `SELECT id, Name, Email, Description, Adress, City, Postcode FROM ${this.table} WHERE id = ?`,
+      `SELECT id, name, email, description, address, city, postcode FROM ${this.table} WHERE id = ?`,
       [id]
     );
   }
 
   insert(company) {
     return this.database.query(
-      `INSERT INTO ${this.table} (id, Name, Email,Password, Description, Adress, City, Postcode) VALUES (?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (id, name, email,hashedPassword, description, address, city, postcode) VALUES (?,?,?,?,?,?,?,?)`,
       [
         company.id,
-        company.Name,
-        company.Email,
-        company.Password,
-        company.Description,
-        company.Adress,
-        company.City,
-        company.Postcode,
+        company.name,
+        company.email,
+        company.hashedPassword,
+        company.description,
+        company.address,
+        company.city,
+        company.postcode,
       ]
     );
   }
 
   update(company, id) {
     return this.database.query(
-      `UPDATE ${this.table} SET  Name = ?, Email = ?,Password = ?, Description = ?, Adress = ?, City = ?, Postcode = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET  name = ?, email = ?, hashedPassword = ?, description = ?, address = ?, city = ?, postcode = ? WHERE id = ?`,
       [
-        company.Name,
-        company.Email,
-        company.Password,
-        company.Description,
-        company.Adress,
-        company.City,
-        company.Postcode,
+        company.name,
+        company.email,
+        company.password,
+        company.description,
+        company.address,
+        company.city,
+        company.postcode,
         id,
       ]
     );
+  }
+
+  findByCompanynameWithHashedPassword(name) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
+      name,
+    ]);
   }
 }
 

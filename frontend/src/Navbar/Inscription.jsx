@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useRef } from "react";
 
 import "./Inscription.css";
@@ -94,83 +94,90 @@ function Inscription() {
           />
         </div>
         <div className="form-container">
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <label>
-              <input
-                type="text"
-                name="firstname"
-                ref={firstnameRef}
-                placeholder="Nom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="lastname"
-                ref={lastnameRef}
-                placeholder="Prénom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="email"
-                ref={emailRef}
-                placeholder="Email *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="password"
-                name="password"
-                ref={passwordRef}
-                placeholder="Mot de passe *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="adress"
-                ref={adressRef}
-                placeholder="Adresse *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="city"
-                ref={cityRef}
-                placeholder="Ville *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="postcode"
-                ref={postcodeRef}
-                placeholder="Code postal *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="phone"
-                ref={phoneRef}
-                placeholder="Téléphone *"
-                required
-              />
-            </label>
-            <div className="validate">
-              <input type="submit" value="Valider" />
-            </div>
-          </form>
+          <div>
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <label>
+                <input
+                  type="text"
+                  name="firstname"
+                  ref={firstnameRef}
+                  placeholder="Nom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="lastname"
+                  ref={lastnameRef}
+                  placeholder="Prénom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="email"
+                  ref={emailRef}
+                  placeholder="Email *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="password"
+                  name="password"
+                  ref={passwordRef}
+                  placeholder="Mot de passe *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="adress"
+                  ref={adressRef}
+                  placeholder="Adresse *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="city"
+                  ref={cityRef}
+                  placeholder="Ville *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="postcode"
+                  ref={postcodeRef}
+                  placeholder="Code postal *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="phone"
+                  ref={phoneRef}
+                  placeholder="Téléphone *"
+                  required
+                />
+              </label>
+              <div className="validate">
+                <input type="submit" value="Valider" />
+              </div>
+            </form>
+          </div>
+          <div className="switch_company_page">
+            <Link to="/companyregistration">
+              <button type="button">Je suis une Entreprise</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

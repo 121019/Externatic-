@@ -14,7 +14,7 @@
   height: 45rem;
 }
 
-.form-container{
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,12 +24,13 @@
   gap: 0.5rem;
   background-color: #ca1f62;
   margin-bottom: 1.5rem;
-  border-radius: 2rem;
-  margin-top:3rem;
+  border-radius: 1.5rem;
+  margin-top: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.validate > form > input{
-  width:3rem;
+.validate > form > input {
+  width: 3rem;
   background-color: #ca1f62;
 }
 
@@ -49,7 +50,7 @@
   padding: 0.5rem;
   margin-bottom: 0.8rem;
   border: 0.1rem solid #ca1f62;
-  border-radius: 1rem;
+  border-radius: 10px;
   width: 20rem;
 }
 
@@ -67,25 +68,23 @@
   background-color: #ca1f62;
 }
 
-.inscription_content{
+.inscription_content {
   color: #ca1f62;
   text-align: center;
   margin-bottom: 5rem;
-  margin-top:5rem;
+  margin-top: 5rem;
   font-weight: bold;
   font-size: 2rem;
-
 }
 
 @media screen and (max-width: 550px) {
   .image-container img {
-   display: none;
+    display: none;
   }
 
-  .inscription_content{
+  .inscription_content {
     font-size: 1rem;
-    font-weight: bold; 
-    
+    font-weight: bold;
   }
   .Inscription {
     display: inline;
@@ -94,16 +93,32 @@
     font-size: 0.6rem;
     width: 80%;
     margin-top: 1.5rem;
-    padding-top:2rem;
-  } 
-  
+    padding-top: 2rem;
+  }
+
   .inscription_content label {
     margin: -0.4rem;
     margin-bottom: -1rem;
   }
 }
 
-.validate > input{
-  background-color:#ca1f62;
+.validate > input {
+  background-color: #ca1f62;
 }
 
+.switch_company_page {
+  width: 100%;
+  margin-top: -5%;
+}
+.switch_company_page button {
+  border: none;
+  padding: 4% 8%;
+  border-radius: 7px;
+  margin-bottom: 4%;
+  color: var(--secondary_color);
+  font-size: 1.2rem;
+}
+
+.switch_company_page button:hover {
+  cursor: pointer;
+}

@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
 import "./CompanyPage.css";
 import { Link } from "react-router-dom";
-import JobSubmissionForm from "./JobSubmissionForm";
+
+import { useUser } from "../../contexts/UserContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function CompanyPage() {
+  const { user } = useUser();
+  const { token } = useAuth();
   const [company, setCompany] = useState([]);
-  const monEntreprise = {
-    name: "Slack Corporation",
-    email: "slack@slack.com",
-    description: "",
-    adress: "",
-    city: "",
-    postcode: "",
-    logo: "",
-  };
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/company`)
@@ -22,6 +17,7 @@ function CompanyPage() {
       .catch((err) => {
         console.error(err);
         console.warn(company);
+        console.warn(token);
       });
   }, []);
 
@@ -35,7 +31,7 @@ function CompanyPage() {
           src="https://images.unsplash.com/photo-1496200186974-4293800e2c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80"
           alt="logo entreprise connectée"
         />
-        <h1>{monEntreprise.name}</h1>
+        <h1>{user.name}</h1>
       </section>
       <section className="companyPage_navButton">
         <button type="submit">Mes offres d'emploi</button>
@@ -45,9 +41,7 @@ function CompanyPage() {
       <section className="companyPage_companyoffers">
         <h3> Offres d'emplois publiées :</h3>
         <Link to="/newoffer">
-          <button type="submit" onClick={JobSubmissionForm}>
-            new
-          </button>
+          <button type="button">new</button>
         </Link>
 
         <div>
