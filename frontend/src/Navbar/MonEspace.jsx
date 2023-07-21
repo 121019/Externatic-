@@ -38,7 +38,7 @@ function MonEspace() {
               </Link>
               <p className="espace_section-bulle">Mon profil publique</p>
               <Link to="/mycv" className="espace_section-bulle">
-                <p className="espace_section-bulle">Mon CV</p>
+                <p>Mon CV</p>
               </Link>
               <p className="espace_section-bulle">Mes offres d'emploi</p>
               <p className="espace_section-bulle">Mes candidatures</p>

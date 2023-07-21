@@ -37,69 +37,68 @@ function Contact() {
 
   return (
     <>
-      <div className="contact">Nous contacter</div>
+      <div className="contact">
+        <h3>Nous contacter</h3>
+      </div>
       <div className="contactMessage">
         {envoiMessage && <p>Message envoyé avec succès !</p>}
       </div>
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <label>
-            <input
-              type="text"
-              name="nom"
-              value={formData.nom}
-              onChange={handleInputChange}
-              placeholder="Nom *"
-              required
-            />
-          </label>
-
-          <label>
-            <input
-              type="text"
-              name="prenom"
-              value={formData.prenom}
-              onChange={handleInputChange}
-              placeholder="Prénom *"
-              required
-            />
-          </label>
-
-          <label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Email *"
-              required
-            />
-          </label>
-
-          <label>
-            <input
-              type="tel"
-              name="numeroTel"
-              value={formData.numeroTel}
-              onChange={handleInputChange}
-              placeholder="Numéro de téléphone *"
-              required
-            />
-          </label>
-
-          <label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Message *"
-              required
-            />
-          </label>
+          <input
+            type="text"
+            name="nom"
+            value={formData.nom}
+            onChange={handleInputChange}
+            placeholder="Nom *"
+            required
+          />
+          <input
+            type="text"
+            name="prenom"
+            value={formData.prenom}
+            onChange={handleInputChange}
+            placeholder="Prénom *"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder="Email *"
+            required
+          />
+          <input
+            type="tel"
+            name="numeroTel"
+            value={formData.numeroTel}
+            onChange={handleInputChange}
+            placeholder="Numéro de téléphone *"
+            required
+          />
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
+            placeholder="Message *"
+            required
+          />
           <button id="pinkButton" type="submit">
             Envoyer
           </button>
         </form>
+      </div>
+      <div className="coordinate">
+        <h4>Nos coordonnées</h4>
+        <div className="coordinate_detail">
+          <h5>Externatic</h5>
+          <p>Tél. +33 (0)2 85 52 26 33</p>
+          <p>Mail : contact@externatic.fr</p>
+          <p className="adresse">
+            Adresse : 1 rue Racine – 44000 NANTES – France
+          </p>
+        </div>
       </div>
     </>
   );

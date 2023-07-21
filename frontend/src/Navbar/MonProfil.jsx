@@ -2,11 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./MonProfil.css";
-import { useAuth } from "../contexts/AuthContext";
 import { useUser } from "../contexts/UserContext";
 
 function MonProfil() {
-  const { token } = useAuth();
   const { user, setUser } = useUser();
   const { register, handleSubmit } = useForm();
 
@@ -39,7 +37,7 @@ function MonProfil() {
       <div className="profil">
         <h3>Mon profil</h3>
       </div>
-      {token === false ? (
+      {user === false ? (
         <div className="profilNonConnecte">
           <h3 className="profilNonConnecte-h3">
             <Link className="profilNonConnecte-h3-link" to="/connexion">
