@@ -18,6 +18,12 @@ class CompanyManager extends AbstractManager {
     );
   }
 
+  findByName(name) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
+      name,
+    ]);
+  }
+
   async insert(company) {
     return this.database.query(
       `INSERT INTO ${this.table} (id, name, email, hashedpassword, description, address, city, postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
