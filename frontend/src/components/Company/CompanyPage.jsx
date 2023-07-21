@@ -38,10 +38,12 @@ function CompanyPage() {
             <button type="submit">Candidatures à l'étude</button>
           </section>
           <section className="companyPage_companyoffers">
-            <h3> Offres d'emplois publiées :</h3>
-            <Link to="/newoffer">
-              <button type="button">new</button>
-            </Link>
+            <div id="companyPage_companyoffers_header">
+              <h3> Offres d'emplois publiées :</h3>
+              <Link to="/newoffer">
+                <button type="button">+</button>
+              </Link>
+            </div>
 
             <div>
               <p>Développeur Front-end</p>

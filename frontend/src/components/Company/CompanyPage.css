@@ -1,5 +1,5 @@
 .companyPage section {
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
 }
 
 /*////////////////////////////////////////////////
@@ -66,13 +66,17 @@
   padding: 1% 3%;
   font-size: 1.1em;
   font-weight: 600;
+  transition: 0.3s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .companyPage_navButton button:hover {
-  transform: scale(1.1);
   cursor: pointer;
+}
+
+.companyPage_navButton:hover > :not(:hover) {
+  opacity: 0.5;
 }
 
 /*/ ///////////////////////////////////////////////
@@ -83,6 +87,45 @@
   display: flex;
   flex-direction: column;
   gap: 3vh;
+}
+
+#companyPage_companyoffers_header {
+  display: flex;
+  box-shadow: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 65%;
+}
+
+#companyPage_companyoffers_header h3 {
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#companyPage_companyoffers_header button {
+  border: none;
+  width: auto;
+  height: 100%;
+  padding: 10px 15px;
+  background-color: var(--primary_color);
+  color: white;
+  border-radius: 7px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.4s;
+  margin-right: -500px;
+  margin-left: auto;
+}
+
+#companyPage_companyoffers_header:hover {
+  cursor: initial;
+  transform: initial;
+}
+
+#companyPage_companyoffers_header button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .companyPage_companyoffers h3 {
@@ -100,6 +143,7 @@
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s;
 }
 
 .companyPage_companyoffers div:hover {
@@ -184,6 +228,7 @@
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s;
 }
 
 .companyPage_application div:hover {
@@ -270,6 +315,7 @@
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.3s;
 }
 
 .companyPage_currentApplication div:hover {
