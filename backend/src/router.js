@@ -26,6 +26,7 @@ const {
 router.get("/jobs", jobControllers.browse);
 router.post("/jobs", validateJobOfferData, jobControllers.add);
 router.get("/jobs/:id", jobControllers.read);
+router.get("/jobs/business/:id", jobControllers.getjob);
 router.put("/jobs/:id", jobControllers.edit);
 router.delete("/jobs/:id", jobControllers.destroy);
 
