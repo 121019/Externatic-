@@ -43,11 +43,17 @@ function CompanyPage() {
             <h1>{user.name}</h1>
           </section>
           <section className="companyPage_navButton">
-            <button type="submit">Mes offres d'emploi</button>
-            <button type="submit">Mes candidatures reçues</button>
-            <button type="submit">Candidatures à l'étude</button>
+            <button type="submit">
+              <a href="#myjoboffer">Mes offres d'emploi</a>
+            </button>
+            <button type="submit">
+              <a href="#myapplication">Mes candidatures reçues</a>
+            </button>
+            <button type="submit">
+              <a href="#mycurrentapplication">Candidatures à l'étude</a>
+            </button>
           </section>
-          <section className="companyPage_companyoffers">
+          <section className="companyPage_companyoffers" id="myjoboffer">
             <div id="companyPage_companyoffers_header">
               <h3> Offres d'emplois publiées :</h3>
               <Link to="/newoffer">
@@ -71,7 +77,7 @@ function CompanyPage() {
               <button type="submit">Click me!</button>
             </div>
           </section>
-          <section className="companyPage_application">
+          <section className="companyPage_application" id="myapplication">
             <h3> Candidatures Reçues :</h3>
             <div>
               <p>
@@ -108,7 +114,10 @@ function CompanyPage() {
               <button type="submit">Click me!</button>
             </div>
           </section>
-          <section className="companyPage_currentApplication">
+          <section
+            className="companyPage_currentApplication"
+            id="mycurrentapplication"
+          >
             <h3> Offres d'emplois publiées :</h3>
             <div>
               <p>
