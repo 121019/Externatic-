@@ -41,10 +41,6 @@ class JobManager extends AbstractManager {
       `SELECT * FROM ${this.table} WHERE Enterprise_id  = ?`,
       [id]
     );
-    // .then(([rows]) => rows)
-    // .catch((err) => {
-    //   throw err;
-    // });
   }
 }
 

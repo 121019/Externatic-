@@ -63,34 +63,6 @@ function CompanyPage() {
                 <p>Category:{offer.category}</p>
               </div>
             ))}
-
-            {/*  <div>
-              <p>Développeur Front-end</p>
-              <p> Publiée le 12/07/2023</p>{" "}
-              <p>
-                <img src="../assets/notif.png" alt="email icon" />
-              </p>
-            </div>
-            <div>
-              <p>Développeur Front-end</p>
-              <p> Publiée le 12/07/2023</p>{" "}
-              <p>
-                <img src="../assets/notif.png" alt="email icon" />
-              </p>
-            </div>
-            <div>
-              <p>Développeur Front-end</p>
-              <p> Publiée le 12/07/2023</p>{" "}
-              <p>
-                <img src="../assets/notif.png" alt="email icon" />
-              </p>
-            </div>
-          </section>
-          <section className="companyPage_cvthèque">
-           {/*  <div> 
-              <h1>CVthèque</h1>
-              <button type="submit">Click me!</button>
-            </div> */}
           </section>
           <section className="companyPage_application">
             <h3> Candidatures Reçues :</h3>
