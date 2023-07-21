@@ -41,8 +41,7 @@ function JobSubmissionForm() {
     const ContractType = ContractTypeRef.current.value;
     const category = categoryRef.current.value;
 
-    // Since the EnterpriseId will be fetched from the user context, you can access it from the user object
-    const EnterpriseId = user.id; // Use optional chaining to handle cases when user is undefined
+    const EnterpriseId = user.id;
 
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/jobs`,
@@ -71,7 +70,7 @@ function JobSubmissionForm() {
 
   const handleJobTitleChange = () => {
     const { value } = JobTitleRef.current;
-    const regex = /^[A-Za-z0-9]+$/; // Allow letters (A-Z, a-z) and numbers (0-9)
+    const regex = /^[A-Za-z0-9 ]+$/; // Allow letters (A-Z, a-z) and numbers (0-9)
 
     if (!regex.test(value)) {
       JobTitleRef.current.setCustomValidity(

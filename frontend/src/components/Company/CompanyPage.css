@@ -361,3 +361,11 @@
 .companyPage_unlogin button:hover {
   cursor: pointer;
 }
+
+/* merge dev*/
+.companyOffers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}

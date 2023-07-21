@@ -28,6 +28,22 @@ const read = (req, res) => {
     });
 };
 
+const getjob = (req, res) => {
+  models.job
+    .fetchJobOffersByEnterpriseId(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const job = req.body;
 
@@ -86,4 +102,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  getjob,
 };
