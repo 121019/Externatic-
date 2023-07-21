@@ -8,8 +8,8 @@ const { hashPasswordMiddleware } = require("./services/auth");
 
 const upload = multer({ dest: "./public/uploads/" });
 const { validateJobOfferData } = require("./services/ValidateJobs");
+const CheckCompany = require("./services/checkCompanyName");
 const { validateCompanyData } = require("./services/validateCompanyData");
-
 const candidatsControllers = require("./controllers/candidatsControllers");
 const jobControllers = require("./controllers/jobControllers");
 const authControllers = require("./controllers/authController");
@@ -48,6 +48,7 @@ router.post(
   "/company",
   validateCompanyData,
   hashPasswordMiddleware,
+  CheckCompany,
   companyControllers.add
 );
 router.post(

@@ -5,6 +5,7 @@ import "../../Navbar/Inscription.css";
 import "./CompanyRegistration.css";
 
 function CompanyRegistration() {
+  const [error, setError] = useState(null);
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -52,7 +53,7 @@ function CompanyRegistration() {
     descRef.current.value = "";
 
     fetch(
-      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/company`,
+      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"}/company`,
       {
         method: "post",
         headers: {
@@ -71,11 +72,18 @@ function CompanyRegistration() {
       }
     )
       .then((response) => response.json())
-      .then(() => {
-        navigate("/");
+      .then((data) => {
+        if (data.message) {
+          setError(data.message);
+        } else {
+          navigate("/companypage");
+        }
+      })
+      .catch(() => {
+        // En cas d'erreur de fetch ou autre
+        setError("Une erreur s'est produite lors de l'inscription.");
       });
   };
-
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
@@ -105,9 +113,10 @@ function CompanyRegistration() {
               id="name"
               required
             />
+
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               name="email"
               ref={emailRef}
               placeholder="Email *"
@@ -152,7 +161,7 @@ function CompanyRegistration() {
             />
             <label htmlFor="postcode">Code postale</label>
             <input
-              type="text"
+              type="number"
               name="postcode"
               ref={postcodeRef}
               placeholder="Code postal *"
@@ -182,6 +191,7 @@ function CompanyRegistration() {
                 Valider
               </button>
             </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
           </form>
         </div>
       </div>
