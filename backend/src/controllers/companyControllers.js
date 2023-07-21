@@ -32,7 +32,7 @@ const add = (req, res) => {
   models.company
     .insert(req.body)
     .then(([result]) => {
-      res.status(201).send(`Company id: ${result.name} created`);
+      res.status(201).send(result);
     })
     .catch((err) => {
       console.error(err);
@@ -50,7 +50,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.status(201).send(`Company id: ${result.insertId} as change`);
+        res.sendStatus(201);
       }
     })
     .catch((err) => {
@@ -66,7 +66,7 @@ const destroy = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.status(204).send(`Company id: ${result.insertId} was deleted`);
+        res.sendStatus(204);
       }
     })
     .catch((err) => {
