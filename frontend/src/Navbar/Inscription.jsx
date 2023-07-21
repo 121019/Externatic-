@@ -1,9 +1,11 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useRef } from "react";
-
+import { useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import "./Inscription.css";
+import "react-toastify/dist/ReactToastify.css";
 
-function Inscription() {
+function Inscription({ toastOptions }) {
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const emailRef = useRef();
@@ -13,9 +15,10 @@ function Inscription() {
   const postcodeRef = useRef();
   const phoneRef = useRef();
 
-  const navigate = useNavigate();
-
   const formRef = useRef();
+
+  const navigate = useNavigate();
+  const [error, setError] = useState(""); // Déclarer 'error' en tant qu'état local avec useState
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,6 +36,7 @@ function Inscription() {
     ) {
       return;
     }
+
     // Récupérer les valeurs des champs du formulaire
     const firstname = firstnameRef.current.value;
     const lastname = lastnameRef.current.value;
@@ -54,6 +58,7 @@ function Inscription() {
     postcodeRef.current.value = "";
     phoneRef.current.value = "";
 
+    // Effectuer la requête d'inscription
     fetch(
       `${
         import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
@@ -76,8 +81,17 @@ function Inscription() {
       }
     )
       .then((response) => response.json())
-      .then(() => {
-        navigate("/espace");
+      .then((data) => {
+        if (data.message) {
+          setError(data.message);
+        } else {
+          navigate("/espace");
+          toast.success("Compte créé avec succès", toastOptions);
+        }
+      })
+      .catch(() => {
+        // En cas d'erreur de fetch ou autre
+        setError("Une erreur s'est produite lors de l'inscription.");
       });
   };
   return (
@@ -94,6 +108,7 @@ function Inscription() {
           />
         </div>
         <div className="form-container">
+          <div className="message-error">{error && <p>{error}</p>}</div>
           <div>
             <form ref={formRef} onSubmit={handleSubmit}>
               <label>
@@ -185,3 +200,16 @@ function Inscription() {
 }
 
 export default Inscription;
+
+Inscription.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};
