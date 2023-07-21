@@ -25,6 +25,13 @@
   box-shadow: var(--primary_shadow)
 
 }
+.message-error{
+  color:black;
+  text-align: center;
+  font-size: 1rem;
+  padding:1.5rem;
+  margin-top: 1rem;
+}
 
 .validate > form > input {
   width: 3rem;
