@@ -64,6 +64,12 @@ function CompanyPage() {
               </div>
             ))}
           </section>
+          <section className="companyPage_cvthèque">
+            <div>
+              <h1>CVthèque</h1>
+              <button type="submit">Click me!</button>
+            </div>
+          </section>
           <section className="companyPage_application">
             <h3> Candidatures Reçues :</h3>
             <div>
