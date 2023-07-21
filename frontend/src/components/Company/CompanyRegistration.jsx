@@ -7,6 +7,7 @@ import "../../Navbar/Inscription.css";
 import "./CompanyRegistration.css";
 
 function CompanyRegistration({ toastOptions }) {
+  const [error, setError] = useState(null);
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -54,7 +55,7 @@ function CompanyRegistration({ toastOptions }) {
     descRef.current.value = "";
 
     fetch(
-      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"}/company`,
+      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"}/company`,
       {
         method: "post",
         headers: {
@@ -73,12 +74,19 @@ function CompanyRegistration({ toastOptions }) {
       }
     )
       .then((response) => response.json())
-      .then(() => {
-        toast.success("Nouvelle Entreprise créée", toastOptions);
-        navigate("/");
+      .then((data) => {
+        if (data.message) {
+          setError(data.message);
+        } else {
+          toast.success("Nouvelle Entreprise créée", toastOptions);
+          navigate("/companypage");
+        }
+      })
+      .catch(() => {
+        // En cas d'erreur de fetch ou autre
+        setError("Une erreur s'est produite lors de l'inscription.");
       });
   };
-
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
@@ -108,9 +116,10 @@ function CompanyRegistration({ toastOptions }) {
               id="name"
               required
             />
+
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               name="email"
               ref={emailRef}
               placeholder="Email *"
@@ -155,7 +164,7 @@ function CompanyRegistration({ toastOptions }) {
             />
             <label htmlFor="postcode">Code postale</label>
             <input
-              type="text"
+              type="number"
               name="postcode"
               ref={postcodeRef}
               placeholder="Code postal *"
@@ -185,6 +194,7 @@ function CompanyRegistration({ toastOptions }) {
                 Valider
               </button>
             </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
           </form>
         </div>
       </div>
