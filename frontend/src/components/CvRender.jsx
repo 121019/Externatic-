@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
+import "./CvRender.css";
 
 function CvRender() {
   const { user } = useUser();
@@ -31,15 +32,19 @@ function CvRender() {
   const mypath = `${import.meta.env.VITE_BACKEND_URL}${cvPath}`;
 
   return (
-    <div>
-      <h2>CV Renderer</h2>
+    <div className="cvRender">
       <object
         type="application/pdf"
         data={mypath}
-        width="1000px"
-        height="1000px"
+        width="850em"
+        height="1230em"
         aria-label="PDF document"
       />
+      <div className="cvRender_lien">
+        <a target="_blank" rel="noopener noreferrer" href={mypath}>
+          Voir mon cv
+        </a>
+      </div>
     </div>
   );
 }

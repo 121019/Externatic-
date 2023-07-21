@@ -49,7 +49,6 @@ const edit = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const add = (req, res) => {
   const job = req.body;
 

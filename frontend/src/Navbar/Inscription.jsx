@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
@@ -61,7 +61,7 @@ function Inscription({ toastOptions }) {
     // Effectuer la requête d'inscription
     fetch(
       `${
-        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
       }/candidats`,
       {
         method: "post",
@@ -85,7 +85,7 @@ function Inscription({ toastOptions }) {
         if (data.message) {
           setError(data.message);
         } else {
-          navigate("/");
+          navigate("/espace");
           toast.success("Compte créé avec succès", toastOptions);
         }
       })
@@ -96,7 +96,7 @@ function Inscription({ toastOptions }) {
   };
   return (
     <div className="inscription_content">
-      <p>S'inscrire</p>
+      <p>Nouveau Candidat :</p>
 
       <div className="Inscription">
         <div className="image-container">
@@ -109,83 +109,90 @@ function Inscription({ toastOptions }) {
         </div>
         <div className="form-container">
           <div className="message-error">{error && <p>{error}</p>}</div>
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <label>
-              <input
-                type="text"
-                name="firstname"
-                ref={firstnameRef}
-                placeholder="Nom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="lastname"
-                ref={lastnameRef}
-                placeholder="Prénom *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="email"
-                ref={emailRef}
-                placeholder="Email *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="password"
-                name="password"
-                ref={passwordRef}
-                placeholder="Mot de passe *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="adress"
-                ref={adressRef}
-                placeholder="Adresse *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="city"
-                ref={cityRef}
-                placeholder="Ville *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="postcode"
-                ref={postcodeRef}
-                placeholder="Code postal *"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="phone"
-                ref={phoneRef}
-                placeholder="Téléphone *"
-                required
-              />
-            </label>
-            <div className="validate">
-              <input type="submit" value="Valider" />
-            </div>
-          </form>
+          <div>
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <label>
+                <input
+                  type="text"
+                  name="firstname"
+                  ref={firstnameRef}
+                  placeholder="Nom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="lastname"
+                  ref={lastnameRef}
+                  placeholder="Prénom *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="email"
+                  ref={emailRef}
+                  placeholder="Email *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="password"
+                  name="password"
+                  ref={passwordRef}
+                  placeholder="Mot de passe *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="adress"
+                  ref={adressRef}
+                  placeholder="Adresse *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="city"
+                  ref={cityRef}
+                  placeholder="Ville *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="postcode"
+                  ref={postcodeRef}
+                  placeholder="Code postal *"
+                  required
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="phone"
+                  ref={phoneRef}
+                  placeholder="Téléphone *"
+                  required
+                />
+              </label>
+              <div className="validate">
+                <input type="submit" value="Valider" />
+              </div>
+            </form>
+          </div>
+          <div className="switch_company_page">
+            <Link to="/companyregistration">
+              <button type="button">Je suis une Entreprise</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -194,4 +201,15 @@ function Inscription({ toastOptions }) {
 
 export default Inscription;
 
-Inscription.propTypes = { toastOptions: PropTypes.isRequired };
+Inscription.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};

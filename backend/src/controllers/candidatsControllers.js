@@ -64,8 +64,6 @@ const add = (req, res) => {
 const edit = (req, res) => {
   const candidat = req.body;
 
-  // TODO validations (length, format...)
-
   candidat.id = parseInt(req.params.id, 10);
 
   models.candidat
@@ -74,7 +72,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(204);
       }
     })
     .catch((err) => {

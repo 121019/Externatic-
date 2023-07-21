@@ -1,37 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./MonEspace.css";
-import { useAuth } from "../contexts/AuthContext"; // Import the useAuth hook from AuthContext
+import { useUser } from "../contexts/UserContext";
 
 function MonEspace() {
-  const { token } = useAuth(); // Access the token from the AuthContext
-  console.warn(token);
+  const { user } = useUser();
+  const navigate = useNavigate();
 
-  // Render the component only if the user is connected
-  if (!token) {
-    return <p>Please log in to access this page.</p>;
-  }
+  useEffect(() => {
+    if (user && user.role === "company") {
+      navigate("/companypage");
+    }
+  }, [user, navigate]);
+
   return (
     <>
-      <div className="monEspace">
+      <div className="espace">
         <h3>Mon espace</h3>
       </div>
-      <div className="espacePersonalise">
-        <h4 className="espace_nomcomplet-h4"> Homer Simpson</h4>
-        <div className="espace_section">
-          <Link to="/espace/profil" className="espace_section-bulle">
-            <p>Mon profil</p>
-          </Link>
-
-          <p className="espace_section-bulle">Mon profil public</p>
-          <Link to="/mycv" className="espace_section-bulle">
-            <p className="espace_section-bulle">Mon CV</p>
-          </Link>
-          <p className="espace_section-bulle">Mes offres d'emploi</p>
-          <p className="espace_section-bulle">Mes candidatures</p>
-          <p className="espace_section-bulle">Paramètres</p>
+      {user === null ? (
+        <div className="espaceNonConnecte">
+          <h3 className="espaceNonConnecte-h3">
+            <Link className="espaceNonConnecte-h3-link" to="/connexion">
+              Veuillez vous connecter
+            </Link>
+          </h3>
         </div>
-      </div>
+      ) : (
+        user.role === "candidat" && (
+          <div className="espacePersonalise">
+            <h4 className="espace_nomcomplet-h4">
+              {user.firstname} {user.lastname}
+            </h4>
+            <div className="espace_section">
+              <Link to="/espace/profil" className="espace_section-bulle">
+                <p>Mon profil</p>
+              </Link>
+              <p className="espace_section-bulle">Mon profil publique</p>
+              <Link to="/mycv" className="espace_section-bulle">
+                <p>Mon CV</p>
+              </Link>
+              <p className="espace_section-bulle">Mes offres d'emploi</p>
+              <p className="espace_section-bulle">Mes candidatures</p>
+              <p className="espace_section-bulle">Paramètre</p>
+            </div>
+          </div>
+        )
+      )}
     </>
   );
 }

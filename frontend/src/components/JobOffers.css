@@ -47,6 +47,10 @@
   outline: none;
 }
 
+.search-box input[type="text"]:hover {
+  cursor: pointer;
+}
+
 .search-box input[type="text"]:focus,
 .search-box input[type="text"]:not(:placeholder-shown) {
   width: 18em;

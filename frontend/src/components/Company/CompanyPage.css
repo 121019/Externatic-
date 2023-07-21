@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////*/
 
 .companyPage_header {
-  background-image: url("../assets/CompanyBackground.jpg");
+  background-image: url("../../assets/CompanyBackground.jpg");
   background-size: cover;
   height: 45em;
   display: flex;
@@ -134,7 +134,7 @@
   align-items: center;
   color: white;
   margin-top: 10vh;
-  background-image: url("../assets/cvtheque.jpg");
+  background-image: url("../../assets/cvtheque.jpg");
 }
 
 .companyPage_cvthèque div:first-child {
@@ -205,7 +205,7 @@
 ////////////////////////////////////////////////*/
 
 .companyPage_history {
-  background-image: url("../assets/HistoryBackground.jpg");
+  background-image: url("../../assets/HistoryBackground.jpg");
   background-size: cover;
   height: 40vh;
   display: flex;

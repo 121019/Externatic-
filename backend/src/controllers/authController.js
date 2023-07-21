@@ -10,6 +10,7 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
         res.sendStatus(422);
       } else {
         req.user = userInDatabase;
+        req.user.role = "candidat";
         next();
       }
     })
@@ -19,11 +20,27 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
     });
 };
 
-const loginCompany = (req, res) => {
-  res.json({ token: "company logged" });
+const getCompanyByCompanynameWithPasswordAndPassToNext = (req, res, next) => {
+  models.company
+    .findByCompanynameWithHashedPassword(req.body.name)
+    .then(([rows]) => {
+      const userInDatabase = rows[0];
+      if (userInDatabase == null) {
+        console.error("User not found");
+        res.sendStatus(422);
+      } else {
+        req.user = userInDatabase;
+        req.user.role = "company";
+        next();
+      }
+    })
+    .catch((error) => {
+      console.error("Error during user retrieval:", error);
+      res.sendStatus(500);
+    });
 };
 
 module.exports = {
   getUserByUsernameWithPasswordAndPassToNext,
-  loginCompany,
+  getCompanyByCompanynameWithPasswordAndPassToNext,
 };

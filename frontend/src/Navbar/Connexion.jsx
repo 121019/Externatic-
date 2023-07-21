@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+
 import { useUser } from "../contexts/UserContext";
 import "./connexion.css";
 import homeImg from "../assets/home_img.jpg";
@@ -8,7 +8,6 @@ import homeImg from "../assets/home_img.jpg";
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { setToken } = useAuth();
   const navigate = useNavigate();
   const { setUser } = useUser();
 
@@ -61,18 +60,16 @@ function Login() {
             onSubmit={(event) => {
               event.preventDefault();
 
-              console.error("Submitting login form...");
-
               fetch(
                 `${
-                  import.meta.env.VITE_BACKEND_URL ??
-                  "http://localhost:5080/login"
+                  import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
                 }/login`,
                 {
                   method: "post",
                   headers: {
                     "content-type": "application/json",
                   },
+                  credentials: "include",
                   body: JSON.stringify({
                     email: emailRef.current.value,
                     password: passwordRef.current.value,
@@ -81,13 +78,8 @@ function Login() {
               )
                 .then((response) => response.json())
                 .then((data) => {
-                  console.error("Login response data:", data);
                   setUser(data.user);
-                  setToken(data.token);
-                  console.error("Token set:", data.token);
-
                   navigate("/espace");
-                  console.error("Navigating to home page...");
                 });
             }}
           >
@@ -103,7 +95,7 @@ function Login() {
                 id="password"
                 name="password"
               />
-              <button type="submit">*mot de passe oublié?</button>
+              <button type="button">*mot de passe oublié?</button>
             </div>
             <div className="connexion_button">
               <button className="connexion_submitButton" type="submit">
@@ -111,7 +103,7 @@ function Login() {
               </button>
               <button
                 className="connexion_submitButton"
-                type="submit"
+                type="button"
                 id="connexion_entreprise_button"
                 onClick={handlechange}
               >
