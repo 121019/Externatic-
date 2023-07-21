@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 import "../../Navbar/Inscription.css";
 import "./CompanyRegistration.css";
 
-function CompanyRegistration() {
+function CompanyRegistration({ toastOptions }) {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -72,6 +74,7 @@ function CompanyRegistration() {
     )
       .then((response) => response.json())
       .then(() => {
+        toast.success("Nouvelle Entreprise créée", toastOptions);
         navigate("/");
       });
   };
@@ -190,3 +193,16 @@ function CompanyRegistration() {
 }
 
 export default CompanyRegistration;
+
+CompanyRegistration.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};

@@ -1,11 +1,13 @@
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 import "../../Navbar/connexion.css";
 import homeImg from "../../assets/home_img_company.jpg";
 
 import { useUser } from "../../contexts/UserContext";
 
-function Login() {
+function CompanyLogin({ toastOptions }) {
   const nameRef = useRef();
   const passwordRef = useRef();
 
@@ -62,6 +64,7 @@ function Login() {
       .then((response) => response.json())
       .then((data) => {
         setUser(data.user);
+        toast.success("Vous êtes connecté", toastOptions);
         navigate("/companypage");
       });
   };
@@ -104,4 +107,17 @@ function Login() {
   );
 }
 
-export default Login;
+export default CompanyLogin;
+
+CompanyLogin.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};
