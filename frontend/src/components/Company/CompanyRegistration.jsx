@@ -83,7 +83,6 @@ function CompanyRegistration({ toastOptions }) {
         }
       })
       .catch(() => {
-        // En cas d'erreur de fetch ou autre
         setError("Une erreur s'est produite lors de l'inscription.");
       });
   };
