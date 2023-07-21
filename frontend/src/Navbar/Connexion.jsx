@@ -79,7 +79,6 @@ function Login() {
                 .then((response) => response.json())
                 .then((data) => {
                   setUser(data.user);
-
                   navigate("/espace");
                 });
             }}

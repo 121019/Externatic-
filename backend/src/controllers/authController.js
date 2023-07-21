@@ -10,6 +10,7 @@ const getUserByUsernameWithPasswordAndPassToNext = (req, res, next) => {
         res.sendStatus(422);
       } else {
         req.user = userInDatabase;
+        req.user.role = "candidat";
         next();
       }
     })
@@ -24,12 +25,12 @@ const getCompanyByCompanynameWithPasswordAndPassToNext = (req, res, next) => {
     .findByCompanynameWithHashedPassword(req.body.name)
     .then(([rows]) => {
       const userInDatabase = rows[0];
-
       if (userInDatabase == null) {
         console.error("User not found");
         res.sendStatus(422);
       } else {
         req.user = userInDatabase;
+        req.user.role = "company";
         next();
       }
     })

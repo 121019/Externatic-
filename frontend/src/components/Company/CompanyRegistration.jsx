@@ -83,7 +83,7 @@ function CompanyRegistration() {
 
   return (
     <div className="inscription_content">
-      <p>S'inscrire</p>
+      <p>Nouvelle Entreprise :</p>
 
       <div className="Inscription">
         <div className="image-container">

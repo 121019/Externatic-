@@ -82,7 +82,7 @@ function Inscription() {
   };
   return (
     <div className="inscription_content">
-      <p>S'inscrire</p>
+      <p>Nouveau Candidat :</p>
 
       <div className="Inscription">
         <div className="image-container">
