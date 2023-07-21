@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useRef } from "react";
+import carteOuestFrance from "../assets/carte_france.png";
 
 import "./Inscription.css";
 
@@ -88,7 +89,7 @@ function Inscription() {
         <div className="image-container">
           <img
             loading="lazy"
-            src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
+            src={carteOuestFrance}
             alt="Contact Externatic"
             className="wp-image-16355"
           />
