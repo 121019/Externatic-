@@ -6,7 +6,9 @@ import { useUser } from "../../contexts/UserContext";
 
 function CompanyPage() {
   const { user } = useUser();
+
   const [company, setCompany] = useState([]);
+  const [jobOffer, setJobOffer] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/company`)
@@ -16,11 +18,20 @@ function CompanyPage() {
         console.error(err);
         console.warn(company);
       });
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs/business/${user.id}`)
+      .then((response) => response.json())
+      .then((data) => setJobOffer(data))
+      .catch((err) => {
+        console.error(err);
+        console.warn(jobOffer);
+      });
   }, []);
 
   return (
     <div className="companyPage">
-      {user.role === "company" ? (
+      ;
+      {user && user.role === "company" ? (
         <>
           <section className="companyPage_header">
             <h3>Espace Entreprise</h3>
@@ -43,7 +54,17 @@ function CompanyPage() {
               <button type="button">new</button>
             </Link>
 
-            <div>
+            {jobOffer.map((offer) => (
+              <div key={offer.id} className="companyOffers">
+                <h2>{offer.JobTitle}</h2>
+                <p>Description: {offer.Description}</p>
+                <p>Location: {offer.Location}</p>
+                <p>type de Contrat:{offer.Contract_Type}</p>
+                <p>Category:{offer.category}</p>
+              </div>
+            ))}
+
+            {/*  <div>
               <p>Développeur Front-end</p>
               <p> Publiée le 12/07/2023</p>{" "}
               <p>
@@ -66,10 +87,10 @@ function CompanyPage() {
             </div>
           </section>
           <section className="companyPage_cvthèque">
-            <div>
+           {/*  <div> 
               <h1>CVthèque</h1>
               <button type="submit">Click me!</button>
-            </div>
+            </div> */}
           </section>
           <section className="companyPage_application">
             <h3> Candidatures Reçues :</h3>
