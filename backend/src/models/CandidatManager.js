@@ -61,12 +61,12 @@ class CandidatManager extends AbstractManager {
       );
     } else {
       query = this.database.query(
-        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, hashedpassword = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
         [
           candidat.firstname,
           candidat.lastname,
           candidat.email,
-          candidat.hashedPassword,
+          candidat.password,
           candidat.cv,
           candidat.adress,
           candidat.city,

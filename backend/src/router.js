@@ -38,7 +38,14 @@ router.post(
   validateUserForm,
   candidatsControllers.add
 );
-router.put("/candidats/:id", hashPasswordMiddleware, candidatsControllers.edit);
+router.put(
+  "/candidats/:id",
+  (req, res, next) => {
+    if (req.body.password === "") next();
+    else hashPasswordMiddleware(req, res, next);
+  },
+  candidatsControllers.edit
+);
 router.put(
   "/candidats/cv/:id",
   upload.single("myfile"),

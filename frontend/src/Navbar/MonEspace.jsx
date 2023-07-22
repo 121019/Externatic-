@@ -27,7 +27,7 @@ function MonEspace() {
           </h3>
         </div>
       ) : (
-        user.role === "candidat" && (
+        user && (
           <div className="espacePersonalise">
             <h4 className="espace_nomcomplet-h4">
               {user.firstname} {user.lastname}
