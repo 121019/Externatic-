@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import "./MonProfil.css";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useUser } from "../contexts/UserContext";
 
 function MonProfil({ toastOptions }) {

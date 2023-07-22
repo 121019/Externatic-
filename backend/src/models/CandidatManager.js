@@ -66,7 +66,7 @@ class CandidatManager extends AbstractManager {
           candidat.firstname,
           candidat.lastname,
           candidat.email,
-          candidat.password,
+          candidat.hashedpassword,
           candidat.cv,
           candidat.adress,
           candidat.city,
