@@ -67,13 +67,19 @@ function App() {
             path="/companylogin"
             element={<CompanyLogin toastOptions={toastOptions} />}
           />
-          <Route path="/companypage" element={<CompanyPage />} />
+          <Route
+            path="/companypage"
+            element={<CompanyPage toastOptions={toastOptions} />}
+          />
           <Route path="/mycv" element={<MyCv />} />
           <Route
             path="/companyregistration"
             element={<CompanyRegistration toastOptions={toastOptions} />}
           />
-          <Route path="/newoffer" element={<JobSubmissionForm />} />
+          <Route
+            path="/newoffer"
+            element={<JobSubmissionForm toastOptions={toastOptions} />}
+          />
         </Routes>
         <Footer />
       </div>

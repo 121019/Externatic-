@@ -120,7 +120,7 @@ function MonProfil() {
                 id="password"
                 type="password"
                 name="password"
-                defaultValue={user.password}
+                defaultValue=""
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("password")}
               />

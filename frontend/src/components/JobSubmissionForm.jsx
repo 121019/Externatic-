@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 import { useUser } from "../contexts/UserContext";
 
 import "./JobSubmissionForm.css";
 
-function JobSubmissionForm() {
+function JobSubmissionForm({ toastOptions }) {
   const JobTitleRef = useRef();
   const DescriptionRef = useRef();
   const LocationRef = useRef();
@@ -63,8 +65,16 @@ function JobSubmissionForm() {
       }
     )
       .then((response) => response.json())
-      .then(() => {
-        navigate("/companypage");
+      .then((data) => {
+        if (data.id) {
+          toast.success("Nouvelle annonce postée!", toastOptions);
+          navigate("/companypage");
+        } else {
+          toast.error(
+            "Quelque chose ne va pas, contacter un administrateur.",
+            toastOptions
+          );
+        }
       });
   };
 
@@ -159,3 +169,16 @@ function JobSubmissionForm() {
 }
 
 export default JobSubmissionForm;
+
+JobSubmissionForm.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};

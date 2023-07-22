@@ -47,8 +47,6 @@ const getjob = (req, res) => {
 const edit = (req, res) => {
   const job = req.body;
 
-  // TODO validations (length, format...)
-
   job.id = parseInt(req.params.id, 10);
 
   models.job
@@ -68,12 +66,14 @@ const edit = (req, res) => {
 const add = (req, res) => {
   const job = req.body;
 
-  // TODO validations (length, format...)
-
   models.job
     .insert(job)
     .then(([result]) => {
-      res.location(`/jobs/${result.insertId}`).sendStatus(201);
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.status(201).send({ ...job, id: result.insertId });
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -88,7 +88,7 @@ const destroy = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(201).send({ id: result.insertId });
       }
     })
     .catch((err) => {

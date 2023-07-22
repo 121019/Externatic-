@@ -24,9 +24,9 @@ const {
 // ------------   public route  --------------------
 
 router.get("/jobs", jobControllers.browse);
-router.post("/jobs", validateJobOfferData, jobControllers.add);
 router.get("/jobs/:id", jobControllers.read);
 router.get("/jobs/business/:id", jobControllers.getjob);
+router.post("/jobs", validateJobOfferData, jobControllers.add);
 router.put("/jobs/:id", jobControllers.edit);
 router.delete("/jobs/:id", jobControllers.destroy);
 
@@ -38,7 +38,14 @@ router.post(
   validateUserForm,
   candidatsControllers.add
 );
-router.put("/candidats/:id", hashPasswordMiddleware, candidatsControllers.edit);
+router.put(
+  "/candidats/:id",
+  (req, res, next) => {
+    if (req.body.password === "") next();
+    else hashPasswordMiddleware(req, res, next);
+  },
+  candidatsControllers.edit
+);
 router.put(
   "/candidats/cv/:id",
   upload.single("myfile"),

@@ -100,6 +100,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 65%;
+  margin-bottom: 3vh;
+  margin-top: 5vh;
 }
 
 #companyPage_companyoffers_header h3 {
@@ -119,8 +121,6 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: 0.4s;
-  margin-right: -500px;
-  margin-left: auto;
 }
 
 #companyPage_companyoffers_header:hover {
@@ -154,7 +154,6 @@
 
 .companyPage_companyoffers div:hover {
   cursor: pointer;
-  transform: scale(1.05);
 }
 
 .companyPage_companyoffers div p:first-child {
@@ -166,6 +165,30 @@
   width: 100%;
 }
 
+.companyOffers button {
+  border: none;
+  font-weight: 600;
+  background-color: white;
+  color: var(--primary_color);
+  font-size: 1.3em;
+  padding: 3px 15px;
+  border-radius: 7px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.4s;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.companyOffers button {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.companyOffers div {
+  width: 20%;
+  box-shadow: initial;
+}
 /*////////////////////////////////////////////////
 //////////      Section 5 CVthèque      //////////
 ////////////////////////////////////////////////*/
