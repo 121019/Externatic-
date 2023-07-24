@@ -20,6 +20,7 @@ import JobOfferPage from "./components/JobOfferPage";
 
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
+import Build from "./components/Build";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -86,6 +87,7 @@ function App() {
             path="/jobofferpage/:offerid"
             element={<JobOfferPage offers={offers} />}
           />
+          <Route path="build" element={<Build />} />
         </Routes>
         <Footer />
       </div>
