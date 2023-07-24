@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.image-container {
-  text-align: center;
-  margin-left: 10rem;
-}
-
 .image-container img {
   width: 35rem;
   height: 45rem;
@@ -19,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 2%;
   margin-bottom: 10%;
   width: 30%;
   gap: 0.5rem;
@@ -26,7 +22,8 @@
   margin-bottom: 1.5rem;
   border-radius: 1.5rem;
   margin-top: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: var(--primary_shadow)
+
 }
 .message-error{
   color:black;
@@ -48,17 +45,16 @@
 }
 
 .Inscription label {
-  padding: 0.4rem;
   text-align: center;
+  width: 100%;
 }
 
 .Inscription input[type="text"],
 .Inscription input[type="password"] {
-  padding: 0.5rem;
-  margin-bottom: 0.8rem;
   border: 0.1rem solid #ca1f62;
   border-radius: 10px;
-  width: 20rem;
+  width: 80%;
+  text-align: center;
 }
 
 .Inscription input[type="submit"] {
@@ -83,18 +79,19 @@
   font-weight: bold;
   font-size: 2rem;
 }
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 832px) {
   .image-container img {
     display: none;
   }
+  .Inscription {
+    display: block;
+  }
+}
+@media screen and (max-width: 550px) {
 
   .inscription_content {
     font-size: 1rem;
     font-weight: bold;
-  }
-  .Inscription {
-    display: inline;
   }
   .form-container {
     font-size: 0.6rem;

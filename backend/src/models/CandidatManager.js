@@ -44,7 +44,7 @@ class CandidatManager extends AbstractManager {
 
   async update(candidat) {
     let query;
-    if (candidat.hashedpassword === "") {
+    if (candidat.password === "") {
       query = this.database.query(
         `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
         [
@@ -61,7 +61,7 @@ class CandidatManager extends AbstractManager {
       );
     } else {
       query = this.database.query(
-        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, hashedpassword  = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, hashedpassword = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
         [
           candidat.firstname,
           candidat.lastname,

@@ -45,6 +45,7 @@ function Contact() {
       </div>
       <div className="container">
         <form onSubmit={handleSubmit}>
+          <label htmlFor="nom">{/* vide volontairement */}</label>
           <input
             type="text"
             name="nom"
@@ -53,6 +54,7 @@ function Contact() {
             placeholder="Nom *"
             required
           />
+          <label htmlFor="prenom">{/* vide volontairement */}</label>
           <input
             type="text"
             name="prenom"
@@ -61,6 +63,7 @@ function Contact() {
             placeholder="Prénom *"
             required
           />
+          <label htmlFor="email">{/* vide volontairement */}</label>
           <input
             type="email"
             name="email"
@@ -69,14 +72,16 @@ function Contact() {
             placeholder="Email *"
             required
           />
+          <label htmlFor="numeroTel">{/* vide volontairement */}</label>
           <input
             type="tel"
             name="numeroTel"
             value={formData.numeroTel}
             onChange={handleInputChange}
-            placeholder="Numéro de téléphone *"
+            placeholder="Téléphone *"
             required
           />
+          <label htmlFor="message">{/* vide volontairement */}</label>
           <textarea
             name="message"
             value={formData.message}
