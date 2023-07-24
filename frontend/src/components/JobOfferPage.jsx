@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import "./JobOfferPage.css";
 
@@ -39,7 +39,9 @@ function JobOfferPage({ offers }) {
       </section>
       <hr className="joboffer_separator" />
       <section className="JobOfferPage_section5">
-        <button type="button"> Postuler!</button>
+        <Link to="/build">
+          <button type="button"> Postuler!</button>
+        </Link>
       </section>
     </div>
   );

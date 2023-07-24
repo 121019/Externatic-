@@ -26,9 +26,8 @@ class CompanyManager extends AbstractManager {
 
   async insert(company) {
     return this.database.query(
-      `INSERT INTO ${this.table} (id, name, email, hashedpassword, description, address, city, postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} ( name, email, hashedpassword, description, address, city, postcode) VALUES (?, ?, ?, ?, ?, ?, ?)`,
       [
-        company.id,
         company.name,
         company.email,
         company.hashedpassword,
