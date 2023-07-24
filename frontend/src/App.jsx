@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-
 import JobOffers from "./components/JobOffers";
 import Navbar from "./components/Navbar";
 import MonEspace from "./Navbar/MonEspace";
@@ -56,7 +55,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/joboffers" element={<JobOffers offers={offers} />} />
           <Route path="/espace" element={<MonEspace />} />
-          <Route path="espace/profil" element={<MonProfil />} />
+          <Route
+            path="espace/profil"
+            element={<MonProfil toastOptions={toastOptions} />}
+          />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/Inscription"

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import "./Inscription.css";
 import "react-toastify/dist/ReactToastify.css";
+import carteOuestFrance from "../assets/carte_france.png";
 
 function Inscription({ toastOptions }) {
   const firstnameRef = useRef();
@@ -102,7 +103,7 @@ function Inscription({ toastOptions }) {
         <div className="image-container">
           <img
             loading="lazy"
-            src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
+            src={carteOuestFrance}
             alt="Contact Externatic"
             className="wp-image-16355"
           />
