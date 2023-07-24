@@ -61,17 +61,13 @@ function JobOffers({ offers }) {
       (formLoc.length > 0 &&
         formLoc.map((f) => f.label).includes(offer.Location)) ||
       (formJob.length > 0 &&
-        formJob.map((f) => f.label).includes(offer.category))
+        formJob.map((f) => f.label).includes(offer.category)) ||
+      (searchTerm &&
+        offer.JobTitle.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    const hello = offers.map((offer) =>
-      offer.filter((val) => {
-        return val.JobTitle.includes(searchTerm);
-      })
-    );
-    console.warn(hello);
   };
 
   return (
