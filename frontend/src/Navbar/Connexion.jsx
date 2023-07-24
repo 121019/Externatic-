@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 import { useUser } from "../contexts/UserContext";
 import "./connexion.css";
 import homeImg from "../assets/home_img.jpg";
 
-function Login() {
+function Login({ toastOptions }) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
@@ -44,6 +46,31 @@ function Login() {
     navigate("/companylogin");
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"}/login`,
+      {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data.user);
+        toast.success("Vous êtes connecté", toastOptions);
+        navigate("/espace");
+      });
+  };
+
   return (
     <div className="connexion_content">
       <div
@@ -55,34 +82,7 @@ function Login() {
       </div>
       <div className="connexion_content_form">
         <div className="connexion_content_form_mainDiv">
-          <form
-            className="connexion_form"
-            onSubmit={(event) => {
-              event.preventDefault();
-
-              fetch(
-                `${
-                  import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5080"
-                }/login`,
-                {
-                  method: "post",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  credentials: "include",
-                  body: JSON.stringify({
-                    email: emailRef.current.value,
-                    password: passwordRef.current.value,
-                  }),
-                }
-              )
-                .then((response) => response.json())
-                .then((data) => {
-                  setUser(data.user);
-                  navigate("/espace");
-                });
-            }}
-          >
+          <form className="connexion_form" onSubmit={handleSubmit}>
             <div id="div_input_email">
               <label htmlFor="email">Email</label>
               <input ref={emailRef} type="text" id="email" name="email" />
@@ -118,3 +118,16 @@ function Login() {
 }
 
 export default Login;
+
+Login.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};

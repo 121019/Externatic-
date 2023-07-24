@@ -61,15 +61,27 @@ function App() {
             path="/Inscription"
             element={<Inscription toastOptions={toastOptions} />}
           />
-          <Route path="/connexion" element={<Connexion />} />
-          <Route path="/companylogin" element={<CompanyLogin />} />
-          <Route path="/companypage" element={<CompanyPage />} />
+          <Route
+            path="/connexion"
+            element={<Connexion toastOptions={toastOptions} />}
+          />
+          <Route
+            path="/companylogin"
+            element={<CompanyLogin toastOptions={toastOptions} />}
+          />
+          <Route
+            path="/companypage"
+            element={<CompanyPage toastOptions={toastOptions} />}
+          />
           <Route path="/mycv" element={<MyCv />} />
           <Route
             path="/companyregistration"
-            element={<CompanyRegistration />}
+            element={<CompanyRegistration toastOptions={toastOptions} />}
           />
-          <Route path="/newoffer" element={<JobSubmissionForm />} />
+          <Route
+            path="/newoffer"
+            element={<JobSubmissionForm toastOptions={toastOptions} />}
+          />
         </Routes>
         <Footer />
       </div>

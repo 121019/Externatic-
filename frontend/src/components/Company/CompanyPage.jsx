@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./CompanyPage.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 import { useUser } from "../../contexts/UserContext";
 
-function CompanyPage() {
+function CompanyPage({ toastOptions }) {
   const { user } = useUser();
 
   const [company, setCompany] = useState([]);
@@ -27,6 +29,29 @@ function CompanyPage() {
         console.warn(jobOffer);
       });
   }, []);
+
+  const handledelete = (id, JobTitle) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs/${id}`, {
+      method: "delete",
+      headers: {
+        "content-type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.id) {
+          toast.warn(`annonce ${JobTitle} supprimée`, toastOptions);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        console.warn(jobOffer);
+      })
+      .finally(() => {
+        window.location.reload();
+      });
+  };
 
   return (
     <div className="companyPage">
@@ -63,11 +88,26 @@ function CompanyPage() {
 
             {jobOffer.map((offer) => (
               <div key={offer.id} className="companyOffers">
-                <h2>{offer.JobTitle}</h2>
-                <p>Description: {offer.Description}</p>
-                <p>Location: {offer.Location}</p>
-                <p>type de Contrat:{offer.Contract_Type}</p>
-                <p>Category:{offer.category}</p>
+                <div>
+                  <h3>{offer.JobTitle}</h3>
+                </div>
+                <div>
+                  <p> {offer.Location}</p>
+                </div>
+                <div>
+                  <p>{offer.Contract_Type}</p>
+                </div>
+                <div>
+                  <p>{offer.category}</p>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => handledelete(offer.id, offer.JobTitle)}
+                  >
+                    -
+                  </button>
+                </div>
               </div>
             ))}
           </section>
@@ -177,3 +217,16 @@ function CompanyPage() {
 }
 
 export default CompanyPage;
+
+CompanyPage.propTypes = {
+  toastOptions: PropTypes.shape({
+    position: PropTypes.string,
+    autoClose: PropTypes.number,
+    hideProgressBar: PropTypes.bool,
+    closeOnClick: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    draggable: PropTypes.bool,
+    progress: PropTypes.number,
+    theme: PropTypes.string,
+  }).isRequired,
+};
