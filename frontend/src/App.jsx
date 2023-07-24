@@ -13,10 +13,13 @@ import CompanyLogin from "./components/Company/CompanyLogin";
 import CompanyPage from "./components/Company/CompanyPage";
 import MonProfil from "./Navbar/MonProfil";
 import MyCv from "./components/MyCv";
-import "react-toastify/dist/ReactToastify.css";
 import CompanyRegistration from "./components/Company/CompanyRegistration";
-import "./App.css";
 import JobSubmissionForm from "./components/JobSubmissionForm";
+import JobOfferPage from "./components/JobOfferPage";
+
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import Build from "./components/Build";
 
 function App() {
   const [offers, setOffers] = useState([]);
@@ -82,6 +85,11 @@ function App() {
             path="/newoffer"
             element={<JobSubmissionForm toastOptions={toastOptions} />}
           />
+          <Route
+            path="/jobofferpage/:offerid"
+            element={<JobOfferPage offers={offers} />}
+          />
+          <Route path="build" element={<Build />} />
         </Routes>
         <Footer />
       </div>

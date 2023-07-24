@@ -112,10 +112,12 @@ function CompanyPage({ toastOptions }) {
             ))}
           </section>
           <section className="companyPage_cvthèque">
-            <div>
-              <h1>CVthèque</h1>
-              <button type="submit">Click me!</button>
-            </div>
+            <Link to="/build" className="CompanyPage_link">
+              <div>
+                <h1>CVthèque</h1>
+                <button type="submit">Click me!</button>
+              </div>
+            </Link>
           </section>
           <section className="companyPage_application" id="myapplication">
             <h3> Candidatures Reçues :</h3>
@@ -149,10 +151,12 @@ function CompanyPage({ toastOptions }) {
             </div>
           </section>
           <section className="companyPage_history">
-            <div>
-              <h1>Historique</h1>
-              <button type="submit">Click me!</button>
-            </div>
+            <Link to="/build" className="CompanyPage_link">
+              <div>
+                <h1>Historique</h1>
+                <button type="submit">Click me!</button>
+              </div>
+            </Link>
           </section>
           <section
             className="companyPage_currentApplication"
