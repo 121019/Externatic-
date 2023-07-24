@@ -36,7 +36,10 @@ function MonEspace() {
               <Link to="/espace/profil" className="espace_section-bulle">
                 <p>Mon profil</p>
               </Link>
-              <p className="espace_section-bulle">Mon profil publique</p>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Mon profil publique</p>
+              </Link>
+
               <Link to="/mycv" className="espace_section-bulle">
                 <p>Mon CV</p>
               </Link>
