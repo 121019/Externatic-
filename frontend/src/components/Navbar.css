@@ -49,7 +49,7 @@
 .links_connexion {
   display: flex;
   gap: 20px;
-  margin: 0 2% 0 0;
+  margin: 0 2% 0 8%;
 }
 
 .connexion {
@@ -58,16 +58,40 @@
   font-weight: 500;
 }
 
+.navbar_deconnexion {
+  height: 100%;
+  width: 100%;
+}
+
 .deconnexion_button {
+  display: flex;
+  flex-direction: column;
   border: none;
   background-color: transparent;
-  font-size: 1em;
+  font-size: 0.8em;
+  margin-top: 4vh;
+  margin-right: 1vw;
 }
 
 .deconnexion_button:hover {
   cursor: pointer;
-  background-color: var(--primary_color);
-  color: white;
+}
+
+.deconnexion_button svg {
+  height: 4vh;
+  width: auto;
+  transition: 0.3s;
+  margin-top: -30px;
+  margin-bottom: auto;
+}
+
+.deconnexion_button span {
+  color: var(--secondary_color);
+}
+
+.deconnexion_button svg:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(rgba(100, 100, 111, 0.2) 0px 7px 29px 0px);
 }
 
 .connexion p {
@@ -284,5 +308,14 @@
 
   .navbar_login_icon svg:hover {
     transform: scale(1.2) rotate(360deg);
+  }
+
+  .navbar_deconnexion div {
+    display: block;
+    height: 20vh;
+  }
+
+  .deconnexion_button span {
+    display: none;
   }
 }

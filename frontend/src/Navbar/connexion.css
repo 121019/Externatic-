@@ -133,3 +133,13 @@
 /*///////////////////////////////////////////////////////////////////////////////
 //                                 Media Query                                 //
 ///////////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 850px) {
+  .connexion_content_img {
+    display: none;
+  }
+
+  .connexion_content_form {
+    margin-left: auto;
+  }
+}

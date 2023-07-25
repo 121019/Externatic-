@@ -248,7 +248,7 @@ function CompanyPage({ toastOptions }) {
           <p>Espace réservé aux entreprises</p>
           <p>Connectez-vous</p>
           <Link to="/companylogin">
-            <button type="button">Connection</button>
+            <button type="button">Connexion</button>
           </Link>
         </div>
       )}
