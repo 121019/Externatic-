@@ -36,13 +36,22 @@ function MonEspace() {
               <Link to="/espace/profil" className="espace_section-bulle">
                 <p>Mon profil</p>
               </Link>
-              <p className="espace_section-bulle">Mon profil publique</p>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Mon profil publique</p>
+              </Link>
+
               <Link to="/mycv" className="espace_section-bulle">
                 <p>Mon CV</p>
               </Link>
-              <p className="espace_section-bulle">Mes offres d'emploi</p>
-              <p className="espace_section-bulle">Mes candidatures</p>
-              <p className="espace_section-bulle">Paramètre</p>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Mes offres d'emploi</p>
+              </Link>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Mes candidatures</p>
+              </Link>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Paramètre</p>
+              </Link>
             </div>
           </div>
         )

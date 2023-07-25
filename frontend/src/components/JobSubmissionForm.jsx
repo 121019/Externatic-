@@ -95,7 +95,7 @@ function JobSubmissionForm({ toastOptions }) {
     <div className="JobFormDiv">
       {user && user.role === "company" ? (
         <div id="jobFormComponent" className="jobFormComponent">
-          <h1>Job Submission Form</h1>
+          <h1>Nouvelle Annonce :</h1>
           <form id="jobForm" className="jobForm" onSubmit={handleSubmit}>
             <label htmlFor="JobTitle">Job Title:</label>
             <input
@@ -156,7 +156,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="category"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" id="jobSubmissionForm_submit" />
           </form>
         </div>
       ) : (

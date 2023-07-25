@@ -37,25 +37,26 @@
   display: flex;
 }
 
-.container {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
-  background-color: #ca1f62;
-  margin-bottom: 3rem;
-  border-radius: 9px;
-  box-shadow: var(--primary_shadow);
-
+  .container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: #ca1f62;
+    margin-bottom: 3rem;
+    border-radius: 9px;
+    font-size: 0.6rem;
+    box-shadow: var(--primary_shadow);
 }
 
  .contact{
   background-image: url("../assets/contact.jpeg");
   background-size: cover;
-  height: 65em;
+  height: 20em;
   display: flex;
   align-items: center;
+  margin-top: 4rem;
  }
  .contact h3{
   font-size: 3em;
@@ -65,13 +66,13 @@
  }
 
  .contactMessage{
-    font-size:1.4rem;
+    font-size:1.2rem;
     padding-top: 5rem;
  }
 
  .container>form{
   margin-top:2rem;
-  width: 100%;
+  width: 80%;
  }
  .coordinate, .coordinate_detail{
   display: flex;
@@ -105,7 +106,7 @@
 }
 
  .coordinate_detail p{
-  font-size: 1.2em;
+  font-size: 1em;
   margin-top: 2%;
   width: 100%;
   text-align: center;

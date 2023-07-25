@@ -3,20 +3,46 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-color: #ca1f62;
-  height: 70vh;
-  width: 150vh;
+  background-color: var(--primary_color);
+  height: 100%;
+  width: 60vw;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   margin-left: 0;
-  border-radius: 0 5px 5px 0;
-  margin-bottom: 2rem;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
 }
+
+.jobFormComponent h1 {
+  color: white;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
 .jobForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+}
+
+.jobForm input {
+  padding: 0.5rem;
+  margin-bottom: 0.4rem;
+  border: 0.1rem solid #ca1f62;
+  border-radius: 5px;
+  width: 20rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.jobForm textarea {
+  height: 17em;
+  width: 25em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-align: top;
 }
 
 .JobFormDiv {
@@ -34,4 +60,20 @@
   font-size: 1.8em;
   color: var(--secondary_color);
   font-weight: 500;
+}
+
+#jobSubmissionForm_submit {
+  border: none;
+  background-color: var(--secondary_color);
+  margin-bottom: 5vh;
+  color: white;
+  padding: 4% 8%;
+  font-size: 1em;
+  border-radius: 7px;
+}
+
+#jobSubmissionForm_submit:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }

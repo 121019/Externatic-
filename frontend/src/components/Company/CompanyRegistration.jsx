@@ -80,7 +80,7 @@ function CompanyRegistration({ toastOptions }) {
           setError(data.message);
         } else {
           toast.success("Nouvelle Entreprise créée", toastOptions);
-          navigate("/companypage");
+          navigate("/companylogin");
         }
       })
       .catch(() => {

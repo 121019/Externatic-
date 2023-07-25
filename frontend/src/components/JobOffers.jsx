@@ -3,6 +3,7 @@ import { format, parseISO } from "date-fns";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import { Link } from "react-router-dom";
 
 import "./JobOffers.css";
 
@@ -13,6 +14,7 @@ function JobOffers({ offers }) {
   const [formJob, setFormJob] = useState([]);
   const [formContractType, setFormContractType] = useState([]);
   const [formLoc, setFormLoc] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const customTheme = (theme) => {
     return {
@@ -59,8 +61,14 @@ function JobOffers({ offers }) {
       (formLoc.length > 0 &&
         formLoc.map((f) => f.label).includes(offer.Location)) ||
       (formJob.length > 0 &&
-        formJob.map((f) => f.label).includes(offer.category))
+        formJob.map((f) => f.label).includes(offer.category)) ||
+      (searchTerm &&
+        offer.JobTitle.toLowerCase().includes(searchTerm.toLowerCase()))
   );
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <div className="joboffer_content">
@@ -68,7 +76,12 @@ function JobOffers({ offers }) {
 
       <section className="searchBar_section">
         <form className="search-box">
-          <input type="text" placeholder=" " className="input" />
+          <input
+            type="text"
+            placeholder=" "
+            className="input"
+            onChange={handleSearch}
+          />
           <button type="reset">x</button>
         </form>
       </section>
@@ -126,27 +139,29 @@ function JobOffers({ offers }) {
               const formattedDate = format(date, "dd-MM-yyyy");
               return (
                 <div key={offer.id} className="offers_card">
-                  <h2>{offer.JobTitle}</h2>
-                  <div className="offers_card-flex">
-                    <div className="offers_card-flexgauche">
-                      <img
-                        src={desc}
-                        className="offers_card-symbol offers_card-desc"
-                        alt="description"
-                      />
-                      <p>{offer.Description}</p>
+                  <Link to={`/jobofferpage/${offer.id}`}>
+                    <h2>{offer.JobTitle}</h2>
+                    <div className="offers_card-flex">
+                      <div className="offers_card-flexgauche">
+                        <img
+                          src={desc}
+                          className="offers_card-symbol offers_card-desc"
+                          alt="description"
+                        />
+                        <p>{offer.Description}</p>
+                      </div>
+                      <div className="offers_card-flexdroite">
+                        <img
+                          src={loc}
+                          className="offers_card-symbol offers_card-loc"
+                          alt="localiser"
+                        />
+                        <p>{offer.Location}</p>
+                        <p>Posté le {formattedDate}</p>
+                        <p>{offer.Contract_Type}</p>
+                      </div>
                     </div>
-                    <div className="offers_card-flexdroite">
-                      <img
-                        src={loc}
-                        className="offers_card-symbol offers_card-loc"
-                        alt="localiser"
-                      />
-                      <p>{offer.Location}</p>
-                      <p>Posté le {formattedDate}</p>
-                      <p>{offer.Contract_Type}</p>
-                    </div>
-                  </div>
+                  </Link>
                 </div>
               );
             }
