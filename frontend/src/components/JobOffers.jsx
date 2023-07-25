@@ -82,7 +82,9 @@ function JobOffers({ offers }) {
             className="input"
             onChange={handleSearch}
           />
-          <button type="reset">x</button>
+          <button type="reset" onClick={() => setSearchTerm("")}>
+            x
+          </button>
         </form>
       </section>
 
