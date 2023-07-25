@@ -12,7 +12,7 @@
 .espace {
   background-image: url("../assets/espace.jpeg");
   background-size: cover;
-  height: 65em;
+  height: 50vh;
   display: flex;
   align-items: center;
 }

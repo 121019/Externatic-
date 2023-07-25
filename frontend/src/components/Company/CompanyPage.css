@@ -14,7 +14,7 @@
 .companyPage_header {
   background-image: url("../../assets/CompanyBackground.jpg");
   background-size: cover;
-  height: 45em;
+  height: 50vh;
   display: flex;
   align-items: center;
 }
