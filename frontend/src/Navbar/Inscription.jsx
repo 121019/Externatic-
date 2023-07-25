@@ -97,7 +97,7 @@ function Inscription({ toastOptions }) {
   };
   return (
     <div className="inscription_content">
-      <p>Nouveau Candidat :</p>
+      <p>Nouveau Candidat</p>
 
       <div className="Inscription">
         <div className="image-container">
