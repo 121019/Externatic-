@@ -21,33 +21,33 @@ function JobOfferPage({ offers }) {
             <h3>{myOffer.Location}</h3>
           </section>
 
-      <section className="JobOfferPage_section3">
-        <div>
-          <p>
-            <strong>Salaire :</strong> 28k-35k brut
-          </p>
-          <p>
-            <strong>Catégorie :</strong> {myOffer.category}
-          </p>
-          <p>
-            <strong>Date de mise en ligne :</strong> {myOffer.Upload_Date}
-          </p>
-        </div>
-      </section>
-      <hr className="joboffer_separator" />
-      <section className="JobOfferPage_section4">
-        <div>
-          <h2>Description :</h2>
-          <p>{myOffer.Description}</p>
-        </div>
-      </section>
-      <hr className="joboffer_separator" />
-      <section className="JobOfferPage_section5">
-        <Link to="/build">
-          <button type="button">Postuler</button>
-        </Link>
-      </section>       
-               </>
+          <section className="JobOfferPage_section3">
+            <div>
+              <p>
+                <strong>Salaire :</strong> 28k-35k brut
+              </p>
+              <p>
+                <strong>Catégorie :</strong> {myOffer.category}
+              </p>
+              <p>
+                <strong>Date de mise en ligne :</strong> {myOffer.Upload_Date}
+              </p>
+            </div>
+          </section>
+          <hr className="joboffer_separator" />
+          <section className="JobOfferPage_section4">
+            <div>
+              <h2>Description :</h2>
+              <p>{myOffer.Description}</p>
+            </div>
+          </section>
+          <hr className="joboffer_separator" />
+          <section className="JobOfferPage_section5">
+            <Link to="/build">
+              <button type="button">Postuler</button>
+            </Link>
+          </section>
+        </>
       ) : (
         <div className="companyPage_unlogin">
           <p>Espace réservé aux Candidats connectés</p>
