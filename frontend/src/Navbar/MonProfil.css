@@ -17,7 +17,7 @@
 .profil {
     background-image: url("../assets/espace.jpeg");
     background-size: cover;
-    height: 65em;
+    height: 50vw;
     display: flex;
     align-items: center;
 }
@@ -84,12 +84,20 @@
     color: var(--text);
     background-color: var(--secondary_color);
 }
+@media screen and (max-width: 1165px) {
+    .profil h3{
+        font-size: 2em;
+    }
+}
 
 @media screen and (max-width: 550px) {
-    .profil{
-        height: 40em;
+    .profil h3{
+        font-size: 1.5em;
     }
     .profilNonConnecte-h3{
+        font-size: 1em;
+    }
+    .profil_nomcomplet-h4 {
         font-size: 1em;
     }
     .profil_input label{

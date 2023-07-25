@@ -37,15 +37,16 @@
   display: flex;
 }
 
-  .container {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    background-color: #ca1f62;
-    margin-bottom: 3rem;
-    border-radius: 9px;
+.container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  background-color: #ca1f62;
+  margin-bottom: 3rem;
+  border-radius: 9px;
+  box-shadow: var(--primary_shadow);
 
 }
 
@@ -80,6 +81,7 @@
  }
  .coordinate{
   width: 70%;
+  
  }
  .coordinate h4{
   font-size: 1.8em;
@@ -93,6 +95,8 @@
   color: var(--text);
   width: 100%;
   border-radius: 9px;
+  box-shadow: var(--primary_shadow);
+
  }
 .coordinate_detail h5{
   font-size: 1.5em;

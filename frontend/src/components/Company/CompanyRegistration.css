@@ -1,29 +1,48 @@
+.inscription_company_content{
+  color: #ca1f62;
+  text-align: center;
+  margin: 5rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.Inscription-company {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.image_compagny-container img{
+  width: 35rem;
+  height: 45rem;
+}
 .companyRegistration_form_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10%;
-  width: 30%;
   gap: 0.5rem;
   background-color: #ca1f62;
   margin-bottom: 1.5rem;
-  border-radius: 5px;
   margin-top: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 1.5rem;
+  box-shadow: var(--primary_shadow)
+}
+.company-form-container-info-first{
+  margin-top: 8%;
 }
 
-.Inscription input[type="text"],
-.Inscription input[type="password"] {
+.company-form-container-info {
   padding: 0.5rem;
   margin-bottom: 0.4rem;
   border: 0.1rem solid #ca1f62;
   border-radius: 5px;
-  width: 20rem;
+  width: 60%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-align: center;
+  font-size: 0.6em;
 }
 
-.Inscription input[type="submit"] {
+.Inscription-company input[type="submit"] {
   padding: 0.6rem 5rem;
   border-color: white;
   color: white;
@@ -33,18 +52,21 @@
   margin: 2rem;
 }
 
-.companyRegistration_form_container label {
+.design-image-file {
   color: white;
   font-size: 0.6em;
-  margin: 4% 0 2% 0;
+  display: flex;
+  flex-direction: column;
+}
+.design-image-file label {
+  margin-bottom: 2%;
 }
 
 .companyRegistration_text_area {
-  height: 17em;
-  width: 25em;
+  margin-top: 2%;
+  height: 10em;
   border: none;
   border-radius: 5px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   text-align: top;
 }
 
@@ -53,16 +75,44 @@
 }
 
 .companyRegistration_form_container button {
-  color: var(--secondary_color);
+  padding: 0.6rem 5rem;
+  margin: 2rem;
+  border-color: white;
+  color: white;
   border: none;
-  border-radius: 5px;
-  width: 50%;
-  padding: 0.8em 0.3em;
-  margin-bottom: 2em;
-  margin-top: 1.5em;
-  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--secondary_color);
+  font-size: 0.5em;
 }
 
 .companyRegistration_form_container button:hover {
   cursor: pointer;
+}
+@media screen and (max-width: 832px) {
+   .Inscription-company{
+    display: block;
+  }
+  .image_compagny-container img {
+    display: none;
+  }
+  .companyRegistration_form_container {
+    display: block;
+  }
+}
+@media screen and (max-width: 550px) {
+  .inscription_company_content{
+    font-size: 1.3rem;
+  }
+  .company-form-container-info{
+    font-size: 0.5em;
+  }
+  .Inscription-company{
+    display: flex;
+    justify-content: center;
+  }
+  .companyRegistration_form_container {
+    width: 110%;
+    margin-bottom: 0;
+  }
 }

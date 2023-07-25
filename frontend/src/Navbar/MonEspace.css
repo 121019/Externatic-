@@ -12,7 +12,7 @@
 .espace {
     background-image: url("../assets/espace.jpeg");
     background-size: cover;
-    height: 65em;
+    height: 50vw;
     display: flex;
     align-items: center;
 }
@@ -80,8 +80,11 @@
 }
   
 @media screen and (max-width: 1165px) {
-    .espace{
-        height: 40em;
+    .espace h3{
+        font-size: 2em;
+    }
+    .espace_nomcomplet-h4 {
+        font-size: 1.5em;
     }
     .espace_section{
         gap: 1em;
@@ -95,26 +98,27 @@
     }
 }
 @media screen and (max-width: 550px) {
-        .espace{
-            height: 30em;
-        }
-        .espaceNonConnecte-h3{
-            font-size: 1em;
-        }
-        .espace_nomcomplet-h4{
-            margin-left: auto;
-        }
-        .espace_section-bulle{
-            font-size: 1.5em;
-            margin-top: 5%;
-            height: 4em;
-        }
-        .espace_section{
-            flex-direction: column;
-            justify-content: center;
-            width: auto;
-            gap: 1em;
-            margin-top: 5%;
-            margin-bottom: 11%;
-        }
+    .espace h3{
+        font-size: 1.5em;
+    }
+    .espaceNonConnecte-h3{
+        font-size: 1em;
+    }
+    .espace_nomcomplet-h4{
+        font-size: 1em;
+        margin-left: auto;
+    }
+    .espace_section-bulle{
+        font-size: 1.5em;
+        margin-top: 5%;
+        height: 4em;
+    }
+    .espace_section{
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        gap: 1em;
+        margin-top: 5%;
+        margin-bottom: 11%;
+    }
 }
