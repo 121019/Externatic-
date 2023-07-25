@@ -69,6 +69,7 @@ function JobSubmissionForm({ toastOptions }) {
         if (data.id) {
           toast.success("Nouvelle annonce postée!", toastOptions);
           navigate("/companypage");
+          window.scrollTo(0, 0);
         } else {
           toast.error(
             "Quelque chose ne va pas, contacter un administrateur.",
