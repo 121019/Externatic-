@@ -1,53 +1,72 @@
-## Concept
+# ---- Externatic ----
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+## How to install and execute
 
-## Setup & Use
+clone this repo and run "npm install", create your ".env and" run "npm run migrate" and "npm run dev" if you want to load local server.
 
-### Windows users
+## depedencies
 
-Be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
+- "@vitejs/plugin-react": "^3.0.1",
+- "axios": "^1.4.0",
+- "date-fns": "^2.30.0",
+- "js-cookie": "^3.0.5",
+- "prop-types": "^15.8.1",
+- "proptype": "^1.0.0",
+- "react": "^18.2.0",
+- "react-dom": "^18.2.0",
+- "react-hook-form": "^7.45.1",
+- "react-router-dom": "^6.12.1",
+- "react-select": "^5.7.3",
+- "react-toastify": "^9.1.3",
+- "vite": "^4.0.4"
+- "@react-pdf/renderer": "^3.1.12",
+- "argon2": "^0.30.3",
+- "cookie-parser": "^1.4.6",
+- "cors": "^2.8.5",
+- "date-fns": "^2.30.0",
+- "dotenv": "^16.1.4",
+- "express": "^4.18.2",
+- "i": "^0.3.7",
+- "jsonwebtoken": "^9.0.0",
+- "multer": "1.4.5-lts.1",
+- "mysql2": "^3.3.4",
+- "uuid": "^9.0.0"
 
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
+## How to use
 
-### Project Initialization
+You can use our website without logging in, you have access to:
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
-- Run command `npm install`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+- Homepage
+- Job Offer page
+- Contact Us
+- Create an account
 
-### Available Commands
+If you want you can create your account And access the following elements:
 
-- `migrate` : Run the database migration script
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
-- `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
-- `fix` : Fixes linter errors (run it if `lint` growls on your code !)
+- More information on job offers
+- My space page
+- Manage my profile, add a CV, complete my profile visible to recruiters, track applications
+- The ability to apply for job offers
+- The ability to be part of the CV database and be visible to recruiters.
 
-## FAQ
+If you are a company:
 
-### Tools
+- The ability to post job offers
+- View applications
+- View the CV database
+- View the company's history
+- Contact candidates.
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-- _Nodemon_ : Allows to restart the server everytime a .js file is udated
+## Git Wokrflow
 
-### Deployment
+All the work is done on the branches dedicated to user stories, we do a pull request on the dev branch, the pull request will then be validated by the product-owner of the group and the trainer before being merged on the dev branch.
+A new branch is created for each US.
 
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+## Contribution
 
-- CAPROVER_BACK_APPNAME : name app on caprover
-- CAPROVER_FRONT_APPNAME : name app on caprover
-- CAPROVER_PASSWORD : password caprover
-- CAPROVER_SERVER : link of domain
+Each one will be Product-Owner/ Scrum Master for a week during this project
+
+-Cathy : https://github.com/121019
+-Nils : https://github.com/asterix040173
+-Julien : https://github.com/julien-ladpde
+-Wilhem : https://github.com/Wilhem-H

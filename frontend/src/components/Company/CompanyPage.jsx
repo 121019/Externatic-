@@ -11,6 +11,8 @@ function CompanyPage({ toastOptions }) {
 
   const [company, setCompany] = useState([]);
   const [jobOffer, setJobOffer] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [offerToDelete, setOfferToDelete] = useState("");
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/company`)
@@ -30,7 +32,7 @@ function CompanyPage({ toastOptions }) {
       });
   }, []);
 
-  const handledelete = (id, JobTitle) => {
+  const handledelete = ({ id, JobTitle }) => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs/${id}`, {
       method: "delete",
       headers: {
@@ -41,6 +43,7 @@ function CompanyPage({ toastOptions }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.id) {
+          setIsOpen(false);
           toast.warn(`annonce ${JobTitle} supprimée`, toastOptions);
         }
       })
@@ -53,8 +56,41 @@ function CompanyPage({ toastOptions }) {
       });
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const addOfferToDelete = (id, JobTitle) => {
+    setIsOpen(true);
+    setOfferToDelete({ id, JobTitle });
+  };
+
   return (
     <div className="companyPage">
+      {isOpen && (
+        <div className="companyPage_popup_box">
+          <div className="companyPage_box">
+            <h3>Souhaitez-vous supprimer cette offre d'emploi ? </h3>
+            <div className="popup_div_btn">
+              <button
+                className="popup_btn yes"
+                type="button"
+                onClick={() => handledelete(offerToDelete)}
+              >
+                Oui
+              </button>
+              <button
+                className="popup_btn no"
+                type="button"
+                onClick={handleClose}
+              >
+                Non
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {user && user.role === "company" ? (
         <>
           <section className="companyPage_header">
@@ -103,7 +139,7 @@ function CompanyPage({ toastOptions }) {
                 <div>
                   <button
                     type="button"
-                    onClick={() => handledelete(offer.id, offer.JobTitle)}
+                    onClick={() => addOfferToDelete(offer.id, offer.JobTitle)}
                   >
                     -
                   </button>

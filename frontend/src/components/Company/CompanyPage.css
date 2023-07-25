@@ -178,16 +178,17 @@
   font-size: 1.3em;
   padding: 3px 15px;
   border-radius: 7px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: solid 0.5px;
   transition: 0.4s;
   margin-right: 0;
   margin-left: auto;
 }
 
-.companyOffers button {
+.companyOffers button:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .companyOffers div {
@@ -401,4 +402,72 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+
+/*////////////////////////////////////////////////
+////////////           Pop-Up           //////////
+////////////////////////////////////////////////*/
+
+.companyPage_popup_box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.companyPage_box {
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 35%;
+  height: 25%;
+  min-height: 150px;
+  border-radius: 8px;
+  margin: 35vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary_color);
+  overflow: auto;
+  gap: 25%;
+}
+
+.companyPage_box h3 {
+  font-size: 1.3em;
+  font-family: "lato";
+}
+
+.popup_div_btn {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 25%;
+}
+
+.popup_btn {
+  cursor: pointer;
+  width: 15%;
+  font-size: 1.1em;
+  border-radius: 7px;
+  border: none;
+  color: var(--secondary_color);
+  transition: transform 200ms ease-in-out;
+  background-color: white;
+}
+
+.popup_btn:hover {
+  transform: scale(1.1);
+}
+
+.popup_btn.yes:hover {
+  background-color: rgb(33, 221, 33);
+  color: white;
+}
+
+.popup_btn.no:hover {
+  background-color: rgb(255, 6, 6);
+  color: white;
 }
