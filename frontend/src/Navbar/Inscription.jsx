@@ -114,6 +114,7 @@ function Inscription({ toastOptions }) {
             <form ref={formRef} onSubmit={handleSubmit}>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="firstname"
                   ref={firstnameRef}
@@ -123,6 +124,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="lastname"
                   ref={lastnameRef}
@@ -132,6 +134,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="email"
                   name="email"
                   ref={emailRef}
@@ -141,6 +144,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="password"
                   name="password"
                   ref={passwordRef}
@@ -150,6 +154,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="adress"
                   ref={adressRef}
@@ -159,6 +164,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="city"
                   ref={cityRef}
@@ -168,6 +174,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="postcode"
                   ref={postcodeRef}
@@ -177,6 +184,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
+                  className="form-container-info"
                   type="text"
                   name="phone"
                   ref={phoneRef}
