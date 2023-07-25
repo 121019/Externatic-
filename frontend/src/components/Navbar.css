@@ -68,7 +68,7 @@
   flex-direction: column;
   border: none;
   background-color: transparent;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-top: 4vh;
   margin-right: 1vw;
 }
@@ -78,9 +78,11 @@
 }
 
 .deconnexion_button svg {
-  height: 6vh;
+  height: 4vh;
   width: auto;
   transition: 0.3s;
+  margin-top: -30px;
+  margin-bottom: auto;
 }
 
 .deconnexion_button span {
