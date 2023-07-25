@@ -1,6 +1,6 @@
 .Inscription {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -14,47 +14,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 2%;
-  margin-bottom: 10%;
-  width: 30%;
   gap: 0.5rem;
   background-color: #ca1f62;
   margin-bottom: 1.5rem;
   border-radius: 1.5rem;
   margin-top: 3rem;
   box-shadow: var(--primary_shadow)
-
+}
+.form-container label{
+  width: 100%;
 }
 .message-error{
   color:black;
   text-align: center;
   font-size: 1rem;
-  padding:1.5rem;
   margin-top: 1rem;
-}
-
-.validate > form > input {
-  width: 3rem;
-  background-color: #ca1f62;
 }
 
 .Inscription form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.Inscription label {
-  text-align: center;
   width: 100%;
 }
 
-.Inscription input[type="text"],
-.Inscription input[type="password"] {
+.form-container-info {
   border: 0.1rem solid #ca1f62;
   border-radius: 10px;
   width: 80%;
   text-align: center;
+  font-size: 0.6em;
 }
 
 .Inscription input[type="submit"] {
@@ -62,9 +51,11 @@
   border-color: white;
   color: white;
   border: none;
-  border-radius: 10rem;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 2rem;
+  margin: 2rem 2rem 0 2rem;
+  background-color: var(--secondary_color);
+  font-size: 0.5em;
 }
 
 .Inscription > input[type="submit"]:hover {
@@ -79,50 +70,59 @@
   font-weight: bold;
   font-size: 2rem;
 }
-@media screen and (max-width: 832px) {
-  .image-container img {
-    display: none;
-  }
-  .Inscription {
-    display: block;
-  }
-}
-@media screen and (max-width: 550px) {
-
-  .inscription_content {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  .form-container {
-    font-size: 0.6rem;
-    width: 80%;
-    margin-top: 1.5rem;
-    padding-top: 2rem;
-  }
-
-  .inscription_content label {
-    margin: -0.4rem;
-    margin-bottom: -1rem;
-  }
-}
-
-.validate > input {
-  background-color: #ca1f62;
+.switch_company_page button {
+  border: none;
+  padding: 2% 4%;
+  border-radius: 7px;
+  margin-bottom: 4%;
+  color: var(--text);
+  background-color: var(--primary_shadow);
+  font-size: 0.4em;
+  cursor: pointer;
 }
 
 .switch_company_page {
   width: 100%;
-  margin-top: -5%;
-}
-.switch_company_page button {
-  border: none;
-  padding: 4% 8%;
-  border-radius: 7px;
-  margin-bottom: 4%;
-  color: var(--secondary_color);
-  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 0;
 }
 
-.switch_company_page button:hover {
-  cursor: pointer;
+@media screen and (max-width: 832px) {
+  .form-container{
+    display: inline-block;
+    font-size: 0.80em;
+  }
+  .Inscription{
+    display: block;
+  }
+  .form-container {
+   width: 50%;
+  }
+  .form-container-info{
+    width: 60%;
+  }
+  .image-container img {
+    display: none;
+  }
 }
+@media screen and (max-width: 550px) {
+  .inscription_content{
+    margin-bottom: 3rem;
+  }
+  .form-container label{
+    width: 100%;
+  }
+  .Inscription input[type="submit"]{
+    padding: 0.8em 2.5em ;
+    margin:  8% 0 0 0;
+    font-size: 0.4em;
+  }
+  .form-container {
+    width: 70%;
+  }
+  .form-container-info{
+     width: 80%;
+     font-size: 0.5em;
+  }
+}
+

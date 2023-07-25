@@ -17,7 +17,7 @@
   height: 20em;
   display: flex;
   align-items: center;
-  box-shadow: 10px 5px 5px #851342;
+  box-shadow: 10px 5px 5px #851342; 
 }
 .espace h3 {
   font-size: 3em;
@@ -88,41 +88,45 @@
 }
 
 @media screen and (max-width: 1165px) {
-  .espace {
-    height: 40em;
-  }
-  .espace_section {
-    gap: 1em;
-    margin-top: 5%;
-    margin-bottom: 11%;
-  }
-  .espace_section-bulle {
-    height: none;
-    width: none;
-    font-size: 2em;
-  }
+    .espace h3{
+        font-size: 2em;
+    }
+    .espace_nomcomplet-h4 {
+        font-size: 1.5em;
+    }
+    .espace_section{
+        gap: 1em;
+        margin-top: 5%;
+        margin-bottom: 11%;
+    }
+    .espace_section-bulle{
+        height: none;
+        width: none;
+        font-size: 2em;
+    }
 }
 @media screen and (max-width: 550px) {
-  .espace {
-    height: 30em;
-  }
-  .espaceNonConnecte-h3 {
-    font-size: 1em;
-  }
-  .espace_nomcomplet-h4 {
-    margin-left: auto;
-  }
-  .espace_section-bulle {
-    font-size: 1.5em;
-    margin-top: 5%;
-    height: 4em;
-  }
-  .espace_section {
-    flex-direction: column;
-    justify-content: center;
-    width: auto;
-    gap: 1em;
-    margin-top: 5%;
-    margin-bottom: 11%;
-  }
+    .espace h3{
+        font-size: 1.5em;
+    }
+    .espaceNonConnecte-h3{
+        font-size: 1em;
+    }
+    .espace_nomcomplet-h4{
+        font-size: 1em;
+        margin-left: auto;
+    }
+    .espace_section-bulle{
+        font-size: 1.5em;
+        margin-top: 5%;
+        height: 4em;
+    }
+    .espace_section{
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        gap: 1em;
+        margin-top: 5%;
+        margin-bottom: 11%;
+    }
 }

@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
+import carteOuestFrance from "../../assets/carte_france.png";
 
 import "../../Navbar/Inscription.css";
 import "./CompanyRegistration.css";
@@ -92,32 +93,34 @@ function CompanyRegistration({ toastOptions }) {
   };
 
   return (
-    <div className="inscription_content">
+    <div className="inscription_company_content">
       <p>Nouvelle Entreprise :</p>
 
-      <div className="Inscription">
-        <div className="image-container">
+      <div className="Inscription-company">
+        <div className="image_compagny-container">
           <img
             loading="lazy"
-            src="https://www.externatic.fr/wp-content/uploads/2023/04/carte_france-791x1024.png"
+            src={carteOuestFrance}
             alt="Contact Externatic"
             className="wp-image-16355"
           />
         </div>
         <div className="companyRegistration_form_container">
           <form ref={formRef} onSubmit={handleSubmit}>
-            <label htmlFor="name">Nom de l'entreprise</label>
+            <label htmlFor="name">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info company-form-container-info-first"
               type="text"
               name="name"
               ref={nameRef}
-              placeholder="Nom de l'entreprise *"
+              placeholder="Nom *"
               id="name"
               required
             />
 
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="email"
               name="email"
               ref={emailRef}
@@ -125,8 +128,9 @@ function CompanyRegistration({ toastOptions }) {
               id="email"
               required
             />
-            <label htmlFor="password">Mot de Passe</label>
+            <label htmlFor="password">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="password"
               name="password"
               ref={passwordRef}
@@ -134,8 +138,9 @@ function CompanyRegistration({ toastOptions }) {
               id="password"
               required
             />
-            <label htmlFor="confirmPassword">Confirmer mot de passe </label>
+            <label htmlFor="confirmPassword">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="password"
               name="password"
               ref={passwordRef}
@@ -143,8 +148,9 @@ function CompanyRegistration({ toastOptions }) {
               id="confirmPassword"
               required
             />
-            <label htmlFor="address">Adresse</label>
+            <label htmlFor="address">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="text"
               name="address"
               ref={addressRef}
@@ -152,8 +158,9 @@ function CompanyRegistration({ toastOptions }) {
               id="address"
               required
             />
-            <label htmlFor="city">Ville</label>
+            <label htmlFor="city">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="text"
               name="city"
               ref={cityRef}
@@ -161,8 +168,9 @@ function CompanyRegistration({ toastOptions }) {
               id="city"
               required
             />
-            <label htmlFor="postcode">Code postale</label>
+            <label htmlFor="postcode">{/* volontairement vide */}</label>
             <input
+              className="company-form-container-info"
               type="number"
               name="postcode"
               ref={postcodeRef}
@@ -170,23 +178,24 @@ function CompanyRegistration({ toastOptions }) {
               id="postcode"
               required
             />
-            <label htmlFor="desc">Présentation</label>
+            <label htmlFor="desc">{/* volontairement vide */}</label>
             <textarea
               name="postcode"
               ref={descRef}
-              placeholder="description rapide de l'entreprise"
+              placeholder="Description rapide de l'entreprise"
               id="desc"
-              className="companyRegistration_text_area"
+              className="company-form-container-info companyRegistration_text_area"
               required
             />
-            <label>
-              Sélectionnez une image :
+            <div className="design-image-file">
+              <label htmlFor="image-file">Sélectionnez une image :</label>
               <input
+                id="image-file"
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
               />
-            </label>
+            </div>
             <div className="validate">
               <button type="submit" value="Valider">
                 {" "}

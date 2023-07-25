@@ -151,7 +151,7 @@ function CompanyPage({ toastOptions }) {
             <Link to="/build" className="CompanyPage_link">
               <div>
                 <h1>CVthèque</h1>
-                <button type="submit">Click me!</button>
+                <button type="submit">Click me !</button>
               </div>
             </Link>
           </section>
@@ -190,7 +190,7 @@ function CompanyPage({ toastOptions }) {
             <Link to="/build" className="CompanyPage_link">
               <div>
                 <h1>Historique</h1>
-                <button type="submit">Click me!</button>
+                <button type="submit">Click me !</button>
               </div>
             </Link>
           </section>
@@ -248,7 +248,7 @@ function CompanyPage({ toastOptions }) {
           <p>Espace réservé aux entreprises</p>
           <p>Connectez-vous</p>
           <Link to="/companylogin">
-            <button type="button">Connection</button>
+            <button type="button">Connexion</button>
           </Link>
         </div>
       )}

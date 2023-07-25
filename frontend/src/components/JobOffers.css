@@ -114,10 +114,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 25vh;
+  height: 10vh;
   width: 80%;
   background-color: var(--primary_color);
   border-radius: 10px;
+  box-shadow: var(--primary_shadow);
+
 }
 
 .filter_section form {
@@ -179,6 +181,8 @@
   align-items: center;
   width: 35%;
   padding: 2% 1%;
+  box-shadow: var(--primary_shadow);
+
 }
 
 .offers_card * {

@@ -82,7 +82,9 @@ function JobOffers({ offers }) {
             className="input"
             onChange={handleSearch}
           />
-          <button type="reset">x</button>
+          <button type="reset" onClick={() => setSearchTerm("")}>
+            x
+          </button>
         </form>
       </section>
 
@@ -98,7 +100,7 @@ function JobOffers({ offers }) {
             isMulti
             autoFocus
             noOptionsMessage={() =>
-              "⛔️ Aucuns jobs ne correspond à la recherche "
+              "⛔️ Aucun job ne correspond à la recherche "
             }
             onChange={setFormJob}
           />

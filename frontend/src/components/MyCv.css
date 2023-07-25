@@ -17,7 +17,7 @@
 .cv {
     background-image: url("../assets/espace.jpeg");
     background-size: cover;
-    height: 65em;
+    height: 50vw;
     display: flex;
     align-items: center;
 }
@@ -44,12 +44,12 @@
     box-shadow: var(--primary_shadow);
 }
 @media screen and (max-width: 1165px) {
-    .cv{
-        height: 40em;
+    .cv h3{
+        font-size: 2em;
     }
 }
 @media screen and (max-width: 550px) {
-    .cv{
-        height: 30em;
+    .cv h3{
+        font-size: 1.5em;
     }
 }

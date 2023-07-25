@@ -69,9 +69,10 @@ function JobSubmissionForm({ toastOptions }) {
         if (data.id) {
           toast.success("Nouvelle annonce postée!", toastOptions);
           navigate("/companypage");
+          window.scrollTo(0, 0);
         } else {
           toast.error(
-            "Quelque chose ne va pas, contacter un administrateur.",
+            "Quelque chose ne va pas, contactez un administrateur.",
             toastOptions
           );
         }
@@ -108,7 +109,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="JobTitle"
             />
             <br />
-            <label htmlFor="Description">Description:</label>
+            <label htmlFor="Description">Description :</label>
             <br />
             <textarea
               name="Description"
@@ -120,7 +121,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="Description"
             />
             <br />
-            <label htmlFor="location">Location:</label>
+            <label htmlFor="location">Lieu :</label>
             <input
               type="text"
               name="location"
@@ -129,7 +130,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="location"
             />
             <br />
-            <label htmlFor="uploadDate">Date de submition:</label>
+            <label htmlFor="uploadDate">Date de parution :</label>
             <input
               type="date"
               name="uploadDate"
@@ -138,7 +139,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="uploadDate"
             />
             <br />
-            <label htmlFor="contractType">Contract Type:</label>
+            <label htmlFor="contractType">Type de contrat :</label>
             <input
               type="text"
               name="contractType"
@@ -147,7 +148,7 @@ function JobSubmissionForm({ toastOptions }) {
               placeholder="contractType"
             />
             <br />
-            <label htmlFor="category">Category:</label>
+            <label htmlFor="category">Catégorie :</label>
             <input
               type="text"
               name="category"
@@ -161,7 +162,7 @@ function JobSubmissionForm({ toastOptions }) {
         </div>
       ) : (
         <div className="jobSubmissionForm_unconnect">
-          Seul les entreprises connectées peuvent poster des annonces
+          Seules les entreprises connectées peuvent poster des annonces
         </div>
       )}
     </div>

@@ -45,50 +45,55 @@ function Contact() {
       </div>
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="nom">{/* vide volontairement */}</label>
-          <input
-            type="text"
-            name="nom"
-            value={formData.nom}
-            onChange={handleInputChange}
-            placeholder="Nom *"
-            required
-          />
-          <label htmlFor="prenom">{/* vide volontairement */}</label>
-          <input
-            type="text"
-            name="prenom"
-            value={formData.prenom}
-            onChange={handleInputChange}
-            placeholder="Prénom *"
-            required
-          />
-          <label htmlFor="email">{/* vide volontairement */}</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Email *"
-            required
-          />
-          <label htmlFor="numeroTel">{/* vide volontairement */}</label>
-          <input
-            type="tel"
-            name="numeroTel"
-            value={formData.numeroTel}
-            onChange={handleInputChange}
-            placeholder="Téléphone *"
-            required
-          />
-          <label htmlFor="message">{/* vide volontairement */}</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            placeholder="Message *"
-            required
-          />
+          <label htmlFor="nom">
+            <input
+              type="text"
+              name="nom"
+              value={formData.nom}
+              onChange={handleInputChange}
+              placeholder="Nom *"
+              required
+            />
+          </label>
+          <label htmlFor="prenom">
+            <input
+              type="text"
+              name="prenom"
+              value={formData.prenom}
+              onChange={handleInputChange}
+              placeholder="Prénom *"
+              required
+            />
+          </label>
+          <label htmlFor="email">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email *"
+              required
+            />
+          </label>
+          <label htmlFor="numeroTel">
+            <input
+              type="tel"
+              name="numeroTel"
+              value={formData.numeroTel}
+              onChange={handleInputChange}
+              placeholder="Téléphone *"
+              required
+            />
+          </label>
+          <label htmlFor="message">
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Message *"
+              required
+            />
+          </label>
           <button id="pinkButton" type="submit">
             Envoyer
           </button>
