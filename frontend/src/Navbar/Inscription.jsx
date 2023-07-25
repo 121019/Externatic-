@@ -132,7 +132,7 @@ function Inscription({ toastOptions }) {
               </label>
               <label>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   ref={emailRef}
                   placeholder="Email *"
