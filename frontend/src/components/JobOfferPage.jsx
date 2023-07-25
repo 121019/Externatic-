@@ -24,27 +24,27 @@ function JobOfferPage({ offers }) {
           <section className="JobOfferPage_section3">
             <div>
               <p>
-                <strong>Salaire:</strong> 28k-35k brut
+                <strong>Salaire :</strong> 28k-35k brut
               </p>
               <p>
-                <strong>Catégorie:</strong> {myOffer.category}
+                <strong>Catégorie :</strong> {myOffer.category}
               </p>
               <p>
-                <strong>Date de mise en ligne:</strong> {myOffer.Upload_Date}
+                <strong>Date de mise en ligne :</strong> {myOffer.Upload_Date}
               </p>
             </div>
           </section>
           <hr className="joboffer_separator" />
           <section className="JobOfferPage_section4">
             <div>
-              <h2>Description: </h2>
+              <h2>Description :</h2>
               <p>{myOffer.Description}</p>
             </div>
           </section>
           <hr className="joboffer_separator" />
           <section className="JobOfferPage_section5">
             <Link to="/build">
-              <button type="button"> Postuler!</button>
+              <button type="button">Postuler</button>
             </Link>
           </section>
         </>

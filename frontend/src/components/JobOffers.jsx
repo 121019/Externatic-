@@ -100,7 +100,7 @@ function JobOffers({ offers }) {
             isMulti
             autoFocus
             noOptionsMessage={() =>
-              "⛔️ Aucuns jobs ne correspond à la recherche "
+              "⛔️ Aucun job ne correspond à la recherche "
             }
             onChange={setFormJob}
           />

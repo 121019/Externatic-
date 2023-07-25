@@ -79,8 +79,8 @@ function Cvupload() {
           <input type="file" name="myfile" onChange={handleFileChange} />
           <button type="submit">Envoyer</button>
         </form>
-        {uploadStatus === "success" && <p>File uploaded successfully!</p>}
-        {uploadStatus === "error" && <p>Error uploading file.</p>}
+        {uploadStatus === "success" && <p>Cv téléchargé avec succès!</p>}
+        {uploadStatus === "error" && <p>Erreur lors du téléchargement</p>}
       </div>
     </div>
   );
