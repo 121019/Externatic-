@@ -111,13 +111,49 @@ function Navbar() {
         </div>
         <div className="links_connexion">
           {user ? (
-            <div>
+            <div className="navbar_deconnexion">
               <button
                 type="button"
                 onClick={handleLogout}
                 className="connexion deconnexion_button"
               >
-                Se Déconnecter
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                    {/* {" "} Intentionally left empty {" "} */}
+                  </g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {/* {" "} Intentionally left empty {" "} */}
+                  </g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path
+                      d="M10 12H20M20 12L17 9M20 12L17 15"
+                      stroke="#851342"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      {/* {" "} Intentionally left empty {" "} */}
+                    </path>{" "}
+                    <path
+                      d="M4 12C4 7.58172 7.58172 4 12 4M12 20C9.47362 20 7.22075 18.8289 5.75463 17"
+                      stroke="#851342"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    >
+                      {/* {" "} Intentionally left empty {" "} */}
+                    </path>{" "}
+                  </g>
+                </svg>
+                <span>se déconnecter</span>
               </button>
             </div>
           ) : (

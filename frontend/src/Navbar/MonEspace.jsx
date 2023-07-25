@@ -37,7 +37,7 @@ function MonEspace() {
                 <p>Mon profil</p>
               </Link>
               <Link to="/build" className="espace_section-bulle">
-                <p>Mon profil publique</p>
+                <p>Mon profil public</p>
               </Link>
 
               <Link to="/mycv" className="espace_section-bulle">
@@ -50,7 +50,7 @@ function MonEspace() {
                 <p>Mes candidatures</p>
               </Link>
               <Link to="/build" className="espace_section-bulle">
-                <p>Paramètre</p>
+                <p>Paramètres</p>
               </Link>
             </div>
           </div>

@@ -4,7 +4,7 @@ function Build() {
   return (
     <div className="build">
       <div>
-        <h1>Page en Construction, bientôt disponnible</h1>
+        <h1>Page en Construction, bientôt disponible</h1>
       </div>
     </div>
   );

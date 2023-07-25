@@ -88,14 +88,14 @@ function Login({ toastOptions }) {
               <input ref={emailRef} type="text" id="email" name="email" />
             </div>
             <div id="div_input_email">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Mot de passe</label>
               <input
                 ref={passwordRef}
                 type="password"
                 id="password"
                 name="password"
               />
-              <button type="button">*mot de passe oublié?</button>
+              <button type="button">* Mot de passe oublié ?</button>
             </div>
             <div className="connexion_button">
               <button className="connexion_submitButton" type="submit">
