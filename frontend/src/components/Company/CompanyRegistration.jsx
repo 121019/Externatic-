@@ -106,7 +106,7 @@ function CompanyRegistration({ toastOptions }) {
         </div>
         <div className="companyRegistration_form_container">
           <form ref={formRef} onSubmit={handleSubmit}>
-            <label htmlFor="name">Nom de l'entreprise</label>
+            <label htmlFor="name"> * Nom de l'entreprise</label>
             <input
               type="text"
               name="name"
@@ -116,7 +116,7 @@ function CompanyRegistration({ toastOptions }) {
               required
             />
 
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">* Email</label>
             <input
               type="email"
               name="email"
@@ -125,7 +125,7 @@ function CompanyRegistration({ toastOptions }) {
               id="email"
               required
             />
-            <label htmlFor="password">Mot de Passe</label>
+            <label htmlFor="password">* Mot de Passe</label>
             <input
               type="password"
               name="password"
@@ -134,7 +134,7 @@ function CompanyRegistration({ toastOptions }) {
               id="password"
               required
             />
-            <label htmlFor="confirmPassword">Confirmer mot de passe </label>
+            <label htmlFor="confirmPassword">* Confirmer mot de passe </label>
             <input
               type="password"
               name="password"
@@ -143,7 +143,7 @@ function CompanyRegistration({ toastOptions }) {
               id="confirmPassword"
               required
             />
-            <label htmlFor="address">Adresse</label>
+            <label htmlFor="address">* Adresse</label>
             <input
               type="text"
               name="address"
@@ -152,7 +152,7 @@ function CompanyRegistration({ toastOptions }) {
               id="address"
               required
             />
-            <label htmlFor="city">Ville</label>
+            <label htmlFor="city">* Ville</label>
             <input
               type="text"
               name="city"
@@ -161,7 +161,7 @@ function CompanyRegistration({ toastOptions }) {
               id="city"
               required
             />
-            <label htmlFor="postcode">Code postale</label>
+            <label htmlFor="postcode">* Code postal</label>
             <input
               type="number"
               name="postcode"
