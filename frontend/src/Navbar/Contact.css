@@ -45,6 +45,7 @@
     width: 50%;
     background-color: #ca1f62;
     margin-bottom: 3rem;
+    margin-top: -6rem;
     border-radius: 9px;
     font-size: 0.6rem;
     box-shadow: var(--primary_shadow);
@@ -56,7 +57,7 @@
   height: 20em;
   display: flex;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
  }
  .contact h3{
   font-size: 3em;
@@ -86,6 +87,7 @@
  }
  .coordinate{
   width: 70%;
+  margin-top:5rem;
   
  }
  .coordinate h4{

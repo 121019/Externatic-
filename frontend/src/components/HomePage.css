@@ -121,24 +121,7 @@ span {
     background-color: rgba(208, 8, 91, 0.5);
   }
 }
-.prevBtn,
-.nextBtn {
-  font-size: 2.2rem;
-  color: #851342;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 12rem;
-}
 
-.prevBtn {
-  left: -25rem;
-}
-
-.nextBtn {
-  right: -25rem;
-}
 
 /*fin carousel*/
 
@@ -199,6 +182,7 @@ span {
 .youtube_video {
   width: 40rem;
   height: 25rem;
+  margin-left:-2rem;
 }
 
 @media screen and (max-width: 950px) {
