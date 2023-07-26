@@ -1,52 +1,49 @@
-.upload{
-    width: 80%;
+.upload {
+  width: 80%;
 }
-.whyDownloadCv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: var(--secondary_color);
-    text-align: center;
-    margin-top: 4%;
-    margin-left: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9px;
-    text-decoration: none;
-    margin-bottom: 5%;
+.whyDownloadCv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: var(--secondary_color);
+  text-align: center;
+  margin-top: 4%;
+  margin-left: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  text-decoration: none;
+  margin-bottom: 5%;
 }
 
-.whyDownloadCv button{
-    cursor: pointer;
-    border-color: none;
-    border-style: none;
-    color: var(--secondary_color);
-    font-size: 1.5em;
-    font-weight: 500;
-    background-color: white;
-    border-radius: 9px;
+.whyDownloadCv button {
+  cursor: pointer;
+  border-color: none;
+  border-style: none;
+  color: var(--secondary_color);
+  font-size: 1.5em;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 9px;
 }
-.whyDownloadCv p{
-    font-size: 1.2em;
-
+.whyDownloadCv p {
+  font-size: 1.2em;
 }
-.whyDownloadCv p a{
-    color: var(--secondary_color);
-    text-decoration: none;
-    font-weight: 500;
+.whyDownloadCv p a {
+  color: var(--secondary_color);
+  text-decoration: none;
+  font-weight: 500;
 }
-.downloadCv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    color: var(--secondary_color);
-    background-color: white;
-    height: 3em;
-    border-radius: 9px;
-    margin-bottom: 3%;
-}
-.downloadCv input{
+.downloadCv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: var(--secondary_color);
+  background-color: white;
+  height: 3em;
+  border-radius: 9px;
+  margin-bottom: 3%;
 }

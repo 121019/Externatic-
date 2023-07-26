@@ -9,7 +9,7 @@ function MyCv() {
 
   return (
     <div>
-      <div className="cv">
+      <div className="espace">
         <h3>Mon CV</h3>
       </div>
       {user === false ? (

@@ -22,7 +22,6 @@
 .weAre_p {
   width: 30%;
   color: white;
-  text-align: justify;
   font-size: 1.3vw;
   font-weight: 200;
   line-height: 1.5em;
@@ -168,7 +167,6 @@ span {
 }
 .value_p {
   color: #851342;
-  text-align: justify;
   font-size: 1.3vw;
   font-weight: 200;
   line-height: 1.5em;
