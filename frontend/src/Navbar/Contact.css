@@ -99,6 +99,7 @@
   color: var(--text);
   width: 100%;
   border-radius: 9px;
+  box-shadow: var(--primary_shadow);
 }
 .coordinate_detail h5 {
   font-size: 1.5em;

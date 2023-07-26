@@ -80,6 +80,11 @@
   cursor: pointer;
   box-shadow: var(--primary_shadow);
 }
+@media screen and (max-width: 1165px) {
+  .profil h3 {
+    font-size: 2em;
+  }
+}
 
 @media screen and (max-width: 550px) {
   .profil {

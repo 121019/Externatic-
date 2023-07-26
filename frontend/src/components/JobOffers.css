@@ -118,6 +118,7 @@
   width: 80%;
   background-color: var(--primary_color);
   border-radius: 10px;
+  box-shadow: var(--primary_shadow);
 }
 
 .filter_section form {
