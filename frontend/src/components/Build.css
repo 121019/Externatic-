@@ -1,0 +1,34 @@
+.build {
+  height: 80vh;
+  width: 95%;
+}
+
+.build div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  margin: 5vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  background-image: url("../assets/build.jpg");
+}
+
+.build h1 {
+  color: var(--secondary_color);
+  background-color: rgba(255, 255, 255, 0.65);
+  padding: 1% 4%;
+  font-size: 2em;
+  border-radius: 10px;
+  margin-top: 10vh;
+  margin-bottom: auto;
+}
+
+@media screen and (max-width: 850px) {
+  .build h1 {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: auto;
+  }
+}

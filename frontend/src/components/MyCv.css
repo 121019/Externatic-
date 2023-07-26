@@ -1,0 +1,55 @@
+.cvNonConnecte{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cvNonConnecte-h3{
+    font-size: 2em;
+    background-color: var(--primary_color);
+    padding: 2% 5%;
+    border-radius: 2.5em;
+}
+.cvNonConnecte-h3-link{
+    text-decoration: none;
+    color: var(--text);
+}
+.cv {
+    background-image: url("../assets/espace.jpeg");
+    background-size: cover;
+    height: 50vw;
+    display: flex;
+    align-items: center;
+}
+.cv h3{
+    font-size: 3em;
+    background-color: rgba(255, 255, 255, 0.61);
+    padding: 1% 4%;
+    color: var(--secondary_color);
+}
+.designMyCv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary_color);
+    color: var(--text);
+    text-align: center;
+    width: 70%;
+    margin-top: 4%;
+    border-radius: 9px;
+    text-decoration: none;
+    margin-bottom: 4%;
+    padding-bottom: 3%;
+    box-shadow: var(--primary_shadow);
+}
+@media screen and (max-width: 1165px) {
+    .cv h3{
+        font-size: 2em;
+    }
+}
+@media screen and (max-width: 550px) {
+    .cv h3{
+        font-size: 1.5em;
+    }
+}

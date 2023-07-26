@@ -23,9 +23,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Envoyer le formulaire ou effectuer d'autres actions
-    // ...
-
     // Réinitialiser le formulaire après l'envoi
     setFormData({
       nom: "",
@@ -40,13 +37,15 @@ function Contact() {
 
   return (
     <>
-      <h3>Nous contacter</h3>
-
-      <h4>{envoiMessage && <p>Message envoyé avec succès !</p>}</h4>
-
+      <div className="contact">
+        <h3>Nous contacter</h3>
+      </div>
+      <div className="contactMessage">
+        {envoiMessage && <p>Message envoyé avec succès !</p>}
+      </div>
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <label>
+          <label htmlFor="nom">
             <input
               type="text"
               name="nom"
@@ -56,8 +55,7 @@ function Contact() {
               required
             />
           </label>
-
-          <label>
+          <label htmlFor="prenom">
             <input
               type="text"
               name="prenom"
@@ -67,8 +65,7 @@ function Contact() {
               required
             />
           </label>
-
-          <label>
+          <label htmlFor="email">
             <input
               type="email"
               name="email"
@@ -78,19 +75,17 @@ function Contact() {
               required
             />
           </label>
-
-          <label>
+          <label htmlFor="numeroTel">
             <input
               type="tel"
               name="numeroTel"
               value={formData.numeroTel}
               onChange={handleInputChange}
-              placeholder="Numéro de téléphone *"
+              placeholder="Téléphone *"
               required
             />
           </label>
-
-          <label>
+          <label htmlFor="message">
             <textarea
               name="message"
               value={formData.message}
@@ -103,6 +98,17 @@ function Contact() {
             Envoyer
           </button>
         </form>
+      </div>
+      <div className="coordinate">
+        <h4>Nos coordonnées</h4>
+        <div className="coordinate_detail">
+          <h5>Externatic</h5>
+          <p>Tél. +33 (0)2 85 52 26 33</p>
+          <p>Mail : contact@externatic.fr</p>
+          <p className="adresse">
+            Adresse : 1 rue Racine – 44000 NANTES – France
+          </p>
+        </div>
       </div>
     </>
   );

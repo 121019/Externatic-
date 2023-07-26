@@ -28,10 +28,24 @@ const read = (req, res) => {
     });
 };
 
+const getjob = (req, res) => {
+  models.job
+    .fetchJobOffersByEnterpriseId(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const job = req.body;
-
-  // TODO validations (length, format...)
 
   job.id = parseInt(req.params.id, 10);
 
@@ -49,16 +63,17 @@ const edit = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 const add = (req, res) => {
   const job = req.body;
-
-  // TODO validations (length, format...)
 
   models.job
     .insert(job)
     .then(([result]) => {
-      res.location(`/jobs/${result.insertId}`).sendStatus(201);
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.status(201).send({ ...job, id: result.insertId });
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -73,7 +88,7 @@ const destroy = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(201).send({ id: result.insertId });
       }
     })
     .catch((err) => {
@@ -87,4 +102,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  getjob,
 };

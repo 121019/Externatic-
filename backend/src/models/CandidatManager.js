@@ -1,8 +1,4 @@
-const {
-  hashPassword,
-  verifyPassword,
-  hashPasswordManual,
-} = require("../services/auth");
+const { verifyPassword } = require("../services/auth");
 const AbstractManager = require("./AbstractManager");
 
 class CandidatManager extends AbstractManager {
@@ -10,82 +6,95 @@ class CandidatManager extends AbstractManager {
     super({ table: "Candidats" });
   }
 
-  async insert(candidat) {
-    const hashedPassword = await hashPasswordManual(candidat.password);
-
-    const newCandidat = { ...candidat, password: hashedPassword };
-
-    console.error("New Candidat:", newCandidat); // Log the new candidat object
-
+  insert(candidat) {
     return this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, password, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, hashedpassword, cv, adress, city, postcode, phone) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
-        newCandidat.firstname,
-        newCandidat.lastname,
-        newCandidat.email,
-        newCandidat.password,
-        newCandidat.cv,
-        newCandidat.adress,
-        newCandidat.city,
-        newCandidat.postcode,
-        newCandidat.phone,
+        candidat.firstname,
+        candidat.lastname,
+        candidat.email,
+        candidat.hashedpassword,
+        candidat.cv,
+        candidat.adress,
+        candidat.city,
+        candidat.postcode,
+        candidat.phone,
       ]
     );
   }
 
-  findByUsernameWithHashedPassword(email) {
-    console.error("Email:", email); // Log the email parameter
-
-    return this.database.query(
-      `SELECT id, email, password FROM ${this.table} WHERE email = ?`,
-      [email]
-    );
+  findByEmail(email) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE email = ?`, [
+      email,
+    ]);
   }
 
   find(id) {
-    console.error("ID:", id); // Log the id parameter
-
     return this.database.query(
-      `SELECT firstname and lastname FROM ${this.table} WHERE id = ?`,
+      `SELECT firstname, lastname, email, cv, adress, city, postcode, phone FROM ${this.table} WHERE id = ?`,
       [id]
     );
   }
 
   findByName(name) {
-    console.error("Name:", name); // Log the name parameter
-
     return this.database.query(`SELECT * FROM ${this.table} WHERE name = ?`, [
       name,
     ]);
   }
 
   async update(candidat) {
-    const hashedPassword = await hashPassword(candidat.password);
-    const updatedCandidat = { ...candidat, password: hashedPassword };
+    let query;
+    if (candidat.password === "") {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    } else {
+      query = this.database.query(
+        `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, hashedpassword = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
+        [
+          candidat.firstname,
+          candidat.lastname,
+          candidat.email,
+          candidat.hashedpassword,
+          candidat.cv,
+          candidat.adress,
+          candidat.city,
+          candidat.postcode,
+          candidat.phone,
+          candidat.id,
+        ]
+      );
+    }
+    return query;
+  }
 
-    console.error("Updated Candidat:", updatedCandidat); // Log the updated candidat object
+  sendCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
+  }
 
-    return this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, cv = ?, adress = ?, city = ?, postcode = ?, phone = ? WHERE id = ?`,
-      [
-        updatedCandidat.firstname,
-        updatedCandidat.lastname,
-        updatedCandidat.email,
-        updatedCandidat.password,
-        updatedCandidat.cv,
-        updatedCandidat.adress,
-        updatedCandidat.city,
-        updatedCandidat.postcode,
-        updatedCandidat.phone,
-        updatedCandidat.id,
-      ]
-    );
+  async updateCv(id, cv) {
+    return this.database.query(`UPDATE ${this.table} SET cv = ? WHERE id = ?`, [
+      cv,
+      id,
+    ]);
   }
 
   async verifyUserPassword(email, password) {
-    const [rows] = await this.findByUsernameWithHashedPassword(email);
-
-    console.error("Rows:", rows); // Log the retrieved rows
+    const [rows] = await this.findByEmail(email);
 
     if (!rows[0]) {
       console.error("Candidat not found");
@@ -93,8 +102,6 @@ class CandidatManager extends AbstractManager {
     }
 
     const candidat = rows[0];
-
-    console.error("Candidat:", candidat); // Log the candidat object
 
     const isPasswordValid = await verifyPassword(candidat.password, password);
 
