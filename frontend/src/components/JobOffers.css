@@ -179,6 +179,7 @@
   align-items: center;
   width: 35%;
   padding: 2% 1%;
+  box-shadow: var(--primary_shadow);
 }
 
 .offers_card * {
@@ -243,19 +244,30 @@
     gap: 2em;
     flex-direction: column;
   }
-}
-.offers_card h1 {
-  font-size: 1.5em;
-}
 
-.offers_card h3 {
-  font-size: 1em;
-}
-.offers_card p {
-  font-size: 0.9em;
-}
-.filter_label {
-  font-size: 1.2rem;
+  .offers_card h1 {
+    font-size: 1.5em;
+  }
+
+  .offers_card h3 {
+    font-size: 1em;
+  }
+  .offers_card p {
+    font-size: 0.9em;
+  }
+  .filter_label {
+    font-size: 1.2rem;
+  }
+  .filter_section form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .filter_section {
+    height: auto;
+    padding: 4% 2%;
+  }
 }
 
 @media screen and (max-width: 550px) {

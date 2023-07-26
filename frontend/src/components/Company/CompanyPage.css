@@ -1,5 +1,5 @@
 .companyPage section {
-  margin-bottom: 10vh;
+  margin-bottom: 6vh;
 }
 
 .CompanyPage_link {
@@ -472,4 +472,49 @@
 .popup_btn.no:hover {
   background-color: rgb(255, 6, 6);
   color: white;
+}
+
+/*/ ///////////////////////////////////////////////
+///////      Section 8 Non connecté        ////////
+////////////////////////////////////////////////*/
+
+@media screen and (max-width: 850px) {
+  .companyPage_header h3 {
+    font-size: 2em;
+    border-radius: 1px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .companyPage_navButton {
+    margin: 0;
+  }
+
+  .companyPage_navButton button {
+    font-size: 0.6em;
+    border-radius: 1px;
+  }
+
+  .companyPage_companyoffers h3,
+  .companyPage_companyoffers div,
+  .companyPage_currentApplication div {
+    font-size: 0.8em;
+  }
+
+  .companyPage_companyoffers div {
+    font-size: 0.8em;
+  }
+
+  .companyPage_application div {
+    font-size: 0.7em;
+  }
+
+  .companyPage_cvthèque,
+  .companyPage_history {
+    height: 30vh;
+  }
+
+  .companyPage section {
+    margin-bottom: 0;
+  }
 }

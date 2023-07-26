@@ -23,7 +23,7 @@
   color: var(--secondary_color);
 }
 .espaceNonConnecte {
-  height: 50vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,9 @@
   font-size: 2em;
   background-color: var(--primary_color);
   padding: 2% 5%;
-  border-radius: 2.5em;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .espaceNonConnecte-h3-link {
   text-decoration: none;
@@ -62,7 +64,7 @@
 
 .espace_section-bulle {
   background-color: var(--primary_color);
-  font-size: 3em;
+  font-size: 2em;
   color: var(--text);
   text-align: center;
   width: 8em;
@@ -79,9 +81,6 @@
 }
 
 @media screen and (max-width: 1165px) {
-  .espace {
-    height: 40em;
-  }
   .espace_section {
     gap: 1em;
     margin-top: 5%;
@@ -94,9 +93,6 @@
   }
 }
 @media screen and (max-width: 550px) {
-  .espace {
-    height: 30em;
-  }
   .espaceNonConnecte-h3 {
     font-size: 1em;
   }
@@ -115,5 +111,14 @@
     gap: 1em;
     margin-top: 5%;
     margin-bottom: 11%;
+  }
+
+  .espace {
+    height: 40vh;
+  }
+  .espace h3 {
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
   }
 }
