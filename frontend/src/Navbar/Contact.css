@@ -1,5 +1,5 @@
 .container input {
-  border-radius: 10px;
+  border-radius: 5px;
   border: 0.1rem solid #ca1f62;
   width: 60%;
   height: 5%;
@@ -11,8 +11,8 @@
   justify-content: center;
   text-align: center;
 }
-.container textarea{
-  border-radius: 10px;
+.container textarea {
+  border-radius: 5px;
   border: 0.1rem solid #ca1f62;
   width: 60%;
   height: 10em;
@@ -37,113 +37,112 @@
   display: flex;
 }
 
-  .container {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    background-color: #ca1f62;
-    margin-bottom: 3rem;
-    border-radius: 9px;
-    font-size: 0.6rem;
-    box-shadow: var(--primary_shadow);
+.container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background-color: #ca1f62;
+  margin-bottom: 3rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  box-shadow: var(--primary_shadow);
 }
 
- .contact{
+.contact {
   background-image: url("../assets/contact.jpeg");
   background-size: cover;
-  height: 20em;
+  height: 50vh;
   display: flex;
   align-items: center;
-  margin-top: 4rem;
- }
- .contact h3{
+}
+.contact h3 {
   font-size: 3em;
   background-color: rgba(255, 255, 255, 0.61);
   padding: 1% 4%;
   color: var(--secondary_color);
- }
+}
 
- .contactMessage{
-    font-size:1.4rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;;
-    color: #ca1f62;
-    text-align: center;
-    font-weight: bold;
- }
+.contactMessage {
+  font-size: 1.4rem;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  color: #ca1f62;
+  text-align: center;
+  font-weight: bold;
+}
 
- .container>form{
-  margin-top:2rem;
+.container > form {
+  margin-top: 2rem;
   width: 80%;
- }
- .coordinate, .coordinate_detail{
+}
+.coordinate,
+.coordinate_detail {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- }
- .coordinate{
+}
+.coordinate {
   width: 70%;
-  
- }
- .coordinate h4{
+}
+.coordinate h4 {
   font-size: 1.8em;
   color: var(--secondary_color);
   text-decoration: underline;
   margin-bottom: 3%;
- }
- .coordinate_detail{
+}
+.coordinate_detail {
   background-color: var(--primary_color);
   margin-bottom: 5%;
   color: var(--text);
   width: 100%;
   border-radius: 9px;
   box-shadow: var(--primary_shadow);
-
- }
-.coordinate_detail h5{
+}
+.coordinate_detail h5 {
   font-size: 1.5em;
   margin-bottom: 1%;
   margin-top: 2%;
 }
 
- .coordinate_detail p{
+.coordinate_detail p {
   font-size: 1em;
   margin-top: 2%;
   width: 100%;
   text-align: center;
 }
-.coordinate_detail .adresse{
+.coordinate_detail .adresse {
   margin-bottom: 2%;
 }
 
- @media screen and (max-width : 550px){
-  .contact{
-    height: 40em;
+@media screen and (max-width: 550px) {
+  .contact h3 {
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
   }
-  .contactMessage{
+  .contactMessage {
     padding-top: 2rem;
   }
-  .container input{
+  .container input {
     font-size: 1em;
   }
-  .container textarea{
+  .container textarea {
     font-size: 1em;
   }
-  .container form > button{
+  .container form > button {
     font-size: 1em;
   }
-  .coordinate h4{
+  .coordinate h4 {
     font-size: 1.4em;
   }
-  .coordinate_detail h5{
+  .coordinate_detail h5 {
     font-size: 1.1em;
   }
-  
-   .coordinate_detail p{
-    font-size: 0.7em;
-   }
-}
 
+  .coordinate_detail p {
+    font-size: 0.7em;
+  }
+}

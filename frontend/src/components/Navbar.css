@@ -81,12 +81,14 @@
   height: 4vh;
   width: auto;
   transition: 0.3s;
-  margin-top: -30px;
+  margin-top: 15px;
   margin-bottom: auto;
+  margin-left: -1em;
 }
 
 .deconnexion_button span {
   color: var(--secondary_color);
+  margin-left: -3em;
 }
 
 .deconnexion_button svg:hover {

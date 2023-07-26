@@ -41,7 +41,7 @@ function MonProfil({ toastOptions }) {
 
   return (
     <div>
-      <div className="profil">
+      <div className="espace">
         <h3>Mon profil</h3>
       </div>
       {user === null ? (
