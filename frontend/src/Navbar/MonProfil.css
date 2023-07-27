@@ -1,114 +1,111 @@
-.profilNonConnecte{
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.profilNonConnecte {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.profilNonConnecte-h3{
-    font-size: 2em;
-    background-color: var(--primary_color);
-    padding: 2% 5%;
-    border-radius: 2.5em;
+.profilNonConnecte-h3 {
+  font-size: 2em;
+  background-color: var(--primary_color);
+  padding: 2% 5%;
+  border-radius: 2.5em;
 }
-.profilNonConnecte-h3-link{
-    text-decoration: none;
-    color: var(--text);
+.profilNonConnecte-h3-link {
+  text-decoration: none;
+  color: var(--text);
 }
-.profil {
-    background-image: url("../assets/espace.jpeg");
-    background-size: cover;
-    height: 50vw;
-    display: flex;
-    align-items: center;
-}
-.profil h3{
-    font-size: 3em;
-    background-color: rgba(255, 255, 255, 0.61);
-    padding: 1% 4%;
-    color: var(--secondary_color);
-}
-.profilPersonalise{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
+
+.profilPersonalise {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 .profil_nomcomplet-h4 {
-    font-size: 1.5em;
-    color: var(--secondary_color);
-    margin-top: 3%; 
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
-    padding: 1% 3%;
-    margin-left: 0;
+  font-size: 1.5em;
+  color: var(--secondary_color);
+  margin-top: 5%;
+  margin-bottom: 5%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
+  padding: 1% 3%;
+  margin-left: 0;
 }
-.profil_donnee{
-    background-color: var(--primary_color);
-    width: 100%;
-    margin: 5% auto;
-    border-radius: 10px;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-bottom: 5%;
-    box-shadow: var(--primary_shadow);
-
+.profil_donnee {
+  background-color: var(--primary_color);
+  width: 100%;
+  margin: 5% auto;
+  border-radius: 5px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-bottom: 15%;
+  box-shadow: var(--primary_shadow);
 }
-.profil_input{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
-    margin: none;
+.profil_input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  margin: none;
 }
-.profil_input label{
-    color: var(--text);
-    font-size: 2em;
-    margin-bottom: 3%;
-    cursor: pointer;
+.profil_input label {
+  color: var(--text);
+  font-size: 1.8em;
+  margin-bottom: 3%;
+  cursor: pointer;
 }
-.profil_input input{
-    margin-bottom: 3%;
-    width: 60%;
-    height: 5%;
-    border-radius: 10px;
-    font-size: 2em;
-    text-align: center;
-    color: var(--secondary_color);
+.profil_input input {
+  margin-bottom: 3%;
+  width: 60%;
+  height: 5%;
+  border-radius: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: var(--secondary_color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .profil_input button {
-    width: auto;
-    padding: 0.5em 1em;
-    font-size: 2em;
-    border-radius: 9px;
-    border-color: var(--secondary_color);
-    margin-top: 3%;
-    margin-bottom: 3%;
-    color: var(--text);
-    background-color: var(--secondary_color);
+  width: auto;
+  padding: 0.5em 1em;
+  font-size: 2em;
+  border-radius: 9px;
+  border-color: var(--secondary_color);
+  margin-top: 3%;
+  margin-bottom: 3%;
+  color: var(--text);
+  background-color: var(--secondary_color);
+}
+
+.profil_input button:hover {
+  cursor: pointer;
+  box-shadow: var(--primary_shadow);
 }
 @media screen and (max-width: 1165px) {
-    .profil h3{
-        font-size: 2em;
-    }
+  .profil h3 {
+    font-size: 2em;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .profil h3{
-        font-size: 1.5em;
-    }
-    .profilNonConnecte-h3{
-        font-size: 1em;
-    }
-    .profil_nomcomplet-h4 {
-        font-size: 1em;
-    }
-    .profil_input label{
-        font-size: 1.4em;
-    }
-    .profil_input input{
-        font-size: 1em;
-        width: 80%;
-    }
-    .profil_input button{
-        font-size: 1em;
-        padding: 0.2em 0.8em;
-    }
+  .profil {
+    height: 40em;
+  }
+  .profilNonConnecte-h3 {
+    font-size: 1em;
+  }
+  .profil_input label {
+    font-size: 1.1em;
+  }
+  .profil_input input {
+    font-size: 0.7em;
+    width: 80%;
+  }
+  .profil_input button {
+    font-size: 1em;
+    padding: 0.2em 0.8em;
+  }
+
+  .profil_nomcomplet-h4 {
+    font-size: 1em;
+  }
 }

@@ -23,13 +23,15 @@ function CompanyPage({ toastOptions }) {
         console.warn(company);
       });
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs/business/${user.id}`)
-      .then((response) => response.json())
-      .then((data) => setJobOffer(data))
-      .catch((err) => {
-        console.error(err);
-        console.warn(jobOffer);
-      });
+    if (user) {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/jobs/business/${user.id}`)
+        .then((response) => response.json())
+        .then((data) => setJobOffer(data))
+        .catch((err) => {
+          console.error(err);
+          console.warn(jobOffer);
+        });
+    }
   }, []);
 
   const handledelete = ({ id, JobTitle }) => {
@@ -67,7 +69,7 @@ function CompanyPage({ toastOptions }) {
 
   return (
     <div className="companyPage">
-      {isOpen && (
+      {user && isOpen && (
         <div className="companyPage_popup_box">
           <div className="companyPage_box">
             <h3>Souhaitez-vous supprimer cette offre d'emploi ? </h3>
