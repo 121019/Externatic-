@@ -1,4 +1,4 @@
-.inscription_company_content{
+.inscription_company_content {
   color: #ca1f62;
   text-align: center;
   margin: 5rem;
@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.image_compagny-container img{
+.image_compagny-container img {
   width: 35rem;
   height: 45rem;
 }
@@ -24,10 +24,11 @@
   background-color: #ca1f62;
   margin-bottom: 1.5rem;
   margin-top: 3rem;
-  border-radius: 1.5rem;
-  box-shadow: var(--primary_shadow)
+  border-radius: 10px;
+  box-shadow: var(--primary_shadow);
+  width: 40%;
 }
-.company-form-container-info-first{
+.company-form-container-info-first {
   margin-top: 8%;
 }
 
@@ -90,7 +91,7 @@
   cursor: pointer;
 }
 @media screen and (max-width: 832px) {
-   .Inscription-company{
+  .Inscription-company {
     display: block;
   }
   .image_compagny-container img {
@@ -101,13 +102,13 @@
   }
 }
 @media screen and (max-width: 550px) {
-  .inscription_company_content{
+  .inscription_company_content {
     font-size: 1.3rem;
   }
-  .company-form-container-info{
+  .company-form-container-info {
     font-size: 0.5em;
   }
-  .Inscription-company{
+  .Inscription-company {
     display: flex;
     justify-content: center;
   }
