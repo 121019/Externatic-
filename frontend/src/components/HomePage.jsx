@@ -3,11 +3,6 @@ import imgValue from "../assets/value.jpeg";
 import "./HomePage.css";
 
 export default function HomePage() {
-  // Fonction pour faire défiler vers la gauche (flèche précédente)
-  const handlePrev = () => {};
-
-  // Fonction pour faire défiler vers la droite (flèche suivante)
-  const handleNext = () => {};
   return (
     <>
       <div className="weAre">
@@ -30,9 +25,6 @@ export default function HomePage() {
         </div>
       </div>
       <div className="carousel">
-        <button type="button" className="prevBtn" onClick={handlePrev}>
-          &#10094;
-        </button>
         <div className="carousel1">
           <div className="carousel2__face">
             <a href="https://www.externatic.fr/offre-emploi/infrastructure-cloud/responsable-support-it-h-f-dsi-6/">
@@ -97,9 +89,6 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <button type="button" className="nextBtn" onClick={handleNext}>
-          &#10095;
-        </button>
       </div>
 
       <div className="value">

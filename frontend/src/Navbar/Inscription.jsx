@@ -192,10 +192,10 @@ function Inscription({ toastOptions }) {
                   required
                 />
               </label>
-              <div className="validate">
-                <input type="submit" value="Valider" />
-              </div>
             </form>
+          </div>
+          <div className="validate">
+            <button type="button">Valider</button>
           </div>
           <div className="switch_company_page">
             <Link to="/companyregistration">

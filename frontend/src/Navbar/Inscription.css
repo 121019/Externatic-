@@ -7,22 +7,38 @@
 .image-container img {
   width: 35rem;
   height: 45rem;
+  margin:3.5rem;
 }
 
 .form-container {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   background-color: #ca1f62;
   margin-bottom: 1.5rem;
-  border-radius: 1.5rem;
-  margin-top: 3rem;
-  box-shadow: var(--primary_shadow)
+  margin-top: -0.8rem;
+  box-shadow: var(--primary_shadow);
+  width: 40%;
 }
 .form-container label{
-  width: 100%;
+  width: 40%;
+  display: flex;
+  margin:0.4rem;
+  height: 2.5rem;
+  width: 25rem;
+}
+
+.validate >button {
+  padding: 0.6rem 1.5rem;
+  background-color:#851342;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: var(--secondary_color);
+  font-size: 0.5em;
+  margin-bottom:3.5rem;
+  margin-top:2rem;
 }
 .message-error{
   color:black;
@@ -40,8 +56,7 @@
 
 .form-container-info {
   border: 0.1rem solid #ca1f62;
-  border-radius: 10px;
-  width: 80%;
+  width: 100%;
   text-align: center;
   font-size: 0.6em;
 }
@@ -51,34 +66,34 @@
   border-color: white;
   color: white;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
-  margin: 2rem 2rem 0 2rem;
   background-color: var(--secondary_color);
   font-size: 0.5em;
 }
 
 .Inscription > input[type="submit"]:hover {
   background-color: #ca1f62;
-}
+  }
 
 .inscription_content {
   color: #ca1f62;
   text-align: center;
-  margin-bottom: 5rem;
-  margin-top: 5rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
   font-weight: bold;
-  font-size: 2rem;
-}
+  font-size: 1.5rem;
+ }
 .switch_company_page button {
   border: none;
   padding: 2% 4%;
   border-radius: 7px;
-  margin-bottom: 4%;
+  margin-bottom: 2rem;
   color: var(--text);
   background-color: var(--primary_shadow);
-  font-size: 0.4em;
+  font-size: 0.6em;
   cursor: pointer;
+  color:#ca1f62;
+  background-color: white;
 }
 
 .switch_company_page {
@@ -94,6 +109,7 @@
   }
   .Inscription{
     display: block;
+    padding:3rem;
   }
   .form-container {
    width: 50%;
