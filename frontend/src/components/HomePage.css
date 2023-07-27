@@ -34,7 +34,7 @@
 .carousel {
   width: 400px;
   perspective: 100rem;
-  padding-bottom: 52vh;
+  padding-bottom: 30rem;
   margin-top: 5vh;
 }
 
@@ -120,24 +120,6 @@ span {
     background-color: rgba(208, 8, 91, 0.5);
   }
 }
-.prevBtn,
-.nextBtn {
-  font-size: 2.2rem;
-  color: #851342;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 12rem;
-}
-
-.prevBtn {
-  left: -25rem;
-}
-
-.nextBtn {
-  right: -25rem;
-}
 
 /*fin carousel*/
 
@@ -189,7 +171,6 @@ span {
   justify-content: center;
   align-items: center;
   margin-top: 3%;
-  padding: 5rem;
 }
 .youtube_h2 {
   margin-bottom: 3%;
@@ -197,6 +178,8 @@ span {
 .youtube_video {
   width: 40rem;
   height: 25rem;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
 }
 
 @media screen and (max-width: 950px) {
