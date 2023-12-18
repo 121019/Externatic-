@@ -155,6 +155,17 @@ function Inscription({ toastOptions }) {
               <label>
                 <input
                   className="form-container-info"
+                  type="password"
+                  name="password"
+                  ref={passwordRef}
+                  placeholder="Confirmez votre mot de passe *"
+                  required
+                />
+              </label>
+
+              <label>
+                <input
+                  className="form-container-info"
                   type="text"
                   name="adress"
                   ref={adressRef}
