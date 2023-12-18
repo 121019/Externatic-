@@ -194,9 +194,12 @@ function Inscription({ toastOptions }) {
               </label>
             </form>
           </div>
-          <div className="validate">
-            <button type="button">Valider</button>
-          </div>
+          <form ref={formRef} onSubmit={handleSubmit}>
+            <div className="validate">
+              <button type="submit">Valider</button>
+            </div>
+          </form>
+
           <div className="switch_company_page">
             <Link to="/companyregistration">
               <button type="button">Je suis une Entreprise</button>

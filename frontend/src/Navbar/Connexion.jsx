@@ -101,16 +101,16 @@ function Login({ toastOptions }) {
               <button className="connexion_submitButton" type="submit">
                 Go
               </button>
-              <button
-                className="connexion_submitButton"
-                type="button"
-                id="connexion_entreprise_button"
-                onClick={handlechange}
-              >
-                Entreprise ?
-              </button>
             </div>
           </form>
+          <button
+            className="connexion_submitButton"
+            type="button"
+            id="connexion_entreprise_button"
+            onClick={handlechange}
+          >
+            Entreprise ?
+          </button>
         </div>
       </div>
     </div>
