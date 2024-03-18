@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 
 const fs = require("fs");
 const models = require("../models");
@@ -80,6 +81,54 @@ const edit = (req, res) => {
       res.sendStatus(500);
     });
 };
+
+const register = (req, res) => {
+  models.candidat
+    .insert(req.body)
+    .then(([createdUser]) => {
+      const payload = { userId: createdUser.insertId, role: "candidat" };
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1d", // pour définir une durée d'expiration
+      });
+      res.cookie("auth_token", token, {
+        secure: process.env.NODE_ENV !== "development",
+        httpOnly: true,
+      });
+      res.status(201).json({ id: createdUser.insertId });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+const login = (req, res) => {
+  const { email, password } = req.body;
+
+  // Vérifie les informations d'identification de l'utilisateur
+  models.candidat
+    .findByEmail(email)
+    .then(([rows]) => {
+      const userInDatabase = rows[0];
+      if (!userInDatabase || userInDatabase.password !== password) {
+        return res
+          .status(401)
+          .json({ message: "Email ou mot de passe incorrect." });
+      }
+      const payload = { userId: userInDatabase.id, role: "candidat" };
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1d", // pour définir une durée d'expiration appropriée
+      });
+      res.cookie("auth_token", token, {
+        secure: process.env.NODE_ENV !== "development",
+        httpOnly: true,
+      });
+      return res.status(200).json({ id: userInDatabase.id });
+    })
+    .catch((error) => {
+      console.error("Error during user retrieval:", error);
+      return res.sendStatus(500);
+    });
+};
 const insertCv = async (req, res) => {
   const { originalname, filename } = req.file;
   const { id } = req.params;
@@ -155,4 +204,6 @@ module.exports = {
   uploadCV,
   insertCv,
   findCv,
+  register,
+  login,
 };

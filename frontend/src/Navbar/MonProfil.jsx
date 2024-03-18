@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
@@ -12,6 +12,12 @@ function MonProfil({ toastOptions }) {
   const { user, setUser } = useUser();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.justRegistered) {
+      navigate("/espace");
+    }
+  }, [user, navigate]);
 
   const onSubmit = (data) => {
     fetch(
@@ -58,6 +64,10 @@ function MonProfil({ toastOptions }) {
             <h4 className="profil_nomcomplet-h4">
               {user.firstname} {user.lastname}
             </h4>
+            <div className="update">
+              <p>Veuillez mettre à jour vos informations personnelles :</p>
+            </div>
+
             <div className="profil_donnee">
               <form className="profil_input" onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="nom">Nom</label>

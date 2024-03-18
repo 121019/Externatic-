@@ -59,6 +59,35 @@
   text-decoration: none;
 }
 
+#cookie-notification {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 14%;
+  height: 20%;
+  background-color:transparent;
+  text-align: center;
+  padding: 3rem;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre sous la notification */
+  z-index: 999; /* Assure que la notification est superposée sur tout le contenu */
+}
+#cookie-notification p {
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+
+#cookie-notification button {
+  margin: 0.5rem;
+}
+#cookie-notification button#accept-cookies {
+  background-color: #ff83b4; /* Couleur pour le bouton Accepter */
+}
+
+#cookie-notification button#reject-cookies {
+  background-color: #ff83b4; /* Couleur pour le bouton Refuser */
+}
+
+
 @media screen and (max-width: 850px) {
   .footer h4 {
     font-size: 0.5rem;
@@ -80,4 +109,28 @@
   .social-icon {
     width: 0.7rem;
   }
+
+  #cookie-notification {
+    position: fixed;
+    width: 15%;
+    height: 20%;
+    background-color:#ca1f62;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre sous la notification */
+    z-index: 999; /* Assure que la notification est superposée sur tout le contenu */
+    box-sizing: content-box;  
+  }
+
+  #cookie-notification p {
+    font-size: 0.7rem;
+  }
+  
+  #cookie-notification button#accept-cookies {
+    background-color: white; /* Couleur pour le bouton Accepter */
+  }
+  
+  #cookie-notification button#reject-cookies {
+    background-color: white; /* Couleur pour le bouton Refuser */
+  }
+  
 }
+

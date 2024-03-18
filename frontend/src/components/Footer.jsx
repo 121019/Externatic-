@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 import twitterlogo from "../assets/twitterlogo.png";
 import instagramlogo from "../assets/instagramlogo.png";
 import linkedInlogo from "../assets/linkedInlogo.png";
 
 function Footer() {
+  // Ajoutez un état pour suivre si la notification de cookies doit être affichée
+  const [showCookieNotification, setShowCookieNotification] = useState(true);
+
+  // Fonction pour masquer la notification de cookies lorsqu'un bouton est cliqué
+  const handleAcceptCookies = () => {
+    setShowCookieNotification(false);
+  };
+
+  const handleRejectCookies = () => {
+    setShowCookieNotification(false);
+  };
+
   return (
     <footer className="footer">
       <div className="columns">
@@ -65,6 +77,30 @@ function Footer() {
         </div>
       </div>
       <h5>Externatic © 2023 - Tous droits réservés</h5>
+      {/* Affichez la notification de cookies uniquement si showCookieNotification est true */}
+      {showCookieNotification && (
+        <div id="cookie-notification">
+          <p>
+            Ce site utilise des cookies.{" "}
+            <a href="/politique-de-confidentialite">En savoir plus</a>.
+          </p>
+          {/* Appel des fonctions handleAcceptCookies et handleRejectCookies lors du clic */}
+          <button
+            type="button"
+            onClick={handleAcceptCookies}
+            id="accept-cookies"
+          >
+            Accepter
+          </button>
+          <button
+            type="button"
+            onClick={handleRejectCookies}
+            id="reject-cookies"
+          >
+            Refuser
+          </button>
+        </div>
+      )}{" "}
     </footer>
   );
 }

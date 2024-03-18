@@ -4,14 +4,24 @@ import "./MonEspace.css";
 import { useUser } from "../contexts/UserContext";
 
 function MonEspace() {
-  const { user } = useUser();
+  const { user, loginUser } = useUser();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.role === "candidat") {
+      navigate("/espace");
+    } else if (user && user.justRegistered) {
+      navigate("/espace");
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     if (user && user.role === "company") {
       navigate("/companypage");
+    } else if (user && user.justRegistered) {
+      navigate("/espace");
     }
-  }, [user, navigate]);
+  }, [user, navigate, loginUser]);
 
   return (
     <>
@@ -34,10 +44,7 @@ function MonEspace() {
             </h4>
             <div className="espace_section">
               <Link to="/espace/profil" className="espace_section-bulle">
-                <p>Mon profil</p>
-              </Link>
-              <Link to="/build" className="espace_section-bulle">
-                <p>Mon profil public</p>
+                <p>Mes informations personnelles</p>
               </Link>
 
               <Link to="/mycv" className="espace_section-bulle">
@@ -51,6 +58,9 @@ function MonEspace() {
               </Link>
               <Link to="/build" className="espace_section-bulle">
                 <p>Paramètres</p>
+              </Link>
+              <Link to="/build" className="espace_section-bulle">
+                <p>Supprimer mon compte</p>
               </Link>
             </div>
           </div>

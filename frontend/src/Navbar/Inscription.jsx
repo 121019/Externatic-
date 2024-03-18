@@ -86,7 +86,7 @@ function Inscription({ toastOptions }) {
         if (data.message) {
           setError(data.message);
         } else {
-          navigate("/espace");
+          navigate("/");
           toast.success("Compte créé avec succès", toastOptions);
         }
       })
@@ -203,14 +203,11 @@ function Inscription({ toastOptions }) {
                   required
                 />
               </label>
+              <div className="validate">
+                <button type="submit">Valider</button>
+              </div>
             </form>
           </div>
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <div className="validate">
-              <button type="submit">Valider</button>
-            </div>
-          </form>
-
           <div className="switch_company_page">
             <Link to="/companyregistration">
               <button type="button">Je suis une Entreprise</button>

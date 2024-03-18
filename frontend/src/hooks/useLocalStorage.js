@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 function getStorageValue(key, defaultValue) {
   // On recup la valeur dans le localstorage
   let saved = localStorage.getItem(key) || "";
-  // on la convertis si c'est un objet ou un tableau
+  // on la convertit si c'est un objet ou un tableau
   if (saved.startsWith("{") || saved.startsWith("[") || saved === "null")
     saved = JSON.parse(saved);
-  // on renvoit soit la valeur convertis, soir la valeur donnée par defaut.
+  // on renvoit soit la valeur convertie, soit la valeur donnée par defaut.
   return saved || defaultValue;
 }
 
 const useLocalStorage = (key, defaultValue) => {
-  // Le hook personnalisé gère une value et son seteur.
+  // Le hook personnalisé gère une value et son secteur.
   // La valeur par defaut est le resultat d'une fonction (plus haut)
   const [value, setValue] = useState(() => {
     return getStorageValue(key, defaultValue);

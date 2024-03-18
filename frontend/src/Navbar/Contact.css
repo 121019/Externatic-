@@ -1,28 +1,26 @@
 .container input {
   border-radius: 5px;
   border: 0.1rem solid #ca1f62;
-  width: 60%;
+  width: 70%;
   height: 5%;
   font-size: 2em;
   margin: 3% auto;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  text-align: left;
 }
 .container textarea {
   border-radius: 5px;
   border: 0.1rem solid #ca1f62;
-  width: 60%;
+  width: 70%;
   height: 10em;
   font-size: 2em;
   margin: 3% auto;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  text-align: left;
 }
 .container form > button {
   width: auto;
@@ -42,7 +40,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 30%;
   background-color: #ca1f62;
   margin-bottom: 3rem;
   border-radius: 6px;
@@ -53,19 +51,19 @@
 .contact {
   background-image: url("../assets/contact.jpeg");
   background-size: cover;
-  height: 50vh;
+  height: 30vh;
   display: flex;
   align-items: center;
 }
 .contact h3 {
-  font-size: 3em;
+  font-size: 2.6em;
   background-color: rgba(255, 255, 255, 0.61);
   padding: 1% 4%;
   color: var(--secondary_color);
 }
 
 .contactMessage {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding-top: 5rem;
   padding-bottom: 1rem;
   color: #ca1f62;
@@ -75,7 +73,7 @@
 
 .container > form {
   margin-top: 2rem;
-  width: 80%;
+  width: 70%;
 }
 .coordinate,
 .coordinate_detail {
@@ -86,6 +84,7 @@
 }
 .coordinate {
   width: 50%;
+  padding-top: 2rem;
 }
 .coordinate h4 {
   font-size: 1.8em;
@@ -97,6 +96,7 @@
   background-color: var(--primary_color);
   margin-bottom: 5%;
   color: var(--text);
+
   width: 100%;
   border-radius: 9px;
   box-shadow: var(--primary_shadow);

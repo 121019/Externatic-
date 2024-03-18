@@ -21,10 +21,10 @@
   width: 50%;
 }
 .profil_nomcomplet-h4 {
-  font-size: 1.5em;
-  color: var(--secondary_color);
-  margin-top: 5%;
-  margin-bottom: 5%;
+  font-size: 2rem;
+  color: var(--primary_color);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.197);
   padding: 1% 3%;
   margin-left: 0;
@@ -43,34 +43,32 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
+  height: 80%;
   margin: none;
 }
 .profil_input label {
   color: var(--text);
-  font-size: 1.8em;
+  font-size: 1.2em;
   margin-bottom: 3%;
-  cursor: pointer;
 }
 .profil_input input {
   margin-bottom: 3%;
-  width: 60%;
-  height: 5%;
+  width: 50%;
+  height: 2.2rem;
   border-radius: 5px;
-  font-size: 1.5em;
+  font-size: 1.1em;
   text-align: center;
-  cursor: pointer;
   border: none;
   color: var(--secondary_color);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .profil_input button {
-  width: auto;
-  padding: 0.5em 1em;
-  font-size: 2em;
+  width: 35%;
+  padding: 0.3em;
+  font-size: 1.4em;
   border-radius: 9px;
   border-color: var(--secondary_color);
-  margin-top: 3%;
+  margin-top: 2rem;
   margin-bottom: 3%;
   color: var(--text);
   background-color: var(--secondary_color);
@@ -80,6 +78,15 @@
   cursor: pointer;
   box-shadow: var(--primary_shadow);
 }
+
+.update{
+  color: var(--primary_color);
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+
 @media screen and (max-width: 1165px) {
   .profil h3 {
     font-size: 2em;
